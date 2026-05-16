@@ -1,0 +1,81 @@
+url: "https://stupied.net"
+title: "stupied stuff!"
+description: "Website for Stupied's stupid stuff"
+
+# Build settings
+source: public
+destination: _site
+keep_files:
+- pagefind
+
+exclude:
+- "*.base"
+
+sass:
+  style: compressed
+
+jekyll-minifier:
+  compress_css: false
+  compress_javascript: false
+  exclude:
+  - feed.xml
+  - "*.txt"
+
+# Collection Stuff
+collections_dir: snail
+collections:
+  art:
+    output: true
+    permalink: /art/p/:path
+  img:
+    output: true
+    permalink: /:path
+    
+  lists:
+  reviews:
+  
+  micro:
+  posts:
+    permalink: /blog/:name_raw
+  
+  templates:
+    output: true
+    permalink: /code/:path
+  
+defaults:
+  - scope:
+      path: art/
+    values:
+      layout: art
+
+  - scope:
+      type: art
+    values:
+      layout: art-view
+
+  - scope:
+      type: posts
+    values:
+      layout: post
+
+  - scope:
+      path: comic/*/
+    values:
+      layout: comic
+    
+  - scope:
+      type: templates
+    values:
+      layout: code-layout
+
+# Paginate  
+pagination:
+  enabled: true
+
+# Pagefind Settings
+pagefind:
+  exclude:
+   - ".art-archive-tags > button"
+   - "header"
+   - "nav"
+   - "footer"

@@ -1,0 +1,13 @@
+name: Resize Images
+description: Recursively resizes images from a given file or directory
+inputs:
+  folder:
+    default: 'public/'
+  dimension:
+    default: '100x100'
+
+runs:
+  using: "composite"
+  steps:
+    - run: find ${{ inputs.folder }} -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -exec mogrify -resize "${{ inputs.dimension }}>" {} +
+      shell: bash

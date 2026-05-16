@@ -1,0 +1,11 @@
+name: Strip Image Metadata
+description: Recursively strips all image metadata from a given file or directory
+inputs:
+  folder:
+    default: 'public/'
+
+runs:
+  using: "composite"
+  steps:
+    - run: find ${{ inputs.folder }} -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) -exec mogrify -strip -auto-orient {} +
+      shell: bash

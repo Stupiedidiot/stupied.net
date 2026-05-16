@@ -1,0 +1,31 @@
+# Jekyll
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+*.lock
+
+# VSCode / Local
+fiveserver.config.js
+.vscode
+*.lnk
+*.ini
+*.bat
+
+# Obsidian
+.trash
+_private
+.keep-the-rhythm
+.obsidian/*
+.obsidian/community-plugins.json
+
+cowtools/bulk/img/
+
+# Syncthing
+~syncthing*.tmp
+*.sync-conflict-*.*
+
+# Drafts
+_ignore
+_drafts
