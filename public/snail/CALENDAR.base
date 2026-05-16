@@ -1,0 +1,31 @@
+filters:
+  or:
+    - file.folder.startsWith("_art")
+    - file.folder == "_micro"
+    - file.folder == "_posts"
+    - file.folder.startsWith("_reviews/disney")
+formulas:
+  thumbnail: |-
+    if (
+        note.thumbnail,
+        image("/_img" + note.thumbnail.replace('/blog/', '/blog/').replace('/art/', '/art/')),
+        if (
+            file.folder.contains('_art'),
+            image("/_img/art/img/" + file.path.replace('/bulk', '').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext),
+            image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
+        )
+    )
+  date: |-
+    if (
+        note.date,
+        note.date,
+        date(file.name.split('-').slice(0, 3).join('-'))
+    )
+views:
+  - type: calendar
+    name: Calendar
+    order:
+      - file.name
+      - formula.thumbnail
+    startDate: formula.date
+    image: formula.thumbnail

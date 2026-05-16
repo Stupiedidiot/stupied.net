@@ -1,0 +1,112 @@
+filters:
+  and:
+    - file.folder.startsWith("_art/")
+    - file.ext == "md"
+formulas:
+  year: date.year
+  thumbnail: image("/_img/art/img/" + file.path.replace('/bulk','').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext)
+  title: link(file,if(note.title != null, note.title, file.name.replace("-", " ")))
+  cat: if(file.folder.split('/').length > 2, file.folder.split('/')[2], 0)
+  path: file.path.replace('/bulk','').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext
+  tags: file.path.split('/').slice(2,-1) + file.tags
+views:
+  - type: cards
+    name: EVERYTHING
+    groupBy:
+      property: formula.year
+      direction: DESC
+    order:
+      - formula.title
+      - tags
+    sort:
+      - property: date
+        direction: DESC
+    image: formula.thumbnail
+    cardSize: 280
+    imageAspectRatio: 0.55
+    columnSize:
+      formula.thumbnail: 110
+    rowHeight: tall
+  - type: table
+    name: TABLE
+    groupBy:
+      property: formula.year
+      direction: DESC
+    order:
+      - formula.thumbnail
+      - formula.title
+      - formula.path
+      - title
+      - extra
+      - tags
+      - alt
+    sort:
+      - property: date
+        direction: DESC
+      - property: formula.thumbnail
+        direction: ASC
+      - property: formula.cat
+        direction: ASC
+    image: formula.thumbnail
+    cardSize: 280
+    imageAspectRatio: 0.55
+    rowHeight: tall
+    columnSize:
+      formula.thumbnail: 128
+      formula.title: 102
+      formula.path: 102
+      note.title: 107
+      note.extra: 175
+      note.tags: 464
+  - type: table
+    name: BULK
+    filters:
+      and:
+        - file.folder.contains("bulk")
+    groupBy:
+      property: formula.cat
+      direction: DESC
+    order:
+      - formula.thumbnail
+      - formula.title
+      - formula.path
+      - title
+      - extra
+      - tags
+    sort:
+      - property: date
+        direction: DESC
+      - property: formula.thumbnail
+        direction: ASC
+      - property: tags
+        direction: ASC
+    image: formula.thumbnail
+    cardSize: 280
+    imageAspectRatio: 0.55
+    rowHeight: tall
+    columnSize:
+      formula.title: 102
+      formula.path: 102
+      note.title: 107
+      note.extra: 175
+      note.tags: 464
+  - type: cards
+    name: comics
+    filters:
+      and:
+        - file.folder.contains("comic")
+    groupBy:
+      property: formula.year
+      direction: DESC
+    order:
+      - formula.title
+      - tags
+    sort:
+      - property: date
+        direction: DESC
+    image: formula.thumbnail
+    cardSize: 280
+    imageAspectRatio: 0.55
+    columnSize:
+      formula.thumbnail: 110
+    rowHeight: tall

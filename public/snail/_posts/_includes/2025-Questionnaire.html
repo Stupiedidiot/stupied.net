@@ -1,0 +1,28 @@
+<style>
+dt {
+    margin-bottom: 0;
+    position: relative; z-index: 1;
+    display: flex; align-items: center;
+    gap: 1rem; font-weight: bold;
+}
+dt > span { position: relative; display: inline-block; }
+dt > span::before {
+    content: ""; display: block;
+    top: 50%; left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    position: absolute; z-index: -1;
+    background-color: var(--color-accent);
+    border-radius: 100%;
+    aspect-ratio: 1/1;
+    width: 2rem;
+}
+dd {
+    margin: 0 0.5rem;
+    padding: 1rem;
+    padding-right: 0;
+    border-left: var(--border);
+}
+dd:last-child{border-left: none;}
+dd a { font-family: var(--display-font);}
+dd ul { margin-left: 0; padding-left: 0; list-style-position: inside;}
+</style>

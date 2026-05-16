@@ -1,0 +1,46 @@
+filters:
+  and:
+    - file.folder.startsWith("_reviews")
+    - file.folder.contains("disney")
+    - file.ext == "md"
+formulas:
+  thumbnail: image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
+  Status: if(file.path.contains('/f/'), image("_template/done.png"), image("_template/todo.png"))
+  title: if(note.title != null, note.title, file.name.replace("-", " "))
+  ranking: if(note.rating == "S", 0, note.rating)
+properties:
+  formula.Status:
+    displayName: status
+views:
+  - type: cards
+    name: Donald
+    filters:
+      and:
+        - file.folder.contains("donald")
+    groupBy:
+      property: formula.ranking
+      direction: ASC
+    order:
+      - formula.title
+      - formula.Status
+      - release
+    sort:
+      - property: release
+        direction: ASC
+    cardSize: 160
+    imageAspectRatio: 1.35
+    image: formula.thumbnail
+  - type: cards
+    name: Everything
+    groupBy:
+      property: formula.ranking
+      direction: ASC
+    order:
+      - formula.title
+      - formula.Status
+    sort:
+      - property: release
+        direction: ASC
+    cardSize: 160
+    imageAspectRatio: 1.35
+    image: formula.thumbnail

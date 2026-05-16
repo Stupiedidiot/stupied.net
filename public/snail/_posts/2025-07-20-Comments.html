@@ -1,0 +1,110 @@
+---
+title: Add Images to Ayano's Comment Widget
+thumbnail: /blog/img/25/ayano-mod.jpg
+before: '<img src="img/25/ayano-mod.jpg" alt="" style="max-width: 300px;"/>'
+featured: true
+tags: spaghetti
+
+description: Tutorial detailing how to add images to Ayano's Comment Widget. 
+---
+<p>I've recently made a switch to <a href="https://virtualobserver.moe/ayano/comment-widget" target="_blank">Ayano's Comment Widget</a> and, as much as I adore it, I missed having the option to attach images. Luckily, the code is incredibly customizable so with a bit of tweaking, it is possible!</p>
+
+<p>This mod allows users to submit a link of an image that will be attached to their comments. If this is something you'd like to have, follow the steps below.</p>
+
+<h2>[1] Add to Google Form</h2>
+<p>Assuming you've already set everything prior to this, Go to your google form and create a new short text question with the title 'Image'. Remember that it is case sensitive!</p>
+
+<p>Open the three dotted icon to the right side and click 'Get pre-filled link'. Fill up every field with the question's title, including the new one you just made. Once you have finished and click 'Get link', you should get a newly generated link where you will be able to find something that looks like this:</p>
+
+{% highlight js %}
+&entry.123456789=Image
+{% endhighlight  %}
+
+<p>In your js file, look for the section of variables of the form ids. You can add the script after <code>const s_replyId = 'ID HERE';</code> and encode the numbers from your form link.</p>
+
+{% highlight js %}
+const s_imageId = '1234567890'
+{% endhighlight  %}
+
+<h2>[2] Add Element Wrappers</h2>
+<p>To create the input the user will add their image links to, look for the <code>v_formHtml</code> variable. Inside it, there should be a div with <code>id="c_textWrapper"</code> and add the following script below that element:</p>
+
+{% highlight html %}
+<div id="c_imageWrapper" class="c-inputWrapper">
+    <label class="c-label c-imageLabel" for="entry.${s_imageId}">Image Link (Optional)</label>
+    <input class="c-input c-imageInput" name="entry.${s_imageId}" id="entry.${s_imageId}" type="url" pattern="https://.*" placeholder="" onchange="previewImg()">
+</div>
+{% endhighlight  %}
+
+<p>We need to create a preview so that the users are able to see what image they have linked and whether or not it will load in. Still inside the <code>v_formHtml</code> variable, look for the input with <code>id="c_submitButton"</code> and then add the following script after it. </p>
+
+{% highlight html %}
+<div id="c_previewWrapper">
+    <img id="c_previewOutput" src="#">
+    <label class="c-label c-previewLabel">Image Preview</label>
+    <p>If the image does not load, please make sure the website you are linking to allows <a href="https://simple.wikipedia.org/wiki/Hotlinking" target="_blank">hotlinking</a>!</p>
+</div>
+{% endhighlight  %}
+
+<h2>[3] Add the Functions</h2>
+<p>Now that we've set up all the variables, it's time to make them actually functional.</p>
+
+<p>Look for <code>if (s_commentsOpen)</code> inside of <code>function getComments()</code> - there should be a comment above it that reads 'Clear input fields too'. You should add the following script below inside of that if statement:</p>
+
+{% highlight js %}
+document.getElementById(`entry.${s_imageId}`).value = '';
+{% endhighlight  %}
+
+<p>In order to check and append the comment's image, look for <code>function createComment(data)</code>. Inside should be <code>comment.appendChild(text);</code>. Below that you should put the following script:</p>
+
+{% highlight js %}
+// Image link
+if (data.Image) {
+    let img = document.createElement('img')
+    img.src = data.Image
+    img.className = 'c-img'
+    comment.appendChild(img)
+}
+{% endhighlight  %}
+
+<p>It won't matter too much where you choose to put this last script. It is a function that is triggered every time the user changes the image field. I personally put it at the bottom before <code>getComments();</code>.</p>
+
+{% highlight js %}
+function previewImg() {
+    previewWrapper = document.getElementById("c_previewWrapper")
+    previewLink = document.getElementById(`entry.${s_imageId}`).value
+    if (previewLink.length === 0) {
+        previewWrapper.style.display = "none"
+        previewLink = "#"
+    } else {
+        previewWrapper.style.display = "block"
+    }
+    document.getElementById("c_previewOutput").src = previewLink
+}
+{% endhighlight %}
+
+<h2>[4] Add CSS Styling</h2>
+<p>This part isn't necessary but it makes the preview look a bit nicer.</p>
+
+{% highlight css %}
+#c_previewWrapper:has(img[src='#']) { display:none }
+#c_previewWrapper {
+    padding: 0.5rem;
+    border: 1px solid gray;
+    max-width:350px;
+    margin-bottom: 0.5rem;
+}
+
+#c_previewOutput { max-width: 100%; display: block; }
+#c_previewWrapper p {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.c-img {display: block;}
+{% endhighlight %}
+
+<h2>And You're Done!</h2>
+<p>I highly recommend using this mod alongside <a href="https://frills.dev/blog/231023-add-moderation-to-comment-widget/" target="_blank">Frills' Guide to Adding Moderation</a> so you can check and ensure that the comments being submitted don't contain disturbing images.</p>
+
+<p>If you get around to using to using this, let me know down below. I'd love to check out all of your websites!</p>
