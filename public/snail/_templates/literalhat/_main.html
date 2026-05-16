@@ -1,0 +1,67 @@
+<div id="container">
+    <header>
+        <a href="/"></a>
+    </header>
+
+    <button id="navButton" onclick="openNav()">≡</button>
+
+    <nav class="side">
+        <div id="navContent">
+            <div>
+                <a href="#">Work I've Done</a>
+                <ul>
+                    <li><a href="#">Artworks</a></li>
+                    <li><a href="#">Discography</a></li>
+                    <li><a href="#">Other Websites</a></li>
+                    <li><a href="#">Animations</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">Store</a>
+                <ul>
+                    <li><a href="#">Originals</a></li>
+                    <li><a href="#">Prints</a></li>
+                    <li><a href="#">Commissions</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">Articles</a>
+                <ul>
+                    <li><a href="#">All Articles</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">Community</a>
+                <ul>
+                    <li><a href="#">Fanart</a></li>
+                    <li><a href="#">Social Links</a></li>
+                </ul>
+            </div>
+            <div>
+                <a href="#">The Site</a>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {% unless include.demo %}
+            {{ content }}
+        {% else %}<!-- Add your content here -->{% endunless %}
+    </main>
+
+    <aside>
+        <!-- Add your side content here -->
+        This is side content!
+    </aside>
+
+    <footer>
+        <!-- Feel free to remove the credit -->
+        Template created by <a href="https://stupied.net" target="_blank">stupied</a>
+    </footer>
+</div>

@@ -1,0 +1,35 @@
+<!-- Anything with the class of 'main-content' will be placed into the main tag -->
+<article class='main-content'>
+    <nav id='comicNavTop' class='comic-nav'></nav>
+    <header id='comicHeader'></header>
+    <article id='comicView'></article>
+    <nav id='comicNavBottom' class='comic-nav'></nav>	
+</article>
+
+<article id='comicInfo' class='main-content'>
+    <h2>Author's Note</h2>
+    <time id='comicDate'></time>
+    <section id='comicDesc'></section>
+
+    <section>{% unless include.demo %}{{ content }}{% endunless %}
+        <!--
+            This is just for demonstration.
+            You should move it it's own page
+        -->
+        <hr>
+        <h2>Default Archive</h2>
+        <div id="comicArchive"></div>
+        <!--
+            The script is like this
+            let example = writeList(first, last, reversed);
+            parent.append(example)
+
+            first = index of the first comic to be listed (integer)
+            last = index of the last comic to be listed (integer)
+            reversed = whether to put it in reverse chronological order (boolean)
+
+            Just leave the parameter empty if you want to use the default
+            Write down 'auto' if you want to skip certain parameters
+        -->
+    </section>
+</article>

@@ -1,0 +1,37 @@
+<div id="container">
+    <main>
+        <article>
+            <h1>{{ page.title }}</h1>
+            {% unless include.demo %}{{ content }}
+            {% else %}<!-- Add your content here -->{% endunless %}
+        </article>
+        <article>
+        <!-- Archive Start -->
+            <!-- Actually none of the other content matters. You just need everything here -->
+            <div id="archive_content"></div><!-- REQUIRED » Do not delete this element --> 
+            <div id="archive_buttons">
+                <button onclick="showEm(3)">[3] Load More</button>
+                <button onclick="showEm(32)">[32] Load More</button>
+                <button onclick="showEm()">Load Everything!</button>
+            </div>
+            <p>Showing <span id="archive_counter">0</span> of <span id="archive_max"></span></p><!-- REQUIRED » Do not delete this element. You can change the text though -->
+
+            <hr>
+            <div id="archive_tags"></div><!-- REQUIRED » Do not delete this element -->
+            <button onclick="getChecked()">Filter em!</button>
+            <a href="?">Clear Filters</a>
+            <hr>
+        <!-- Archive End -->
+        </article>
+        {% unless include.demo %}
+        <article>
+            {% include layouts/code.html %}
+        </article>
+        {% endunless %}
+    </main>
+    
+    <footer>
+    <!-- Feel free to remove the credit -->
+    Template created by <a href="https://stupied.net" target="_blank">stupied</a>
+    </footer>
+</div>

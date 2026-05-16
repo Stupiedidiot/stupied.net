@@ -1,0 +1,45 @@
+<div id="container">
+    <header>
+        <h1>Rotten Apple</h1>
+    </header>
+
+    <div id="bar">
+        <div id="reload">
+            <a href="/">▣</a>
+            <a href="#">꩜</a>
+            <a href="#">♡</a>
+        </div>
+        <div id="search">
+            <div><span>Just keep yourself breezy I’ll always be right by your side</span></div>
+        </div>
+    </div>
+    
+    <nav id="tabs">
+        <a href="/">home</a>
+        <a href="#">about</a>
+        <a href="#">art</a>
+        <a href="#">contact</a>
+    </nav>
+    <main>
+        <article>
+            {% unless include.demo %}{{ content }}
+            {% else %}<img src="./bg.jpg" alt="">
+            <h2 class="color-1-bg">What the Hell</h2>
+            <h3 class="color-2-txt">No, like seriously</h3>
+            <!-- Add your content here -->{% endunless %}
+        </article>
+
+        <article class="color-1-bg">
+            This is a Section
+        </article>
+        
+        <article>
+        {% unless include.demo %}{% include layouts/code.html %}
+        {% else %}  <!-- Add your content here -->{% endunless %}
+        </article>
+    </main>
+    <footer>
+        <!-- Feel free to remove the credit -->
+        Template created by <a href="https://stupied.net" target="_blank">stupied</a>
+    </footer>
+</div>
