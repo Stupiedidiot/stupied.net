@@ -1,0 +1,119 @@
+---
+layout: page
+title: CSS Tester
+delete: true
+---
+<style>
+#icons > div {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+#icons button {
+    padding: 0.5rem;
+}
+#icons [class^="icon-"], #icons [class*=" icon-"] {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+#icons .label-icon {
+    opacity: 0.3;
+}
+
+#colors_content {
+    margin-bottom: 1rem;
+}
+
+.colors-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--color);
+    padding: 1rem;
+}
+
+.colors-item > span {
+    color: contrast-color(var(--color));
+}
+
+article, .BREAK-UP {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed var(--color-base-20);
+}
+</style>
+
+<div class="padded">
+    <h1>{{ page.title }}</h1>
+    <p class="BREAK-UP">This page exists for me look at the page's stylings and what not. There's really no benefit of you being in the page, except to fulfill your curiosity I guess.</p>
+    
+    <article id="icons">
+        <h2>Icons</h2>
+        <div>
+            {%- for e in site.data.meta.icons.icons -%}
+            <span class="icon-{{ e.properties.name | split: ',' | first | strip }}"></span>
+            {%- endfor -%}
+        </div>
+    </article>
+    
+    <article id="colors">
+        <h2>Colors</h2>
+        <div id="colors_content"></div>
+    </article>
+    
+    <article id="dark_mode">
+        <h2>Toggle On Dark Mode</h2>
+        <button id="dark_mode_button" onclick="toggleDarkMode()">Click Me!</button>
+    </article>
+</div>
+
+<script>
+const ICONS = document.querySelectorAll('#icons span');
+ICONS.forEach(e => {
+    let button = document.createElement('button');
+    button.setAttribute('onclick', 'copyIcon(this)');
+    
+    wrap(e, button);
+
+    let span = document.createElement('span');
+    span.textContent = e.className.replace('icon-', ' ').replaceAll('-', ' ');
+    span.className = 'label-icon';
+    button.append(span);
+});
+
+const STYLE = getComputedStyle(document.documentElement);
+const COLORS_CONT = document.getElementById('colors_content');
+for (const prop of STYLE) {
+    let value = STYLE.getPropertyValue(prop);
+    if(prop.startsWith('--') && value.includes('#')){
+        let item = document.createElement('span');
+        item.style.setProperty("--color", `var(${prop})`);
+        item.classList.add('colors-item');
+        
+        let label = document.createElement('span');
+        label.textContent = prop;
+        item.append(label);
+
+        COLORS_CONT.append(item);
+    }
+}
+
+function copyIcon(self){
+    self = self.querySelector('span')
+    navigator.clipboard.writeText(`<span class="${ self.classList[0] }"></span>`);
+}
+
+const BODY = document.body;
+function toggleDarkMode (){
+    let e = BODY.classList;
+    if (e.contains('dark'))
+        e.remove('dark');
+    else
+        e.add('dark');
+    console.log(BODY.classList)
+}
+
+function wrap(el, wrapper) { el.parentNode.insertBefore(wrapper, el); wrapper.appendChild(el); }
+</script>

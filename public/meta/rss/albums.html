@@ -1,0 +1,23 @@
+---
+layout: page
+title: Photo Albums RSS Feed
+---
+<article class="padded">
+    <h1>{{ page.title }}</h1>
+    <p>Bleh, temporary placement for the rss feed for albums with dates.</p>
+    
+    <div class="card-feed db-list">
+        {%- for e in site.data.albums -%}
+            {%- unless e.offset -%}
+                {%- continue -%}
+            {%- endunless -%}
+            <a href="https://album.stupied.net/{{ e.link }}/feed.xml" class="card-feed-item">
+                <img src="https://album.stupied.net/{{ e.link }}/img/{{ e.thumbnail }}" alt="">
+                <div>
+                    <h2>{{ e.title }}</h2>
+                    <p>View Feed »</p>
+                </div>
+            </a>
+        {%- endfor -%}
+    </div>
+</article>

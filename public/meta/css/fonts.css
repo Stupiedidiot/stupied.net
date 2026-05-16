@@ -1,0 +1,169 @@
+/* grandstander-regular - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/meta/font/grandstander-regular.woff2') format('woff2'),
+       url('/meta/font/grandstander-regular.ttf') format('truetype');
+}
+
+/* grandstander-italic - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/meta/font/grandstander-italic.woff2') format('woff2'),
+       url('/meta/font/grandstander-italic.ttf') format('truetype');
+}
+
+/* grandstander-500 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/meta/font/grandstander-500.woff2') format('woff2'),
+       url('/meta/font/grandstander-500.ttf') format('truetype');
+}
+
+/* grandstander-500italic - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: italic;
+  font-weight: 500;
+  src: url('/meta/font/grandstander-500italic.woff2') format('woff2'),
+       url('/meta/font/grandstander-500italic.ttf') format('truetype');
+}
+
+/* grandstander-600 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/meta/font/grandstander-600.woff2') format('woff2'),
+       url('/meta/font/grandstander-600.ttf') format('truetype');
+}
+
+/* grandstander-600italic - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/meta/font/grandstander-600italic.woff2') format('woff2'),
+       url('/meta/font/grandstander-600italic.ttf') format('truetype');
+}
+
+/* grandstander-700 - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/meta/font/grandstander-700.woff2') format('woff2'),
+       url('/meta/font/grandstander-700.ttf') format('truetype');
+}
+
+/* grandstander-700italic - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Grandstander';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/meta/font/grandstander-700italic.woff2') format('woff2'),
+       url('/meta/font/grandstander-700italic.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-200 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 200;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-200.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-200.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-300 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-300.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-300.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-regular.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-regular.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-500.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-500.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-600 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-600.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-600.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-700.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-700.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-800 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 800;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-800.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-800.ttf') format('truetype');
+}
+
+/* chiron-goround-tc-900 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Chiron GoRound TC';
+  font-style: normal;
+  font-weight: 900;
+  src: url('/meta/font/chiron-goround-tc-v4-latin-900.woff2') format('woff2'),
+       url('/meta/font/chiron-goround-tc-v4-latin-900.ttf') format('truetype');
+}
+
+/* barriecito-regular - latin_latin-ext */
+@font-face {
+  font-display: swap;
+  font-family: 'Barriecito';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/meta/font/barriecito-regular.woff2') format('woff2'),
+       url('/meta/font/barriecito-regular.ttf') format('truetype');
+}

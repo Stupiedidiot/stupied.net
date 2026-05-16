@@ -1,0 +1,75 @@
+<script type="text/javascript">
+var previousLink = window.location.search.replace("?","");
+if (previousLink === ""){previousLink = "/";}
+function redirectBack(){
+    localStorage.setItem("warned", "true")
+    window.location.href = previousLink;
+}
+
+var prefetched = document.createElement('link');
+prefetched.rel = 'prefetched';
+prefetched.href = previousLink
+document.head.append(prefetched)
+</script>
+
+<style>
+#meirl {
+    border: 3px solid black;
+    background: url(/meta/img/sunburst.svg);
+    background-size: 100% 100%;
+    background-color: #a7dddc;
+    aspect-ratio: 8/9;
+    overflow: hidden;
+
+    a, div { width: 100%; height: 100%; }
+    img { position: absolute; }
+
+    a > div { 
+        position: relative;
+        animation: 1.5s ease-out dragUp;
+    }
+
+    .doll {
+        z-index: 1;
+        top: 5%;
+        left: 7%;
+        width: 90%;
+        animation: 5s sway infinite ease-in-out;
+        transform-origin: 40% 0;
+    }
+
+    .cursor {
+        z-index: 2;
+        width: 15%;
+        top: 3%;
+        left: 37%;
+    }
+}
+
+@keyframes dragUp {
+    0% { transform: translateY(90%); }
+    100% { transform: none; }
+}
+
+@keyframes sway {
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+#container {
+    max-width: 300px;
+    padding: 1rem;
+    margin: auto;
+}
+
+h1 {
+    padding: 0 0.5rem;
+}
+
+button { padding: 0.5rem; }
+
+main > * {
+    transform: translateY(-1.2rem);
+    z-index: 3;   
+}
+</style>

@@ -1,0 +1,31 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{%- assign FOLDERS = "about,art,blog,chez,code,meta,outlinks" | split: ","-%}
+{%- assign ALLOWED = ".jpg .png .svg" | split: " "-%}
+{%- assign static_raw = site.static_files | sort: "extname" -%}
+
+{%- assign static = "" | split: "" -%}
+{%- for item in static_raw -%}
+    {%- for extension in ALLOWED -%}
+        {%- if item.extname == extension -%}
+            {%- assign static = static | push: item-%}
+            {%- break -%}
+        {%- endif -%}
+    {%- endfor -%}
+{%- endfor -%}
+
+{%- for folder in FOLDERS -%}
+{%- assign filtered = static | where_exp: "item", "item.path contains folder"-%}
+<url>
+<loc>{{ folder | prepend: '/' | prepend: site.url }}/</loc>
+{%- for item in filtered -%}
+    <image:image>
+        <image:loc>{{ item.path | prepend: site.url }}</image:loc>
+    </image:image>
+{%- endfor -%}
+</url>
+{%- endfor -%}
+</urlset>

@@ -1,0 +1,23 @@
+---
+layout: rss
+link: https://stupied.nekoweb.org
+---
+{% assign FEED = site.data.rss | filterFuture %}
+{%- for item in FEED -%}
+<item>
+    <title>{{ item.title | escape }}</title>
+    <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+    
+    {% if item.link contains 'https://' %}
+        <link>{{ item.link }}</link>
+    {% else %}
+        <link>{{ item.link | prepend: site.url }}</link>
+    {% endif %}
+
+    <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+
+    <description>
+        {{ item.desc | default: "( •̀ ω •́ )✧" | strip_html | markdownify | strip_html }}
+    </description>
+</item>
+{%- endfor -%}

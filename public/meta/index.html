@@ -1,0 +1,109 @@
+---
+layout: default
+title: Changelog
+include_path: _head.html
+---
+<div id="container">
+    <div id="home">
+        <a href="/index.html">
+            <img src="./img/hole.png" alt="">
+        </a>
+    </div>
+    <main>
+        <div id="archive">
+            <div id="top" class="outline" style="--c:var(--darker-blue);">
+                <div>
+                    <h1>This website is <span title="created on April 6, 2023" id="date"></span></h1>
+                </div>
+                <div id="updateStatus">
+                    <div>
+                        <p>Last updated</p>
+                        <span id="lastupdate">{{ site.time | date: "%Y-%m-%d" }}</span>
+                    </div>
+                </div>
+            </div>
+            <div id="timeline" class="db-list">
+                {%- for item in site.data.archived -%}
+                    {%- assign date = item.url | split: 'neocities.org/' | last | split: '/' | first -%}
+                    <a href="{{ item.url }}" class="timeline-item" target="_blank">
+                        <img src="https://stupied-archive.neocities.org/{{ date }}/thumbnail.png" alt="Thumbnail for {{ date }}">
+                        <div>
+                            <h2>{{ date | prepend: '20' }}</h2>
+                            {%- if item.note -%}
+                                <p>{{ item.note }}</p>
+                            {%- endif -%}
+                        </div>
+                    </a>
+                {%- endfor -%}
+                <a href="/" class="timeline-item">
+                    <img src="/meta/rss/2025-08-27.png" alt="Thumbnail for Current">
+                    <div>
+                        <h2>Current</h2>
+                        <p>The current iteration of the index! Pulled the comic books style from the late 2024 designs and went for a monochromatic pallette. Pretty happy with it and hope to keep it around a bit longer</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div id="rss" style="margin-top: 1rem; color: var(--gray);">
+            <p>RSS Feed Widget has been moved <a href="/meta/rss/#rss">here</a></p>
+        </div>
+    </main>
+
+    <aside>
+        <div id="thanks">
+            <h2>Website History</h2>
+            <p>Without prior knowledge about the indieweb culture, I impulsive created this website back in 2023. Pretty sure I found neocities by googling "free hosting" and used what little html skills I garnered from junior high. Either way, I haven't been the same since then and I honestly don't know where I'd be without it.</p>
+        </div>
+        <div id="resources">
+            {% include lists/item.html where='resources' %}
+        </div>
+
+        <div id="tools">
+            {% include lists/item.html where='tools' %}
+        </div>
+
+        <a href="/">✮ Head Back »</a>
+
+    </aside>
+    <footer class="default-footer">
+        {%- include footer-old.html -%}
+        <div id="button">
+            <a href="https://neocities.org/site/stupied-profile" target="_blank">
+                <img src="./button.png">
+            </a>
+        </div>
+    </footer>
+</div>
+<script>
+// get website's age
+const DATE_CURRENT = new Date().getTime()
+const DATE_CREATED = new Date("2023-04-06").getTime();
+
+const pageAge = Math.floor(( DATE_CURRENT - DATE_CREATED )/ 3.154e+10)
+document.getElementById("date").textContent = pageAge + " years old!!";
+
+const MOD_ELEM = document.getElementById("lastupdate");
+
+// get website's last update date
+// stole the code from here: https://dannarchy.com/tut/tut_002
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var site_data = JSON.parse(this.responseText);
+        var date_obj = new Date(site_data.info.last_updated);
+        var date_mod=(new Date().getTime()- date_obj.getTime())/1000
+
+        // should probably change this
+        if (date_mod<60){date_mod=Math.floor(date_mod);if(date_mod===1){date_mod+=" second ago"}else{date_mod+=" seconds ago"}}
+        if (date_mod<3600){date_mod=Math.floor(date_mod/60);if(date_mod===1){date_mod+=" minute ago"}else{date_mod+=" minutes ago"}}
+        if (date_mod<86400){date_mod=Math.floor(date_mod/3600);if(date_mod===1){date_mod+=" hour ago"}else{date_mod+=" hours ago"}}
+        if (date_mod<31540000){date_mod=Math.floor(date_mod/86400);if(date_mod===1){date_mod+=" day ago"}else{date_mod+=" days ago"}}
+        if (date_mod>31540000){date_mod=Math.floor(date_mod/3.154e+10);if(date_mod===1){date_mod+=" year ago"}else{date_mod+=" years ago"}}
+
+        MOD_ELEM.textContent = date_mod;
+        MOD_ELEM.title = date_obj;
+    }
+};
+xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=stupied", true);
+xhttp.send();
+</script>

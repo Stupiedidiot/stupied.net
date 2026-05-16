@@ -1,0 +1,209 @@
+---
+layout: none
+---
+/* Main */
+#c_widget {
+    --text-color: black;
+    --bg-color: none;
+    --form-color: black;
+    --form-bg: white;
+    --form-border: lightgray;
+    --margin-bottom: 0.8rem;
+    --padding: 0.5rem;
+    margin-top: 1rem;
+    box-sizing: border-box;
+    height: 100%;
+    overflow: hidden;
+    font-family: var(--body-font);
+    color: var(--text-color);
+
+    details {
+        &[open] {
+            summary {
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+
+#c_widget button,
+#c_widget input[type=submit],
+.c-comment details summary {
+    font-family: var(--body-font);
+    text-decoration: none;
+	text-align: center;
+    text-transform: uppercase;
+    color: var(--form-color);
+    font-family: var(--display-font);
+    background-color: var(--form-bg);
+    border: 1px solid gray;
+    border-radius: 0.2rem;
+    display: inline-block;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+
+    &:hover {
+        color: var(--color-accent);
+        border: 1px solid var(--color-accent);
+    }
+}
+
+#c_widget button:disabled, #c_widget input[type=submit]:disabled {opacity: 60%;}
+#c_widget button:disabled:hover, #c_widget input[type=submit]:disabled:hover {
+    color: var(--color-accent);
+}
+
+/* Input section */
+#c_inputDiv {
+    margin-bottom: var(--margin-bottom);
+    background-color: var(--bg-color);
+}
+
+#c_closed_message {
+    border-left: 3px solid var(--color-accent);
+    padding: 1rem;
+}
+
+#c_widgetTitle {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.c-label{ font-family: var(--display-font);}
+
+.c-inputWrapper {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.c-input, .c-textInput {
+     background-color: var(--form-bg);
+     border: 1px solid var(--form-border);
+}
+
+.c-input {
+    padding: 4px;
+    color:  var(--form-color);
+	outline: none;
+    font-family: var(--body-font);
+}
+
+#c_textWrapper { display: block; }
+.c-textInput { 
+    width: calc(100% - 1rem);
+    resize: vertical;
+}
+#c_submitButton {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+#c_previewWrapper:has(img[src='#']) { display:none }
+
+#c_previewWrapper {
+    padding: 0.5rem;
+    border: 1px solid var(--form-border);
+    max-width:350px;
+    margin-bottom: 0.5rem;
+}
+
+#c_previewOutput { max-width: 100%; display: block; }
+
+#c_previewWrapper p {
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+#c_replyingText { font-size: 0.8rem; }
+
+/* Comment section */
+.c-comment {
+    background-color: var(--bg-color);
+    margin-bottom: var(--margin-bottom);
+    padding: var(--padding);
+
+    blockquote {
+        border: 1px solid lightgray;
+        border-left: 5px solid var(--text-color);
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+.c-reply {
+    display: block;
+    width: 90%;
+    margin-bottom: var(--margin-bottom);
+    margin-left: auto;
+    padding: 0.5rem;
+    border-left: 3px solid var(--color-accent);
+}
+.c-reply:last-child {margin-bottom: 0;}
+.c-replyContainer {
+    margin: -0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+.c-name {
+    display: inline-block;
+    margin-right: 0.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.c-site {
+    font-family: var(--display-font);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-accent);
+}
+.c-site:hover {color: var(--bg-color-2);}
+.c-timestamp {
+    float: right;
+    opacity: 0.2;
+}
+.c-text {
+    padding: 0.5rem;
+    padding-left: 0;
+    font-family: var(--body-font);
+    margin-bottom: 0;
+}
+
+.c-img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Image Float */
+.c-img {
+    border: 1px solid var(--form-border);
+    width: 100%;
+    max-width: 200px;
+    min-height: 7rem;
+    object-fit: cover;
+    clear: both;
+    float:left;
+    margin-right:0.5rem;
+    margin-bottom:0.5rem;
+    display:block;
+    transition: 0.2s;
+    &:hover { transform: scale(95%) }
+}
+
+.c-comment::after, .c-reply::after, .c-reply::before { 
+    content: "";
+    display: block;
+    clear: both;
+}
+@media only screen and (max-width: 500px) { .c-img{float:none;} }
+
+/* Pagination */
+#c_pagination {text-align: center;}
+.c-replyButton { margin-top: 0.5rem; }
+.c-expandButton {
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+.c-paginationButton {
+    margin-right: 4px;
+    margin-left: 4px;
+}

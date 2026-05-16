@@ -1,0 +1,119 @@
+---
+layout: page
+title: All My RSS Feed
+description: A list of all the RSS Feeds in my website
+include_path: _head.html
+---
+{% assign FEED = site.data.rss | filterFuture %}
+
+{%- assign FEED_FIRST = FEED[0] -%}
+<article id="board">
+    <h1 class="outline">The Now!</h1>
+    <div id="main" class="note">
+        <img src="{{ FEED_FIRST.thumb | rss_thumb | first }}" alt="">
+    </div>
+
+    <div id="art" class="note">
+        {%- assign CURRENT = site.data.art.list[0] -%}
+        <img src="/art/img/{{ CURRENT.img }}" alt="">
+    </div>
+
+    <div id="blog" class="note">
+        {%- assign CURRENT = site.posts | where_exp: "item", "item.thumbnail" | first -%}
+        <img src="{{ CURRENT.thumbnail }}" alt="">
+    </div>
+
+    <div id="template" class="note">
+        {%- assign CURRENT = site.templates | sort: published | first -%}
+        <img src="{{ CURRENT.url | replace: 'index','' | append: 'thumbnail.jpg'}}" alt="">
+    </div>
+</article>
+<article id="feeds" class="padded">
+    <h2>The RSS Feeds</h2>
+    <p>Yeah I have a handful of RSS Feeds lol. As per usual, it's still a wip and I promise to make this page prettier in the future. I recommend something like <a href="https://fraidyc.at/">fraidyc.at</a> to keep up with em!</p>
+    <section id="feeds_content" class="db-list">
+        {%- for item in site.data.code.feeds -%}
+        <a href="{{ item.link }}" class="rss-item">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc | strip_html }}</p>
+        </a>
+        {%- endfor -%}
+    </section>
+</article>
+
+<!-- RSS FEED START -->
+<article id="rss" class="divided">
+    <h2>Website Updates (<span id="feed_counter">0</span>/<span id="feed_max">{{ FEED | size }}</span>)</h2>
+    <p>Updates are from my <a href="/feed.xml">RSS feed!</a></p>
+    
+    <noscript>
+        <h3>Attention!</h3>
+        <p>This widget thingy requires javascript to load!</p>
+    </noscript>
+
+    <div id="feed">
+        {%- for item in FEED -%}
+            {%- assign thumb = item.thumb.first | default: item.thumb -%}
+            <div class="feed-item hidden" data-src="{{ thumb | replace: 'https://stupied.net', '' }}">
+                <div class="feed-thumb tooltip">
+                    <span><img src="#"></span>
+                </div>
+                <div class="feed-info">
+                    <h4 class="feed-title">{{ item.title }}</h4>
+                    <h5 class="feed-date">{{ item.date | date: "%d %b %Y"}}</h5>
+                    <div class="feed-desc">
+                        {%- if item.desc -%}
+                        <p>{{ item.desc | replace: 'https://stupied.net', '' | markdownify }}</p>
+                        {%- endif -%}
+                        <a href="{{item.link | replace: 'https://stupied.net', ''}}">Click to View »</a>
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+    </div>
+    
+    <div id="feed_buttons">
+        <button onclick="showEm(16)">[16] Load More</button>
+        <button onclick="showEm()">Load All</button>
+    </div>
+
+    <script>
+        var target = document.getElementById("feed");
+
+        var items = target.querySelectorAll('.feed-item');
+        var counterTarget = document.getElementById("feed_counter");
+        var counter = 0;
+        var max = items.length; 
+
+        showEm(3)
+
+        function showEm (increment) {
+        if (increment === undefined ) {
+            increment = max;
+        }
+
+        let next = counter + increment;
+        let prev = counter;
+        
+        if ( next <  max ) {
+            counter = next;
+        } else {
+            counter = max;
+            document.getElementById("feed_buttons").remove()
+        }
+
+        for (let i = prev; i < counter; i++) {
+            showItem(i);
+        }
+        counterTarget.innerHTML = counter;
+        }
+
+        function showItem (i) {
+        let image = items[i].dataset.src;
+        items[i].querySelector('.feed-thumb').style.backgroundImage = "url(" + image + ")";
+        items[i].querySelector('span img').src = image;
+        items[i].classList.remove('hidden');
+        }
+    </script>
+</article>
+<!-- RSS FEED END -->
