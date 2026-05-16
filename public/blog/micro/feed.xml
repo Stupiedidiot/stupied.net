@@ -1,0 +1,30 @@
+---
+layout: rss
+title: Stupied's Microblog
+description: RSS Feed for my microblog ramblings
+---
+{% assign DATA = site.micro | reverse %}
+{%- for e in DATA limit: 15 -%}
+  {% if e.path contains '_unpublished' %}
+      {% continue %}
+  {% endif %}
+  <item>
+    <title>{{ e.title | escape }}</title>
+    <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+    <link>{{ site.url }}/{{ e.date | date: "%Y-%m-%dT%H-%M" }}</link>
+    <guid isPermaLink="false">{{ e.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+    <description>
+      {% assign file = e.path | prepend: 'snail/' %}
+      {% capture content %}{% cat file %}{% endcapture %}
+      {{ content | markdownify | escape }}
+      {% if exp %}
+          {{ exp | markdownify | escape }}
+      {% endif %}
+        {% if e.tags %}
+              {% for tag in e.tags %}
+                <category>{{ tag }}</category>
+              {% endfor %}
+      {% endif %}
+    </description>
+  </item>
+{%- endfor -%}

@@ -1,0 +1,15 @@
+---
+layout: blog
+title: Archive
+---
+<article class="main-content">
+    {% include search.html cat='blog' %}
+    <h1> Blog Archive</h1>
+    <section id="blog_archive">
+        {%- include widget/timeline.html data=site.posts -%}
+    </section>
+
+    <div style="margin-bottom: 1rem;">
+        <p style="opacity: 0.3; font-size: 0.8rem; font-style: italic;">There are currently {{ site.posts.size }} posts</p>
+    </div>
+</article>

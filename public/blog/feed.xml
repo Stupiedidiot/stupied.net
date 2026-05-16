@@ -1,0 +1,27 @@
+---
+layout: rss
+title: Stupied Blog RSS Feed
+description: RSS feed for all of my blog posts
+---
+{% for post in site.posts limit: 15 %}
+  <item>
+      <title>{{ post.title | escape }}</title>
+      <link>{{ post.url | relative_url | prepend: site.url }}</link>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      <guid>{{ post.date | date: "%Y-%m-%d" }}</guid>
+
+      <description>
+        {% capture description %}
+          {%- if post.thumbnail -%}
+            <img src="{{post.thumbnail | relative_url | prepend: site.url }}" style="max-width:100%;"/>
+          {%- else post.header -%}
+            <img src="{{post.header | relative_url | prepend: site.url }}" style="max-width:100%;"/>
+          {%- else post.before -%}
+            {{ post.before }}
+          {%- endif -%}
+          {{ post.content }}
+        {% endcapture %}
+        {{ description | escape }}
+      </description>
+  </item>
+{% endfor %}
