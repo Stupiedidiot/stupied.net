@@ -1,0 +1,2 @@
+exclude_selectors:
+- ".art-archive-tags > button"
