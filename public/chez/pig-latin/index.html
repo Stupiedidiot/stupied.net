@@ -1,0 +1,120 @@
+---
+layout: page
+title: Pig Latin Generator
+---
+<article class="padded">
+	<fieldset>
+		<legend><h1>Pig Latin Translator</h1></legend>
+		<p><a href="https://en.wikipedia.org/wiki/Pig_Latin">Pig Latin</a> is Ludling / Language game. My first exposure to it was through a Teen Titans Go episode; Yes, <a href="https://youtu.be/m8OL3IE_kYc">that one</a>. This is a wipppp.</p>
+		<hr>
+		<article id="pig_container">
+			<div id="pig_input_container" class="input-container">
+				<label for="pig_input">Input</label>
+				<textarea name="pig_input" id="pig_input" onchange="toPigText()"></textarea>
+			</div>
+			<div id="pig_output_container" class="input-container">
+				<label for="pig_output">Output</label>
+				<textarea name="pig_output" id="pig_output" onchange="toNormText()"></textarea>
+			</div>
+		</article>
+	</fieldset>
+</article>
+ 
+<style>
+@media only screen and (min-width: 600px) {
+	#pig_container { grid-template-columns: repeat(2, 1fr); }	
+}
+
+#pig_container {
+	display: grid;
+	gap: 1rem;
+}
+
+textarea {
+	display: block;
+	width: 100%;
+	min-height: 300px;
+	resize: vertical;
+	box-sizing: border-box;
+	/* Put it as bg image */
+}
+</style>
+
+<script>
+const OUTPUT = document.getElementById("pig_output");
+const INPUT = document.getElementById("pig_input");
+const CLUSTERS = ["bb","bcd","bcf","bch","bd","bf","bg","bh","by","bj","bk","bl","bm","bn","bp","br","bs","bt","bv","bw","bx","bz","cb","cc","cd","cf","cg","ch","cy","ck","cl","cm","cn","cp","cq","cr","cs","ct","cv","cw","cz","db","dc","dd","df","dg","dh","dy","dj","dk","dl","dm","dn","dp","dr","ds","dt","dv","dw","dx","dz","fb","fc","fdn","fdtyp","fd","ff","fg","fhr","fy","fj","fl","fm","fn","fp","fr","fs","ft","fv","fw","fz","gcd","gc","gd","ggr","gh","gy","gj","gl","gm","gn","gp","gr","gs","gt","gv","gw","hb","hcb","hcf","hcl","hc","hd","hf","hg","hhd","hy","hl","hm","hny","hp","hq","hr","hs","ht","hv","hw","ybl","yc","yd","yf","yg","yhwh","yl","ym","yn","yp","yq","yr","ys","yt","yv","ywc","yw","jcl","jct","jg","jh","jym","jyng","jynx","jms","jn","jr","js","jt","jw","kb","kc","kg","kh","ky","kj","kl","km","kn","kpc","kph","kp","kr","ks","kt","kv","kw","lb","lc","ld","lf","lg","lh","ly","ll","lm","ln","lp","lr","ls","lt","lv","lwl","lwm","lw","lx","mb","mc","md","mf","mg","mh","my","mk","ml","mm","mn","mp","mr","ms","mt","mv","mw","mxd","mz","nb","nc","nd","ng","nh","ny","nj","nl","nm","nn","np","nr","ns","nt","nv","pbx","pc","pd","pf","pg","ph","py","pk","pl","pm","pnc","pn","pp","pq","pr","ps","pt","pvt","pwc","pwr","pwt","qh","qy","ql","qm","qn","qp","qqv","qr","qs","qt","qv","rb","rc","rd","rf","rg","rh","ry","rld","rl","rm","rn","rpm","rps","rpt","rrh","rs","rt","rv","rwd","rwy","rw","sb","sc","sd","sf","sg","sh","sy","sj","sk","sl","sm","sn","sp","sq","sr","ss","st","sv","sw","sz","tb","tc","td","tfr","tg","th","ty","tj","tk","tl","tm","tn","tp","tr","ts","tty","tv","tw","tx","tz","vb","vc","vd","vg","vy","vl","vm","vp","vr","vs","vt","vv","wb","wc","wd","wf","wg","wh","wy","wjc","wk","wl","wm","wpm","wr","ws","wt","xc","xd","xyl","xyph","xyr","xyst","xyz","xm","xr","xs","xv","xw","xx","zhm","zh","zyd","zyg","zym","zyr","zyth","zyz","zl","zm","zn","zs","zw"];
+
+function toPigText(){
+	if(!INPUT.value.length > 0) return;
+	let words = INPUT.value.toLowerCase().split(" ");
+	let result = '';
+	words.forEach(word => {
+		result += toPigWord(word) + ' ';
+	});
+	console.log(result);
+	OUTPUT.value = result;
+}
+
+function toPigWord(value) {
+	let result;
+	console.log(checkVowel(value[0]))
+	
+	if(checkVowel(value[0])){
+		let ctr = value.length - 1;
+		while(ctr > 1){
+			if (checkSpChars(value[ctr]) == true) ctr--;
+			else break;
+		}
+		result = value.slice(0, ctr + 1) + "way" + value.slice(ctr, value.length - 1);
+	} else {
+		let chars = [];
+		for (let ctr = 0; ctr < value.length; ctr++) {
+			if (checkVowel(value[ctr]) == true) break;
+			if (checkSpChars(value[ctr]) == true) continue;
+			chars.push(value[ctr]);
+		}
+
+		console.log(chars)
+
+		let ctr = value.length - 1;
+		while(ctr > 1){
+			if (checkSpChars(value[ctr]) == true) ctr--;
+			else break;
+		}
+
+		result = value.slice(0, ctr);
+		chars.forEach(char => {
+			result = result.replace(char, '');
+			result = result + char;
+		});
+		result = result + 'ay' + value.slice(ctr, value.length);
+	}
+	return result;
+}
+
+function toNormWord(value) {
+	let result,
+		 last = value.split(value.length - 3, value.length);
+	if(last === 'way' || last === 'yay'){
+		result = value.slice(0, value.length - 3);
+	} else {
+		result = value.slice(0, value.length - 2);
+		let test = CLUSTERS.some(cluster => result.endsWith(cluster));
+	}
+	return result;
+}
+
+const VOWELS = 'aeiou';
+function checkVowel(e){
+	if(VOWELS.includes(e)) return true;
+	else return false;
+}
+
+const SPCHAR = /[^\w\s]/;
+function checkSpChars(value) {
+	let test = SPCHAR.test(value);
+	return test;
+}
+
+</script>

@@ -1,0 +1,174 @@
+---
+layout: default
+title: The Red Room
+---
+<style>
+body {
+    --color-accent: #ff0000;
+    width: 100vw;
+    height: 100vh;
+}
+
+.drawing-board {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+canvas { background-color: var(--color-accent); }
+
+main::after {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-image: url(./hug.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    pointer-events: none;
+    background-size: 100% auto;
+    max-width: 400px;
+    width: 95%;
+    height: 100%;
+    z-index: 100;
+}
+
+aside {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button {
+    border: unset;
+    background-color: unset;
+    background-size: 100%;
+    background-position: 50% 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.pencil {
+    background-image: url(/meta/svg/pencil.svg);
+}
+
+.eraser {
+    background-image: url(/meta/svg/eraser.svg);
+}
+
+.size {
+    font-family: var(--display-font);
+    color-accent: color-mix(in srgb, var(--color-accent), white);;
+}
+
+.selected {
+    filter: invert(1);
+}
+
+footer {
+    color: black;
+    position: fixed;
+    text-align: right;
+    bottom: 1rem;
+    right: 1rem;
+    a {
+        font-weight: bold;
+        font-family: var(--display-font);
+    }   
+    a:hover { color: white; }
+}
+</style>
+<aside>
+    <button onclick="flipPencil(true)" class="pencil selected"></button>
+    <button onclick="flipPencil(false)" class="eraser"></button>
+    <input type="range" onchange="changeSize()" id="size" class="size" name="size" min="1" max="100" value="5" />
+    <label id="sizeLabel" for="size" class="size"></label>
+</aside>
+<main class="drawing-board">
+    <canvas id="drawing-board"></canvas>
+</main>
+<footer>
+    Day 20 of <a href="/chez/hatober/">Hatober 2025</a><br>
+</footer>
+
+<script defer>
+const canvas = document.getElementById('drawing-board');
+const ctx = canvas.getContext('2d');
+
+
+const canvasOffsetX = canvas.offsetLeft;
+const canvasOffsetY = canvas.offsetTop;
+
+canvas.width = window.innerWidth - canvasOffsetX;
+canvas.height = window.innerHeight - canvasOffsetY;
+
+const eraser = getComputedStyle(document.body).getPropertyValue('--color-accent');
+const sizeLabel = document.getElementById('sizeLabel');
+const size = document.getElementById('size');
+
+let isPencil = true;
+let isPainting = false;
+let lineWidth = size.value;
+let startX;
+let startY;
+
+changeSize();
+
+const draw = (e) => {
+    if (!isPainting) {
+        return;
+    }
+
+    if (isPencil === true) {
+        ctx.strokeStyle = "#ffffff";
+
+    } else {
+        ctx.strokeStyle = eraser;
+    }
+
+    ctx.lineWidth = lineWidth;
+    ctx.lineCap = 'round';
+
+    ctx.lineTo(e.clientX - canvasOffsetX, e.clientY);
+    ctx.stroke();
+}
+
+canvas.addEventListener('mousedown', pencilDown);
+canvas.addEventListener('touchstart', pencilDown);
+
+canvas.addEventListener('mouseup', pencilUp);
+canvas.addEventListener('touchdown', pencilUp);
+
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('touchmove', draw);
+
+function pencilDown(e){
+    isPainting = true;
+    startX = e.clientX;
+    startY = e.clientY;
+}
+
+function pencilUp(e){
+    isPainting = false;
+    ctx.stroke();
+    ctx.beginPath();
+}
+
+function flipPencil(value) {
+    document.querySelector('button.selected').classList.remove('selected');
+    event.target.classList.add('selected');
+    isPencil = value;
+} 
+
+function changeSize(){
+    let value =  size.value;
+    sizeLabel.innerHTML = value + "px";
+    lineWidth = value;
+}
+</script>

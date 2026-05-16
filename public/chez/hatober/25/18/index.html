@@ -1,0 +1,90 @@
+---
+layout: default
+title: Final Destination
+---
+<style>
+body { user-select: none;}
+main {
+    max-width: 400px;
+    margin: 2rem;
+}
+ul { padding-left: 0; }
+li {
+    display: block;
+    width: fit-content;
+    margin-bottom: 0.5rem;
+    position: relative;
+    animation: fade-in 0.5s;
+    
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0.2rem;
+        background-color: black;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: 0.2s;
+    }
+    img { transition: 0.2s; }
+}
+
+li.strike-out {
+    position: relative;
+    display: block;
+
+    &::before { width: 100%!important; }
+    img { opacity: 0.2; max-width: 100%; }
+}
+
+@keyframes fade-in {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+
+footer {
+    position: fixed;
+    color: lightgray;
+    text-align: right;
+    bottom: 1rem;
+    right: 1rem;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+}
+</style>
+
+<main>
+    <ul id="list">
+    </ul>
+</main>
+<footer>Day 18 of <a href="/chez/hatober/">Hatober 2025</a></footer>
+
+<script>
+const TARGET = document.getElementById("list");
+const NUM = 11;
+var ctr = 0;
+
+addMore(3);
+
+function addMore(num){
+    let max = ctr + num;
+    for (let i = 0; i < num; i++){
+        setTimeout(()=>{
+            let random = ctr % NUM;
+            let item = document.createElement("li");
+            item.id = ctr;
+            item.setAttribute("onclick", "strike_out("+ ctr +"), addMore("+ random +")");
+            item.innerHTML = "<img src=\"./img/txt-" + random + ".png\">";
+            TARGET.append(item);
+            ctr++;
+        },i * 500)
+    }
+}
+
+function strike_out(ctr){
+    document.getElementById(ctr).classList.add("strike-out");
+}
+</script>

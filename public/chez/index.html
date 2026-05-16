@@ -1,0 +1,44 @@
+---
+layout: page
+title: Chez
+description: A page for all my miscellaneous projects
+include_path: _index.html
+---
+<article>
+    <div class="padded">
+        <h1 style="color: var(--color-accent);">Chez</h1>
+        <p>For all my miscellaneous projects. Generally they are janky and all over the place.</p>
+    </div>
+    
+    {%- for category in site.data.chez.list -%}
+    <section class="padded divided">
+        <h2>{{ category.label }}</h2>
+        {%- assign selected = category | downcase -%}
+        <ul class="arrow-hover">
+        {%- for item in category.items -%}
+            <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+        {%- endfor -%}
+        </ul>
+    </section>
+    {%- endfor -%}
+</article>
+
+<article id="layouts" class="padded divided">
+    <h2>Photo Albums</h2>
+    <p>This is where I store my collection of images!</p>
+    <div class="card-feed db-list">
+        {%- for e in site.data.albums -%}
+            {%- unless e.thumbnail -%}
+                {%- continue -%}
+            {%- endunless -%}
+
+            <a href="https://album.stupied.net/{{ e.link }}/" class="card-feed-item">
+                <img src="https://album.stupied.net/{{ e.link }}/img/{{ e.thumbnail }}" alt="">
+                <div>
+                    <h2>{{ e.title }}</h2>
+                    <p>{{ e.description }}</p>
+                </div>
+            </a>
+        {%- endfor -%}
+    </div>
+</article>

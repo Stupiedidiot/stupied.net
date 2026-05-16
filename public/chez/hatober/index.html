@@ -1,0 +1,51 @@
+---
+layout: default
+title: Hatober
+include_path: _head.html
+---
+<div id="container">
+    <header>
+        <h1>Hatober 2025</h1>
+        <p>Hatober is a month long art challenge hosted by <a href="https://literalhat.com/" target="_blank">LiteralHat</a>. You basically just try to draw everyday.</p>
+        <noscript>
+            <h2 style="margin-top: 1rem;">Attention</h2>
+            <p>Many of these entries requires javascript to work!</p>
+        </noscript>
+    </header>
+    <main>
+        <article id="yr-2025">
+            <section></section>
+            <section>
+                <ol class="calender db-list">
+                    <span>Sun</span>
+                    <span>Mon</span>
+                    <span>Tue</span>
+                    <span>Wed</span>
+                    <span>Thu</span>
+                    <span>Fri</span>
+                    <span>Sat</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    {%- for prompt in site.data.chez.hatober -%}
+                        {% unless prompt[1] == '#' %}
+                            {% if prompt[1] contains '/art/' %}
+                                {% assign thumb = prompt[1] | replace: '/art/~?', '/art/img/' %}
+                            {% else %}
+                                {% assign thumb = prompt[1] | append: 'thumbnail.jpg' %}
+                            {% endif %}
+                        {% else %}
+                            {% assign thumb = 'none' %}
+                        {% endunless %}
+                        <li style="--bg-img:url({{ thumb }});"><a href="{{ prompt[1] }}" data-plan="{{ prompt[2] }}">{{ prompt[0] }}</a></li>
+                    {%- endfor -%}
+                    <img src="./img/doll.png" alt="">
+                </ol>
+            </section>
+        </article>
+    </main>
+    <footer class="default-footer">
+        <p style="margin-bottom: 0.5rem;">The prompts can be found <a href="https://www.instagram.com/p/DO8cEk3EqoH/" target="_blank">here</a></p>
+        {%- include footer-old.html -%}
+    </footer>
+</div>

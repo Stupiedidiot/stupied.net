@@ -1,0 +1,46 @@
+---
+layout: page
+title: Drawbox!!
+include_path: _/index.html
+
+colors:
+- "#df1a00"
+- "#df6200"
+- "#eec227"
+- "#bad014"
+- "#1fc166"
+- "#1adabb"
+- "#22a9bb"
+- "#2a77ba"
+- "#8c43c1"
+- "#bd3d98"
+- "#ee366e"
+- "#021340"
+---
+<article class="padded">
+    <h1>{{ page.title }}</h1>
+    <p>Still under construction!!</p>
+    
+    <div id="canvas_wrapper">
+        <canvas id="drawboxcanvas" width="400" height="240"></canvas>
+    </div>
+    
+    <div id="canvas_pallette">
+        {% for e in page.colors %}
+        <div onclick="change_color(this)" style="background: {{ e }}"></div>
+        {% endfor %}
+    </div>
+    
+    <br>
+    <button onclick="Restore()"><span class="icon-reply"></span> Undo</button>
+    <button onclick="Clear()"><span class="icon-reload"></span> Clear</button>
+    <button><span class="icon-edit-pencil"></span></button>
+    
+    <input id="stroke_color_button" type="color" oninput="stroke_color = this.value">
+    <input type="range" min="1" max="100" value="5" oninput="stroke_size(this.value)">
+    <label id="size_label" for="size" class="size"></label>
+
+    <button onclick="eraser()">Eraser</button>
+    <!-- <button id="submit">Submit drawing <span class="icon-send"></span></button> -->
+    <p id="status"></p>
+</article>

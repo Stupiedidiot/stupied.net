@@ -1,0 +1,51 @@
+<script src="main.js" defer></script>
+<style>
+#test {
+    width: 95%;
+    max-width: 400px;
+    margin: 1rem auto;
+}
+* {box-sizing: border-box;}
+canvas {
+    border: 1px solid black;
+    cursor: crosshair;
+}
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.image-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+    max-width: 200px;
+    text-align: center;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* #canvas_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    background-image: url(./canvas.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+} */
+#canvas_pallette {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(6, 1fr);
+
+}
+
+#canvas_pallette > div {
+    border: 1px solid;
+    aspect-ratio: 1/1;
+}
+</style>

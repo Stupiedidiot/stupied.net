@@ -1,0 +1,159 @@
+---
+layout: default
+title: Methodic, Calculated
+---
+<style>
+body {
+    width: 100vw;
+    height: 100vh;
+}
+body::before {
+    content: "";
+    display: block;
+    z-index: 1;
+    position: fixed;
+    top: 0; left: 0;
+    background: linear-gradient(
+        red, orange, yellow, lime, blue, purple, red
+    );
+    background-size: 100% 150%;
+    width: 100%;
+    height: 100%;
+    animation: linear infinite 100s zoom;
+}
+
+@keyframes zoom {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 275%; }
+}
+
+main {
+    position: relative;
+    z-index: 2;
+}
+
+#output {
+    padding: 0.5rem;
+    font-family: monospace;
+    text-align: center;
+    overflow: auto;
+    white-space: nowrap;
+    position: absolute;
+    top: 1rem;left: 50%;
+    transform: translateX(-50%);
+}
+
+#output span {
+    display: inline-block;
+    overflow: hidden;
+    margin-left: 1px;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+/* span:not(:last-child)::after { content: ", ";} */
+input {
+    min-width: 30vw;
+}
+
+aside {
+    top: 1rem;
+    left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+footer, aside {
+    --c: black!important;
+    z-index: 3;
+    color: white;
+    position: fixed;
+}
+
+footer {
+    bottom: 1rem;
+    right: 1rem;
+    text-align: right;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+}
+</style>
+<aside class="outline">
+    <input type="range" onchange="init()" id="size" name="size" min="1" max="1000" value="10" />
+    <label id="sizeLabel" for="size"></label>
+</aside>
+<main>
+    <div id="output"></div>
+</main>
+<footer class="outline">Day 25 of <a href="/chez/hatober/">Hatober 2025</a></footer>
+
+<script>
+var size = document.getElementById("size");
+var sizeLabel = document.getElementById("sizeLabel");
+var prevSize = 0;
+
+var target = document.getElementById("output");
+var data = [[1]];
+
+init();
+
+function init(){
+    let value =  parseInt(size.value);
+    sizeLabel.innerHTML = value + " rows";
+    if (prevSize > value) {
+        let diff = prevSize - value;
+        data = data.splice(0, value);
+        let i = prevSize - 1;
+        do {
+            target.removeChild(target.children[i]);
+            i--;
+        } while (target.children.length > value)
+    } else {
+        getData(value, data.length);
+        writeData(prevSize);
+    }
+    prevSize = value;
+}
+
+function getData(max, start){
+    if (start === undefined){
+        start = 1
+    }
+    for(let i = start; i < max;i++){
+        getRow(i)
+    }
+}
+
+function getRow(y) {
+    let prevRow = data[y-1] 
+    let result = [];
+
+    let prev = 1;
+    result.push(1);
+    for (let i = 1; i < prevRow.length; i++){
+        result.push(prev + prevRow[i])
+        prev = prevRow[i];
+    }
+    result.push(1);
+    data.push(result);
+}
+
+function writeData(start) {
+    if (start === undefined){
+        start = 0
+    }
+    for(let i = start; i < data.length ; i++){
+        let result = document.createElement("div");
+        for(let x = 0; x < data[i].length; x++){
+            let span = document.createElement('span');
+            span.innerHTML = data[i][x];
+            result.append(span);
+        }
+        target.append(result);
+    }
+}
+</script>

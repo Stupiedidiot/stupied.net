@@ -1,0 +1,106 @@
+---
+title: Artfight Stats
+layout: page
+---
+<style>
+#af_stats {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
+
+  .af-item {
+    border: 2px solid;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .af-team {
+    background-color: black;
+    padding: 0.5rem;
+    color: white;
+    margin-bottom: 1px;
+  }
+
+  .af-stats {
+    display: grid;
+    gap: 1px;
+
+    > div {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1px;
+    }
+  }
+
+  .af-label {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    background-color: lightgray;
+    text-align: right;
+
+    &::after {
+      content: ": ";
+    }
+  }
+  .af-value {
+    padding: 0.5rem;
+  }
+
+  .af-stats-ratio .af-value {
+    background-color: var(--color-accent);
+    width: var(--w);
+  }
+}
+</style>
+<article class="padded">
+  <h1>{{ page.title }}</h1>
+  <p>Temporary location for my <a href="https://artfight.net">Artfight</a> Stats. Here is my <a href="https://artfight.net/~Stupied">account</a> if you want to attack me x3</p>
+
+  {% assign total = site.data.chez.artfight | afTotal %}
+  {% assign DATA = total | concat: site.data.chez.artfight %}
+  <div id="af_stats">
+    {% for e in DATA %}
+      <div class="af-item">
+        <div  class="af-team">
+            <h2>{% if e.year%}{{ e.year}}{% endif %} » {{ e.team }} Stats</h2>
+        </div>
+
+        <div class="af-stats">
+
+          <div class="af-stats-ratio">
+            {%- assign ratio = e | afRatio | slice: 0, 5 | append: '%' -%}
+            <div class="af-label">Battle Ratio</div>
+            <div class="af-value" style="--w:{{ ratio }};">{{ ratio }}</div>
+          </div>
+
+          <div class="af-stats-pts">
+            <div class="af-label">Points</div>
+            <div class="af-value">{{ e.pts }}</div>
+          </div>
+
+          <div class="af-stats-atk">
+            <div class="af-label">Attacks</div>
+            <div class="af-value">{{ e.atk }}</div>
+          </div>
+          
+          <div class="af-stats-ffr">
+            <div class="af-label">Friendly Fires</div>
+            <div class="af-value">{{ e.ffr }}</div>
+          </div>
+
+          <div class="af-stats-def">
+            <div class="af-label">Defenses</div>
+            <div class="af-value">{{ e.def }}</div>
+          </div>
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</article>
+
+<article class="padded">
+  <h2>Rambling</h2>
+  <p>Artfight is a lot of fun because it give me an excuse to finally make fanart for artist I like without it being weird and stuff haha,, Just a heads up but will probably not do as many revenges as before because I wanna focus on making quality art. This mean I'll probably be prioritizing characters I've been wanting to draw since like forever!!!</p>
+</article>

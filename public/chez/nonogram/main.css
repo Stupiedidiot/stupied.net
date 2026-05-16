@@ -1,0 +1,21 @@
+#board {
+    --columns: 0;
+    display: grid;
+    grid-template-columns:auto repeat(var(--columns), 1fr);
+}
+
+.tile {
+    aspect-ratio: 1/1;
+    background-color: white;
+    outline: 2px black solid;
+    &.mark { background-color: gray; }
+    &.right { background-color: green; }
+    &.wrong { background-color: red; }
+}
+
+.hint {
+    display: grid;
+    align-items: center;
+    &.top { margin-bottom: 1rem; text-align: center; }
+    &.left { margin-right: 1rem; text-align: right; }
+}

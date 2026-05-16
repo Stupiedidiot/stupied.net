@@ -1,0 +1,113 @@
+---
+layout: default
+title: Carve Out
+---
+{%- assign IMG_WIDTH =  756 -%}
+{%- assign IMG_HEIGHT = 815 -%}
+{%- assign DIVIDE = 7 -%}
+<style>
+header {
+    color: lightgray;
+    font-family: monospace;
+    font-style: italic;
+    position: fixed;
+    top:1rem;
+    left: 1rem;
+    font-size: clamp(1rem, 1rem + 5vw, 5em);
+}
+
+#rock {
+    --transition-time: 0.5s;
+    --bg-size: {{DIVIDE | times: 100}}%;
+    --bg-img: url(./rock.png);
+    --bg-aspectRatio: {{IMG_WIDTH}} / {{IMG_HEIGHT}};
+    display: grid;
+    aspect-ratio: {{IMG_WIDTH}} / {{IMG_HEIGHT}};
+    grid-template-columns: repeat({{DIVIDE}}, 1fr);
+    grid-template-rows: repeat({{DIVIDE}}, 1fr);
+    max-height: 90vh;
+    height: auto;
+    max-width: 95%;
+    width: auto;
+    margin: 1rem auto;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position: 73% 50%;
+    position: relative;
+}
+
+#rock::after {
+    content: "Gago Bato";
+    font-size: clamp(1rem, 2rem + 1vw, 4rem);
+    position: absolute;
+    bottom: 18%;
+    left: 5%;
+}
+
+#image {display: none;}
+
+.piece {
+    z-index: 2;
+    background-image: var(--bg-img);
+    aspect-ratio: var(--bg-aspect-ratio);
+    background-size: var(--bg-size);
+}
+
+.chip-off {
+    --x:100%;
+    opacity: 0;
+    z-index: 100;
+    animation: var(--transition-time) ease-in chipOff;
+}
+.chip-off:nth-of-type(2n){ --x: -100%; }
+@keyframes chipOff {
+    0% { opacity: 1; }
+    20% { transform: translateY(10%); }    
+    50% { transform: translateX(var(--x)) translateY(-50%); opacity: 1; }    
+    100% { transform: translateX(var(--x)) translateY(200%) scale(0); opacity: 0; }    
+}
+
+footer {
+    position: fixed;
+    color: lightgray;
+    text-align: right;
+    bottom: 1rem;
+    right: 1rem;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+}
+</style>
+
+<img src="./rock.png" alt="" id="image">
+<div id="conatiner">
+    <header>Every block of stone has a statue inside of it and it is the task of the sculpture to discover it</header>
+    <main>
+        <article id="rock" class="outline">
+        {%- assign counter = 0 -%}
+        {%- assign DIVIDE_OFFSET = DIVIDE | minus: 1 -%}
+        {%- for i in (0..DIVIDE_OFFSET) -%}
+            {%- for ii in (0..DIVIDE_OFFSET) -%}
+                <div id="piece{{counter}}" class="piece" style="grid-area:{{i | plus: 1}}/ {{ii | plus: 1}} / {{i | plus: 2}} / {{ii | plus: 2}};background-position: -{{ii | times: 100}}% -{{i | times: 100}}%;" onclick="chipOff()"></div>
+                {%- assign counter = counter | plus: 1 -%}
+            {%- endfor -%}
+        {%- endfor -%}
+        </article>
+    </main>
+    <footer>Day 26 of <a href="/chez/hatober/">Hatober 2025</a></footer>
+</div>
+
+<script>
+var time = parseFloat(getComputedStyle(document.getElementById('rock')).getPropertyValue('--transition-time')) * 1000;
+
+document.getElementById("image").addEventListener("load", ()=>{
+    document.getElementById("rock").style.backgroundImage = "url(./donald.png)";
+})
+
+function chipOff(){
+    self = event.target;
+    self.classList.add('chip-off');
+    self.removeAttribute("onclick");
+}
+</script>

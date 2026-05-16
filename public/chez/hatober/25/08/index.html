@@ -1,0 +1,177 @@
+---
+layout: default
+title: Jigsaw Puzzle
+---
+<style>
+:root {
+    --bg-size: unset;
+    --bg-img: 0;
+    --aspect-ratio: 0;
+    --piece-size: 0;
+}
+#image { display: none; }
+
+#container {
+    width: 95%;
+    max-width: 1000px;
+    margin: 1rem auto;
+}
+
+#puzzle {
+    display: grid;
+    width: 100%;
+    gap: 1px;
+    aspect-ratio: var(--bg-aspect-ratio);
+    border: 2px solid black;
+    background-color: black;
+    position: relative;
+    &::after {
+        z-index: 1;
+        content: "";
+        display: block;
+        width: 100%; height: 100%;
+        position: absolute;
+        background-image: var(--bg-img);
+        opacity: 0.2;
+        background-size: cover;
+    }
+}
+
+.piece {
+    z-index: 2;
+    background-image: var(--bg-img);
+    aspect-ratio: var(--bg-aspect-ratio);
+    background-size: var(--bg-size);
+}
+
+#pieces {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#pieces .piece {
+    width: 5%;
+    border: 2px solid black;
+}
+
+.piece.selected {
+    outline: 3px solid red;
+}
+
+/*
+#puzzle {
+    --width: 716;
+    --height: 480;
+    display: grid;
+    width: 95%;
+    max-width: 500px;
+    background-color: red;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    aspect-ratio: var(--width)/var(--height);
+}
+
+div {
+    --width: calc(716px / 3);
+    --height: calc(480px / 3);
+    background-image: url(./img/puzzle.jpg);
+    width: 100%;
+    max-width: var(--width);
+    max-height: var(--height);
+    aspect-ratio: var(--width)/var(--height);
+    background-size: 300%;
+} */
+
+footer {
+    color: gray;
+    margin-top: 0.5rem;
+    text-align: right;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+}
+</style>
+
+    <img id="image" src="./img/puzzle.jpg" alt="">
+<div id="container">
+    <main id="game">
+        <article id="puzzle"></article>
+        <article id="pieces"></article>
+    </main>
+    <footer>Day 8 of <a href="/chez/hatober/">Hatober 2025</a></footer>
+</div>
+
+<script>
+const DIVIDE = 10,
+      PIECES = document.getElementById('pieces'),
+      BOARD = document.getElementById('puzzle'),
+      IMAGE = document.getElementById('image'),
+      BODY = document.documentElement;
+
+IMAGE.addEventListener('load', function(){
+    let width = image.naturalWidth
+        height = image.naturalHeight,
+        bgSize = DIVIDE * 100,
+        aspectRatio = width + "/" + height;
+
+    BOARD.style.aspectRatio = aspectRatio;
+    BOARD.style.gridTemplateColumns = `repeat(${DIVIDE}, 1fr)`;
+    BOARD.style.gridTemplateRows = `repeat(${DIVIDE}, 1fr)`;
+    pieceSize = BOARD.clientWidth / DIVIDE;
+
+    BODY.style.setProperty("--bg-size", bgSize + "%");
+    BODY.style.setProperty("--bg-img", 'url('+ IMAGE.src + ')');
+    BODY.style.setProperty("--bg-aspect-ratio", aspectRatio);
+
+    let counter = 0
+    for (let i = 0; i < DIVIDE; i++){
+        for (let ii = 0; ii < DIVIDE; ii++){
+            let result = document.createElement("div");
+            result.id = "piece" + i;
+            result.classList.add('piece')
+            result.draggable = true;
+            result.setAttribute('onclick', 'selectPiece()')
+            result.style.backgroundPositionX = (ii * -100) + "%";
+            result.style.backgroundPositionY = (i * -100) + "%";
+            PIECES.append(result);
+        }
+        // console.log((i % DIVIDE)*100)
+        // if (i % DIVIDE == 0){
+        //     counter++;
+        // }   
+    }
+})
+
+window.addEventListener('resize', function(){
+    pieceSize = BOARD.clientWidth / DIVIDE;
+    console.log(pieceSize)
+})
+
+function selectPiece(){
+    if (e = document.querySelector('.selected')){
+        e.classList.remove('selected');
+    }    
+    event.target.classList.add("selected");
+}
+
+var tooltips = document.querySelectorAll('.tooltip span');
+window.onmousemove = function (e) {
+    var x = (e.clientX + 20) + 'px',
+        y = (e.clientY + 20) + 'px';
+    for (var i = 0; i < tooltips.length; i++) {
+        tooltips[i].style.top = y;
+        tooltips[i].style.left = x;
+    }
+};
+
+// for (i = 0; i < 9; i++){
+    // let result = document.createElement("div");
+    // result.id = "piece" + i;
+    // result.draggable = true;
+//     PIECES.append(result);
+// }
+</script>

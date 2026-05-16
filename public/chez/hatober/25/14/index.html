@@ -1,0 +1,190 @@
+---
+layout: default
+title: Boxed In
+---
+<style>
+body {
+    background-color: black;
+    user-select: none;
+    image-rendering: pixelated;
+}
+
+#container {
+    width: 95%;
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+main {
+    --transition-time: 0.2s;
+    overflow: hidden;
+    aspect-ratio: 9/8;
+    max-height: 100vh;
+    background-image: url(./img/bg.jpg);
+    background-size: cover;
+    position: relative;
+    > * {
+        --c: black!important;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+img { width: 100%; display: block; }
+
+#top, #bottom {
+    width: 80%;
+}
+
+#top {
+    top: -55%;
+    z-index: 3;
+}
+
+#bottom {
+    bottom: 0;
+    z-index: 1;
+}
+
+#donald {
+    width: 45%;
+    bottom: 25%;
+    z-index: 2;
+    background-color: unset;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#donald img {
+    transform-origin: 50% 100%;
+}
+
+.bonk #top img{
+    animation: var(--transition-time) down ease-in-out;
+}
+
+@keyframes down {
+    50% { transform: translateY(65%);}
+    100% { transform: none;}
+}
+
+.bonk #donald img{
+    animation: var(--transition-time) bonk ease-in-out;
+}
+
+@keyframes bonk {
+    50% { transform: scaleY(25%) scaleX(120%);}
+    100% { transform: none;}
+}
+
+#textBox {
+    z-index: 4;
+    color: white;
+    font-size: 1.5rem;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+    font-family: var(--display-font);
+    background: linear-gradient(transparent, black);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+footer {
+    color: gray;
+    text-align: right;
+    margin-top: 1rem;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+    a:hover { color: var(--color-accent); }
+}
+
+</style>
+<div id="container">
+    <main>
+        <div id="top" class="outline">
+            <img src="./img/top.png" alt="">
+        </div>
+        <button id="donald" class="outline" onclick="bonk()">
+            <img src="./img/donald.jpg" alt="">
+        </button>
+        <div id="bottom" class="outline">
+            <img src="./img/bottom.png" alt="">
+        </div>
+
+        <div id="textBox">
+        </div>
+    </main>
+    
+    <footer>
+        Day 14 of <a href="/chez/hatober/">Hatober 2025</a>
+    </footer>
+</div>
+
+<script>
+var main = document.querySelector('main');
+var button = document.getElementById('donald');
+var time = parseFloat(getComputedStyle(main).getPropertyValue('--transition-time')) * 1000;
+var textBox = document.getElementById('textBox');
+var lastIndex = -1;
+var setOpacity;
+
+const QUOTES = [
+    "Hey! What's the big idea!?",
+    "Stop that you big palooka!!",
+    "Oh phooey...",
+    "I've had it up to here with ya!",
+    "ewdjbdchjcdwdbjebuswuisanjisahui",
+    "this is very exasperating",
+    "Aw nuts",
+    "Awww--",
+    "Oh YEAH!!??!?!"
+]
+
+function randomNum () {
+    do {
+        num = Math.floor(Math.random() * QUOTES.length);
+    } while (num === lastIndex);
+    lastIndex = num;
+    return num;
+}
+
+function bonk() {
+    clearInterval(setOpacity);
+    button.disabled = true;
+    main.classList.add('bonk');
+    textBox.style.opacity = 1;
+    writeText(QUOTES[randomNum()]);
+
+    setTimeout(function() {
+        main.classList.remove('bonk');
+    }, time)
+
+    setOpacity = setTimeout(function() {
+        textBox.style.opacity = 0;
+    }, 5000)
+}
+
+function writeText(text) {
+  textBox.innerHTML = "";
+  let words = text.split(" ");
+  let target = words.length - 1;
+  let wait = 50;
+
+  for (let i = 0; i < words.length ;i++) {
+    setTimeout(writeWord, wait * i, words[i], target, i); 
+  }
+}
+
+function writeWord(word, target, i) {
+  textBox.innerHTML = `${textBox.innerHTML} ${word}`;
+    if (i == target){
+      button.disabled = false;
+    }  
+}
+</script>

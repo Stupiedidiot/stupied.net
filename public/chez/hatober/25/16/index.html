@@ -1,0 +1,225 @@
+---
+layout: default
+title: Spinner
+---
+<style>
+img { max-width: 100%; }
+#container {
+  width: 95%;
+  max-width: 650px;
+  margin: 1rem auto;
+  user-select: none;
+}
+
+main #screen {
+  --rotate: 0;
+  --transition-time: 1s;
+  aspect-ratio: 3/2;
+  background: linear-gradient(black 70%, white);
+  overflow: hidden;
+  position: relative;
+
+  > * {
+    position: absolute;
+  }
+  .evan, #psyche-spin { display: none;} 
+}
+
+#screen.idle, #screen.neutral { 
+  #evan-idle {
+    display: block;
+  }
+}
+
+#screen.bad #evan-bad {
+  display: block;
+}
+
+#screen.good #evan-good {
+  display: block;
+}
+
+#evan-idle {
+  width: 35%;
+  left: 5%;
+  top: 0%;
+}
+
+#evan-bad {
+  width: 45%;
+  left: 3%;
+  bottom: -10%;
+}
+
+#evan-good {
+  width: 48%;
+  bottom: -10%;
+}
+
+#wheel {
+  transform: rotate(var(--rotate));
+  transition: 1s ease-out transform;
+  background-color: unset;
+  border: none;
+  width: 45%;
+  top: 8%;
+  right: 18%;
+}
+
+#arrow {
+  width: 7%;
+  top: 5%;
+  right: 38%;
+}
+
+#psyche-idle {
+  width: 30%;
+  bottom: -10%;
+  right: 3%;
+}
+
+#psyche-spin {
+  width: 58%;
+  right: -5%;
+  bottom: -33%;
+}
+
+#textBox {
+  border: 3px solid;
+  padding: 1rem;
+  min-height: 1.5rem;
+}
+
+.jump {
+  animation: 0.5s jump ease-out;
+}
+
+@keyframes jump {
+  10% { transform: translateY(15%); }
+  50% { transform: translateY(-3%); }
+  100% { transform: none; }
+}
+
+footer {
+  color: lightgray;
+  text-align: right;
+  margin-top: 1rem;
+  a {
+    font-weight: bold;
+    font-family: var(--display-font);
+  }
+  a:hover { color: var(--color-accent); }
+}
+</style>
+
+<div id="container">
+  <main>
+    <article id="screen" class="idle">
+      <button id="wheel" onclick="spinWheel()" class="outline-hover">
+        <img src="./img/wheel.png" alt="">
+      </button>
+      <img id="arrow" src="./img/arrow.png" alt="">
+      <img id="psyche-idle" class="psyche character" src="./img/psyche-idle.png" alt="">
+      <img id="evan-idle" class="evan character" src="./img/evan-idle.png" alt="">
+      <img id="evan-good" class="evan character" src="./img/evan-good.png" alt="">
+      <img id="evan-bad" class="evan character" src="./img/evan-bad.png" alt="">
+    </article>
+
+    <article id="textBox">
+    </article>
+  </main>
+  <article>
+
+  </article>
+  <footer>
+    Day 16 of <a href="/chez/hatober/">Hatober 2025</a><br>
+    Inspired by <a href="https://wi-fu.neocities.org/" target="_blank">wi-fu</a>
+  </footer>
+</div>
+<script defer>
+var responses = [
+  {
+    "type": "good",
+    "last": -1,
+    "text": [
+      "Hell to the yeah!",
+      "Absolutely Positively!!",
+      "The world is your oyster, my guy!!",
+      "The results are in and they all point to 'Hell Yeah'!",
+      "And it looks like we've got a winner!!",
+      "Indeedy!"  
+    ]
+  },
+  {
+    "type": "bad",
+    "last": -1,
+    "text": [
+      "You're luck might genuinely be worst than Jay",
+      "Better luck next time champ",
+      "Looks like a nope",
+      "Uh, Do you want the honest answer or..?",
+      "We appear to be facing some. . . technical difficulties",
+      "Welp, that's too bad."
+    ]
+  }
+]
+
+var screen = document.getElementById('screen');
+var time = parseInt(getComputedStyle(screen).getPropertyValue('--transition-time')) * 900;
+var textBox = document.getElementById('textBox');
+var currentText;
+var button = document.getElementById("wheel");
+button.disabled = true;
+var rotate = 0;
+
+function spinWheel (){
+  button.disabled = true;
+  screen.classList = 'idle';
+  let type = Math.floor(Math.random() * responses.length); 
+  let num = randomNum(responses[type]);
+  animateSprite(type, num);
+}
+
+function animateSprite(type, num) {
+  rotate = rotate + 360 + Math.floor(Math.random() * 520);
+  screen.style.setProperty("--rotate", rotate + 'deg'); 
+  let selected = responses[type];
+  let evan = document.getElementById('evan-'+selected.type).classList;
+
+  setTimeout(function() {
+    screen.classList = selected.type;
+    evan.add('jump');
+    writeText(responses[type].text[num]);
+  }, time)
+  
+}
+
+function randomNum (selected) {
+    do {
+        num = Math.floor(Math.random() * selected.text.length);
+    } while (num === selected.last);
+    selected.last = num;
+    return num;
+}
+
+writeText("Thinking about getting a little treat? Looking for an excuse to procrastinate on that project Jay insists we should get started on instead of waiting to for the last minute? Have a general dislike for freedom of choice? Click on the wheel and let it decide for you!");
+
+function writeText(text) {
+  clearTimeout(currentText)
+  textBox.innerHTML = "";
+  let words = text.split(" ");
+  let target = words.length - 1;
+  let wait = 50;
+
+  for (let i = 0; i < words.length ;i++) {
+    currentText = setTimeout(writeWord, wait * i, words[i], target, i); 
+  }
+}
+
+function writeWord(word, target, i) {
+  textBox.innerHTML = `${textBox.innerHTML} ${word}`;
+    if (i == target){
+      button.disabled = false;
+    }  
+}
+</script>

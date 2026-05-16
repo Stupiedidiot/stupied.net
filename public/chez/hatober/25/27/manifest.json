@@ -1,0 +1,13 @@
+{
+    "bundles": [
+        {
+            "name":"evan",
+            "assets": [
+                {
+                    "alias": "aaa",
+                    "src": "./src/img/aaa.png"
+                }
+            ]
+        }
+    ]
+}

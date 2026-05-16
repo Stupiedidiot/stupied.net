@@ -1,0 +1,77 @@
+---
+layout: default
+title: Calculator
+include_path: _index.html
+nocss: true
+---
+<main>
+    <div id="calc">
+        <h1>THE Calculator<a href="#about">*</a></h1>
+        <div id="c_screen">
+            <input type="text" class="c-input" name="c_input" id="c_input" pattern="/[0-9\+\-\*\/]*/">
+            <div id="c_preview_container">
+                <textarea class="c-input" name="c_preview" id="c_preview" disabled></textarea>
+                <input type="text" class="c-input" name="c_output" id="c_output" disabled>
+            </div>
+            <input type="text" class="c-input" name="c_memory" id="c_memory" disabled>
+        </div>
+        <div id="c_buttons" class="grid">
+            <div class="grid left">
+                <button onclick="addDigit(1)">1</button>
+                <button onclick="addDigit(2)">2</button>
+                <button onclick="addDigit(3)">3</button>
+                <button onclick="addDigit(4)">4</button>
+                <button onclick="addDigit(5)">5</button>
+                <button onclick="addDigit(6)">6</button>
+                <button onclick="addDigit(7)">7</button>
+                <button onclick="addDigit(8)">8</button>
+                <button onclick="addDigit(9)">9</button>
+                <button onclick="addDigit(0)">0</button>
+                <button onclick="addDecimal()">.</button>
+                <button onclick="mem(0)">MR</button>
+                <button onclick="mem(1)">M+</button>
+                <button onclick="mem(2)">M-</button>
+                <button onclick="mem()">MC</button>
+                <button onclick="clearField(0)">⇚</button>
+                <button onclick="clearField(1)">C</button>
+                <button onclick="clearField()">AC</button>
+            </div>
+            <div class="grid right">
+                <button class="accent" onclick="evalField()">=</button>
+                <button class="black" onclick="addOpp('+')">+</button>
+                <button class="black" onclick="addOpp('-')">-</button>
+                <button class="black" onclick="addOpp('*')">*</button>
+                <button class="black" onclick="addOpp('/')">/</button>
+            </div>
+        </div>
+    </div>
+    <div id="about">
+        <h2>What is This?</h2>
+        <p>This was a calculator made for our webdev class. Spent way too much time on it to discard it so it lives on here.</p>
+
+        <h3>Requirements</h3>
+        <ol>
+            <li>Pressing Operations consecutively erases the last operation and adds the new operation pressed.</li>
+            <li>No repeated decimal points for each operand. If decimal point is pressed after a decimal point, remove decimal point</li>
+            <li>When Equals is pressed, solve the equation in MDAS</li>
+            <li>When operators are pressed, it immediately solves the operands in left to right order.</li>
+            <li>Implement <code>M+</code>, <code>M-</code>, <code>MR</code>, and <code>MC</code>.</li>
+            <li>Implement <code>C</code> and <code>AC</code></li>
+        </ol>
+
+        <h3>How I Went About It</h3>
+        <p>Everytime you click an operator/equals button, it adds the value in the input into a class I made; It's just an array with some custom methods. The input gets tokenize with some confusing regex that will then be converted into into Reverse Polish notation with the <a href="https://en.wikipedia.org/wiki/Shunting_yard_algorithm">Shunting Yard Algorithm</a>.</p>
+        <p>Feel free to sift through <a href="./main.js">my code</a> to figure it everything else out.</p>
+
+        <h3>Known Issues</h3>
+        <ol>
+            <li>Will give up with negative values. Basically the tokenizer does `["1", "*", "-", "1"]` instead of `["1", "*", "-1"]`. Should probably make some postlogic to fix it.</li>
+            <li>Writing down an equation and clicking <code>M+</code>/<code>M-</code> will only add the first value.</li>
+        </ol>
+
+        <h3>Conclusion</h3>
+        <p>Working on this has made me really appreciate the existence of scientific calculators. Remember to tuck em goodnight and sing them lullabies of your love.</p>
+
+        <p><a href="/">Head Back »</a></p>
+    </div>
+</main>

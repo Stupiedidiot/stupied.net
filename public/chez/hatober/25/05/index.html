@@ -1,0 +1,113 @@
+---
+layout: default
+title: Breaking Point
+---
+<style>
+body { user-select: none; }
+header {
+    z-index: 2;
+    position: fixed;
+    top: 50vh;
+    left: 0;
+    font-weight: bolder;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: clamp(1rem, 1rem + 10vw, 10em);
+    pointer-events: none;
+}
+
+main {
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    word-break: break-all;
+    display: flex;
+    flex-wrap: wrap;
+}
+button {
+    font-size: 9vh;
+    background-color: unset;
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    &:hover, &.highlighted {
+        color: lightgray;
+        animation: 0.2s jump ease-in-out;
+    }
+}
+
+@keyframes jump {
+    0% { transform: scale(130%);}
+    90% { transform: scale(90%);}
+    100% { transform: 100%;}
+}
+
+footer {
+    position: fixed;
+    background-color: #000000;
+    color: lightgray;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: right;
+    padding: 1rem;
+    bottom: 0;
+    right: 0;
+    a {
+        font-family: var(--display-font);
+        font-weight: bolder;
+    }
+}
+</style>
+
+<header class="outline" style="--w: 5px;">Exclamation Marks!</header>
+<main><button class="first">!</button></main>
+<footer>Day 5 of <a href="/chez/hatober/">Hatober 2025</a></footer>
+
+<script>
+const TARGET = document.getElementsByTagName('main')[0];
+const TEXT_WIDTH = document.querySelector('.first').clientWidth;
+var counter = 0;
+var wait =  20;
+var items;
+
+var width = window.innerWidth;
+var num = Math.ceil(width/TEXT_WIDTH) * 10;
+
+init();
+
+function init(){
+    for (let i = 0; i < num;i++){
+        let char = document.createElement('button');
+        char.setAttribute('onclick', 'woaw()')
+        char.textContent = '!';
+        char.id = i;
+        TARGET.append(char);
+        counter++
+    }
+    items = document.querySelectorAll('button');
+}
+
+function woaw(){
+    let id = parseInt(event.target.id) + 2;
+    for (let i = 0; i < id; i++){
+        setTimeout(() =>{
+            if(items[i].classList.contains("highlighted")){
+                items[i].classList.remove("highlighted")
+            } else {
+                items[i].classList.add("highlighted")
+            }
+        }, wait * i);
+    }
+}
+
+window.addEventListener('resize', ()=>{
+    width = window.innerWidth;
+    num = Math.ceil(width/TEXT_WIDTH) * 10;
+    num = num - counter;
+    if (num > 0){ init(); }
+})
+</script>

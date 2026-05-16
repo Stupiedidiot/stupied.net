@@ -1,0 +1,54 @@
+---
+layout: default
+title: Uhh... Zombies?
+---
+<style>
+header, h1, footer {
+    font-family: monospace;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    > div {
+        font-size: clamp(1rem, 1rem + 1vw, 2rem);
+        max-width: 700px;
+    }
+    > div > div { padding: 0.5rem; }
+    h1 {display: inline-block;}
+    span { color: var(--color-accent); }
+    blockquote { margin: 0 0.5rem; }
+}
+
+main {
+    border-top: 0.5px black;
+    min-height: 100vh;
+}
+
+footer {
+    position: fixed;
+    color: gray;
+    font-size: 1rem;
+    text-align: right;
+    bottom: 1rem;
+    right: 1rem;
+    a {
+        font-weight: bolder;
+    }
+}
+</style>
+<header>
+    <div>
+        <div>
+            <h1>Zombie</h1>
+            <span>Noun</span>
+        </div>
+        <blockquote>a person who is or appears to be lifeless, apathetic, or totally lacking in independent judgment; automaton.</blockquote>
+    </div>
+</header>
+<main>
+    <img src="./" alt="">
+</main>
+<footer>Day 12 of <a href="/chez/hatober/">Hatober 2025</a></footer>
