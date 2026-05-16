@@ -1,0 +1,285 @@
+---
+layout: default
+title: Outlinks!
+include_path: _head.html
+
+extra: 
+- id: literalhat
+  title: LiteralHat
+  link: https://literalhat.com/
+  desc: Literal of the hat variety. Epic animations and music!!!
+  button: none
+  
+- id: bovine
+  title: Bovine
+  link: https://www.youtube.com/@Bovineas
+  desc: "*Throws tomatoes at her*"
+  button: none
+  
+- id: dwinky
+  title: Dwinky
+  link: https://en.wikipedia.org/wiki/The_Lego_Movie
+  desc: Dimension Drifter of all time
+  button: none
+---
+{%- assign list = site.data.outlinks -%}
+{%- assign stars = list | where_exp: "item", "item.desc" | concat: page.extra -%}
+<div id="view">
+    {%- for item in stars -%}
+    <div id="{{item.id}}">
+        <div>
+            <img src="./img/{{item.id}}-thumb.png" alt="" class="view-thumb">
+            <h2>{{item.title}}</h2>
+            <p>{{item.desc}}</p>
+            {%- if item.iframe -%}
+                <iframe src="{{ item.link }}webgarden" height="250px" width="250px"scrolling="no"></iframe>
+            {%- endif -%}
+            {%- unless item.button == 'none' -%}
+                <a href="{{ item.link }}" target="_blank"><img src="./img/{{ item.id }}-button.{{ item.button | default: 'gif'}}" alt="{{ item.title }}"></a>
+            {%- else -%}
+                <a href="{{ item.link }}" target="_blank">View More »</a>
+            {%- endunless -%}
+        </div>
+    </div>
+    {%- endfor -%}
+
+    <div id="button-wall" class="overflow">
+        <div>
+            <h2>Button Wall</h2>
+            <p>Check out other people's kickass websites :D</p>
+            {%- include outlinks/button-wall.html -%}
+        </div>
+    </div>
+
+    <div id="fanlisting" class="overflow">
+        <div>
+            <h2>Fanlistings</h2>
+            <p>I just like collecting stamps and buttons</p>
+            {%- include outlinks/fanlisting.html -%}
+        </div>
+    </div>
+
+    <div id="all-links" class="overflow">
+        <div>
+            {% include lists/item.html where='websites' %}
+            <h2>listography</h2>
+            <p>Find more links and nonsense <a href="/about/listography">here</a>.</p>
+        </div>
+    </div>
+
+
+    <div id="webgarden" class="overflow">
+        <div>
+            <iframe src="https://stupied.net/webgarden.html" height="250px" width="250px" scrolling="no"
+                loading="lazy" style="border: 0;"></iframe>
+            <h2>Webgarden</h2>
+            <p>A webgarden is basically like a fancier button. You can find more <a
+                    href="https://webgardens.neocities.org/" target="_blank">here</a>. It's usually just a clone of my
+                front page elements because I am lazy haha.</p>
+            <a href="#" onclick="copyText(webgarden[1])">Copy Code »</a>
+
+            <h2>Alternatives</h2>
+            <iframe src="https://stupied.net/webgardens/v1/index.html" height="250px" width="250px" scrolling="no"
+                loading="lazy" style="border: 0;"></iframe>
+            <a href="#" onclick="copyText(webgarden[0])">Copy Code »</a>
+        </div>
+    </div>
+
+    <div id="button">
+        <div>
+            <button onclick="copyText(button[1])">
+                <img alt="stupied" src="/meta/button.png">
+            </button>
+            <button onclick="copyText(button[0])">
+                <img alt="stupied" src="/meta/button-v1.png">
+            </button>
+            
+            <h2>Button</h2>
+            <p>If you prefer something more traditional, here's my button! You may hotlink it or host it in your own website.</p>
+            <p>Click on the buttons copy the code!</p>
+        </div>
+    </div>
+
+    <div id="misc">
+        <div style="text-align: left;">
+            <img src="./../meta/rss/2025-06-19-0.png" alt="" style="object-position: 100%;" class="view-thumb">
+            <h2>All My External Links</h2>
+            <ul>
+                <li><a href="https://neocities.org/site/stupied-profile" target="_blank">Neocities Profile</a></li>
+                <li><a href="https://www.youtube.com/@stupied_idiot" target="_blank">Youtube</a></li>
+                <li><a href="https://stupied.itch.io/" target="_blank">Itch.io</a></li>
+                <li><a href="https://ko-fi.com/stupied" target="_blank">Ko-fi</a></li>
+            </ul>
+
+            <h3>Alternative Socials</h3>
+            <ul>
+				<li><a href="https://nekoweb.org/follow/stupied.nekoweb.org" target="_blank">Nekoweb</a></li>
+                <li><a href="https://www.instagram.com/stupied.idiot/" target="_blank">Instagram</a></li>
+                <li><a href="https://www.webtoons.com/en/creator/stupied" target="_blank">Webtoons</a></li>
+                <li><a href="https://status.cafe/users/stupied" target="_blank">Status.cafe</a></li>
+                <li><a href="https://www.reddit.com/user/Stupied_idiot/" target="_blank">Reddit</a></li>
+            </ul>
+
+            <h3>Fight me!! >:D</h3>
+            <ul>
+                <li><a href="https://artfight.net/~Stupied" target="_blank">Artfight</a></li>
+                <li><a href="https://ch.tetr.io/u/stupied" target="_blank">Tetr.io</a></li>
+            </ul>
+
+            <h3>Spaghetti</h3>
+            <ul>
+                <li><a href="https://github.com/Stupiedidiot" target="_blank">Github</a></li>
+                <li><a href="https://codepen.io/Stupiedidiot" target="_blank">CodePen</a></li>
+            </ul>
+            <p style="color: var(--gray);"><i>I don't use my alternative socials that much!</i></p>
+        </div>
+    </div>
+</div>
+
+<div id="list" class="outline" style="--c:var(--darkest-blue);">
+    <h2>Known Planets</h2>
+    <ul id="planets">
+        {% for item in stars %}
+        <li><a href="#{{item.id}}">{{item.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <h3>Collections</h3>
+        <ul>
+            <li><a href="#button-wall">Button Wall</a></li>
+            <li><a href="#fanlisting">Fan Listings</a></li>
+            <li><a href="#all-links">All Links</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Link my website!</h2>
+        <ul>
+            <li><a href="#webgarden">Webgarden</a></li>
+            <li><a href="#button">Button</a></li>
+            <li><a href="#misc">Misc</a></li>
+        </ul>
+
+        <a href="./../index.html" style="font-family: var(--display-font);color: var(--gray);">✮ Head Back</a>
+    </div>
+</div>
+
+<div id="solar-system">
+    <div id="y">
+        <div id="x">
+            <div>
+                <img id="galaxy" src="./img/galaxy.png" alt="">
+                {% for item in stars %}
+                <a href="#{{item.id}}"><img src="./img/star.png" alt=""></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div id="icons">
+        <p>
+            <span>WASD</span> keys to move around<br>
+            <span>I and O</span> to zoom in and out<br>
+        </p>
+    </div>
+</div>
+<script defer>
+scrollToTop()
+document.body.setAttribute('onclick', 'closeView()');
+
+const webgarden = [
+    '<iframe src="https://stupied.net/webgardens/v1/index.html" height="250px" width="250px" scrolling="no" loading="lazy"></iframe>',
+    '<iframe src="https://stupied.net/webgarden.html" height="250px" width="250px" scrolling="no" loading="lazy"></iframe>'
+]
+const button = [
+    '<a href="https://stupied.net/" target="_blank"><img src="https://stupied.net/meta/button-v1.png" alt="stupied"></a>',
+    '<a href="https://stupied.net/" target="_blank"><img src="https://stupied.net/meta/button.png" alt="stupied"></a>'
+]
+const link = '<a href="https://stupied.net/" target="_blank">Stupied</a>'
+
+const SELECTED = document.getElementById("solar-system");
+const selectedStyle = getComputedStyle(SELECTED)
+
+speedZoom = 25;
+speedY = 25;
+speedX = 50;
+
+document.onkeydown = function (event) {
+    if (document.activeElement === document.querySelector("body")) {
+        switch (event.keyCode) {
+            case 65: // left
+                changeX(speedX);
+                break;
+            case 87: // up
+                changeY(speedY);
+                break;
+            case 68: // right
+                changeX(-speedX);
+                break;
+            case 83: // down
+                changeY(-speedY);
+                break;
+
+            case 73: // letter i
+                changeScale(speedZoom);
+                break;
+            case 79: // letter o
+                changeScale(-speedZoom);
+                break;
+        }
+    }
+}
+
+onresize = scrollToTop
+
+function changeX(speed) {
+    valueCurrent = parseInt(selectedStyle.getPropertyValue("--x"));
+    valueNew = (valueCurrent + speed) + "deg";
+    SELECTED.style.setProperty('--x', valueNew);
+}
+
+function changeY(speed) {
+    let valueCurrent = parseInt(selectedStyle.getPropertyValue("--y"));
+    let valueNew = (valueCurrent + speed);
+
+    if (valueNew > 70) {
+        valueNew = 70;
+    } else if (valueNew < 30) {
+        valueNew = 30;
+    }
+
+    valueNew = valueNew + "deg"
+    SELECTED.style.setProperty('--y', valueNew);
+}
+
+function changeScale(speed) {
+    valueCurrent = parseInt(selectedStyle.getPropertyValue("--zoom"))
+    valueNew = (valueCurrent + speed)
+
+    if (valueNew > 150) {
+        valueNew = 150
+    } else if (valueNew < 50) {
+        valueNew = 50
+    }
+
+    valueNew = valueNew + "%"
+    SELECTED.style.setProperty('--zoom', valueNew)
+}
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+const VIEWER = document.getElementById("view");
+function closeView() {
+    if (VIEWER.contains(event.target) === false) {
+        window.location.replace("#");
+    }
+}
+
+function copyText(text) {
+    navigator.clipboard.writeText(text);
+    alert("You have copied the following: \n" + text + "\n\n Kindly paste it on your website");
+}
+</script>

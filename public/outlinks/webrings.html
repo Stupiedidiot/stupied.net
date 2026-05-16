@@ -1,0 +1,26 @@
+---
+layout: page
+include_path: _webrings.html
+---
+<article class="padded">
+    <h1>Webrings I'm In!!</h1>
+    <p>Although I'd rather be able to show all of these in my index, the amount of javascript is doing a number on the performance.
+        {%- if site.url contains 'nekoweb.org'-%}
+            Also if you're in nekoweb some of the links may be broken!
+        {%- endif-%}
+    </p>
+
+    <section id="webrings">
+        {%- include webrings.html -%}
+    </section>
+</article>
+
+<article id="fanlisting" class="padded divided">
+    <h2>Fanlistings</h2>
+    {%- for item in site.data.fanlistings -%}
+        {%- assign slug = item.title | replace: ' ', '-' | downcase -%}
+        <a href="{{ item.link | deafult: '#' }}">
+            <img src="./img/fanlisting/{{ slug }}.{{ item.ext | default: 'png'}}" alt="Button for {{ item.title }}">
+        </a>
+    {%- endfor -%}
+</article>
