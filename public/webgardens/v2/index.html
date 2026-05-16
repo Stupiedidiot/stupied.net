@@ -1,0 +1,156 @@
+---
+layout: webgarden
+title: Webgarden v2
+permalink: webgarden
+---
+<script type="" src="/meta/js/tooltip.js" defer></script>
+<style>
+:root{
+    --wheat: #fff0d7;
+    --dk-blue: #001745;
+    --accent-color: #0ebde4;
+    --display-font:grandstander;
+    --body-font:Arial, Helvetica, sans-serif;
+}
+
+.plant {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    user-select: none;
+    border: 2px solid black;
+    background-color: var(--accent-color);
+}
+
+#all { 
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#topbar {
+    height: 10%;
+    background-color: var(--accent-color);
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 0.8rem;
+    
+    > a {
+        font-family: var(--display-font);
+        position: absolute;
+        top:50%; right: 5%;
+        transform: translateY(-50%);
+    }
+    > a > span {
+        font-weight: bolder;
+    }
+    > a:hover { color: white; }
+}
+
+#scene {
+    height: 90%;
+    background-image: url(/meta/img/clouds.jpg);
+    background-size: auto 120%;
+    animation:bg-scroll 240s infinite linear;
+    position: relative;
+
+    > * { position: absolute; }
+    img { width: 100%; }
+    #pole {
+        z-index: 1;
+        position: absolute;
+        width: 5%;
+        bottom: -10%;
+        left: 21%;
+    }
+
+    #warning {
+        z-index: 3;
+        width: 39%;
+        top: -9%;
+        left: 4%;
+    }
+
+    #art {
+        z-index: 3;
+        width: 45%;
+        top: 33%;
+        left: 3%;
+    }
+
+    #art img { transition: 0.2s; transform: rotate(-6deg); }
+    #art:hover img { transform: none;}
+
+    #comic {
+        z-index: 3;
+        width: 35%;
+        top: 60%;
+        left: 6%;
+    }
+
+    #comic img {
+        transform-origin: 50% 0;
+        animation: 3s ease-in-out infinite wind;
+    }
+
+    #ocs {
+        z-index: 2;
+        width: 60%;
+        bottom: -5%;
+        right: 3%;
+    }
+
+    #ocs img {
+        animation: 5s ease-in-out infinite breathe;
+    }
+}
+
+@keyframes bg-scroll {
+    0%{ background-position: 0 100%; }
+    100%{ background-position: calc(1350px * 1.5) 100%; }
+}
+
+@keyframes wind {
+    0%{ transform: rotate(-10deg); }
+    50%{ transform: rotate(2deg); }
+    100%{ transform: rotate(-10deg); }
+}
+
+@keyframes breathe {
+    0%{ transform: translateY(2%); }
+    50%{ transform: translateY(0%); }
+    100%{ transform: translateY(2%); }
+}
+</style>
+<main class="plant">
+    <div id="all">
+        <div id="topbar">
+            <a href="https://stupied.net/" target="_blank"><span>stupied</span>.neocities.org</a>
+        </div>
+        <div id="scene">
+            <a href="https://stupied.net/meta/warning?/" id="warning" class="tooltip" target="_blank">
+                <img src="/meta/img/warning.png" class="outline-hover" alt=""/>
+                <span>Website's content warnings</span>
+            </a>
+            
+            <a href="https://stupied.net/art/" id="art" class="tooltip" target="_blank">
+                <img src="/meta/img/art.png" class="outline-hover" alt=""/>
+                <span>Artwork and animations</span>
+            </a>
+            <a href="https://stupied.net/comic/" id="comic" class="tooltip" target="_blank">
+                <img src="/meta/img/comic.png" class="outline-hover" alt=""/>
+                <span>Sequential images to tell stories</span>
+            </a>
+
+            <img id="pole" src="/meta/img/pole.png" alt="">
+
+            <a href="https://stupied-ocs.neocities.org/" id="ocs" class="tooltip" target="_blank">
+                <img src="/meta/img/psyche.png" class="outline-hover" alt="">
+                <span>Read about my OCs!</span>
+            </a>
+        </div>
+    </div>
+</main>

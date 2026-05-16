@@ -1,0 +1,219 @@
+---
+layout: webgarden
+title: Webgarden v1
+---
+<style>
+    :root{
+    --yellow: #ffcb67;
+    --orange: #ec7239;
+    --gray: #6c6371;
+    --dark-blue: #142943;
+    --darker-blue:#0d0d1f;
+    --darkest-blue:#0c0716;
+    --accent-color: var(--yellow);
+    --display-font:grandstander;
+    --body-font:Arial, Helvetica, sans-serif;
+    --transition-time: 0.25s;
+    --drop-shadow-width:0.2rem 0.2rem;
+}
+
+.default{
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: var(--dark-blue);
+    background-image: url(/meta/img/scribble.png);
+    color: white;
+}
+body{
+    overflow-x: hidden;
+    background-color: var(--dark-blue);
+    background-image: url(/webgardens/v1/img/scribble.png);
+}
+
+.plant {width: 250px;height: 250px;}
+
+#container{box-sizing: border-box;padding-top: 1rem;}
+
+#splash header{grid-area:header;}
+#splash #right{grid-area:right;}
+#splash #left{grid-area:left;}
+
+#splash{
+    display: grid;
+    grid-template-areas:
+    'right header'
+    'right left';
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: auto 1fr;
+
+    user-select: none;
+    margin:auto;
+    background-color: var(--orange);
+    width:95%;
+    max-width: 800px;
+    aspect-ratio: 3.6/3;
+    background: url(/webgardens/v1/img/sunburst.svg), radial-gradient(circle at 50% 50%, rgba(108, 99, 113, 1) 0%, rgba(236, 114, 57, 1) 35%, rgba(236, 114, 57, 1) 72%, rgba(108, 99, 113, 1) 100%);
+
+    background-size: 150%;
+    background-position: 100% 20%;
+    position: relative;
+}
+
+#splash > * {position: relative;}
+#splash > * > a{
+    z-index: 1;
+    position: absolute;
+}
+
+#splash img{width:100%;height:auto;}
+
+#clouds {position: absolute;bottom:0;}
+
+#logo {
+    position: relative;
+    z-index: 1;
+}
+
+#logo > a{
+    display: block;
+    transform: scale(140%) translateY(-10%) translateX(-8%);
+
+}
+
+#logo img {transition: var(--transition-time);}
+
+#logo > a:hover img{
+    transform: scale(110%);
+}
+
+
+#right{z-index: 2;}
+
+#about {
+    bottom:-10%;
+    left:-10%;
+    width:105%;
+    transition: var(--transition-time);
+}
+#about:hover{
+    transform: translateY(-5%) rotate(-3deg);
+    filter: drop-shadow(var(--drop-shadow-width) 0 var(--darkest-blue));
+}
+
+#blog{
+    width: 65%;
+    bottom: -15%;
+    left: 75%;
+    transition: var(--transition-time);
+}
+#blog:hover{
+    transform: rotate(-5deg) translateY(-15%);
+    filter: drop-shadow(var(--drop-shadow-width) 0 var(--darkest-blue));
+}
+
+#left > a {
+    background-color: var(--dark-blue);
+    padding: 2% 5%;
+    transition: var(--transition-time);
+    box-shadow: var(--drop-shadow-width) var(--darker-blue);
+    border: 0.3rem solid var(--darkest-blue);
+    border-right: 0;
+}
+
+#left > a > img {
+    width:auto;
+    height: 100%;
+}
+
+#library {
+    height:15%;
+    width:95%;
+    top: 0%;
+    right:0;
+}
+#library:hover{width:105%;}
+
+#gallery {
+    height: 15%;
+    width:75%;
+    top: calc(23% + 0.6rem);
+    right:0;
+}
+#gallery:hover{width:85%;}
+
+#rating {
+    z-index: 1;
+    position: absolute;
+    width: 25%;
+    bottom: 14%;
+    right: 4%;
+    transition: var(--transition-time);
+}
+#rating:hover{transform: scale(120%);}
+
+.tape {
+    position: relative;
+    z-index: 2;
+    --y-offset: -15%;
+    --rotate: -0.08rad;
+    --skew: -0.3rad;
+    transform:translateY(var(--y-offset)) rotate(var(--rotate)) skew(var(--skew)) scale(120%);
+    background-color: var(--darker-blue);
+    background-image: url(/webgardens/v1/img/scribble.png);
+    padding: 0.5rem 0;
+}
+
+.tape > div {
+    background-image: url(/webgardens/v1/img/tape.png);
+    background-size: auto 200%;
+    height:10vw;
+    max-height:1.5rem;
+    animation:scroll 50s infinite linear;
+}
+
+@keyframes scroll {
+    0%{ background-position: 0; }
+    100%{ background-position: 100%; }
+}
+</style>
+
+<div id="container" class="plant">
+    <div id="splash">
+        <header>
+            <div id="logo">
+                <a href="https://stupied.net/" target="_blank" title="Website for me to scream into the void to">
+                    <img src="/webgardens/v1/img/logo.png" alt="" draggable="false" width="903" height="445">
+                </a>
+            </div>
+        </header>
+    
+        <div id="right">
+            <a id="blog" href="https://stupied.net/blog/index.html" target="_blank" title="screaming into the abyss">
+                <img src="/webgardens/v1/img/blog.png" alt="" draggable="false" width="373" height="505">
+            </a>
+            <a  id="about" href="https://stupied.net/about.html" target="_blank" title="About the Webmaster">
+                <img src="/webgardens/v1/img/about.png" alt="" draggable="false"  width="642" height="1142">
+            </a>
+        </div>
+    
+        <div id="left">
+            <a id="library" href="https://stupied.net/comic/index.html" target="_blank" title="sequential images to tell dumb stories">
+                <img src="/webgardens/v1/img/txt-library.png" alt="" draggable="false"  width="307" height="84">
+            </a>
+    
+            <a id="gallery" href="https://stupied.net/art/index.html" target="_blank" title="artworks and animation">
+                <img src="/webgardens/v1/img/txt-gallery.png" alt="" draggable="false"  width="281" height="82">
+            </a>
+    
+            <div id="rating">
+                <a href="#warning" title="read why this website has this rating"><img src="/webgardens/v1/img/rating.png" alt="" draggable="false" width="93" height="68"></a>
+            </div>
+        </div>
+    
+        <img id="clouds" src="/webgardens/v1/img/clouds.png" alt="" draggable="false" width="1449" height="776">
+    </div>
+    
+    <div id="divider">
+        <div class="tape"><div></div></div>
+    </div>
+</div>
