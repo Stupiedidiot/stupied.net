@@ -1,0 +1,142 @@
+---
+layout: default
+include_path: _includes/head/home.html
+---
+{%- include_cached widget/sticky.html -%}
+<noscript>
+    <div style="margin: auto; max-width: 600px; padding: 1rem;">
+        <h1>Attention!</h1>
+        <p>Although most of the website is navigable without Javascript, there are some pages that utilize it heavily and may not work with it disabled. So, If possible, keep it on :'D</p>
+    </div>
+</noscript>
+<header data-nosnippet>
+    <div id="meirl">
+        <a href="/about/" class="tooltip" title="About the Webmaster">
+            <span>About the Webmaster (that's me!)</span>
+            <div class="outline-hover">
+                <img class="cursor" src="/meta/img/cursor.png" alt=""/>
+                <img class="doll" src="/meta/img/meirl.png" alt=""/>
+            </div>
+        </a>
+    </div>
+    <div id="all">
+        <div id="topbar">
+            {%- if site.url contains 'nekoweb.org'-%}
+            <span><span>stupied</span>.nekoweb.org</span>
+            {%- else -%}
+            <span><span>stupied</span>.net</span>
+            {%- endif -%}
+        </div>
+        <div id="scene">
+            <a href="/meta/warning?/" id="warning" class="tooltip">
+                <img src="/meta/img/warning.png" class="outline-hover" alt=""/>
+                <span>Website's content warnings</span>
+            </a>
+            
+            <a href="/art/" id="art" class="tooltip">
+                <img src="/meta/img/art.png" class="outline-hover" alt=""/>
+                <span>Artwork and animations</span>
+            </a>
+            <a href="/lib/" id="comic" class="tooltip">
+                <img src="/meta/img/comic.png" class="outline-hover" alt=""/>
+                <span>Sequential images to tell stories</span>
+            </a>
+
+            <img id="pole" src="/meta/img/pole.png" alt="">
+
+            <a href="https://wiki.stupied.net/" id="ocs" class="tooltip">
+                <img src="/meta/img/psyche.png" class="outline-hover" alt="">
+                <span>Read about my OCs!</span>
+            </a>
+        </div>
+    </div>
+    <div id="blog">
+        <a href="/blog/" class="tooltip" title="Screaming into the abyss">
+            <img src="/meta/img/blog.png" class="outline-hover" alt="">
+            <span>Screaming into the abyss</span>
+        </a>
+    </div>
+</header>
+
+<nav data-nosnippet>
+    <a href="/about/" title="About the Webmaster">meirl</a>
+    <a href="/art/" title="Artwork and animations">art</a>
+    <a href="/blog/" title="Screaming into the abyss">blog</a>
+    <a href="/lib/" title="Sequential images to tell stories">comics</a>
+    <a href="/chez/">chez</a>
+    <a href="/code/">codez</a>
+</nav>
+
+<main>
+    <article>
+        <section id="intro">
+            <h1 class="meow">
+                <span>H</span><span>e</span><span>n</span><span>l</span><span>o</span> <span>T</span><span>h</span><span>e</span><span>r</span><span>e</span><span>!</span><span>!</span>
+            </h1>
+            <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
+
+            {%- if site.url contains 'nekoweb.org'-%}
+            <p>You are currently on the Nekoweb Mirror! My main is hosted on <a href="https://stupied.net/">Neocities</a>. Everything should mostly be the same though.</p>
+            {%- endif-%}
+
+            {%- if site.url == 'http://localhost:4000'-%}
+            <a href="/meta/tester" style="display: block; margin-bottom: 1rem;">JUMP TO TESTER</a>
+            {%- endif-%}
+            
+            <div id="other">
+                <h2>Other Stuff</h2>
+                <ul class="db-list">
+                    <li><a href="https://literalwiki.neocities.org/">LiteralWiki</a></li>
+                    <li><a href="/guestbook">Guestbook</a></li>
+                    <li><a href="/meta/">Changelog</a></li>
+                </ul>
+                <a id="outlinks" href="/outlinks/">Outlinks »</a>
+            </div>
+        </section>
+        <section id="temp">
+            <div id="webrings">
+                {%- unless site.url == 'http://localhost:4000'-%}
+                <div>
+                    {%- include webrings.html home="true" -%}
+                    <a href="/outlinks/webrings">View More »</a>
+                </div>
+                {%- endunless-%}
+                <a href="https://www.grrrl.valentinely.cc/" target="_blank" style="display:block;margin-bottom:0.5rem;" id="grrrl"><img src="/about/img/grrrl-v2.png" alt="Made By Girl Button"></a>
+            </div>
+        </section>
+    </article>
+
+    <!-- RSS FEED START -->
+    <section id="feed">
+        {% assign FEED = site.data.rss | filterFuture %}
+        {% assign FEED_FIRST = FEED[0] %}
+        <div id="feed-content">
+            {%- assign thumb = FEED_FIRST.thumb.first | default: FEED_FIRST.thumb -%}
+            <a id="feed-first" href="{{ FEED_FIRST.link }}" style="--thumb:url({{ thumb }});">
+                <div class="outline" style="--c: black;">
+                    <h4>{{ FEED_FIRST.date | date: "%d %b %Y" }}</h4>
+                    <span>{{ FEED_FIRST.title }}</span>
+                </div>
+            </a>
+            
+            <section id="feed-timeline">
+                <h2>Recent Updates</h2>
+                <ul>
+                    {% for e in FEED offset:1 limit:4 %}
+                    <li class="feed-item">
+                        <h4>{{ e.date | date: "%d %b %Y" }}</h4>
+                        <a href="{{ e.link }}" class="feed-title">{{ e.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                <a class="feed-more" href="./meta/rss/#feed">View More »</a>
+            </section>
+        </div>
+    </section>
+    <!-- RSS FEED END -->
+</main>
+
+<footer class="default-footer" data-nosnippet>
+{%- include_cached footer-old.html -%}
+<img src="./meta/button.png" alt="" style="margin-top: 1rem;border: 2px solid var(--dk-blue);">
+</footer>

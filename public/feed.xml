@@ -1,0 +1,31 @@
+---
+layout: rss
+---
+{% assign FEED = site.data.rss | filterFuture %}
+{%- for item in FEED limit: 15 -%}
+<item>
+  <title>{{ item.title | escape }}</title>
+  <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+
+  {% if item.link contains 'https://' %}
+      <link>{{ item.link }}</link>
+  {% else %}
+      <link>{{ item.link | prepend: site.url }}</link>
+  {% endif %}
+  
+  <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+
+  <description>
+    {%- capture description -%}
+      {%- assign thumb = item.thumb -%}
+      {%- for img in thumb -%}
+          <img src="{{ img | prepend: site.url }}" alt="" />
+      {%- endfor -%}
+      {%- if item.desc -%}{{ item.desc | markdownify }}{%- endif -%}
+      <a href="{{ item.link }}">Click to View »</a>
+    {%- endcapture -%}
+    {{ description | escape }}
+  </description>
+
+</item>
+{%- endfor -%}

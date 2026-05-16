@@ -1,0 +1,12 @@
+---
+layout: none
+---
+sitemap: https://stupied.net/sitemap.xml
+
+{% for e in site.data.meta.crawlers -%}
+User-agent: {{ e }}
+{% endfor -%}
+Allow: /
+
+User-agent: *
+Disallow: /
