@@ -1,0 +1,28 @@
+# - year: 2026
+#   team: ??
+#   pts: 0
+#   atk: 0
+#   ffr: 0
+#   def: 0
+
+- year: 2025
+  team: Fossils
+  pts: 965.75
+  atk: 4
+  ffr: 3
+  def: 17
+
+- year: 2024
+  team: Seafoam
+  pts: 1142
+  atk: 9
+  ffr: 6
+  def: 12
+
+
+- year: 2023
+  team: Werewolves
+  pts: 1045.25
+  atk: 9
+  ffr: 2
+  def: 10

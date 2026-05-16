@@ -1,0 +1,615 @@
+- volume: muse
+  title: muse ariadne
+  desc: My entries for a writing club that posts new prompts weekly!! Not a comic, just too lazy to put it somewhere else.
+  files:
+  - issue: "2024-02-05"
+    date: 2024-10-19
+    title: Writing is Hard
+    desc: <b>Prompt:</b> Write about what ways writing plays a role in your life-- why do you like it? is it hard? what's your relationship with it? be as abstract or direct as you'd like.
+    pages:
+      - txt: "2024-02-05.html"
+  
+  - issue: "2024-02-26"
+    date: 2024-10-29
+    title: Blue Bird
+    thumb: blue-bird.png
+    desc: >-
+      <b>Prompt:</b> Write about echoes, sound, and reverberation. what is an echo– just sound or something more? how can it reverberate through past, present, and future? can emotion be an echo in that way? what else can be?
+
+
+      ----
+
+
+      Yes i know this suck. sorry to any poets reading this dumpster fire
+    pages:
+      - txt: "2024-02-26.html"
+
+  - issue: "2024-05-20"
+    date: 2024-10-20
+    title: The Odd Siblings
+    thumb: odd-siblings.png
+    desc: <b>Prompt:</b> Write about brief encounters, fleeting moments, first impressions. what do these leave behind for us?
+    pages:
+      - txt: "2024-05-20.html"
+
+  - issue: "2024-08-26"
+    date: 2024-12-16
+    title: Laundry Day
+    desc: <b>Prompt:</b> Consider someone in your life that you have strong emotions for and think of some sensorial experiences (images) that you associate with them, then write from that!
+    pages:
+      - txt: "2024-08-26.html"
+
+  - issue: "2024-10-28"
+    date: 2025-05-27
+    title: 50th Anniversary
+    desc: >-
+      <b>Prompt:</b> write about the sky— any aspect of it. color, feeling, temperature, shape (?), etc. write about a sky that inspires you or that exhausts you, or anything else you’d like
+      
+      <hr>
+      
+      Apologies for not posting anything for months. I had a lot of unfinished drafts and little to no free time,,
+    pages:
+      - txt: "2024-10-28.html"
+
+  - issue: "2024-10-07"
+    date: 2025-04-17
+    title: Selective Seclusion
+    thumb: birthday.png
+    desc: >-
+      <b>Prompt:</b> retell a story/moment/memory from your own life in a way you don't usually look at it
+
+      <hr>
+      
+      This is a rewrite of the every first entry I made. It was rushed out and overall poor in quality.
+
+      <br><br>
+      [View Original Entry »](#comic_after_1)<br>
+
+      <span>From October 13, 2024</span>
+    pages:
+      - txt: "2024-10-07.html"
+    after:
+      - txt: "e/2024-10-07.html"
+        hide: true
+
+  - issue: "2024-12-09"
+    date: 2025-05-27
+    title: Electrodynamics
+    desc: <b>Prompt:</b> write about someone you look up to or aspire to be like-- a role model of any kind. how do you relate to them? what about them resonates with you? is there anything you don't like about them?
+    pages:
+      - txt: "2024-12-09.html"
+
+  - issue: "2024-12-16"
+    date: 2025-09-07
+    title: Food Noise
+    desc: Sorry, a lot of my entries lately are lazy first person autobiographical stuff. I have a bunch of OC related ones that I'm trying to get my perfectionist ass to get done!!!
+    pages:
+      - txt: "2024-12-16.html"
+
+  - issue: "2025-01-27"
+    date: 2025-06-15
+    title: You Suck Ass at Apologies
+    desc: <b>Prompt:</b> Think about something that's physically overwhelming to you (in a good, bad, or neutral way) and write about it! this could be anything-- rollercoasters, concerts, sex, being sick, taking showers, going to the mall, or just being in a windy place
+    pages:
+      - txt: "2025-01-27.html"
+    after:
+      - img: "note-0.jpg,note-1.jpg"
+        hide: true
+      - txt: "e/2025-01-27-0.html"
+        hide: true
+      - txt: "e/2025-01-27-1.html"
+        hide: true
+      - txt: "e/2025-01-27-2.html"
+        hide: true
+      - txt: "e/2025-01-27-3.html"
+        hide: true
+      
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: psych
+  title: Psych!
+  desc: Being a psychic sucks actually.
+
+- volume: pmd
+  title: 'PMD: Spirits of the Lake'
+  desc: OC comics loosely based on the Pokemon Dungeon Games
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: 'eighty-four'
+  title: '84'
+  desc: Ashley Dobrik attempts to commit suicide but is prevented by getting stuck
+    in a time loop.
+  files:
+  - issue: notes
+    title: Note Taking
+    date: 2024-09-13
+    desc:
+    pages:
+      - img: notes taking.png
+        alt:
+
+  # - issue: uniform
+  #   date: 2024-09-13
+  #   desc:
+  #   pages:
+  #     - img: uniform.png
+  #       alt:
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: askal
+  title: askal
+  desc: Autobiographical comics :3
+  files:
+  - issue: intro
+    date: 2025-06-04
+    desc: "Woaw! another comic about how quirky and #relatable the artist is?? how original!! A little queer even :]" 
+    pages:
+      - img: intro.png
+        alt: Content Warnings of the comic ASKAL. It contains Sad boi hours, bad handwriting, TURBO (2013).
+
+  - issue: patronizing
+    date: 2025-06-05
+    pages:
+      - img: patronizing-0.png
+        alt:
+      - img: patronizing-1.png
+        alt:
+  
+  - issue: fit-in
+    date: 2025-06-23
+    desc: I had to cut out a lot of the text so I'm not really sure if this feels cohesive to anyone else haha
+    pages:
+      - img: fit-in-0.png
+        alt: 
+      - img: fit-in-1.png
+        alt:
+      - img: fit-in-2.png
+        alt:
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: adrift
+  title: Adrift
+  desc: It's clearance signing and Adrina has an essay to finish.
+  files:
+  - issue: index
+    date: 2023-06-17
+    desc:
+    before:
+      - img: banner.jpg
+        alt: Comic banner with a top down view of Adrinna passing by rainy bridge
+    pages:
+      - img: 01.jpg
+        alt:
+      - img: 02.jpg
+        alt:
+      - img: 03.jpg
+        alt:
+      - img: 04.jpg
+        alt:
+      - img: 05.jpg
+        alt:
+      - img: 06.jpg
+        alt:
+      - img: 07.jpg
+        alt:
+      - img: 08.jpg
+        alt:
+      - img: 09.jpg
+        alt:
+      - img: 10.jpg
+        alt:
+      - img: 11.jpg
+        alt:
+      - img: 12.jpg
+        alt:
+      - img: 13.jpg
+        alt:
+    after:
+      - img: 14.jpg
+        alt:
+    temp: >-
+      <script>
+        document.querySelector("main").classList = "adrift"
+      </script>
+
+      <style>
+          .adrift {
+              background-image: url("./img/tile-raindrops.gif");
+              background-repeat: repeat-x;
+              background-color: black !important;
+              background-attachment: fixed;
+          }
+      </style>
+        
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: puyo
+  title: Maguro's Thing
+  desc: Idk some dumb Puyo comic I made,,
+  files:
+  - issue: index
+    date: 2024-06-15
+    desc:
+    pages:
+      - img: maguro-0.jpg
+        alt:
+      - img: maguro-1.jpg
+        alt:
+      - img: maguro-2.jpg
+        alt:
+      - img: maguro-3.jpg
+        alt:
+
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: hat
+  title: LiteralHat
+  desc: Random LiteralHat related Comics
+  files:
+  - issue: Pigtails
+    date: 2024-05-29
+    title: Clipper
+    desc: Cringy self insert oc because i can hell yeah!!! Annoyingly there's a typo i was too lazy to fix.
+    pages:
+      - img: 0A00-00.png
+        alt:
+      - img: 0A00-01.png
+        alt:
+      - img: 0A00-02.png
+        alt:
+      - img: 0A00-03.png
+        alt:
+
+  - issue: lost
+    date: 2023-08-18
+    title: Lost
+    thumb: 0A01-00.png
+    desc: This was made for one of the hatober prompts. I remember drawing this after an exam,,
+    pages:
+      - img: 0A01-00.png
+        alt:
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: penny
+  title: Penny's Perfect Present
+  desc: She wants to get her mom a gift for an upcoming event.
+  files:
+  - issue: index
+    date: 2022-06-27
+    pages:
+      - img: 00.jpg
+        alt:
+      - img: 01.jpg
+        alt:
+      - img: 02.jpg
+        alt:
+      - img: 03.jpg
+        alt:
+      - img: 04.jpg
+        alt:
+      - img: 05.jpg
+        alt:
+      - img: 06.jpg
+        alt:
+      - img: 07.jpg
+        alt:
+      - img: 08.jpg
+        alt:
+      - img: 09.jpg
+        alt:
+      - img: 10.jpg
+        alt:
+      - img: 11.jpg
+        alt:
+      - img: 12.jpg
+        alt:
+      - img: 13.jpg
+        alt:
+      - img: 14.jpg
+        alt:
+      - img: 15.jpg
+        alt:
+      - img: 16.jpg
+        alt:
+      - img: 17.jpg
+        alt:
+    after:
+      - img: 18.jpg
+        alt:
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: howto
+  title: How To Not
+  desc: A guide on how to do stuff by telling you how not to
+  files:
+  - issue: "0A00"
+    date: 2020-08-13
+    title: Make a Webcomic
+    pages:
+      - img: 0A00-00.png
+        alt:
+      - img: 0A00-01.png
+        alt:
+      - img: 0A00-02.png
+        alt:
+      - img: 0A00-03.png
+        alt:
+      - img: 0A00-04.png
+        alt:
+      - img: 0A00-05.png
+        alt:
+      - img: 0A00-06.png
+        alt:
+      - img: 0A00-07.png
+        alt:
+
+  - issue: "0A01"
+    date: 2020-08-20
+    title: Befriend the Internet
+    desc:
+    pages:
+      - img: 0A01-00.png
+        alt:
+      - img: 0A01-01.png
+        alt:
+      - img: 0A01-02.png
+        alt:
+      - img: 0A01-03.png
+        alt:
+      - img: 0A01-04.png
+        alt:
+      - img: 0A01-05.png
+        alt:
+  
+  - issue: "0A02"
+    date: 2020-08-27
+    title: Be Original
+    desc:
+    pages:
+      - img: 0A02-00.png
+        alt:
+      - img: 0A02-01.png
+        alt:
+      - img: 0A02-02.png
+        alt:
+      - img: 0A02-03.png
+        alt:
+
+  - issue: "0A03"
+    date: 2020-09-04
+    title: Procastinate
+    desc:
+    pages:
+      - img: 0A03-00.png
+        alt:
+      - img: 0A03-01.png
+        alt:
+      - img: 0A03-02.png
+        alt:
+      - img: 0A03-03.png
+        alt:
+      - img: 0A03-04.png
+        alt:
+      - img: 0A03-05.png
+        alt:
+  
+  - issue: "0A04"
+    date: 2020-10-10
+    title: Do Projects
+    desc:
+    pages:
+      - img: 0A04-00.png
+        alt:
+      - img: 0A04-01.png
+        alt:
+      - img: 0A04-02.png
+        alt:
+      - img: 0A04-03.png
+        alt:
+      - img: 0A04-04.png
+        alt:
+      - img: 0A04-05.png
+        alt:
+      - img: 0A04-06.png
+        alt:
+
+  - issue: "0A05"
+    date: 2020-09-24
+    title: Feel Motivated
+    desc:
+    pages:
+      - img: 0A05-00.png
+        alt:
+      - img: 0A05-01.png
+        alt:
+      - img: 0A05-02.png
+        alt:
+      - img: 0A05-03.png
+        alt:
+      - img: 0A05-04.png
+        alt:
+  
+  - issue: "0A06"
+    date: 2020-09-24
+    title: Walk Your Pet Fish
+    desc:
+    pages:
+      - img: 0A06-00.png
+        alt:
+      - img: 0A06-01.png
+        alt:
+      - img: 0A06-02.png
+        alt:
+      - img: 0A06-03.png
+        alt:
+      - img: 0A06-04.png
+        alt:
+      - img: 0A06-05.png
+        alt:
+  
+  - issue: "0A07"
+    date: 2020-10-27
+    title: Study
+    desc:
+    pages:
+      - img: 0A07-00.png
+        alt:
+      - img: 0A07-01.png
+        alt:
+      - img: 0A07-02.png
+        alt:
+      - img: 0A07-03.png
+        alt:
+      - img: 0A07-04.png
+        alt:
+      - img: 0A07-05.png
+        alt:
+      - img: 0A07-06.png
+        alt:
+      - img: 0A07-07.png
+        alt:
+        
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: misc/comic
+  title: Miscellaneous Comics
+  desc: Dumping random comics n stuff that aren't for anything specific
+  files:
+  - issue: 2019-Yes
+    date: 2019-01-01
+    title: "Yes"
+    desc: Made during a very simple time in my life, sigh...
+    pages:
+      - img: 2019-yes.png
+        alt:
+
+  - issue: 2019-Bye
+    date: 2019-01-01
+    title: Bye
+    pages:
+      - img: 2019-bye.png
+        alt:
+  
+  - issue: 2019-One-Stroke
+    date: 2019-01-01
+    title: One Stroke
+    pages:
+      - img: 2019-one-stroke.png
+        alt:
+  
+  - issue: 2019-Pokemon
+    date: 2019-01-01
+    title: Pokemon Logic
+    desc: Fun fact, for years i replayed through all gen 3 games because they were the only ones i knew how to pirate
+    pages:
+      - img: 2019-pokemon.png
+        alt:
+  
+  - issue: 2020-Comic-Idea
+    date: 2020-01-01
+    title: A Cool Comic Idea
+    desc: Soaporsalad and the consequences of my lettering style (i will never forgive you)
+    pages:
+      - img: 2020-comic-idea.png
+        alt:
+  
+  - issue: "2022-04-08"
+    date: 2025-04-08
+    title: Birthday
+    pages:
+      - img: 2022-birthday.png
+        alt:
+  
+  - issue: "2023-08-31"
+    date: 2023-08-31
+    title: Excuse
+    pages:
+      - img: 2023-excuses.png
+        alt:
+  
+  - issue: "2023-09-05"
+    date: 2023-09-05
+    title: Never Satisfied
+    pages:
+      - img: 2023-never-satisfied.png
+        alt:
+  
+  - issue: "2024-08-21"
+    date: 2024-08-21
+    title: Tummy Ache
+    pages:
+      - img: 2024-tummy-ache.png
+        alt:
+  
+  - issue: "2025-04-19"
+    date: 2025-04-19
+    title: Easy Way Out
+    pages:
+      - img: 2025-easy-way-out.png
+        alt:
+  
+  - issue: "2025-05-02"
+    date: 2025-05-02
+    title: Deep Frying
+    pages:
+      - img: 2025-piskan.png
+        alt:
+  
+  - issue: "2025-08-16"
+    date: 2025-08-16
+    title: Introverted
+    desc: (1) crave human interaction (2) remember i'm an introvert (3) repeat
+    pages:
+      - img: 2025-introvert.png
+        alt:
+  
+  - issue: "2025-09-03"
+    date: 2025-09-03
+    title: Komputer
+    desc: komputer - my only friend, my greatest enemy..
+    pages:
+      - img: 2025-komputer.png
+        alt:
+  
+  - issue: "2025-12-11"
+    date: 2025-12-11
+    title: Consuming Media
+    desc: These comics are brought to you by, me forgetting to set my scanners dpi higher.
+    pages:
+      - img: 2025-shit-music.jpg
+        alt:
+      - img: 2025-he-wouldnt.jpg
+        alt:
+
+  - issue: "That-Thing"
+    date: 2026-03-26
+    pages:
+      - img: 2026-That-Thing.jpg
+        alt:
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
+- volume: misc
+  title: Short Stories
+  desc: It is what it says on the tin!
+  files:
+  - issue: Nothing
+    date: 2026-03-24
+    pages:
+      - txt: Nothing
+
+  # - issue: What-Good
+  #   date: 2026-03-25
+  #   pages:
+  #     - txt: What-Good
+
+  # - issue: Repulsion
+  #   date: 2026-03-25
+  #   pages:
+  #     - txt: Repulsion

@@ -1,0 +1,17 @@
+- title: 'home'
+  link: '/'
+
+- title: 'about'
+  link: '/about/'
+
+- title: 'map'
+  link: '/map'
+
+- title: 'rss'
+  link: '/meta/rss/'
+
+- title: 'faq'
+  link: '/about/faq'
+
+- title: 'contact'
+  link: '/about/contact'

@@ -1,0 +1,130 @@
+- volume: muse
+  title: muse ariadne
+  desc: My entries for a writing club that posts new prompts weekly!! Not a comic, just too lazy to put it somewhere else.
+  issues:
+  - file: 2024-02-05.html
+    alt: Writing is Hard
+  - file: 2024-02-26.html
+    alt: Blue Bird
+    img: blue-bird.png
+  - file: 2024-05-20.html
+    alt: The Odd Siblings
+    img: odd-siblings.png
+  - file: 2024-08-26.html
+    alt: Laundry Day
+  - file: 2024-10-28.html
+    alt: 50th Anniversary
+  - file: 2024-10-07.html
+    alt: Selective Seclusion
+    img: birthday.png
+  - file: 2024-12-09.html
+    alt: Electrodynamics
+  - file: 2024-12-16.html
+    alt: Food Noise
+  - file: 2025-01-27.html
+    alt: You Suck Ass at Apologies
+
+- volume: psych
+  title: Psych!
+  desc: Being a psychic sucks actually.
+
+- volume: pmd
+  title: 'PMD: Spirits of the Lake'
+  desc: OC comics loosely based on the Pokemon Dungeon Games
+
+- volume: '84'
+  title: '84'
+  class: eighty-four
+  desc: Ashley Dobrik attempts to commit suicide but is prevented by getting stuck
+    in a time loop.
+  issues:
+  - file: notes.html
+    alt: Note Taking
+  - file: uniform.html
+
+- volume: askal
+  title: askal
+  desc: Autobiographical comics :3
+  issues:
+  - file: intro.html
+  - file: patronizing.html
+  - file: fit-in.html
+
+- volume: adrift
+  title: Adrift
+  desc: It's clearance signing and Adrina has an essay to finish.
+  issues: []
+
+- volume: puyo
+  title: Maguro's Thing
+  desc: Idk some dumb Puyo comic I made,,
+  issues: []
+
+- volume: hat
+  title: LiteralHat
+  desc: Random LiteralHat related Comics
+  issues:
+  - file: index.html
+    alt: Clipper
+  - file: lost.html
+    alt: Lost
+    img: 0A01-00.png
+
+- volume: penny
+  title: Penny's Perfect Present
+  desc: She wants to get her mom a gift for an upcoming event.
+  issues: []
+
+- volume: misc
+  title: Miscellaneous Stuff
+  desc: Dumping random comics n stuff that aren't for anything specific
+  issues:
+  - file: 2019-Yes.html
+    alt: Yes
+  - file: 2019-Bye.html
+    alt: Bye
+  - file: 2019-One-Stroke.html
+    alt: One Stroke
+  - file: 2019-Pokemon.html
+    alt: Pokemon Logic
+  - file: 2020-Comic-Idea.html
+    alt: A Cool Comic Idea
+  - file: 2022-04-08.html
+    alt: Birthday
+  - file: 2023-08-31.html
+    alt: Excuse
+  - file: 2023-09-05.html
+    alt: Never Satisfied
+  - file: 2024-08-21.html
+    alt: Tummy Ache
+  - file: 2025-04-19.html
+    alt: Easy Way Out
+  - file: 2025-05-02.html
+    alt: Deep Frying
+  - file: 2025-08-16.html
+    alt: Introverted
+  - file: 2025-09-03.html
+    alt: Komputer
+  - file: 2025-12-11.html
+    alt: Consuming Media
+
+- volume: howto
+  title: How To Not
+  desc: A guide on how to do stuff by telling you how not to
+  issues:
+  - file: 0A00.html
+    alt: Make a Webcomic
+  - file: 0A01.html
+    alt: Befriend the Internet
+  - file: 0A02.html
+    alt: Be Original
+  - file: 0A03.html
+    alt: Procastinate
+  - file: 0A04.html
+    alt: Do Projects
+  - file: 0A05.html
+    alt: Feel Motivated
+  - file: 0A06.html
+    alt: Walk Your Pet Fish
+  - file: 0A07.html
+    alt: Study

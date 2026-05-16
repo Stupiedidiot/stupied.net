@@ -1,0 +1,31 @@
+- title: Main Feed
+  link: /feed.xml
+  desc: Notable updates I manually add in myself
+
+- title: Nekoweb Feed
+  link: /meta/feed-nekoweb.xml
+  desc: For my <a href="stupied.nekoweb.org">Nekoweb Mirror</a>
+
+- title: Art Feed
+  link: /art/feed.xml
+  desc: For all of my uploaded art 
+
+- title: Blog Feed
+  link: /blog/feed.xml
+  desc: For all my blog posts
+
+- title: Microblog Feed
+  link: /blog/micro/feed.xml
+  desc: For my mini ramblings
+
+- title: Library Feed
+  link: /lib/rss
+  desc: For all comics hosted on this website
+
+- title: Albums Feed
+  link: /meta/rss/albums
+  desc: For new images uploaded to my albums!
+
+- title: Reviews Feed
+  link: /chez/reviews/feed.xml
+  desc: For recently uploaded movie reviews

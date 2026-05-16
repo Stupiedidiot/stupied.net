@@ -1,0 +1,175 @@
+const_first:
+
+const_last:
+  # - title: Back to Top
+  #   icon: icon-arrow-thick-up
+  #   link: "#"
+
+default:
+  - title: Home 
+    icon: home
+    link: /
+  
+  - title: About
+    icon: mood-happy-outline
+    link: /about/
+  
+  - title: Art
+    icon: camera
+    link: /art/
+  
+  - title: Blog
+    icon: compose
+    link: /blog/
+  
+  - title: Library
+    icon: book-reference
+    link: /lib/
+
+  - title: Chez
+    icon: music-notes
+    link: /chez/
+
+  - title: Code
+    icon: printer
+    link: /code/
+
+  - title: Outer
+    icon: globe
+    link: /outlinks/
+
+  - title: Head Back »
+    icon: star-full
+    func: history.back()  
+
+about:
+  - title: Me!!!
+    icon: mood-happy-outline
+    link: /about/
+  
+  - title: Website
+    icon: network
+    link: /about/website
+  
+  - title: Artwork
+    icon: camera
+    link: /about/art
+
+  - title: OCS
+    icon: film
+    link: /about/ocs
+
+  - title: FAQ
+    icon: news-paper
+    link: /about/faq
+
+  - title: Contact
+    icon: envelope
+    link: /about/contact
+
+  - title: Head Back »
+    icon: star-full
+    link: /  
+
+art:
+  - title: Home
+    icon: home
+    link: /art/
+
+  - title: About 
+    icon: mood-happy-outline
+    link: /about/#from-art
+
+  - title: Archive 
+    icon: inbox-full
+    link: /art/archive
+  
+  - title: Random
+    icon: shuffle
+    func: randomArt()
+
+  - title: Usage
+    icon: news-paper
+    link: /about/art#usage
+  
+  - title: Head Back »
+    icon: star-full
+    link: /
+
+blog:
+  - title: Home
+    icon: home
+    link: /blog/
+  
+  - title: About 
+    icon: mood-happy-outline
+    link: /about/#from-blog
+
+  - title: Archive 
+    icon: inbox-full
+    link: /blog/archive
+
+  - title: Micro
+    icon: chat-bubble-dots
+    link: /blog/micro/
+
+  - title: Random
+    icon: shuffle
+    func: randomPost()
+  
+  # - title: Head Back »
+  #   link: /
+
+album:
+  - title: Home
+    icon: home
+    link: ./
+  
+  - title: About 
+    icon: mood-happy-outline
+    link: /about/#from-chez/album
+
+  - title: Archive 
+    icon: inbox-full
+    link: ./archive
+
+  - title: Random
+    icon: shuffle
+    func: randomImg()
+
+  - title: Others 
+    icon: photo
+    link: /chez/album/
+  
+  - title: Head Back »
+    icon: star-full
+    link: /
+
+footer:
+  - title: RSS 
+    icon: rss-solid
+    link: /meta/rss/
+  
+  - title: FAQ
+    icon: question
+    link: /about/faq
+
+  - title: Map
+    icon: map
+    link: /map/
+  
+  - title: Ko-fi
+    icon: coffee
+    link: https://ko-fi.com/stupied 
+  
+  # - title: Github
+  #   icon: github
+  #   link: https://github.com/Stupiedidiot
+  
+  - title: Guestbook
+    icon: envelope
+    link: /guestbook
+
+  - title: Settings
+    icon: cog
+    link: /meta/settings
