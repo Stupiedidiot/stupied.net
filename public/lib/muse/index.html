@@ -1,0 +1,46 @@
+---
+layout: default
+title: muse ariadne
+include_path: _index.html
+---
+<div class="main-container note">
+    <div id="title">
+        <h2>muse ariadne</h2>
+    </div>
+    <div id="list">
+        <p style="margin-top:5px;">My entries for a writing club that posts new prompts weekly!! I'm trying to be
+            looser with my writing. I want to keep on practicing till it becomes secondhand nature,,</p>
+        <h3>Featured Entries</h3>
+        <div id="recentList"></div>
+
+        <div style="float:right;margin-top:10px;"><a href="https://museariadne.neocities.org/" target="_blank"><img
+                    style="width:100px;" src="./img/button.png"></a></div>
+        <div style="margin-top:1rem; margin-bottom:0;text-align: center;">
+            <a href="/">head back »</a>
+        </div>
+    </div>
+
+    <div id="image">
+        <img src="./img/flower.png">
+    </div>
+</div>
+
+<div id="archive">
+    <h2 style="color:var(--pink);">Archive</h2>
+    <div id="comicList"></div>
+</div>
+
+<script src="/lib/main.js"></script>
+<script>
+    recentList = [
+        "2024-10-07",
+        "2024-08-26",
+        "2024-05-20"
+    ]
+
+    let target = document.getElementById('recentList');
+    for (let i = 0; i < recentList.length; i++) {
+        let index = findIndex(curr.obj, recentList[i]);
+        target.append(writeIssue(curr.obj.issues[index], index));
+    }
+</script>

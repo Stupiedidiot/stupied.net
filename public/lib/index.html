@@ -1,0 +1,35 @@
+---
+layout: page
+title: Library
+include_path: _index.html
+---
+<article class="padded">
+    <h1>{{ page.title }}</h1>
+    <noscript>
+        <h2>Attention!</h2>
+        <p>Due to some historical reasons (aka past me using javascript for everything), the comic sections are pretty much inaccessible with javascript disabled. Sorry for the inconvenience! Pinky promise to update it in the future...</p>
+    </noscript>
+
+    <p>It is a medium I hold quite dearly in my heart. Hopefully one day I can create something that can actually do it justice. Until then have this assortment of comics I've made through out the years.</p>
+
+    <p>Okayy really not happy with my current library code. Until then, newer comics will be posted in the <a href="/art/archive?comic">Art Gallery</a>.</p>
+
+    <section id="comicContainer">
+        <div id="comicArchive">
+            {%- for e in site.data.lib.list -%}
+                <div class="item-container">
+                    <div class="{{ e.volume }}">
+                        <div class="item-thumb"><img src="./{{ e.volume }}/img/main.png"></div>
+                        <div class="item-side">
+                            <div>
+                            <div class="item-title"><h2>{{ e.title }}</h2></div>
+                            <div class="item-desc">{{ e.desc }}</div>
+                            <div class="item-link"><a href="./{{ e.volume }}/">Click to Read</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </section>
+</article>

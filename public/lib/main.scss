@@ -1,0 +1,461 @@
+---
+---
+
+@import url(/meta/css/global.css);
+@import url(/meta/css/comment-widget.css);
+
+:root {
+    --dark-brown: #1d1515;
+    --brown: #615651;
+    --blue: #5177a9;
+    --yellow: #deab31;
+    --wheat: #e9eae2;
+    --display-font: grandstander;
+    --body-font: Arial, Helvetica, sans-serif;
+    --bg-color: black;
+    --txt-color: white;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.default {
+    --dark-brown: #312422;
+    --brown: #3d2d28;
+    background: conic-gradient(var(--brown) 90deg, var(--dark-brown) 90deg 180deg, var(--brown) 180deg 270deg, var(--dark-brown) 270deg);
+    background-repeat: repeat;
+    background-size: 100px 100px;
+}
+
+::selection {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.hidden:not(:target) {
+    display: none;
+}
+
+.main#container {
+    max-width: 700px;
+    margin: 3rem auto;
+}
+
+.comicListItem {
+    display: flex;
+    padding: 1rem;
+    position: relative;
+
+    &:hover {
+        background-color: rgb(239, 239, 239);
+    }
+
+    span {
+        position: relative;
+        display: block;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    img[src="#"] {
+        display: none;
+    }
+
+    img {
+        max-width: 3rem;
+        aspect-ratio: 1/1;
+        margin-right: 1rem;
+        object-fit: cover;
+    }
+}
+
+.comicListTitle {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.comicListIndex {
+    position: relative;
+    min-width: 30px;
+}
+
+#comicViewer {
+    background-color: var(--bg-color);
+
+    #container {
+        max-width: 1800px;
+        min-height: 100vh;
+        margin: auto;
+    }
+
+    #top header { grid-area: header; }
+    #top #nextprev { grid-area: nextprev; }
+    #top #extra { grid-area: extra; }
+
+    #top {
+        color: var(--txt-color);
+        max-width: 800px;
+        margin: auto;
+        padding: 1rem;
+        user-select: none;
+        display: grid;
+        grid-template-areas:
+            "header nextprev extra";
+        grid-template-columns: repeat(3, 1fr);
+
+        header {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        header a {
+            color: var(--color-accent);
+            font-family: var(--display-font);
+            font-weight: 600;
+
+            &::after { content: " / "; }
+        }
+
+        #nextprev {
+            text-align: center;
+
+            a {
+                background-color: white;
+                border-radius: 2px;
+                color: black;
+                padding: 3px;
+            }
+
+            a[href*="#"] {
+                display: none;
+            }
+
+            #top-list {
+                background-color: var(--bg-color);
+                color: var(--txt-color);
+                border-radius: 2px;
+                padding: 0.3rem;
+                max-width: 3.4rem;
+            }
+        }
+
+        #extra {
+            text-align: right;
+        }
+    }
+
+    main {
+        display: grid;
+        padding: 0.5rem 0.2rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .main-content {
+        background-color: white;
+        max-width: 700px;
+        margin: auto;
+        border: 3px solid black;
+        width: 100%;
+
+        > div {
+            padding: 1rem;
+        }
+    }
+
+    #next {
+        margin-bottom: 1rem;
+        border: 2px solid black;
+        overflow: hidden;
+
+        &:empty {
+            display: none;
+        }
+
+        >div {
+            margin: auto;
+            background-color: white;
+            padding: 1rem;
+        }
+
+        a>div {
+            margin: auto;
+            border-radius: 5px;
+            display: flex;
+            user-select: none;
+            min-height: 100px;
+        }
+
+        .comicListThumbnail:has(img[src="#"]) {
+            display: none;
+        }
+
+        img {
+            position: relative;
+            display: block;
+            width: 100px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #next-title {
+            flex: 1;
+            position: relative;
+        }
+
+        #next-title-content {
+            position: relative;
+            top: 50%;
+            padding: 1rem 0.5rem;
+            transform: translateY(-50%);
+        }
+    }
+
+    #bottom {
+        display: flex;
+        gap: 0.5rem;
+        flex-direction: row-reverse;
+
+        background-color: white;
+        margin: 1rem auto;
+        max-width: 800px;
+        padding: 1rem;
+
+        >div {
+            flex: 2;
+        }
+
+        aside {
+            flex: 1;
+        }
+    }
+
+    #info-content {
+        margin-bottom: 2rem;
+    }
+
+    #info-content>h3:first-of-type {
+        background-color: var(--color-accent);
+        padding: 0.3rem;
+        margin-bottom: 0.2rem;
+        display: inline-block;
+    }
+
+    @media only screen and (max-width: 650px) {
+        #bottom {
+            display: block;
+        }
+
+        #top {
+            grid-template-areas:
+                "header extra"
+                "nextprev nextprev";
+            grid-template-columns: 90% 10%;
+        }
+    }
+
+    footer { 
+        --txt-color-hover: white!important;
+        color: var(--txt-color);
+        margin-bottom: 1rem;
+    }
+}
+
+/** WOOF **/
+.padding { padding: 1rem !important; }
+.no-padding { padding: 0 !important; }
+
+.no-border { border: 0 !important; }
+
+.cont.no-padding>.padding:first-child {
+    padding: 1rem 1rem 0 1rem !important;
+}
+
+.cont>.cont {
+    border: 3px solid black;
+}
+
+.cont {
+    background-color: white;
+    color: black;
+    border: 4px solid black;
+    padding: 1rem;
+}
+
+.cont-half {
+    border: 4px solid black;
+}
+
+.cont-half>div {
+    padding: 1rem;
+}
+
+.cont-paper {
+    background-color: #ffffff;
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 1px, #ffffff 1px, #ffffff);
+    border: 3px solid black;
+    padding: 1rem;
+    color: black;
+}
+
+.cont-black {
+    background-color: rgb(0, 0, 0, 0.7);
+    color: white;
+    border: 3px solid black;
+    padding: 1rem;
+}
+
+.cont:not(:first-child),
+.cont-half:not(:first-child),
+.cont-black:not(:first-child),
+.cont-paper:not(:first-child) {
+    margin-top: 5px;
+}
+
+#comicList a>span:first-child {
+    font-family: grandstander;
+}
+
+.comicInfo {
+    max-width: 1100px;
+    margin: 1rem auto;
+    width: 95%;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "list side";
+    grid-template-columns: 2fr 1fr;
+    background-color: white;
+    border: 3px solid black;
+}
+
+.comicInfo header {
+    grid-area: header;
+    background-color: gray;
+}
+
+.comicInfo nav {
+    grid-area: nav;
+    background-color: dimgray;
+}
+
+.comicInfo main {
+    grid-area: list;
+}
+
+.comicInfo aside {
+    grid-area: side;
+    padding: 1rem;
+    background-color: lightgray;
+}
+
+.comicInfo header img {
+    width: 100%;
+    display: block;
+}
+
+body {
+    &.default {
+        background: black;
+        position: relative;
+    }
+
+    &.default::before {
+        content: "";
+        z-index: -1;
+        height: 80%;
+        width: 100%;
+        max-width: 1200px;
+        background: conic-gradient(var(--brown) 90deg, var(--dark-brown) 90deg 180deg, var(--brown) 180deg 270deg, var(--dark-brown) 270deg);
+        background-repeat: repeat;
+        background-size: 100px 100px;
+        position: absolute;
+        top: 10vh;
+        right: 50%;
+        transform: translateX(50%) skewY(-2deg);
+    }
+}
+
+/** Muse Adriade **/
+body.muse,
+body.hat,
+body.penny {
+    --yellow: #efe4b0;
+    --light-pink: #ffbb91;
+    --pink: #ed4d46;
+    --color-accent: var(--pink);
+    --brown: #52330c;
+    --green: #95a63a;
+}
+
+body.muse ::selection {
+    color: var(--brown);
+    background: var(--green);
+}
+
+body.muse .note {
+    background-color: var(--yellow);
+    background-size: 20px 20px;
+    background-image: repeating-linear-gradient(0deg, var(--light-pink), var(--light-pink) 2px, var(--yellow) 2px, var(--yellow));
+}
+
+/** Eighty Four **/
+body.eighty-four #info-content>h3 {
+    background-color: var(--yellow);
+}
+
+body.eighty-four header a {
+    color: var(--yellow);
+}
+
+body.eighty-four .default {
+    background-color: #ffda8e;
+    background-image: url(./eighty-four/img/bg.png);
+    background-size: 650px;
+}
+
+body.eighty-four {
+    --color-accent: #2dbfc2;
+    --bg-color: white;
+    --txt-color: black;
+}
+
+body.eighty-four main {
+    border: 3px solid var(--yellow);
+    border-right: 0;
+    border-left: 0;
+}
+
+body.adrift {
+    --color-accent: #3a9eb2;
+}
+
+body.askal {
+    --blue: #6faccc;
+    --light-blue: #edeeff;
+
+    --bg-color: white;
+    --txt-color: black;
+    --color-accent: var(--blue);
+}
+
+body#comicViewer.askal main {
+    padding: 0;
+
+    .main-content {
+        border: none;
+    }
+}
+
+body.askal .default {
+    background-color: #edeeff;
+    background-image: none;
+}

@@ -1,0 +1,194 @@
+---
+layout: none
+title: Eighty Four
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="./../main.css">
+<style>
+    :root{
+        --color-accent:#3a9eb2;
+    }
+    body{
+        background-color: #ffda8e;
+        overflow-x:hidden;
+        background-image: url(./img/bg.png);
+        background-size: 500px;
+    }
+    #container{
+        max-width:700px;
+        margin:auto;
+        padding:1rem;
+        padding-top:3rem;
+        background-position: 50%;
+        background-size: 90% 100%;
+    }
+
+    .box{
+        border:20px solid;
+        border-image: url(./img/border.png) 20 round;
+        margin-bottom: 1rem;
+        position: relative;
+
+        > div{
+            padding:1rem;
+            --color-1:rgb(230, 230, 230);
+            --color-2:white;
+            background-color: var(--color-2);
+            background-size: 20px 20px;
+            background-image:  repeating-linear-gradient(0deg, var(--color-1), var(--color-1) 1px, var(--color-2) 1px, var(--color-2));
+        }
+
+        > div:has(.ribbon){
+            padding-top:2rem;
+        }
+    }
+    .ribbon{
+        --r: .8em; /* control the ribbon shape */
+        padding-inline: calc(var(--r) + .3em);
+        padding-right:4rem;
+
+        z-index: 1;
+        position: absolute;
+        top:-2rem; left: -1.5rem;
+        
+        background-color:var(--yellow);
+        line-height: 1.8;
+        clip-path: polygon(-100vw 0,100% 0,calc(100% - var(--r)) 50%,100% 100%,-100vw 100%);
+    }
+    
+    #nav {
+        position: relative;
+        text-align: center;
+    }
+
+    nav {
+        z-index: 1;
+        bottom: -1.5rem; right: 1rem;
+        position: absolute;
+    }
+
+    nav img{
+        width:3rem;
+        margin:0 0.2rem;
+        border: 3px solid black;
+    }
+
+    nav a:nth-of-type(1) img{
+        transform: rotate(3deg);
+    }
+
+    nav a:nth-of-type(2) img{
+        transform: rotate(-5deg);
+    }
+
+    nav a:nth-of-type(3) img{
+        transform: rotate(4deg);
+    }
+
+    @media only screen and (max-width: 480px) {
+        nav{
+            bottom: -1rem;
+        }
+        nav img {
+            width:2.5rem;
+        }
+    }
+
+    @media only screen and (max-width: 450px) {
+        nav {
+            z-index: 2;
+            top:-0.5rem; right:-0.5rem;
+        }
+        .ribbon{
+            width: 90%;
+        }
+    }
+
+    @media only screen and (max-width: 350px) {
+        nav {
+            top:-0.3rem;
+        }
+        nav img{
+            width:1.5rem;
+        }
+    }
+
+    #comicList .comicListItem:hover{background-color:var(--yellow);color:white;}
+
+    footer{
+        color:black;
+    }
+
+    #borderimg {
+    border: 10px solid transparent;
+    padding: 15px;
+    border-image: url(border.png) 30 round;
+    }
+
+    .doll{width:40%;max-width:190px;padding:10px;}.float-right{float:right;}.float-left{float:left;}
+</style>
+</head>
+<body class="84">
+    <div id="container">
+        <!--
+        <div id="nav">
+            <nav>
+                <a href="#"><img src="./img/icon-home.png"></a>
+                <a href="#chapters"><img src="./img/icon-chapters.png"></a>
+                <a href="#characters"><img src="./img/icon-characters.png"></a>
+            </nav>
+        </div>
+        -->
+
+        <div class="box">
+            <div>
+                <h1 class="ribbon">Eighty Four</h1>
+                <p>Ashley Dobrik attempts to commit suicide but is prevented by getting stuck in a time loop. In order to get out she must solve a series of crimes. Her only frame of reference being her notebook, which is mysteriously unaffected by the time loop.</p>
+                <p>These comics are just small side stories I made during my free time.</p>
+                <div id="comicList"></div>
+            </div>
+        </div>
+
+        <div id="characters" class="box">
+            <div>
+                <h2 class="txt-center ribbon">Characters</h2>
+                <div style="max-width:440px;margin:auto;">
+                    <img src="./img/doll-ashley.png" class="float-left doll">
+                    <h3>Ashley Dobrik</h3>
+                    <p>A senior highschool student who's 3 years younger than her class. Ever since her mother killed herself, she has been living under the care of her aunt. Lately she's been struggling to keep up with her classmates and copes by writting in a diary.</p>
+                    <img src="./img/doll-diane.png" class="float-right doll">
+                    <h3>Diane Dobrik</h3>
+                    <p>Isn't in speaking terms with her sister, partly because she hated her but mostly because she's currently dead. She never intended to have a child but loves Ashley to death.</p>
+                    <hr class="clear">
+                    <img src="./img/doll-leslie.png" class="float-left doll">
+                    <h3>Leslie Feebee</h3>
+                    <p>A Social buttery and Ashley's... best friend? It's hard to tell sometimes. She's a bit ditzy but she means well. Always giving out questionable advice, often rooted with her obsession of Noir literature.</p>
+                    <img src="./img/doll-sunny.png" class="float-right doll">
+                    <h3>Sunny Dui</h3>
+                    <p>Intelligent but incredibly distant. Doesn't talk beyond what she thinks is necessary but still a sister figure to Ashley. She wanted to become a doctor because of her mother, not that it matters much anymore.</p>
+                    <hr class="clear">
+                    <h3>Wendy Dui</h3>
+                    <p>Vocal of her passion of the performing arts and an extreme clutz. She often wonders if she should of been more academically inclined like her twin sister, Sunny.</p>
+                    <hr class="clear">
+            </div>
+            </div>
+        </div>
+
+        <div class="box">
+            <div>
+                <p>This comic is still getting worked on but I wanted to make some character descriptions for the fun of it. Hopefully I can get it finished next year but, as per usual, please don't expect much.</p>
+            </div>
+        </div>
+        <footer style="margin-left:1rem;"><a href="./../index.html">Head Back »</a></footer>
+    </div>
+
+
+    <script src="./../main.js"></script>
+    <script>
+        writeVolume("comicList",findVolume(current.folder))
+    </script>
+</body>
+</html>

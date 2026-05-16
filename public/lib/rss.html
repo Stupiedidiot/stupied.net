@@ -1,0 +1,29 @@
+---
+layout: page
+title: Library RSS Feeds
+include_path: _index.html
+---
+<article class="padded">
+    <h1>{{ page.title }}</h1>
+    <p>Bleh, temporary placement for the rss feed of each comic. Also here's a merged <a href="./feed.xml">feed</a> for all comics hosted here.</p>
+    <section id="comicContainer">
+        <div id="comicArchive">
+            {%- for e in site.data.lib.list -%}
+                {% unless e.files.size > 0 %}
+                    {% continue %}
+                {% endunless %}
+                <div class="item-container">
+                    <div class="{{ e.volume }}">
+                        <div class="item-thumb"><img src="./{{ e.volume }}/img/main.png"></div>
+                        <div class="item-side">
+                            <div>
+                            <div class="item-title"><h2>{{ e.title }}</h2></div>
+                            <div class="item-link"><a href="./{{ e.volume }}/feed.xml">View Feed</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </section>
+</article>

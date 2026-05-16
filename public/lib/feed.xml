@@ -1,0 +1,26 @@
+---
+layout: rss
+title: Stupied's Comic Feed
+description: RSS Feed for all comics hosted on the main website
+---
+{% assign FEED = site.data.lib.list | mergeIssues | sort: 'date' | reverse | filterFuture %}
+{%- for e in FEED limit: 15 -%}
+<item>
+  <title>{{ e | getTitle: 'issue' }}</title>
+  <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+  <link>{{ site.url }}/lib/{{ e.path }}</link>
+  <guid isPermaLink="false">/lib/{{ e.path }}</guid>
+  <description>
+    {% capture desc %}
+      {%- if e.thumb -%}
+        <img src="{{ e.thumb }}" alt=""/>
+      {%- endif -%}
+      {%- for extra in e.extra -%}
+        <img src="{{ e.extra }}" alt=""/>
+      {%- endfor -%}
+      {{ e.desc | markdownify }}
+    {% endcapture %}
+    {{ desc | escape }}
+  </description>
+</item>
+{%- endfor -%}

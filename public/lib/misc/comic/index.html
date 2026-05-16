@@ -1,0 +1,49 @@
+---
+layout: default
+title: Miscellaneous Comics
+body_tag: default
+---
+<link rel="stylesheet" href="/lib/main.css">
+<style>
+    .container{
+        max-width:550px;
+        margin: 3rem auto;
+        > div{
+            background-color:white;
+            border:3px solid black;
+            box-shadow: 3px 3px black;
+            margin-bottom:1rem;
+        }
+    }
+</style>
+<div class="container">
+    <div>
+        <div style="background-color:var(--blue);padding:1rem;">
+            <h1>Miscellaneous Stuff</h1>
+            <p>A collection of random comics and short stories.</p>
+        </div>
+        <div id="comicList" class="db-list"></div>
+    </div>
+
+    <div style="padding:1rem;">
+        <h2>Comics from Other Places</h2>
+        <ul class="db-list" style="padding-left:1.5rem;">
+            <li>
+                <a href="/art/archive?comic">Art Gallery</a>
+            </li>
+            <li>
+                <a href="/blog/2023-Hotdog.html">Hotdog</a>
+            </li>
+            <li>
+                <a href="/blog/2024-Banana-Overlord.html">Banana Overlord</a>
+            </li>
+            <li>
+                <a href="/blog/2025-Hourly-Comic.html">Hourly Comic 2025</a>
+            </li>
+        </ul>
+    </div>
+
+    <a href="/lib/" style="display:block;color:white;margin:1rem; transform: translateY(1rem);">Head Back »</a>
+</div>
+
+<script src="/lib/main.js"></script>
