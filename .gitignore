@@ -17,10 +17,8 @@ fiveserver.config.js
 .trash
 _private
 .keep-the-rhythm
-.obsidian/*
-.obsidian/community-plugins.json
-
-cowtools/bulk/img/
+**/.obsidian/*
+!**/.obsidian/community-plugins.json
 
 # Syncthing
 ~syncthing*.tmp
