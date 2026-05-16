@@ -1,0 +1,26 @@
+# Plugins
+plugins:
+  - jekyll-minifier
+
+page_gen:
+  # LIBRARY START
+  - data: 'site.data.lib.list'
+    template: 'library-feed'
+    name_expr: "'feed'"
+    extension: 'xml'
+    dir_expr:  "'lib/' + record['volume']"
+  # LIBRARY END
+
+lib_gen:
+  - data: site.data.lib.list
+    template: library
+    dir: lib
+
+timezone: Asia/Manila
+deploying: true
+
+jekyll_get_json:
+  - data: archived
+    json: https://archive.stupied.net/main.json
+  - data: albums
+    json: https://album.stupied.net/ext.json

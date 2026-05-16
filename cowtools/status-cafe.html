@@ -1,0 +1,343 @@
+<link rel="stylesheet" href="https://stupied.net/meta/css/global.css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap');
+
+    :root {
+        --yellow: #ffcb67;
+        --orange: #ec7239;
+        --gray: #6c6371;
+        --blue: #44a3c6;
+        --dark-blue: #142943;
+        --darker-blue: #0d0d1f;
+        --darkest-blue: #0c0716;
+        --color-accent: var(--yellow);
+        --display-font: grandstander;
+        --body-font: Arial, Helvetica, sans-serif;
+        --transition-time: 0.25s;
+        --drop-shadow-width: 0.2rem 0.2rem;
+    }
+
+    .default {
+        max-width: 100vw;
+        overflow-x: hidden;
+        background-color: var(--dark-blue);
+        background-image: url(/meta/img/scribble.png);
+        color: white;
+    }
+
+    body {
+        min-width: 300px;
+        max-width: 100vw;
+        overflow-x: hidden;
+        background-color: var(--dark-blue);
+        background-image: url(https://stupied.net/webgardens/v1/img/scribble.png);
+        color: white;
+    }
+
+    #splash header {
+        grid-area: header;
+    }
+
+    #splash #splash-right {
+        grid-area: right;
+    }
+
+    #splash #splash-left {
+        grid-area: left;
+    }
+
+    #splash {
+        display: grid;
+        grid-template-areas:
+            'right header'
+            'right left';
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+
+        user-select: none;
+        margin: auto;
+        margin-top: 2rem;
+        background-color: var(--orange);
+        width: 90%;
+        max-width: 800px;
+        aspect-ratio: 4/3;
+        background: url(https://stupied.net/webgardens/v1/img/sunburst.svg), radial-gradient(circle at 50% 50%, rgba(108, 99, 113, 1) 0%, rgba(236, 114, 57, 1) 35%, rgba(236, 114, 57, 1) 72%, rgba(108, 99, 113, 1) 100%);
+
+        background-size: 150%;
+        background-position: 100% 20%;
+        position: relative;
+    }
+
+    #splash>* {
+        position: relative;
+    }
+
+    #splash>*>a {
+        z-index: 1;
+        position: absolute;
+    }
+
+    #splash img {
+        width: 100%;
+        height: auto;
+    }
+
+    #clouds {
+        position: absolute;
+        bottom: 0;
+    }
+
+    #logo {
+        position: relative;
+        transform: scale(120%) translateY(-20%) translateX(-5%);
+        z-index: 1;
+    }
+
+    #splash-right {
+        z-index: 2;
+    }
+
+    #about {
+        bottom: -10%;
+        left: -10%;
+        width: 100%;
+        transition: var(--transition-time);
+    }
+
+    #about:hover {
+        transform: translateY(-5%) rotate(-3deg);
+        filter: drop-shadow(var(--drop-shadow-width) 0 var(--darkest-blue));
+    }
+
+    #blog {
+        width: 60%;
+        bottom: -15%;
+        left: 75%;
+        transition: var(--transition-time);
+    }
+
+    #blog:hover {
+        transform: rotate(-5deg) translateY(-15%);
+        filter: drop-shadow(var(--drop-shadow-width) 0 var(--darkest-blue));
+    }
+
+    #splash-left>a {
+        background-color: var(--dark-blue);
+        padding: 2% 5%;
+        transition: var(--transition-time);
+        box-shadow: var(--drop-shadow-width) var(--darker-blue);
+        border: 0.3rem solid var(--darkest-blue);
+        border-right: 0;
+    }
+
+    #splash-left>a>img {
+        width: auto;
+        height: 100%;
+    }
+
+    #gallery {
+        height: 13%;
+        width: 90%;
+        top: -5%;
+        right: 0;
+    }
+
+    #gallery:hover {
+        width: 100%;
+    }
+
+    #library {
+        height: 13%;
+        width: 70%;
+        top: calc(20% + 0.6rem);
+        right: 0;
+    }
+
+    #library:hover {
+        width: 80%;
+    }
+
+    #rating {
+        z-index: 1;
+        position: absolute;
+        width: 15%;
+        bottom: 18%;
+        right: 3%;
+        transition: var(--transition-time);
+    }
+
+    @media only screen and (max-width: 500px) {
+        :root {
+            --drop-shadow-width: 0.3rem 0.3rem;
+        }
+    }
+
+    .tape {
+        position: relative;
+        z-index: 2;
+        --y-offset: -22%;
+        --rotate: -0.08rad;
+        --skew: -0.3rad;
+        transform: translateY(var(--y-offset)) rotate(var(--rotate)) skew(var(--skew)) scale(120%);
+        background-color: var(--darker-blue);
+        background-image: url(https://stupied.net/webgardens/v1/img/scribble.png);
+        padding: 1rem 0;
+    }
+
+    .tape>div {
+        background-image: url(https://stupied.net/webgardens/v1/img/tape.png);
+        background-size: auto 200%;
+        height: 10vw;
+        max-height: 4rem;
+        animation: scroll-right 60s infinite linear;
+    }
+
+    @keyframes scroll-right {
+        0% {
+            background-position: 0;
+        }
+
+        100% {
+            background-position: 100%;
+        }
+    }
+
+    nav {
+        z-index: 5;
+        position: relative;
+        text-align: center;
+        margin-bottom: 1rem;
+        margin: 1rem auto;
+        color: var(--gray);
+
+        --color: var(--darker-blue);
+        --width: 2px;
+        filter: drop-shadow(var(--width)0 0 var(--color))drop-shadow(calc(-1*var(--width))0 0 var(--color))drop-shadow(0 var(--width)0 var(--color))drop-shadow(0 calc(-1*var(--width)) 0 var(--color))
+    }
+
+    nav a {
+        color: var(--gray);
+    }
+
+    nav a:not(:last-child):after {
+        content: "|";
+        display: inline-block;
+        margin: 0 0.5rem;
+        font-weight: 400;
+        color: var(--gray) !important;
+    }
+
+    nav a:hover {
+        color: white;
+    }
+
+    nav a:last-of-type:hover {
+        color: var(--yellow);
+    }
+
+    .cols {
+        display: block;
+    }
+
+    .cols section:first-of-type {
+
+        &>*:not(dl),
+        &>dl>*:not(dd.about) {
+            display: none;
+        }
+    }
+
+    .cols section:last-of-type {
+        z-index: 5;
+        position: relative;
+        max-width: 900px;
+        padding: 1rem;
+        margin: auto;
+        margin-bottom: 2rem;
+    }
+
+    @media only screen and (min-width: 500px) {
+        .cols section:last-of-type {
+            columns: 2;
+        }
+    }
+
+    @media only screen and (min-width: 850px) {
+        .cols section:last-of-type {
+            columns: 3;
+        }
+    }
+
+    .status {
+        break-inside: avoid;
+        margin-bottom: 2rem;
+    }
+
+    h2 {
+        color: var(--yellow);
+    }
+
+    .about {
+        padding: 0;
+        margin: 0;
+        margin-top: 2.5rem;
+    }
+
+    .status-username {
+        color: var(--gray);
+    }
+
+    .status-username a {
+        color: var(--orange);
+    }
+</style>
+
+<div id="splash">
+    <header>
+        <div id="logo">
+            <a href="https://stupied.net/" title="head to the main website">
+                <img src="https://stupied.net/webgardens/v1/img/logo.png" alt="" draggable="false" width="903"
+                    height="445">
+            </a>
+        </div>
+    </header>
+
+    <div id="splash-right">
+        <a id="blog" href="https://stupied.net/blog/index.html" title="screaming into the abyss">
+            <img src="https://stupied.net/webgardens/v1/img/blog.png" alt="" draggable="false" width="373"
+                height="505">
+        </a>
+        <a id="about" href="https://stupied.net/about.html" title="About the Webmaster">
+            <img src="https://stupied.net/webgardens/v1/img/about.png" alt="" draggable="false" width="642"
+                height="1142">
+        </a>
+    </div>
+
+    <div id="splash-left">
+        <a id="gallery" href="https://stupied.net/art/index.html" title="artworks and animation">
+            <img src="https://stupied.net/webgardens/v1/img/txt-gallery.png" alt="" draggable="false"
+                width="281" height="82">
+        </a>
+
+        <a id="library" href="https://stupied.net/comic/index.html"
+            title="sequential images to tell dumb stories">
+            <img src="https://stupied.net/webgardens/v1/img/txt-library.png" alt="" draggable="false"
+                width="307" height="84">
+        </a>
+
+        <div id="rating">
+            <a href="#" title="read why this website has this rating"><img
+                    src="https://stupied.net/webgardens/v1/img/rating.png" alt="" draggable="false" width="93"
+                    height="68"></a>
+        </div>
+    </div>
+
+    <img id="clouds" src="https://stupied.net/webgardens/v1/img/clouds.png" alt="" draggable="false"
+        width="1449" height="776">
+</div>
+
+<div id="divider">
+    <div class="tape">
+        <div></div>
+    </div>
+</div>
