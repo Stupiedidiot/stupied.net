@@ -1,0 +1,50 @@
+---
+layout: page
+title: Codez n Layouts!!!
+description: A page to share code I've made
+include_path: _head.html
+---
+<article id="first" class="padded">
+    <h1>Codez!!</h1>
+    <p>I am very fond of DIY-ing stuff in javascript.</p>
+    <section>
+        <h2>Utility n Snippets</h2>
+        <ul class="arrow-hover">
+            {%- for item in site.data.code.list -%}
+            <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+            {%- endfor -%}
+        </ul>
+    </section>
+    <p>
+        Feel free to use codes. Credit is optional.<br>
+        <span style="color: gray;">In fact, you should claim you made it!!</span>
+    </p>
+</article>
+
+<article id="layouts" class="padded divided">
+    <h2>Templates</h2>
+    <p>I'm incredibly impulsive and redesign everything!! It feels bad to discard all my code sooo feel free to
+        steal them!</p>
+    <div class="db-list">
+        {%- assign LAYOUTS_RAW = site.templates | where_exp: "item", "item.path contains 'index.html'" -%}
+        
+        {%- assign LAYOUTS = "" | split: "" -%}
+        {%- for item in LAYOUTS_RAW -%}
+            {% unless item.path contains '_todo/' %}
+                {%- assign LAYOUTS = LAYOUTS | push: item -%}
+            {% endunless %}
+        {%- endfor -%}
+        {%- assign LAYOUTS = LAYOUTS | sort: "published" | reverse -%}
+
+        {%- for item in LAYOUTS -%}
+        {%- assign folder = item.path | split: "/" | pop | last -%}
+        <a href="./{{ folder }}/">
+            <img src="./{{ folder }}/thumbnail.jpg" alt="">
+            <div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+            </div>
+        </a>
+        {%- endfor -%}
+    </div>
+</article>

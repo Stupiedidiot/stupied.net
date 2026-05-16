@@ -1,0 +1,53 @@
+<style>
+    #container {
+        max-width: 1000px!important;
+    }
+
+    @media only screen and (min-width: 850px) {
+        main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 1rem;
+        }
+
+        #layouts {
+            border-top: none;
+        }
+    }
+
+    section {
+        margin-bottom: 1.5rem;
+    }
+
+    h1 {
+        color: var(--color-accent);
+    }
+
+    #layouts .db-list { margin-bottom: 1rem; }
+
+    #layouts .db-list a {
+        display: block;
+        background-color: white;
+        border: 2px solid black;
+        break-inside: avoid;
+        margin-bottom: 1rem;
+
+        img {
+            width: 100%;
+        }
+
+        div {
+            padding: 1rem;
+            padding-top: 0.5rem;
+        }
+
+        &:not([href="#"]):hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 1rem var(--color-accent);
+
+            h3 {
+                color: var(--color-accent);
+            }
+        }
+    }
+</style>
