@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{%- include_cached widget/sticky.html -%}
+<div id="container" class="default">
+    <header class="default" data-nosnippet><a href="/"></a></header>
+    <nav id="container_nav" class="default-nav default right" data-nosnippet>
+        {%- assign folder = page.url | split: '/' -%}
+        {%- include_cached nav.html data = site.data.nav.const_first -%}
+
+        {%- if page.url contains '/about/' -%}
+            {%- include_cached nav.html data = site.data.nav.about -%}
+        {%- else -%}
+            {%- include_cached nav.html data = site.data.nav.default -%}
+        {%- endif -%}
+        {%- include_cached nav.html data = site.data.nav.const_last -%}
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer id="container_footer" class="default-nav default" data-nosnippet>
+        {%- include_cached footer.html -%}
+    </footer>
+</div>

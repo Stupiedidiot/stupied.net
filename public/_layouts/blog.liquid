@@ -1,0 +1,45 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <link rel="stylesheet" href="/blog/meta/main.css">
+    <script type="text/javascript" src="/blog/meta/main.js" defer></script>
+    {%- include head.html -%}
+
+    {%- if  page.previous.url -%}
+      <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
+    {%- endif -%}
+    {%- if  page.next.url -%}
+        <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
+    {%- endif -%}
+    <meta data-pagefind-filter="category:blog">
+</head>
+
+<body>
+    {%- include_cached widget/sticky.html -%}
+    <header></header>
+    <div id="container">
+        <aside data-nosnippet>
+            <div>
+                <a href="/blog/index"><img src="/meta/pfp-transparent.png" alt=""/></a>
+                <div>
+                    <nav>
+                        {%- include_cached nav.html data = site.data.nav.blog -%}
+                    </nav>
+                    <a href="/index.html">✮ head back »</a>
+                </div>
+            </div>
+        </aside>
+        <main>
+            {{ content }}
+            <footer class="default-nav" data-nosnippet>
+                {%- include_cached footer.html -%}
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

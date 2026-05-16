@@ -1,0 +1,23 @@
+---
+layout: rss
+---
+{% if page.files %}
+    {% assign FEED = page.files | sort: 'date' | reverse | filterFuture %}
+    {%- for e in FEED limit: 15 -%}
+    <item>
+    <title>{{ e.title }}</title>
+    <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+    <link>{{ site.url }}/{{ page.volume}}/{{ e.issue }}</link>
+    <guid isPermaLink="false">/{{ page.volume}}/{{ e.issue }}</guid>
+    <description>
+        {% capture desc %}
+        {%- for n in e.pages -%}
+            {% include lib/content.liquid item=n %}
+        {%- endfor -%}
+        {{ e.desc | markdownify }}
+        {% endcapture %}
+        {{ desc | escape }}
+    </description>
+    </item>
+{%- endfor -%}
+{% endif %}

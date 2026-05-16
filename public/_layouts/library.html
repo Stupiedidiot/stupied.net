@@ -1,0 +1,133 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        {%- include head.html -%}
+        <script src="/lib/main.js" defer></script>
+        <link rel="stylesheet" href="/lib/main.css">
+        {% include head/comments.html %}
+
+        {%- if  page.prev -%}
+            <link rel="prev" href="{{ page.prev.issue | prepend: '/' | prepend: site.url }}" />
+        {%- endif -%}
+        {%- if page.next -%}
+            <link rel="next" href="{{ page.next.issue | prepend: '/' | prepend: site.url }}" />
+        {%- endif -%}
+        <meta data-pagefind-filter="category:library">
+    </head>
+
+    <body id="comicViewer" {% include class.liquid %}>
+    {%- include_cached widget/sticky.html -%}
+        <div id="container" class="comicViewer">
+            <div id="top">
+                <header data-nosnippet>
+                    {% if page.prev or page.next %}
+                        <a href="./">{{ page.volume_title }}</a>
+                        <span>{{ page.title }}</span>
+                    {% else %}
+                        <a href="./">{{ site.title }}</a>
+                        <span>{{ page.volume_title }}</span>
+                    {% endif %}
+                </header>
+                <div id="nextprev">
+                    {% if page.prev %}
+                        <a href="{{ page.prev.issue }}" id="prev-button">«</a>
+                    {% endif %}
+
+                    {% if page.prev or page.next %}
+                        <select id="top-list" onchange="changeIssue()"></select>
+                    {% endif %}
+                    
+                    {% if page.next %}
+                        <a href="{{ page.next.issue }}" id="next-button">»</a>
+                    {% endif %}
+                </div>
+                <div id="extra">
+                    <a href="/lib/">✮</a>
+                </div>
+            </div>
+
+            <main class="default">
+                {%- for e in page.before -%}
+                    {% if e.hide %}
+                        {% assign hidden = ' hidden' %}
+                    {% else %}
+                        {% assign hidden = '' %}
+                    {% endif %}
+                    <div id="comic_before_{{ forloop.index }}" class="main-content{{ hidden }}">
+                        {% include lib/content.liquid item=e %}
+                    </div>
+                {%- endfor -%}
+
+                <div class="main-content">
+                    {%- for e in page.pages -%}
+                        {% include lib/content.liquid item=e %}
+                    {%- endfor -%}
+                </div>
+
+                {%- for e in page.after -%}
+                    {% if e.hide %}
+                        {% assign hidden = ' hidden' %}
+                    {% else %}
+                        {% assign hidden = '' %}
+                    {% endif %}
+                    <div id="comic_after_{{ forloop.index }}" class="main-content{{ hidden }}">
+                        {% include lib/content.liquid item=e %}
+                    </div>
+                {%- endfor -%}
+            </main>
+
+            <div id="bottom">
+                <aside>
+                    <nav id="next">
+                        {% if page.next %}
+                        <a href="{{ page.next.issue }}">
+                            <div>
+                                {% if page.next.thumb %}
+                                    <div class="comicListThumbnail"><img src="./img/{{ page.next.thumb }}"></div>
+                                {%- elsif page.next.pages[0].img -%}
+                                    <div class="comicListThumbnail"><img src="./img/{{ page.next.pages[0].img }}"></div>
+                                {% endif %}
+                                <div id="next-title">
+                                    <div id="next-title-content">
+                                        <h4>Next Part</h4>
+                                        <span>{{ page.next | getTitle: 'issue' }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <div>
+                                <div id="next-title">
+                                    <div id="next-title-content">
+                                        <h4>You're All Caught Up!</h4>
+                                        <span>There's nothing else to show!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endif %}
+                    </nav>
+                    <div id="info">
+                        <div id="info-content">
+                            <h3>{{ page.date | date: "%B %-d, %Y" }}</h3>
+                            <div>
+                                {{ page.desc | markdownify }}
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <div>
+                    {% include comment-widget.html %}
+                </div>
+            </div>
+            <footer class="default-nav center" data-nosnippet>
+                {%- include_cached footer.html -%}
+            </footer>
+        </div>
+        {{ page.temp }}
+    </body>
+</html>

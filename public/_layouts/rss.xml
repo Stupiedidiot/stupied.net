@@ -1,0 +1,14 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="{{ page.link | default: site.url }}{{ page.url | default: 'feed.xml' }}" rel="self" type="application/rss+xml"/>
+    <title>{{ page.title | default: "Stupied RSS Feed!!" }}</title>
+    <link>{{ page.link | default: site.url }}</link>
+    <description>{{ page.description | default: "Updates of in Stupied's website" }}</description>
+    <ttl>60</ttl>
+    {{- content -}}
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+---
+layout: none
+---
+{%- if page.path contains '.html' -%}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    {% include head.html nocss=true %}
+    <link rel="stylesheet" type="text/css" href="./main.css">
+    <link rel="stylesheet" href="./../main.css">
+    {%- unless page.no_js -%}<script src="./main.js" defer></script>{%- endunless -%}
+    <script src="/meta/js/highlight.js" defer></script>
+</head>
+
+<body>
+    {%- assign default = page.path | split: "/" | last -%}
+    {%- assign default = page.path | replace: default, "" | split: "/" | last -%}
+    {% assign selected = page.selected | default: default  %}
+    {% include_relative _main.html %}
+</body>
+
+</html>
+{%- else -%}
+    {% assign test = content | slice: 0, 3 %}
+    {% if test == '---' %}
+        {{ content | split: '---' | last }}
+        {% else %}
+        {{ content }}
+    {% endif %}
+{%- endif -%}

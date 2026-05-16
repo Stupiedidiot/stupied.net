@@ -1,0 +1,57 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    {% include head.html %}
+    <link rel="stylesheet" href="/art/main.css">
+    <script src="/art/main.js" defer></script>
+    <meta data-pagefind-filter="category:art">
+</head>
+
+<body>
+    {%- include_cached widget/sticky.html -%}
+    <div id="container">
+        <nav id="navMain" class="default-nav right" data-nosnippet>
+            {%- include_cached nav.html data = site.data.nav.art -%}
+        </nav>
+        {% if page.include %}
+            {% assign selected = page.include %}
+            {% include_relative _includes/{{selected}}.html %}
+        {% elsif page.path contains "_art/" %}
+            {% include art/viewer.liquid %}
+            {% assign view = true %}
+        {% endif %}
+        <div id="content">
+            <main>
+                {% if content contains 'justified-gallery' %}
+                    {{ content | justifyImages: 'snail/_img/art/' }}
+                {% else %}
+                    {{ content}}
+                {% endif %}
+            </main>
+            {% assign aside = page.name | prepend: '_includes/aside/' %}
+            {% assign aside_check = aside | prepend: 'art/' | check_file %}
+            {% if aside_check or view %}
+            <aside>
+                <div id="aside-content">
+                    {% if view %}
+                        {% include art/aside.liquid %}
+                    {% else %}
+                        {% include_relative {{ aside }} %} 
+                    {% endif %}
+                </div>
+            </aside>
+            {% endif %}
+        </div>
+        <footer data-nosnippet>
+            <nav class="default-nav">
+                {%- include_cached footer.html -%}
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

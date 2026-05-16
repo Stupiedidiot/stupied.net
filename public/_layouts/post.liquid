@@ -1,0 +1,41 @@
+---
+layout: blog
+---
+<script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
+<article>
+
+  <header id="p_header" class="main-content" data-nosnippet>
+    {%- if page.before -%}
+      {{ page.before | raw }}
+    {%- endif-%}
+	
+	{%- if page.header -%}
+    <div id="header-img" style="--img:url({{ page.header }});"></div>
+    <div class="outline has-header" style="--color: var(--bg-color);"/>{% include blog/title.html %}</div>
+    {% include blog/date.html %}
+	{%- else -%}
+	  {%- unless page.notitle -%}
+      {% include blog/title.html %}
+    {%- endunless-%}
+    {%- unless page.nodate -%}
+      {% include blog/date.html %}
+    {%- endunless-%}
+	{%- endif -%}
+  </header>
+
+  <div id="p_content" class="main-content">
+    {{ content }}
+
+    <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
+  </div>
+
+  <div id="p_nav" class="main-content">
+    {%- include blog/nextprev.html -%}
+  </div>
+
+  <div id="blog_comments" class="padded">
+    {% include giscus.html category="Blog" %}
+  </div>
+  
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

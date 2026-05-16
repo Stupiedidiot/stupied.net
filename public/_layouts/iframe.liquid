@@ -1,0 +1,58 @@
+---
+layout: default
+---
+<style>
+#iframe_warning {
+    display: none;
+    position: fixed;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(3px);
+    border: 3px solid black;
+    max-width: 400px;
+    width: 90%;
+
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    button { padding: 0.5rem; margin-right: 0.5rem;}
+}
+</style>
+<div id="iframe_warning" class="outline">
+    <h1>Hey You!</h1>
+    <p>You are currently viewing content that should be attached to a webpage as an Iframe. As a result things might look a bit funky.</p>
+    <p>It's best you head back!</p>
+    <p></p>
+    <button onclick="redirectOutIframe()">Oh, Okay..</button>
+    <button onclick="closeIframeWarning()">Whatever!!</button>
+    {% if page.redirect %}
+        <span data-link="{{ page.redirect }}"></span>
+        {% else %}
+        <span data-link="/"></span>
+    {% endif %}
+</div>
+
+{{ content }}
+
+<script type="" defer>
+    var iframeWarning = document.getElementById("iframe_warning");
+    var iframeLink = iframeWarning.querySelector('span').dataset.link
+
+    if ( screenJesus == true ) {
+        location.replace(iframeLink);
+    }
+
+    if (window.self === window.top) {
+        iframeWarning.style.display = "block";
+    }
+
+    function redirectOutIframe () {
+        window.location.href = iframeLink;
+    }
+
+    function closeIframeWarning () {
+        iframeWarning.style.display = "none";
+    }
+</script>

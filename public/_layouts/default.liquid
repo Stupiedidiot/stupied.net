@@ -1,0 +1,23 @@
+---
+layout: none
+---
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  {%- assign folder = page.url | split: '/' -%}
+  
+  {%- include head.html -%}
+
+  {%- case folder[1] -%}
+      {%- when 'blog' -%}
+      <link rel="stylesheet" href="/blog/meta/main.css">
+      <script src="/blog/meta/main.js" defer></script>
+  {%- endcase -%}
+</head>
+
+<body {% include class.liquid %}>
+  {{ content }}
+</body>
+
+</html>

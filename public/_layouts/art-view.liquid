@@ -1,0 +1,18 @@
+---
+layout: art
+---
+<article id="art_details" class="main-content">
+  <div id="art_details_content">
+    <h1 id="art_title">{{ page.title }} <time class="outline">({{ page.date | date: '%Y' }})</time></h1>
+    {% assign test = content | strip %}
+    {% if test != '' %}
+        <div id="art_desc">
+            {{ content }}
+        </div>
+    {% endif %}
+</div>
+</article>
+
+<article class="main-content">
+  {% include giscus.html category="Art" %}
+</article>

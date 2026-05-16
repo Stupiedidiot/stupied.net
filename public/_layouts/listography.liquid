@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<header id="info">
+    <div>
+        <h2>Listography</h2>
+        <p>This page is inspired by <a href="https://listography.com/">listography.com</a>, where you make list of whatever. These lists are mostly about stuff I like and things I want to keep pinned. It is constantly updating whenever :3</p>
+    </div>
+</header>
+<div id="container">
+    <main id="lists">
+        <div>
+            <h2>Table of Contents</h2>
+            <ul id="table"></ul>
+            <a href="/">Head Back »</a>
+        </div>
+        {{ content }}
+        <div>
+            <h2>Okay that's all!</h2>
+            <ul>
+                <li><a href="#table">Back to Top</a></li>
+                <li><a href="/">Head Back</a></li>
+            </ul>
+        </div>
+    </main>
+</div>
+<footer class="default-footer" data-nosnippet>
+    {%- include footer-old.html -%}
+</footer>
+
+<script>
+const LISTS = document.querySelectorAll("#lists > div:has(h2)")
+var final = ""
+
+for (var i=0; i < LISTS.length;i++){
+    if (LISTS[i].id){
+        let id = "jump_to_" + LISTS[i].id;
+        LISTS[i].id = id;
+        let title = LISTS[i].querySelector("h2").textContent;
+        let result = `
+            <li>
+                <a href="#${id}"> ${title} </a>
+            </li>
+        `
+        final = final + result
+    }
+}
+document.getElementById("table").innerHTML = final
+</script>
