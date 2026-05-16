@@ -1,0 +1,182 @@
+---
+layout: page
+title: Map
+description: A linear outline of the content in this website
+include_path: _/index.html
+---
+<article class="padded">
+    {% include search.html %}
+    <img id="img" src="/meta/img/loss.png" alt="">
+    <div id="broken-link">
+        <h1>Henlo There!</h1>
+        <p class="broken-text">It appears the link you are attempting to access does not work.</p>
+        <p>This is a general outline of everything I have. If you are feeling lost, kindly consult it!</p>
+    </div>
+    
+    <div id="list">
+        <a href="/">Home</a>
+    
+        <div id="about">
+            <a href="/about/">About</a>
+            <ul>
+                <li><a href="/about/website">Website</a></li>
+                <li><a href="/about/art">My Art</a></li>
+                <li><a href="/about/listography">Listography</a></li>
+                <li><a href="/about/contact">Contact</a></li>
+                <li><a href="/about/faq">FAQ</a></li>
+            </ul>
+        </div>
+    
+        <div id="map">
+            <a href="#">Map <span class="note">(You're Here!)</span></a>
+        </div>
+    
+        <div id="gallery">
+            <a href="/art/">Art Gallery</a>
+            <ul>
+                <li><a href="/art/~">Most Recent</a></li>
+                <li><a href="/art/archive">Archive</a></li>
+                <li><a href="/art/archive-nojs">No JS</a></li>
+            </ul>
+        </div>
+    
+        <div id="library">
+            <a href="/lib/">Library</a>
+            <ul>
+                {%- for comic in site.data.comic -%}
+                <li><a href="/lib/{{ comic.volume }}/">{{ comic.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    
+        <div id="blog">
+            <a href="/blog/">Blog</a>
+            <ul>
+                <li><a href="/blog/archive">Archive</a></li>
+                <li><a href="/blog/micro/">Mirco</a></li>
+            </ul>
+        </div>
+    
+        <div id="chez">
+            <a href="/chez/">Chez <span class="note">(To Do)</span></a>
+    
+            {%- for category in site.data.chez.list -%}
+                <a href="/chez/">{{ category.label }}</a>
+                {%- assign selected = category | downcase -%}
+                <ul>
+                {%- for item in category.items -%}
+                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {%- endfor -%}
+                </ul>
+            {%- endfor -%}
+
+            <a href="https://album.stupied.net/">Albums</a>
+            <ul>
+                {%- for e in site.data.albums -%}
+                    <li><a href="https://album.stupied.net/{{ e.link }}">{{ e.title }}</a></li>    
+                {%- endfor -%}
+            </ul>
+        </div>
+    
+        <div id="drawin">
+            <a href="https://drawin-club.neocities.org/">Drawin</a>
+            <ul>
+                <li><a href="https://drawin-club.neocities.org/rules">Rules</a></li>
+                <li><a href="https://drawin-club.neocities.org/prompts/">Prompts</a></li>
+                <li><a href="https://drawin-club.neocities.org/entries/">Entries</a></li>
+                <li><a href="https://drawin-club.neocities.org/members/">Members</a></li>
+                <li><a href="https://drawin-club.neocities.org/members/join">Join</a></li>
+                <li><a href="https://drawin-club.neocities.org/meta/help">Help</a></li>
+            </ul>
+        </div>
+    
+        <div id="code">
+            <a href="/code/">Code</a>
+            <ul>
+                {%- for item in site.data.code.list -%}
+                <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+    
+            <a href="/code/">Templates</a>
+            <ul>
+            {%- assign LAYOUTS_RAW = site.templates | where_exp: "item", "item.path contains 'index.html'" -%}
+    
+            {%- assign LAYOUTS = "" | split: "" -%}
+            {%- for item in LAYOUTS_RAW -%}
+                {% unless item.path contains '_todo/' %}
+                    {%- assign LAYOUTS = LAYOUTS | push: item -%}
+                {% endunless %}
+            {%- endfor -%}
+            {%- assign LAYOUTS = LAYOUTS | sort: "published" | reverse -%}
+    
+            {%- for item in LAYOUTS -%}
+            {%- assign folder = item.path | split: "/" | pop | last -%}
+                <li><a href="/code/{{ folder }}">{{ item.title }}</a></li>
+            {%- endfor -%}
+            </ul>
+        </div>
+    
+        <div id="ocs">
+            <a href="https://stupied-ocs.neocities.org/">My OCs</a>
+            <ul>
+                <li><a href="https://stupied-ocs.neocities.org/psych/">Psych</a></li>
+                <li><a href="https://stupied-ocs.neocities.org/eighty-four/">Eighty Four</a></li>
+                <li><a href="https://stupied-ocs.neocities.org/pepup/">Pepup</a></li>
+                <li><a href="https://stupied-ocs.neocities.org/dissent/">Dissent</a></li>
+                <li><a href="https://stupied-ocs.neocities.org/misc/">Misc</a></li>
+            </ul>
+        </div>
+    
+        <div id="dawgtown">
+            <a href="https://dawgtown.neocities.org/">Dawgtown <span class="note">(To Do)</span></a>
+            <ul>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    
+        <div id="commissions">
+            <a href="https://stupied-portfolio.neocities.org/">Shop</a>
+            <ul>
+                <li><a href="https://stupied-portfolio.neocities.org/c/">Commission</a></li>
+                <li><a href="https://stupied-portfolio.neocities.org/a/">Adoptables</a></li>
+                <li><a href="https://stupied-portfolio.neocities.org/contact">Contact</a></li>
+            </ul>
+        </div>
+    
+        <div id="changelog">
+            <a href="/meta/">Changelog</a>
+            <ul>
+                <li><a href="https://github.com/Stupiedidiot/">Github</a></li>
+            </ul>
+    
+            <a href="/meta/#timeline">Archived</a>
+            <ul>
+                {%- for item in site.data.archived -%}
+                {%- assign date = item.url | split: 'neocities.org/' | last | split: '/' | first -%}
+                <li><a href="{{ item.url }}" target="_blank">{{ date | prepend: '20' }}</a></li>
+                {%- endfor -%}
+            </ul>
+    
+    
+            <a href="/meta/rss/">RSS Feeds</a>
+            <ul>
+                {%- for item in site.data.code.feeds -%}
+                <li><a href="{{ item.link }}" target="_blank">{{ item.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+        </div>
+    
+        <div id="social">
+            <a href="/guestbook">Guestbook</a>
+            <a href="/outlinks/">Outlinks</a>
+            <ul>
+                <li><a href="/outlinks/webrings">Webrings</a></li>
+                <li><a href="/outlinks/webrings#fanlisting">Fanlistings</a></li>
+            </ul>
+        </div>
+    </div>
+    <a href="https://neocities.org/site/stupied-profile" target="_blank" style="margin-top: 0.5rem;">
+        <img src="/meta/button.png">
+    </a>
+</article>
