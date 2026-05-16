@@ -1,0 +1,139 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
+:root {
+    --blue: #5177a9;
+    --color-accent: var(--blue);
+    --border: 3px solid black;
+    --border-radius: 10px;
+}
+
+body {
+    background-image: url(./img/bg.png);
+    min-width: 300px;
+}
+
+img { max-width: 100%; display: block; }
+
+#container {
+    width: 95%;
+    margin: auto;
+}
+
+#info {
+    margin-bottom: 1rem; padding: 1rem;
+    background-color: var(--color-accent);
+    border-bottom: var(--border);
+}
+#info a:not(:hover){ text-decoration: none; }
+#info a { font-weight: bolder; }
+
+#info > div { max-width: 800px; }
+
+#lists { width: fit-content; }
+#lists > div {
+    margin-bottom: 1rem;
+    background-color: white;
+    border: var(--border);
+    border-radius: var(--border-radius);
+    break-inside: avoid;
+    max-width: 600px;
+}
+
+#lists > div:target{ outline: 5px solid var(--color-accent); }
+#lists > div:target h2{ color: var(--color-accent); }
+
+#lists > div:has(h2) { padding:1rem; }
+
+@media only screen and (min-width: 600px) {
+    #lists{columns:2;}
+}
+
+@media only screen and (min-width: 1000px) {
+    #lists{columns:3;}
+}
+
+li { position: relative; }
+
+li a:after {
+    position: absolute;
+    opacity: 0;
+    transform: translateX(-100%);
+    display:inline-block;
+    margin-left: 0.5rem;
+    content: " »";
+    transition: 0.1s;
+}
+
+li a:hover:after{
+    opacity: 1;
+    transform: none;
+}
+
+button { padding: 0.5rem;}
+
+.randomizer-output {
+    display: block;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1rem;
+}
+
+.facts-finished {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.facts-finished span {
+    font-family:var(--display-font);
+    font-weight:bold;
+}
+.facts-finished img {
+    display: block;
+    max-width: 100px;
+    width: 100%; height: auto;
+}
+
+#music span {color: lightgray;}
+
+#meirl img {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+#kins { --min-height:10px; }
+
+#kins img {
+    --width: 200;
+    --height: 200; 
+}
+
+#strings li::marker { color: lightgray; }
+#buttons { margin-bottom: 1rem; }
+#buttons img { display: inline-block; }
+#fanfiction > p > strong::after { content: " » "}
+
+.questionnaire {
+    min-height: 300px;
+    max-height: 50vh;
+    overflow: auto;
+}
+.questionnaire dd {
+    margin: 0.5rem 0 1rem 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-accent);
+}
+.questionnaire dd a { font-family: var(--display-font);}
+.questionnaire dd ul { margin-left: 0; padding-left: 0; list-style-position: inside;}
+.justified-gallery {margin-bottom: var(--gap);}
+
+footer.default-footer {
+    background-color: var(--color-accent);
+    margin-bottom: 0;
+    padding: 1rem;
+    border-top: var(--border);
+}
+
+footer.default-footer a:hover{color: white!important;}
+.justified-gallery {margin-bottom: var(--space);}
+</style>

@@ -1,0 +1,138 @@
+---
+layout: listography
+title: Listography 
+include_path: _listography.html
+---
+<div id="general" style="margin-top: 1.5rem;">
+    <img src="/meta/pfp-transparent.png" alt="" style="float:right;margin-left:1rem;width:80px;display: block;transform: scale(130%) translateY(-1rem) translateX(-0.3rem);">
+    <h2>About Me</h2>
+    <p>Henlo, I'm Stupied! Here are some more facts about me</p>
+    <ul>
+        <li>Born on April 8</li>
+        <li>Snails and Puppies r awesome</li>
+        <li>I like exclamation marks!!!!</li>
+        <li>Late 2000s Games >></li>
+        <li>Brevity Enjoyer</li>
+    </ul>
+</div>
+
+<div>
+    {% include_cached lists/fact-generator.html -%}
+</div>
+
+<div id="characters">
+    <div class="justified-gallery" style="--min-height: 10px;">
+        <img src="https://psych-comic.neocities.org/meta/img/pix-psyche.png" alt="" style="--width:85;--height:85;">
+        <img src="https://psych-comic.neocities.org/meta/img/pix-evan.png" alt="" style="--width:75;--height:85;">
+        <img src="https://psych-comic.neocities.org/meta/img/pix-jay.png" alt="" style="--width:75;--height:85;">
+    </div>
+    {% include_cached lists/item.html where='characters' %}
+</div>
+
+<div id="games">
+    {% include_cached lists/item.html where='games' %}
+</div>
+
+<div id="music">
+    {% include_cached lists/item.html where='music' %}
+</div>
+
+<div id="comics">
+    {% include_cached lists/item.html where='comics' %}
+</div>
+
+<div id="movies">
+    {% include_cached lists/item.html where='movies' %}
+</div>
+
+<div id="donald">
+    {% include_cached lists/item.html where='donald' %}
+</div>  
+
+<div id="disney">
+    {% include_cached lists/item.html where='disney' %}
+</div>
+
+<div id="watchlist">
+    <h2>Disney Watchlist</h2>
+    {% include_cached lists/item.html where='watchlist' %}
+</div>
+
+<div>
+    {% include_cached lists/randomizer.html -%}
+</div>
+
+<div id="youtube">
+    {% include_cached lists/item.html where='youtube' %}
+</div>
+
+<div id="meirl">
+    {% include_cached lists/item.html where='meirl' %}
+</div>
+
+<div id="fanfiction">
+    {% include_cached lists/item.html where='fanfiction' %}
+</div>
+
+<div id="words">
+    {% include_cached lists/item.html where='words' %}
+</div>
+
+<div id="quotes">
+    {% include_cached lists/item.html where='quotes' %}
+</div>
+
+<div id="recipes">
+    {% include_cached lists/item.html where='recipes' %}
+</div> 
+
+<div id="crochet">
+    {% include_cached lists/item.html where='crochet' %}
+</div>
+
+<div id="strings">
+    {% include_cached lists/item.html where='dividers' %}
+</div>
+
+<div id="formulas">
+    {% include_cached lists/item.html where='formulas' %}
+</div>
+
+<div id="stamps">
+    {% include_cached lists/item.html where='stamps' %}
+</div>
+
+<div id="websites">
+    {% include_cached lists/item.html where='websites' %}
+    <hr>
+    <h3>Button Wall</h3>
+    <div id="buttons">{% include_cached outlinks/button-wall.html %}</div>
+
+    <hr>
+    <h3>Fan Listings</h3>
+    <div id="buttons">{% include_cached outlinks/fanlisting.html %}</div>
+</div>
+
+<div id="resources">
+    {% include_cached lists/item.html where='resources' %}
+</div>
+
+<div id="tools">
+    {% include_cached lists/item.html where='tools' %}
+</div>
+
+<div id="wishlist">
+    {% include_cached lists/item.html where='wishlist' %}
+</div>
+
+<div id="scratch">
+    {% include_cached lists/item.html where='scratch' %}
+</div>
+
+<div id="questionnaire-webmaster" class="questionnaire">
+    {% include_cached lists/item.html where='webmaster' %}
+</div>
+
+<div id="questionnaire-artist" class="questionnaire">
+    {% include_cached lists/item.html where='artist' %}
+</div>

@@ -1,0 +1,31 @@
+<style>
+{% capture css %}
+.char-info {
+  margin-bottom: 1rem;
+  .char-info-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    a {
+      display: block;
+      box-sizing: border-box;
+      flex: 30%;
+      min-width: 100px;
+      padding: 0.5rem;
+      border: 1px solid;
+    }
+    img {
+      display: block;
+      aspect-ratio: 1/1;
+      width: 100%;
+      object-fit: cover;
+      object-position: 0 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+}
+{% endcapture %}
+{{ css | scssify }}
+</style>

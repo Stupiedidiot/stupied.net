@@ -1,0 +1,51 @@
+---
+layout: page-md
+title: About Original Characters
+include_path: _/ocs.html
+
+CHAR_DATA:
+- id: psych
+  title: Psych!
+  char:
+    - Psyche Lea
+    - Evan Odd
+    - Jay Swift
+    - Mary Day
+    - August July
+    - Lily Odd
+
+- id: PMD
+  title: "PMD: Spirits of the Lake"
+  char:
+    - Cheeze
+    - Maudie
+    - Yasmayne
+
+- title: Dissent
+  char:
+    - Mopsy Cortes
+    - Pepper Desiree
+---
+<h1>{{ page.title }}</h1>
+<p>I make no exaggeration when I say I would of killed myself if it weren't for my OCs. If you ever been unfortunate enough to meet me in real life, I am very likely to be staring blanky into the distance - daydreaming. I find it difficult to experience life as it is and need to disassociate to let the little guys in my head relive my present.</p>
+
+<p>Here are some characters you ought to be familiar with:</p>
+
+{% for universe in page.CHAR_DATA %}
+  <div class="char-info">
+    <h2>{{ universe.title }}</h2>
+    {%- assign id = universe.id |  default: universe.title | downcase -%}
+    <div class="char-info-list">
+      {%- for e in universe.char -%}
+        {%- assign char = e | downcase | split: ' ' | first -%}
+        <a href="https://wiki.stupied.net/{{ id }}/char/{{ char }}">
+            <img src="https://wiki.stupied.net/{{ id }}/img/thumb/{{ char }}.jpg" alt="Thumbnail of {{ e }}">
+            <span>{{ e }}</span>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endfor -%}
+
+<h2>Further Reading</h2>
+<p>I have made an <a href="https://wiki.stupied.net/">entire website</a> for all these lil guys. You can find more information about them there.</p>

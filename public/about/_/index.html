@@ -1,0 +1,104 @@
+<style>
+{% capture css %}
+:root {
+    --dark-brown: #1d1515;
+    --brown: #615651;
+    --blue: #5177a9;
+    --color-accent: #5177a9;
+    --yellow: #deab31;
+    --wheat: #e9eae2;
+}
+
+main {
+    filter: hue-rotate(-20deg);
+}
+
+#first {
+    width: 92%;
+    max-width: 600px;
+    margin: 1rem auto;
+    box-sizing: border-box;
+}
+
+#doll {
+    float: left;
+    width: 50%;
+    height: auto;
+    transition: 0.2s;
+}
+
+#textbox {
+    width: 50%;
+    height: auto;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    transform: scale(115%);
+}
+
+#intro {
+    text-align: right;
+    hyphens: auto;
+}
+
+#list {
+    margin: 2rem auto;
+    list-style-position: inside;
+    white-space: nowrap;
+}
+
+#list h1 {color: var(--blue);}
+
+#website {
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+#grrrl {
+    display: block;
+    position: absolute;
+    top: -2.5rem;
+    right: 0;
+    transform: rotate(3deg);
+}
+
+#links img {
+    filter: invert(100%);
+    width: 30px;
+}
+
+#second {
+    background-color: blue;
+    background-image: url(./art/img/bg.png);
+}
+
+#first-divider,
+#second-divider {
+    margin: 0;
+    border: 0;
+}
+
+@media only screen and (min-width: 750px) {
+    #grrrl img {transition: 0.2s ease-in-out;}
+    #grrrl img:hover { transform: scale(300%); }
+}
+
+@media only screen and (max-width: 570px) {
+    #second-divider { clear: both; }
+    #website { margin-top: 2rem; }
+}
+
+@media only screen and (max-width: 450px) {
+    #first-divider {clear: both;}
+
+    #list {
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+}
+
+#list a:hover {
+    font-weight: bold;
+}
+{% endcapture %}
+{{ css | scssify }}
+</style>

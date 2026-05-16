@@ -1,0 +1,66 @@
+---
+layout: page
+title: Meet the Artist
+include_path: _/index.html
+---
+<div id="first">
+    <img id="doll" src="./img/doll.png" alt="Webmaster's Fursona" width="501" height="1367">
+    <img id="textbox" src="./img/henlo.png" alt="Henlo I'm Stupied" width="403" height="298">
+    <p id="intro">Just some nerdy wannabe artist constantly pacing around her room, wondering where it all went wrong.
+    </p>
+
+    <hr id="first-divider">
+
+    <div id="list">
+        <h1>About Me!</h1>
+        <ul>
+            <li>Digital Horder</li>
+            <li>7-2 Well Enjoyer</li>
+            <li>Owns a million OCs</li>
+            <li>Westaboo (Self-diagnosed)</li>
+            <li><a href="./listography.html">Learn more »</a></li>
+        </ul>
+    </div>
+
+    <hr id="second-divider">
+
+    <div id="website">
+        <a href="https://www.grrrl.valentinely.cc/" target="_blank" id="grrrl"><img src="./img/grrrl-v1.png" alt="Made By Girl Button"></a>
+        <h3>Why this Website?</h3>
+        <p>I don't like having my interests be dictated by algorithms. I want to be more deliberate about how I spend my
+            time on the internet and what to leave behind.</p>
+    </div>
+
+    <div id="links">
+        <a href="https://www.instagram.com/stupied.idiot/" target="_blank"
+            title="INSTAGRAM &#10;» my 'main' social account">
+            <img src="./img/icon-instagram.png" alt="instagram icon">
+        </a>
+        <a href="https://www.webtoons.com/en/creator/stupied" target="_blank"
+            title="WEBTOON &#10;» i repost some comics here">
+            <img src="./img/icon-webtoon.png" alt="webtoons icon">
+        </a>
+        <a href="https://www.youtube.com/@stupied_idiot" target="_blank" title="YOUTUBE &#10;» sometimes i make videos">
+            <img src="./img/icon-youtube.png" alt="youtube icon">
+        </a>
+        <a href="https://artfight.net/~Stupied" target="_blank" title="ARTFIGHT &#10;» attacks are always appreciated">
+            <img src="./img/icon-artfight.png" alt="artfight icon">
+        </a>
+        <a href="https://ch.tetr.io/u/stupied" target="_blank" title="TETR.IO &#10;» feel free to 1v1 me :D">
+            <img src="./img/icon-tetrio.png" alt="tetr.io icon">
+        </a>
+        <a href="https://neocities.org/site/stupied-profile" target="_blank"
+            title="NEOCITIES &#10;» where this website is hosted on!">
+            <img src="./img/icon-neocities.png" alt="neocities icon">
+        </a>
+    </div>
+    <hr class="clear">
+</div>
+
+<script>
+var previous = document.URL;
+if(previous.includes("#from-") === true){
+    previous = previous.split('#from-')[1];
+    document.querySelector("#container_nav a:last-child").href=`/${previous}/`;
+}
+</script>
