@@ -1,0 +1,33 @@
+<h2>Random Fact Generator</h2>
+<p>Dug up the fact generator from my defunct about page because I thought it was cute</p>
+    
+<span id="nextFact" class="randomizer-output"></span>
+<button onclick="randomFact()">What the Fact!</button>
+<script>
+{%- assign FACT = site.data.lists.facts" -%}
+{%- assign FACT_TOTAL = FACT | size -%}
+const FACT_TARGET = document.getElementById("nextFact");
+const FACT_LIST = [
+    {%- for item in FACT -%}
+        {{ item | jsonify }}
+        {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+]
+
+function randomFact(){
+    if (FACT_LIST.length > 0) {
+        num = Math.floor(Math.random() * FACT_LIST.length);
+        FACT_TARGET.innerHTML = FACT_LIST[num];
+        FACT_LIST.splice(num, 1);
+    } else {
+		FACT_TARGET.innerHTML=`
+            <div class="facts-finished">
+                <img src="./img/snailbread.png" alt="snail bread">
+                <div>
+                    <span style='color:var(--color-accent);'>Congratulations!</span>
+                    You've read through all <span>{{ FACTS_TOTAL }}</span> facts! Have some snail bread!!!
+                </div>
+            </div>`;
+	}
+}
+</script>

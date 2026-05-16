@@ -1,0 +1,27 @@
+<div id="viewer">
+    <div id="image">
+        {% assign path = page.path | getArtPath %}
+        {% assign img = path | append: '.' |  append: page.ext %}
+        {% assign dime = img | getDime: 'snail/_img/art/img/' %}
+        <img src="/art/img/{{ img }}" alt="{{ page.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
+
+        {% for e in page.extra %}
+            {% assign img = e.img | default: e %}
+            {% assign dime = img | getDime: 'snail/_img/art/img/' %}
+            <img src="/art/img/{{ img }}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
+        {% endfor %}
+    </div>
+</div>
+
+{% assign col = site.art | sort: date %}
+{% assign info = col | getArtNxtPrv: page.path %}
+{% assign index = info[0] %}
+{% assign prev = info[1] %}
+{% assign next = info[2] %}
+
+<span id="art_index" hidden>{{ index }}</span>
+<nav id="nextprev">
+    {% if next %}<a href="{{ next.url }}" id="nextprev-next"><span class="icon-arrow-thin-left"> </span>Next</span></a>{% endif %}
+    <a href="/art/archive" id="nextprev-archive"><span class="icon-inbox-full"></span> Archive</a>
+    {% if prev %}<a href="{{ prev.url }}" id="nextprev-prev">Prev <span class="icon-arrow-thin-right"></span></a></a>{% endif %}
+</nav>

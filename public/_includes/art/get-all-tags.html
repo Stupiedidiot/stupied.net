@@ -1,0 +1,21 @@
+<!-- This gets all the tags used in the archive -->
+{%- assign tags = '' -%}
+{%- for item in site.data.art.list -%}
+
+    {%- assign split = item.tags | split: " " -%}
+    {%- for selected in split -%}
+
+        {%- unless tags contains selected -%}
+
+            {%- assign tags = tags | append: selected | append: " " -%}
+
+        {%- endunless -%}
+
+    {%- endfor -%}
+
+{%- endfor -%}
+
+{%- assign tags = tags | split: " " -%}
+{%- for item in tags -%}
+    {{ item | append: " " }}
+{%- endfor -%}

@@ -1,0 +1,23 @@
+<h2>What Disney Movie To Watch Next?</h2>
+<span id="nextMovie" class="randomizer-output"></span>
+<button onclick="randomMovie()">Gimme A Movie!</button>
+<script>
+const MOVIE_TARGET = document.getElementById("nextMovie");
+const MOVIE_LIST = [
+    {%- assign movies = site.data.lists.watchlist | where_exp: "item", "item[0] != 'X'" -%}
+    {%- for movie in movies -%}
+        "{{movie[1]}}"
+        {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+    
+]
+var last = -1;
+
+function randomMovie(){
+    do {
+        num = Math.floor(Math.random() * MOVIE_LIST.length);
+    } while (num === last);
+    last = num;
+    MOVIE_TARGET.textContent = MOVIE_LIST[num];
+}
+</script>

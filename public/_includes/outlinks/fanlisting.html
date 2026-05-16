@@ -1,0 +1,10 @@
+{%- for item in site.data.fanlistings -%}
+    {%- assign slug = item.title | replace: ' ', '-' | downcase -%}
+    {%- if item.link -%}
+        <a href="{{ item.link }}">
+            <img src="/outlinks/img/fanlisting/{{ slug }}.{{ item.ext | default: 'png'}}" alt="Button for {{ item.title }}">
+        </a>
+        {%- else -%}
+        <img src="/outlinks/img/fanlisting/{{ slug }}.{{ item.ext | default: 'png'}}" alt="Button for {{ item.title }}">
+    {%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,14 @@
+{%- assign DATA = site.data.colors -%}
+
+{%- assign SIZE = DATA | size -%}
+
+{%- unless include.reverse -%}
+    {% for e in DATA limit: LIMIT %}
+        --color-base-{{ forloop.index | minus: 1 | times: 10 }}: #{{ e }};
+    {%- endfor -%}
+{%- else -%}
+    {% for e in DATA %}
+        {%- assign OPP = SIZE | minus: forloop.index %}
+        --color-base-{{ forloop.index | minus: 1 | times: 10 }}: #{{ DATA[OPP] }};
+    {%- endfor -%}
+{%- endunless -%}

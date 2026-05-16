@@ -1,0 +1,13 @@
+<section id="aside-content">
+    <h2>Related Artwork</h2>
+    <div id="art_related">
+        
+    </div>
+    <h3>Tags</h3>
+    <ul id="art_tags">
+        {% assign tags = page | getTags: nil, 1 %}
+        {% for e in tags %}
+            <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
+        {% endfor %}
+    </ul>
+</section>

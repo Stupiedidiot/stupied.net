@@ -1,0 +1,33 @@
+{% assign max = include.max | default: site.post.size %}
+{%- assign POSTS = include.data | default: site.posts -%}
+
+{%- if POSTS.size > 0 -%}      
+    <div id="blog-archive" class="{{include.class}}">
+            {%- for e in POSTS limit:max -%}
+                <a href="{{ e.url | relative_url }}">
+                    <div class="blog-item">
+                        {%- assign title = e.title | escape -%}
+                        <div class="item-title" title="{{ title }}">{{ title }}</div>
+                        <div class="item-date"><time datetime="{{ e.date | date: '%Y-%m-%d'}}">{{ e.date | date: "%Y-%m-%d"}}</time></div>
+                        {%- unless include.no_desc -%}
+                            {%- if e.description -%}
+                                <div class="item-desc">
+                                    {{ e.description }}
+                                </div>
+                            {%- else -%}
+                                <div class="item-desc">
+                                    {{ e.content | strip_html | markdownify | strip_html | truncatewords: 25}}
+                                    <span>Read More »</span>
+                                </div>
+                            {%- endif -%}
+                        {%- endunless -%}
+                        {%- unless include.no_thumbnail -%}
+                            {%- if e.thumbnail -%}
+                                <div class="item-img"><img src="{{e.thumbnail}}" alt="thumbnail for {{ title }}"></div>
+                            {%- endif -%}
+                        {%- endunless -%}
+                    </div>
+                </a>
+            {%- endfor -%}
+    </div>
+{%- endif -%}

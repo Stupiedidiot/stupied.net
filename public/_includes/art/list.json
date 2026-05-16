@@ -1,0 +1,46 @@
+{% assign default = site.art | sort: date | reverse %}
+{%- assign DATA = include.data | default: default-%}
+
+{%- assign dir = include.dir | default: 'snail/_img/art/img/' -%}
+[
+{%- for item in DATA -%}
+    {%- assign img = item.path | getArtPath | append: '.' | append: item.ext-%}
+    {
+        "img": {{ img | jsonify }}
+
+        {%- if item.date -%}
+            ,"date": {{ item.date | default: '2007-08-04' | jsonify }}
+        {%- endif -%}
+        
+        ,"title": {{ item.title | jsonify }}
+        ,"dimension": {{ img | writeDime: dir | jsonify }}
+
+        {% assign desc = item.content | strip %}
+        {%- if desc != '' -%}
+            ,"desc": {{ item.content | jsonify }}
+        {%- endif -%}
+
+        {%- if item.alt -%}
+            ,"alt": {{ item.alt | escape | jsonify }}
+        {%- endif -%}
+
+        {%- if item.extra -%}
+            ,"extra": [
+                {%- for extra in item.extra -%}
+                    {
+                        "img": {{ extra.img | default: extra | jsonify }},
+                        "alt": {{ extra.alt | escape | jsonify }}
+                    }
+                    {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+            ]
+        {%- endif -%}
+
+        {%- assign tags = item | getTags: nil, include.offset -%}
+        {%- if tags.size > 0 -%}
+            ,"tags": {{ tags | join: ' ' | downcase | jsonify }}
+        {%- endif -%}
+    }
+    {%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
+]

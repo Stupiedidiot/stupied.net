@@ -1,0 +1,23 @@
+{% assign item = include.item %}
+{% if item.img %}
+    {% assign img = item.img |  strip_newlines | split: ',' %}
+    {% for i in img %}
+        <img src="./img/{{ i }}" alt="{{ i }}">
+    {% endfor %}
+{% endif %}
+
+{% if item.txt %}
+    <div>
+        {% assign dir = page.dir | replace_first: '/', 'snail/_' %}
+        {%- assign source = dir | append: item.txt -%}
+        {% unless source contains '.' %}
+            {%- assign source = source | append: '.md' -%}
+        {% endunless %}
+        {% capture file %}{% cat source %}{% endcapture %}
+        {% if source contains '.md' %}
+            {{ file | markdownify }}
+        {% else %}
+            {{ file }}
+        {% endif %}
+    </div>
+{% endif %}

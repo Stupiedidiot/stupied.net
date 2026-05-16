@@ -1,0 +1,31 @@
+{% assign default = site.art | sort: date | reverse %}
+{%- assign DATA = include.data | default: default -%}
+
+{%- for item in DATA -%}
+    {%- assign img = item.path | getArtPath -%}
+    <div class="art-archive-nojs-item" >
+        <a href="./img/{{ img }}.{{ item.ext }}">
+            <h2>{{ item.title }}
+                {%- if item.date -%}
+                <span>({{ item.date | split: '-' | first }})</span>
+                {%- endif -%}
+            </h2>
+        </a>
+        
+        {% assign test = item.content | strip %}
+        {%- if test != '' -%}
+        <div class="art-archive-nojs-desc">{{ item.content }}</div>
+        {%- endif -%}
+
+        {%- if item.extra.size > 0 -%}
+            <ul class="art-archive-nojs-extra">
+            {%- for extra in item.extra -%}
+                <li>
+                    <a href="./img/{{ extra.img | default: extra }}">{{ extra.img | default: extra | split: "/" | last | split: "." | first | replace: "-", " " }}</a>
+                </li>
+            {%- endfor -%}
+            </ul>
+        {%- endif -%}
+    </div>
+
+{%- endfor -%}

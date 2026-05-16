@@ -1,0 +1,12 @@
+<ul>
+    {%- for item in site.data.footer -%}
+      {%- if page.url != item.link -%}
+      <li><a href="{{ item.link }}">{{ item.title}}</a></li>
+      {%- endif -%}
+    {%- endfor -%}
+</ul>
+{%- if site.url contains 'nekoweb' -%}
+<span>Hosted on <a href="https://nekoweb.org/follow/stupied.nekoweb.org">Nekoweb</a>!</span>
+{%- else -%}
+<span>Hosted on <a href="https://neocities.org/site/stupied-profile">Neocities</a>!</span>
+{%- endif-%}

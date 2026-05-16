@@ -1,0 +1,30 @@
+<script>
+    let url = window.location.pathname;
+
+    // PUT THE REDIRECTS IN A DATA FILE PLS, TY
+    if(url.includes("about"))
+        window.location.replace("/about/");
+
+    if(url.includes("/art/~") || url.includes("/art/view")){
+        let path = window.location.search.replace("?","").replace('item=','').split('.')[0];
+        window.location.replace('/art/p/' + path);
+    }
+
+    if(url.includes("comic"))
+        window.location.pathname = url.replace("/comic/","/lib/");
+    if(url.includes("muse-adriade"))
+        window.location.pathname = url.replace("/muse-adriade/","/muse/");
+    
+    if(url.includes("psych/"))
+        window.location.replace("https://psych.stupied.net/");
+    if(url.includes("pmd/"))
+        window.location.replace("https://pmd.stupied.net/");
+
+    if(url.includes("/album/"))
+        window.location.replace("https://album.stupied.net/" + window.location.pathname.split('/album/')[1]);
+
+    if(url.includes("tabvoid/"))
+        window.location.replace("https://tabvoid.stupied.net/");
+    if(url.includes("/chez/scratch/"))
+        window.location.replace("https://scratch.stupied.net/");
+</script>

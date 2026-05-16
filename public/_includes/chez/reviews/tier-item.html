@@ -1,0 +1,6 @@
+{%- for item in include.selected -%}
+    {%- capture title -%}
+        {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
+    {%- endcapture -%}
+    <button onclick="viewer('{{ item.slug | downcase }}')" title="{{ title }}" class="tier-thumb {%unless item.url contains 'todo/'%}with-review{% endunless %}"><img src="./img/{{ item.slug | downcase }}.jpg" alt="thumbnail for {{ title }}" loading="lazy"></button>
+{%- endfor -%}

@@ -1,0 +1,22 @@
+{%- assign REVIEWS = site.reviews
+    | where_exp: "item", "item.path contains include.selected"
+    | where_exp: 'e', 'e.path contains "/f/"'
+    | sort: "date"
+    | reverse
+-%}
+
+{%- if REVIEWS.size > 0 -%}
+<article class="tier-feed">
+    <h2>Recently Upload Reviews:</h2>
+    <ul>
+    {%- for item in REVIEWS limit:5 -%}
+        {%- capture title -%}
+            {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
+        {%- endcapture -%}
+        <li>
+            <button onclick="viewer('{{ item.slug | downcase }}')" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}" class="tier-thumb {%unless item.url contains 'todo/'%}with-review{% endunless %}">{{ title }}</button>
+        </li>
+    {%- endfor -%}
+    </ul>
+</article>
+{%- endif -%}

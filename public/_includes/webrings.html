@@ -1,0 +1,128 @@
+{%- if site.url contains 'nekoweb.org'-%}
+<script>
+    var swapDomain;
+    var oldDomain = {};
+    oldDomain.noslash = "https://stupied.neocities.org" 
+    oldDomain.slash = oldDomain.noslash + '/';
+    var newDomain = 'https://stupied.nekoweb.org';
+    if (window.location.href.includes(newDomain)){
+        swapDomain = true;
+    }
+</script>
+{%- endif -%}
+
+<style>
+@import url(https://fonts.bunny.net/css?family=acme:400);
+#doodlering-container {
+    background-image: url(https://evehibi.nekoweb.org/doodlering/background.png);
+    background-size: 105%;
+    background-position: 50%;
+    padding: 1rem 0;
+}
+
+#doodlering { margin: 0 auto!important; }
+#doodlering .webring-wrapper { background-image: none!important; }
+
+#webmaster {
+    font-family: "Acme";
+    background-color: #2da5d8;
+    color: white;
+    padding:1rem 0.5rem;
+    text-align: center;
+}
+</style>
+<div id="doodlering-container">
+    <div id="doodlering">
+        <script src="https://evehibi.nekoweb.org/doodlering/onionring-variables.js"></script>
+        {%- if site.url contains 'nekoweb.org'-%}
+        <script>
+            if (swapDomain){
+                sites.push([newDomain,"stupied","https://stupied.neocities.org/meta/img/doodlering.png"])
+            }
+        </script>
+        {%- endif -%}
+        <script src="https://evehibi.nekoweb.org/doodlering/onionring-widget.js"></script>
+        <link rel="stylesheet" href="https://evehibi.nekoweb.org/doodlering/onionring.css">
+    </div>
+</div>
+
+<div id="webmaster">
+    <link rel="stylesheet" type="text/css" href="https://file.garden/ZrZSgsrYfQXsO7QH/ww/webmasterwebring.css">
+    <a href="https://webmasterwebring.netlify.app?stupied-previous">&larr;</a> <a href="https://webmasterwebring.netlify.app">Webmaster Webring</a> <a href="https://webmasterwebring.netlify.app?stupied-random">?</a> <a href="https://webmasterwebring.netlify.app?stupied-next">&rarr;</a>
+</div>
+
+<div id='aperturewebring'>
+    <link rel="stylesheet" href="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring.css">
+    <script src="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring-variables.js"></script>
+    {%- if site.url contains 'nekoweb.org'-%}
+    <script>
+        if (swapDomain){
+            sites[sites.indexOf(oldDomain.slash)] = newDomain
+        }
+    </script>
+    {%- endif -%}
+    <script src="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring/onionring-widget-1.js"></script>
+    <noscript>
+    This site is part of the <a href="https://jack-dawlia.neocities.org/page/shrines/portal/aperturewebring">Aperture Webring</a>!
+    </noscript>
+</div>
+{%- unless include.home -%}
+<div id='onlinewire-webring'>
+    <script src="https://milkyway.moe/onlinewire/onionring-variables.js"></script>
+    {%- if site.url contains 'nekoweb.org'-%}
+    <script>
+        if (swapDomain){
+            sites[sites.indexOf(oldDomain.noslash)] = newDomain
+        }
+    </script>
+    {%- endif -%}
+    <script src="https://milkyway.moe/onlinewire/onionring-widget.js"></script>
+    <link rel="stylesheet" href="https://milkyway.moe/onlinewire/onionring.css">
+</div>
+
+<div id='colorsplash'>
+    <script src="https://daedrms.neocities.org/angel/onionring-variables.js"></script>
+    {%- if site.url contains 'nekoweb.org'-%}
+    <script>
+        if (swapDomain){
+            sites[sites.indexOf(oldDomain.slash)] = newDomain
+        }
+    </script>
+    {%- endif -%}
+    <script src="https://daedrms.neocities.org/angel/onionring-widget.js"></script>
+    <link rel="stylesheet" href="https://daedrms.neocities.org/angel/onionring.css">
+</div>
+
+<webring-banner theme="tron" scheme="dark">
+    <p>Member of the <a href="https://webring.antaresph.dev">Pinoy Websites</a> webring</p>
+    <a href="https://webring.antaresph.dev/previous">Previous</a>
+    <a href="https://webring.antaresph.dev/random">Random</a>
+    <a href="https://webring.antaresph.dev/next">Next</a>
+</webring-banner>
+<script src="https://webring.antaresph.dev/embed.js" async></script>
+
+<div id='FCWL'>
+    <script src="https://beaus-silly-folder.nekoweb.org/my-webrings/FCWL/onionring-variables.js"></script>
+    {%- if site.url contains 'nekoweb.org'-%}
+    <script>
+        if (swapDomain){
+            sites[sites.indexOf(oldDomain.slash)] = newDomain
+        }
+    </script>
+    {%- endif -%}
+    <script src="https://beaus-silly-folder.nekoweb.org/my-webrings/FCWL/widgets/philippines.js"></script>
+</div>
+
+<script src="https://astracelestine.nekoweb.org/webring/tropical-rice-bowl/widget.js"></script>
+<script src="https://jbc.lol/webrings/ssgring/pmoring.js"></script>
+<script defer src="https://mechagic.pages.gay/1stylescripts/webring/gitgudring.js"></script>
+<script src="https://homebrew.cresentri.com/webring.js" data="3DS"></script>
+<style>
+#onlinewire-webring { padding: 1rem; }
+
+#colorsplash {background-color: #5c7dff}
+
+#FCWL { padding: 1rem 0; }
+#TRB { justify-content: center; }
+</style>
+{%- endunless -%}

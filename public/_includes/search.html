@@ -1,0 +1,24 @@
+{%- if site.deploying and site.url contains 'nekoweb.org' -%}
+<div id="search">
+    <noscript>
+        <h2>Search Bar Disabled</h2>
+        <p>This portion utilizes javascript and will not work without it. Please consider toggling it on!</p>
+    </noscript>
+</div>
+<script src="/pagefind/pagefind-ui.js" type="text/javascript" defer></script>
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script>
+window.addEventListener('DOMContentLoaded', (event) => {
+    var search = new PagefindUI({
+        element: "#search",
+        mergeIndex: [{
+            bundlePath: "https://wiki.stupied.net/pagefind",
+            baseUrl: 'https://wiki.stupied.net/'
+        }]
+    });
+    {%- if include.cat -%}
+    search.triggerFilters({ "category": [ "{{ include.cat }}" ] });
+    {%- endif -%}
+});
+</script>
+{%- endif-%}

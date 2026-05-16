@@ -1,0 +1,8 @@
+{%- assign item = site.lists | where: "slug", include.where | first -%}
+{% unless no_title %}
+<h2>{{ item.title | default: item.filename }}</h2>
+{% endunless %}
+{%- if item.description -%}
+<p>{{ item.description }}</p>
+{%- endif -%}
+{{ item }}

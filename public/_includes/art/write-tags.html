@@ -1,0 +1,19 @@
+{%- assign type = 'checkbox' -%}
+{%- if include.type-%}
+    {%- assign type = include.type -%}
+{%- endif -%}
+
+{%- if include.selected.first -%}
+    {%- assign selected = include.selected -%}
+{%- else -%}
+    {%- assign selected = site.data.art.tags.[include.selected] -%}
+{%- endif -%}
+<div class="art-archive-options">
+    {%- for item in selected -%}
+        <label for="{{ item | downcase }}">
+            <input type="{{ type }}" name="{{ item | downcase }}" id="{{ item | downcase }}" value="{{ item | downcase }}">
+            {%- assign char = item | split: "" | first | upcase -%}
+            <span>{{ item | slice: 1, item.size | prepend: char | replace: "-", " "}}</span>
+        </label>
+    {%- endfor -%}
+</div>

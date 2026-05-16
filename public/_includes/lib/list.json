@@ -1,0 +1,20 @@
+{%- for vol in site.data.lib.list -%}
+{
+    "volume": {{ vol.volume | split: '/' | last | jsonify }},
+    "title": {{ vol.title | jsonify }},
+    "desc": {{ vol.desc | jsonify }},
+    "issues": [
+    {%- for i in vol.files -%}
+        { 
+            "file": {{ i.issue | jsonify }},
+            "title": {{ i | getTitle: 'issue' | jsonify }}
+            {%- if i.thumb -%}
+            ,"thumb": {{ i.thumb | jsonify }}
+            {%- endif -%}
+        }
+        {%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+    ]
+}
+{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}

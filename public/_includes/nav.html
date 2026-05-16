@@ -1,0 +1,16 @@
+{%- assign data = include.data -%}
+{%- for e in data -%}
+    {%- assign url = page.url | replace: '.html' -%}
+    {% if e.func %}
+        <a onclick="{{ e.func }}" role="button" title="{{ e.title | downcase }}">
+    {% else %}
+        <a href="{{ e.link }}" title="{{ e.title | downcase }}">
+    {% endif %}
+        {%- if e.icon -%}
+        <span class="icon-{{ e.icon }}"></span>
+        {%- endif -%}
+        {%- unless e.title == 'Home' or e.title == 'RSS' -%}
+        <span class="default-nav-label">{{ e.title }}</span>
+        {%- endunless -%}
+    </a>
+{%- endfor -%}

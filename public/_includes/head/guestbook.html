@@ -1,0 +1,60 @@
+<style>
+main {overflow: hidden;}
+.c-comment {
+    border: 2px solid black;
+    padding: 1.5rem 1rem!important;
+    position: relative;
+    background-color: white;
+    transition: 0.2s;
+    margin-bottom: 2rem!important;
+    clear: both;
+    height: fit-content;
+
+    &:nth-of-type(1n){transform: rotate(-1deg);}
+    &:nth-of-type(2n){transform: rotate(1deg);}
+    &:nth-of-type(3n){transform: none;}
+}
+
+.c-comment:hover {
+    transform: scale(102%)!important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.c-comment::before, .c-comment::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 0.5rem;
+    left: 0;
+    background-image: linear-gradient(45deg, #3a8ac7 20.83%, #ffffff 20.83%, #ffffff 25%, #ed374f 25%, #ed374f 45.83%, #fff 45.83%, #fff 50%, #3a8ac7 50%, #3a8ac7 70.83%, #ffffff 70.83%, #ffffff 75%, #ed374f 75%, #ed374f 95.83%, #fff 95.83%, #fff 100%);
+    background-size: 67.88px 67.88px;
+}
+.c-comment::before {
+    border-bottom: 1px solid black;
+    top: 0;
+}
+.c-comment::after {
+    border-top: 1px solid black;
+    bottom: 0;
+}
+
+img.c-img { float: none; }
+#c_widget, .main-content { overflow: visible!important; }
+</style>
+<script>
+window.onload = ()=>{
+    document.onkeydown = function(event) {
+        if( document.activeElement === document.querySelector("body") ){
+        switch (event.keyCode) {
+            case 37:
+                    if(e=document.getElementById("c_leftButton")){e.click()}
+            break;
+            case 39:
+                    if(e=document.getElementById("c_rightButton")){e.click()}
+            break;
+        }
+        }
+    }
+}
+</script>

@@ -1,0 +1,16 @@
+{%- assign REVIEWS = site.reviews 
+    | where_exp: "item", "item.path contains include.selected" 
+    | sort: "release"
+-%}
+{%- assign TIERS = include.tiers | default: "S,A,B,C,D,E,F" | split: "," -%}
+<article class="tier_list">
+{%- for tier in TIERS -%}
+<section class="{{ tier }} tier">
+    {%- assign selected = REVIEWS | where: "rating", tier -%}
+    <div class="tier-label"><span>{{ tier }}</span></div>
+    <div class="tier-items">
+    {%- include chez/reviews/tier-item.html selected = selected -%}
+    </div>
+</section>
+{%- endfor -%}
+</article>

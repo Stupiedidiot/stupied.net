@@ -1,0 +1,36 @@
+{% assign default = site.art | sort: date | reverse %}
+{%- assign DATA = include.data | default: default -%}
+
+<img data-pagefind-meta="image[src]" src="./img/{{ DATA[0].img }}" alt="" id="pagefind_thumbnail">
+<div id="archive_content" class="art-archive first">
+{%- for item in DATA -%}
+    {%- assign title = item.title -%}
+    {%- assign tags = item | getTags: true, include.offset -%}
+    {%- assign img = item.path | getArtPath -%}
+    <div class="art-archive-item hidden" data-tags="{{ tags | join: ' ' }}">
+        <img src="#" data-image="./img/{{ img }}.{{ item.ext }}" alt="{{ item.alt | escape }}" loading="lazy">
+        <div>
+            <a href="./p/{{ img }}" class="art-archive-comment"></a>
+            {% assign desc = item.content | strip %}
+            {%- if desc != '' -%}
+                <details>
+                    <summary class="art-archive-title">{{ title }}</summary>
+                    <div class="art-archive-desc">{{ item.content }}</div>
+                </details>
+            {% else %}
+                <div class="art-archive-title">{{ title }}</div>
+            {%- endif -%}
+
+            {%- if tags.size > 0 -%}
+                <div class="art-archive-tags">
+                    {%- for tag in tags -%}
+                        <button onclick="getChecked('{{ tag }}')">{{ tag | downcase }}</button>
+                    {%- endfor -%}
+                </div>
+            {%- endif -%}
+        </div>
+    </div>
+
+{%- endfor -%}
+</div>
+<div id="archive_content_duplicate" class="art-archive second"></div>

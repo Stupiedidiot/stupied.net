@@ -1,0 +1,54 @@
+<div class="codes">
+{%- assign default = page.path | split: "/" | last -%}
+{%- assign default = page.path | replace: default, "" | split: "/" | last -%}
+{% assign selected = page.selected | default: default  %}
+{% assign COLLECTION = site.collections | where: "label", "templates" | first %}
+
+<h1>Usage</h1>
+<p>Just copy and past the codes below. Also, I don't really care what people do with my code. Feel free to modify and claim it to be yours.</p>
+
+<h2>HTML</h2>
+{% highlight html %}
+{% capture escape %}{% include_relative _main.html demo=true %}{% endcapture %}{{ escape }}
+{% endhighlight %}
+
+<h2>CSS</h2>
+{% highlight css %}
+{% capture escape %}{% include_relative main.css demo=true %}{% endcapture %}{{ escape }}
+{% endhighlight %}
+
+{%- unless page.no_js -%}
+<h2>Javascript</h2>
+{% capture escape %}{% include_relative main.js demo=true %}{% endcapture %}
+{% assign test = escape | slice: 0, 3 %}
+{% highlight javascript %}
+{% if test == '---' %}{{ escape | split: '---' | last }}{% else %}{{ escape }}{% endif %}
+{% endhighlight %}
+{%- endunless -%}
+
+<h2>Download Images</h2>
+<p>Just right click and download because I'm too lazy to code it properly right now lol</p>
+
+{%- assign ALLOWED = ".jpg .png .svg" | split: " "-%}
+{%- assign static_raw = site.templates  -%}
+
+{%- assign static = "" | split: "" -%}
+{%- for item in COLLECTION.files -%}
+    {%- if item.path contains selected -%}
+        {%- for extension in ALLOWED -%}
+            {%- if item.extname == extension -%}
+                {%- assign static = static | push: item-%}
+                {%- break -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endif -%}
+{%- endfor -%}
+<div class="code-images">
+    {%- for item in static -%}
+    <div>
+        <img src="/code/{{ item.path | replace: '_templates/', ''}}">
+        <span>{{ item.name }}</span>
+    </div>
+    {%- endfor -%}
+</div>
+</div>

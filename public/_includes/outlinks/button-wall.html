@@ -1,0 +1,7 @@
+{%- assign list = site.data.outlinks -%}
+{% for item in list %}
+    {%- assign link = item.id | prepend: "https://" | append: '.neocities.org' -%}
+    <a href="{{ item.link | default: link }}" class="button-wall-item" target="_blank">
+        <img src="/outlinks/img/{{ item.id }}-button.{{ item.button | default: 'gif'}}" alt="{{ item.id }}">
+    </a>
+{% endfor %}

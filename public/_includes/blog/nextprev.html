@@ -1,0 +1,9 @@
+<div id="nextprev">
+    {% if page.next.url %}
+        <a href="{{ page.next.url }}" id='nextprev-next'><span class="icon-arrow-thin-left"></span> Next</a>
+    {% endif %}
+    {% if page.previous.url %}
+        <a href="{{ page.previous.url }}" id='nextprev-prev'>Prev <span class="icon-arrow-thin-right"></span></a>
+    {% endif %}
+    <a href="/blog/archive" id='nextprev-archive'><span class="icon-inbox-full"></span> Archive</a>
+</div>

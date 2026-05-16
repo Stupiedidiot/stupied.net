@@ -1,0 +1,379 @@
+<style>
+{% capture css %}
+header #meirl {grid-area: meirl; } 
+header #blog { grid-area: blog; } 
+header #all { grid-area: all; } 
+
+header {
+    margin: 1rem auto;
+    display: grid;
+    grid-template: 
+    'meirl all'
+    'blog all';
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 2fr 1fr;
+    box-sizing: border-box;
+    max-height: 95vh;
+    height: auto;
+    max-width: 95%;
+    width: auto;
+    gap: 0.5rem;
+    aspect-ratio: 3/2;
+
+    > * { border: 3px solid black; }
+    a { display: block; }
+}
+
+header #meirl {
+    background: url(/meta/img/sunburst.svg);
+    background-size: 100% 100%;
+    background-color: #a7dddc;
+    overflow: hidden;
+
+    a, div { width: 100%; height: 100%; }
+    img { position: absolute; }
+
+    a > div { 
+        position: relative;
+        animation: 1.5s ease-out dragUp;
+    }
+
+    .doll {
+        z-index: 1;
+        top: 5%;
+        left: 7%;
+        width: 90%;
+        animation: 5s sway infinite ease-in-out;
+        transform-origin: 40% 0;
+    }
+
+    .cursor {
+        z-index: 2;
+        width: 15%;
+        top: 3%;
+        left: 37%;
+    }
+}
+
+@keyframes dragUp {
+    0% { transform: translateY(90%); }
+    100% { transform: none; }
+}
+
+@keyframes sway {
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+header #blog {
+    background-color: var(--dk-blue);
+    position: relative;
+    z-index: 2;
+    a {
+        position: absolute;
+        width: 105%;
+        top: -20%;
+        left: 0;
+    }
+    img { 
+        transform: rotate(12deg);
+        transition: 0.2s transform;
+        width: 100%;
+    }
+
+    a:hover img { transform: rotate(14deg); }
+}
+
+header #all { overflow: hidden; }
+
+#topbar {
+    height: 10%;
+    background-color: #0ebde4;
+    border-bottom: 3px solid black;
+    box-sizing: border-box;
+    position: relative;
+    
+    > span {
+        font-family: var(--display-font);
+        position: absolute;
+        top:50%; right: 5%;
+        transform: translateY(-50%);
+    }
+    > span > span {
+        font-weight: bolder;
+    } 
+}
+
+#scene {
+    height: 90%;
+    background-image: url(/meta/img/clouds.jpg);
+    background-size: auto 120%;
+    animation:bg-scroll 240s infinite linear;
+    position: relative;
+
+    > * { position: absolute; }
+    img { width: 100%; }
+    #pole {
+        z-index: 1;
+        position: absolute;
+        width: 5%;
+        bottom: -10%;
+        left: 21%;
+    }
+
+    #warning {
+        z-index: 3;
+        width: 39%;
+        top: -9%;
+        left: 6%;
+    }
+
+    #art {
+        z-index: 3;
+        width: 45%;
+        top: 33%;
+        left: 5%;
+    }
+
+    #art img { transition: 0.2s; transform: rotate(-6deg); }
+    #art:hover img { transform: none;}
+
+    #comic {
+        z-index: 3;
+        width: 35%;
+        top: 60%;
+        left: 8%;
+    }
+
+    #comic img {
+        transform-origin: 50% 0;
+        animation: 3s ease-in-out infinite wind;
+    }
+
+    #ocs {
+        z-index: 2;
+        width: 60%;
+        bottom: -5%;
+        right: 3%;
+    }
+
+    #ocs img {
+        animation: 5s ease-in-out infinite breathe;
+    }
+}
+
+@keyframes bg-scroll {
+    0%{ background-position: 0 100%; }
+    100%{ background-position: calc(1350px * 1.5) 100%; }
+}
+
+@keyframes wind {
+    0%{ transform: rotate(-10deg); }
+    50%{ transform: rotate(2deg); }
+    100%{ transform: rotate(-10deg); }
+}
+
+@keyframes breathe {
+    0%{ transform: translateY(2%); }
+    50%{ transform: translateY(0%); }
+    100%{ transform: translateY(2%); }
+}
+
+@media only screen and (max-width: 500px) {
+    header {
+        display: block;
+        aspect-ratio: unset;
+        max-height: none;
+        > * { margin-bottom: 0.5rem ;}
+    }
+    #meirl { aspect-ratio: 8/9; }
+    #blog { aspect-ratio: 4/2; overflow: hidden; }
+    #all { aspect-ratio: 8/9; }
+}
+
+main #frame {
+    background-color: #e5e5f7;
+    background-image:  linear-gradient(#444cf7 1.1px, transparent 1.1px), linear-gradient(to right, #444cf7 1.1px, #e5e5f7 1.1px);
+    background-size: 22px 22px;
+}
+
+main {
+ margin: auto;
+ padding: 1rem;
+ width: 95%;
+ max-width: 750px;
+ box-sizing: border-box;
+}
+
+.meow span{display: inline-block;}
+.meow span:nth-of-type(n){animation:jump 1s infinite; }
+.meow span:nth-of-type(2n){animation:fall 1s infinite;}
+
+@keyframes jump {
+    50% {transform:translateY(5%);}
+    100% {transform:translateY(-5%);}
+}
+
+@keyframes fall {
+    50% {transform:translateY(-5%);}
+    100% {transform:translateY(5%);}
+}
+
+article { display: flex; gap: 1rem; }
+#intro { flex: 3; }
+#temp { flex: 2; }
+
+#outlinks {
+    font-family: var(--display-font);
+    font-weight: bolder;
+    font-size: 2rem;
+    display: block;
+    padding: 0.5rem;
+}
+
+#intro a:hover {color: var(--color-accent);}
+
+#webrings {
+    flex: 300px;
+    box-sizing: border-box;
+    border: 3px solid black;
+    width: 100%;
+    aspect-ratio: 1/1;
+    position: relative;
+}
+
+#webrings > div {
+    overflow: auto;
+    height: 100%;
+}
+
+#webrings > div > a {
+    display: block;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+#grrrl {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 0.5rem;
+    width: 6rem;
+}
+
+#grrrl img { width: 100%; }
+
+nav {
+    margin: 1rem auto;
+    width: 90%;
+    color: var(--color-accent);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+
+    > a:hover { color: black; }
+    > a:not(:last-of-type)::after {
+        content: "•";
+        color: var(--color-accent);
+        display: inline-block;
+        margin: auto 1rem;
+    }
+}
+
+footer { color: var(--color-accent); text-align: center;}
+footer > nav > ul {
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    article { display: block; }
+    #temp #webrings {
+        aspect-ratio: 2/1;
+    }
+}
+
+/* RSS FEED START */
+#feed {
+    margin: auto;
+    margin-top: 1rem;
+    border: 3px solid black;
+    a:hover { color: var(--color-accent) }
+    ul { padding-left: 0.5rem; }
+}
+
+#feed-first {
+    flex: 40%;
+    position: relative;
+    display: block;
+    min-height: 150px;
+    background-image: var(--thumb);
+    background-size: cover;
+    background-position: 50%;
+    overflow: hidden;
+
+    span > span { display: none; }
+    > div { 
+        opacity: 0; 
+        transition: 0.2s;
+        z-index: 2;
+        text-align: center;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        > span { color: white; }
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        z-index: 1;
+        background: black;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: 0.2s;
+    }
+
+    &:hover {
+        &::after { opacity: 0.9; }
+        > div { opacity: 1; top: 50%; }
+    }
+}
+
+#feed-timeline {
+    flex: 60%;
+    padding: 1.5rem;
+    > h2 { color:var(--yellow) }
+    > ul { margin-bottom: 0.5rem; }
+    cursor: pointer;
+}
+
+.feed-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    
+    h4 { display: inline-block; }
+    h4::after { content: " » "}
+    a { color: var(--gray); }
+}
+
+.feed-more {
+    color: var(--);
+    font-size: bolder;
+    font-family: var(--display-font);
+}
+
+.feed-title > span {display: none;}
+
+@media only screen and (min-width: 600px) {
+    #feed-content { display: flex; }
+}
+/* RSS FEED END */
+{% endcapture %}
+{{ css | scssify }}
+</style>
+<script type="" src="/meta/js/tooltip.js" defer></script>

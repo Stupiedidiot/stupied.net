@@ -1,0 +1,31 @@
+{%- assign data = include.data -%}
+{% assign max = include.max | default: data.size %}
+<div class="infobox-list">
+    {%- for e in data limit: max -%}
+    <fieldset class="infobox">
+        <legend>{{ e.date | date: "%Y-%m-%d" }}</legend>
+
+        <div class="infobox-content">
+            <div class="infobox-thumb">
+                <img src="" alt="">
+            </div>
+
+            <div class="infobox-text">
+                <div>
+                    <h1>{{ e.title }}</h1>
+                    {%- if e.description -%}
+                        <div class="timeline-desc">
+                            {{ e.description }}
+                        </div>
+                    {%- else -%}
+                        <div class="timeline-desc">
+                            {{ e.content | strip_html | markdownify | strip_html | truncatewords: 25}}
+                            <span>Read More »</span>
+                        </div>
+                    {%- endif -%}
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    {%- endfor -%}
+</div>
