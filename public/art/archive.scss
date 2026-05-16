@@ -1,0 +1,160 @@
+---
+layout: none
+---
+
+@mixin yay() {
+  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  border: 1px solid;
+  border-radius: 4px;
+}
+#aside-content { 
+  position: static;
+  details {
+    @include yay;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    text-align: left;
+    > details:first-of-type { margin-top: 0.5rem; }
+    > details:last-child { margin-bottom: 0; }
+  }
+  h3, h4 {
+    display: inline;
+  }
+
+  // REMEMBER TO CHANGE THIS!
+  button, select {
+    @include yay;
+    padding: 0.5rem;
+    font-family: var(--body-font);
+    font-weight: bold;
+  }
+}
+.art-archive-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+.art-archive-item {
+  display: block;
+  margin-bottom: 0.5rem;
+  
+  border: 2px solid;
+  border-radius: 4px;
+  overflow: hidden;
+  
+  background-color: white;
+  color: black;
+  transition: 0.2s;
+
+  img{width: 100%; display: block;}
+  /* should make the extra images sliding..?? */
+  img:not(:first-child) { display: none; }
+
+  .art-archive-title {
+    font-weight: bolder;
+    font-family: var(--display-font);
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    padding-bottom: 0;
+  }
+
+  .art-archive-comment {
+    display: block;
+    filter: saturate(0) brightness(1.2);
+    background-image: url(/meta/svg/comment.svg);
+    box-sizing: border-box;
+    margin: 0.5rem;
+    float: right;
+    width: 1.2rem;
+    height: 1.2rem;
+    &:hover { filter: none; }
+  }
+
+  .art-archive-desc {
+    padding: 0 0.5rem;
+    text-align: justify;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .art-archive-tags {
+    border-top: var(--border);
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    button {
+      color: gray;
+      background-color: rgb(235, 235, 235);
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      border-radius: 1rem;
+      border: 0;
+
+      &::before {
+        content: "#";
+      }
+    }
+  }
+}
+
+.hidden,
+.filtered.strict .not-all-tags,
+.strict-hidden { display: none; }
+
+.filtered.strict .strict-hidden { display: block; padding: 3rem 1rem; }
+
+.art-archive-options label {
+    display: inline-flex;
+    margin-right: 0.5rem;
+    padding: 0%;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .art-archive.second {display: none;}
+}
+
+@media only screen and (min-width: 501px) {
+  .art-archive { flex: 1; }
+  #art_archive {
+      display: flex;
+      gap:0.5rem;
+  }
+  .art-archive.first > :nth-of-type(even){display:none;}
+  .art-archive.second > :nth-of-type(odd){display:none;}
+}
+
+#archive_buttons {
+  margin-bottom: 1rem;
+}
+
+/* NOJS */
+.art-archive-nojs-text a {
+  font-family: var(--display-font);
+  text-decoration: none;
+  font-weight: bold;
+}
+#art-archive-nojs { padding: 1rem; }
+#art-archive-nojs a:hover { color: var(--color-accent);}
+#art-archive-nojs h2 { border-bottom: none; }
+
+.art-archive-nojs-item {
+    margin-bottom: 1rem;
+    margin-left: 0;
+    padding-bottom: 1rem;
+    border-bottom: 2px dashed lightgray;
+}
+.art-archive-nojs-item:last-child { border-bottom: none; }
+.art-archive-nojs-extra {
+    list-style-position: inside;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.art-archive-nojs-item > a > h2 > span {
+  display: inline-block;
+  color: lightgray;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}

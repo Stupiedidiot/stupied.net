@@ -1,0 +1,37 @@
+
+  <h2>Filter by</h2>
+  {% for e in page.filters %}
+    <details open>
+        <summary><h3>{{ e.title }}</h3></summary>
+        {% assign tag = e.tag | default: e.title |  downcase %}
+        {%- include art/write-tags.html selected = tag -%}
+        
+        {% if e.extra %}
+            {% for j in e.extra %}
+              <details>
+                  <summary><h4>{{ j.title }}</h4></summary>
+                  {% assign tag = j.tag | default: j.title |  downcase %}
+                  {%- include art/write-tags.html selected = tag -%}
+              </details>
+            {% endfor %}
+        {% endif %}
+    </details>
+  {% endfor %}
+
+
+<style>
+  select {
+    display: block;
+    width: 100%;
+  }
+</style>
+
+  <br>
+  <h3>Mode</h3>
+  <select name="filter_mode" id="archive_mode">
+    <option value="and" selected>AND</option>
+    <option value="or">OR</option>
+    <option value="not">NOT</option>
+  </select><br>
+
+  {%- include art/filters.html -%}

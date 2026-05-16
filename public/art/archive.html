@@ -1,0 +1,62 @@
+---
+layout: art
+title: Archive
+description: Every single art piece uploaded on this website
+include_path: _includes/head/archive.html
+
+filters:
+  - title: Year
+
+  - title: Original Characters
+    tag: universes
+    extra:
+      - title: Psych!
+        tag: psych
+      - title: Eighty Four
+        tag: eighty-four
+      - title: "PMD: Spirits of the Lakes"
+        tag: pokemon
+      - title: Dissent
+        tag: dissent
+      - title: Pinwin Adventures
+        tag: pinwin
+      - title: Others
+        tag: oc
+
+  - title: Fanart
+    extra:
+      - title: Cartoons
+        tag: fanart_toon
+      - title: Video Games
+        tag: fanart_game
+      - title: Comics
+        tag: fanart_comic
+      - title: Film & Shows
+        tag: fanart_film
+      - title: Anime
+        tag: fanart_anime
+      - title: Musicals
+        tag: fanart_musical
+
+  - title: Art Challenges
+    tag: challenges
+
+  - title: Medium
+
+  - title: Miscellaneous
+    tag: misc
+---
+<article class="main-content" style="min-height: 100vh;">
+  <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site.art | size }}</span>)</h1>
+
+  <section id="art_archive">
+    {%- include art/archive.html offset=1 -%}
+  </section>
+
+  <div id="archive_buttons">
+      <button onclick="showEm(32)">[32] Load More</button>
+      <button onclick="showEm()">Load Everything!</button>
+  </div>
+
+  <p class="art-archive-nojs-text">Have Javascript disabled? <a href="./archive-nojs">Click Here!</a><br></p>
+</article>

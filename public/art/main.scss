@@ -1,0 +1,326 @@
+---
+layout: none
+---
+
+@import url(/meta/css/comment-widget.css);
+@import url(/meta/css/lightbox.css);
+
+::selection {
+  color: white;
+  background: var(--color-accent);
+}
+
+.justified-gallery {
+    button:hover img { 
+        transform:scale(95%);
+    }
+    
+    img { 
+       transition: 0.3s;
+    }
+}
+
+
+body {
+    background-image: url(/meta/img/clouds.jpg);
+    background-size: auto 120%;
+    animation:bg-scroll 300s infinite linear;
+    background-attachment: fixed;
+    background-color: var(--color-accent);
+}
+
+@keyframes bg-scroll {
+    0%{ background-position: 0 100%; }
+    100%{ background-position: calc(1350px * 1.5) 100%; }
+}
+
+hr { border: 1px dashed; }   
+h1, h2 { border-bottom: 1px dashed; margin-bottom: 0.5rem; }   
+
+.highlight {
+    background-color: black;
+    color: white;
+    padding: 0 0.5rem;
+}
+
+.slashed-nav > a{
+    color: gray;
+    display: inline-block;
+    
+    &:not(:last-child)::after{ 
+        content: "|";
+        display: inline-block;
+        color: white;
+        margin: 0 0.5rem;
+    }
+    &:hover { color: white;} 
+}
+
+.marquee {
+  position: relative;
+  max-width: 100%;
+  height: 2.5rem;
+  overflow-x: hidden;
+  background-color: black;
+  color: gray;
+  border-bottom: 1px solid white;
+
+     span::after {
+        content: " | ";
+    }
+}
+
+.track {
+    position: absolute;
+    top:50%;
+    white-space: nowrap;
+    animation: marquee 200s linear infinite;
+}
+
+.stamp {
+    --fold: 2rem;
+    --border: 3px;
+    --bg: url(/meta/img/clouds.jpg);
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-image: var(--bg);
+    background-size: cover;
+    aspect-ratio: 4/3;
+    border: var(--border) solid black;
+    box-sizing: border-box;
+    overflow: hidden;
+    clip-path: polygon(
+        calc(100% - var(--fold)) 0,
+        100% var(--fold),
+        100% 100%,
+        0 100%,
+        0 0
+    );
+    transition: 0.2s;
+
+    &:hover {
+        --folded: calc(var(--fold) + 20px);
+        clip-path: polygon(
+            calc(100% - var(--folded)) 0,
+            100% var(--folded),
+            100% 100%,
+            0 100%,
+            0 0
+        );
+        &::after { width: var(--folded); }
+        }
+
+    &::after{
+        transition: 0.2s;
+        content: "";
+        top: calc(0px - var(--border));
+        right: calc(0px - var(--border));
+        position: absolute;
+        width: var(--fold);
+        aspect-ratio: 1/1;
+        border: var(--border) solid;
+        background-color: white;
+        background: linear-gradient(45deg, white 50%, black 50%);
+        border: 2px solid;
+    }
+
+    > span {
+        bottom: 0.2rem;
+        left: 0.2rem;
+        position: absolute;
+        font-family: var(--display-font);
+        color: white;
+        text-shadow: 0 0 5px white;
+    }
+
+    img {max-width: 100%;}
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%) translateY(-50%); }
+  100% { transform: translateX(-50%) translateY(-50%); }
+}
+
+#container {
+    margin: auto;
+    width: 100%;
+    min-height: 100vh;
+    max-width: 1080px;
+    border: 3px solid black;
+    background-color: black;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+#navMain, footer > nav {
+    --txt-color: gray!important;
+    --txt-color-hover: white!important;
+    --bg-color: black!important;
+}
+
+aside {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, white);
+ 
+    & > * { 
+        top: 0;
+        position: sticky;
+        padding: 1rem;
+        text-align: justify;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+}
+
+#content { background-color: white; }
+main > article, .main-content { padding: 1rem; }
+main > article:not(:last-of-type), .main-content:not(:last-of-type){padding-bottom: 0;}
+
+footer {
+    & > nav {
+        margin-bottom: 0!important;
+        padding: 1rem;
+        text-align: center;
+        color: white;
+    }
+
+    & > div {
+        justify-content: center;
+        padding: 1rem;
+        background-color: var(--color-accent);
+        color: white;
+        
+        ul { columns: 3; }
+        > div {
+            flex: 1;
+            max-width: 180px;
+            margin: auto;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 800px) {
+    #content { display: flex; }
+    main { flex: 3; }
+    aside { flex: 1; min-width: 0;}
+}
+
+@media only screen and (min-width: 500px) {
+    .flex{
+        display: flex;
+        gap: 0.5rem;
+        > * {flex: 1; }
+    }
+    footer > div { display: flex; }
+}
+
+
+@media only screen and (max-width: 600px) {
+    header.home {
+        display: block;
+        aspect-ratio: none;
+    }
+    #headerDoll { aspect-ratio: 67/84; margin-bottom: 3px; }   
+    #headerStamps { aspect-ratio: 67/56; }
+}
+
+// Viewer
+#art_details {
+  padding: 0;
+}
+
+#art_title {
+  background: linear-gradient(90deg, var(--color-accent), white);
+  padding: 1rem;
+
+    time {
+        --c: black!important;
+        font-size: 1rem;
+        display: inline-block;
+        margin-left: 0.5rem;
+        color: white;
+    }
+}
+
+#art_desc {
+  padding: 1rem;
+}
+.art-related {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid;
+    background-color: white;
+    transition: 0.2s;
+
+    &:hover {
+        outline: 3px solid var(--color-accent);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+ul#art_tags {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-position: inside;
+  gap: 0.5rem;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#viewer {
+    --selected: url(/meta/img/clouds.jpg);
+    display:flex; align-content: center;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+    &::before {
+        z-index: 0;
+        content: "";
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: var(--selected);
+        background-size: cover;
+        filter: saturate(0%) brightness(15%) blur(5px);
+    }
+
+    #image {
+        position: relative;
+        z-index: 1;
+        margin: auto;
+        text-align: center;
+    }
+
+    img {
+        margin: auto;
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+#nextprev{
+  color: white;
+  background-color:black;
+  text-align:center;
+  padding:1rem 0;
+
+  a {
+    &:nth-child(n + 2):before {
+        content: " | ";
+    }
+    &:hover{ color:var(--blue); }
+  }
+}
+
+#art_index {
+    display: none;
+}

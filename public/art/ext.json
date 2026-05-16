@@ -1,0 +1,29 @@
+---
+layout: none
+---
+{% assign DATA = site.art | sort: date | reverse %}
+[
+    {%- assign dir = 'snail/_img/art/img/' -%}
+    {%- for e in DATA -%}
+        {%- assign img = e.path | getArtPath | append: '.' | append: e.ext -%}
+        {
+            "img": {{ img | jsonify }},
+            "dimension": {{ img | writeDime: dir | jsonify }}
+        }
+
+        {%- if e.extra -%}
+            {%- for i in e.extra -%}
+            ,{
+                {% assign extra = i.img | default: i %}
+                "img": {{ extra | jsonify }},
+                "dimension": {{ extra | writeDime: dir | jsonify }}
+            }
+            {%- endfor -%}
+        {%- endif -%}
+
+
+        {%- unless forloop.last -%},{%- endunless -%}
+
+    {%- endfor -%}
+
+]

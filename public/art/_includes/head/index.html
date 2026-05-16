@@ -1,0 +1,114 @@
+<style>
+body{ overflow-x:hidden; }
+
+header.home {
+    display: flex;
+    gap: 0.2rem;
+    background-color: black;
+    aspect-ratio: 2/1;
+    max-width: 100vw;
+}
+
+#headerDoll {
+    flex: 2;
+    background: url(/art/img/25/drawin/10.jpg);
+    background-size: 100% 100%;
+    background-color: #a7dddc;
+}
+
+#headerStamps {
+    flex: 3;
+    position: relative;
+    background-color: white;
+}
+
+#headerStamps > div {
+    position: absolute;
+    width: 50%;
+}
+
+#about {
+  margin-bottom: 1rem;
+}
+
+#links {
+  border: 1px solid;
+  padding: 1rem;  
+  box-sizing: border-box;
+}
+
+#list{
+  flex: 3;
+  margin-bottom: 1rem;
+}
+
+#list ul,
+#sketchbooks ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-position: inside;
+  gap: 1rem;
+  margin-left: 0;
+  padding-left: 0;
+
+  a:hover { color: var(--color-accent); }
+}
+
+#recent{ background-position: 50% 50%; }
+
+#sketchbooks > div {
+  --space: 1rem;
+  --min-height: 110px;
+  user-select: none;
+}
+
+#sketchbooks > div {
+display: flex;
+flex-wrap: wrap;
+grid-gap: var(--space);
+list-style: none;
+margin-bottom:0.5rem;
+padding:1rem;
+}
+
+#sketchbooks > div:not(:last-of-type){
+  padding-bottom:0;
+}
+
+#sketchbooks > div > *{
+width:100%;
+flex-grow: calc(var(--width) * (100000 / var(--height)));
+flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+aspect-ratio: var(--width) / var(--height);
+position: relative;
+overflow: hidden;
+margin: 0 !important;
+padding: 0 !important;
+}
+
+#sketchbooks > div > * > img {
+position: absolute;
+width: 100%;
+height: 100%;
+}
+
+#sketchbooks > div a{
+  box-shadow:0 0 5px rgba(0, 0, 0, 0.8);
+  transition: 0.2s;
+}
+
+#sketchbooks > div a:nth-child(odd):hover{transform: scale(110%) rotate(-3deg);z-index:1;}
+#sketchbooks > div a:nth-child(even):hover{transform: scale(110%) rotate(3deg);z-index:1;}
+
+#sketchbooks > div a:hover img{
+  transform: none;
+}
+
+#commission{
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--display-font);
+  font-weight: bold;
+  &:hover{color:var(--color-accent);}
+}
+</style>

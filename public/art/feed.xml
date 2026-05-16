@@ -1,0 +1,31 @@
+---
+layout: rss
+title: Stupied's Art
+description: RSS Feed for all my art
+---
+
+{% assign FEED = site.art | sort: date | reverse %}
+{%- for e in FEED limit: 15 -%}
+{%- assign img = e.path | getArtPath | append: '.' | append: e.ext -%}
+<item>
+  <title>{{ e.title | escape }}</title>
+  <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+  <link>{{ site.url }}/art/~?{{ img }}</link>
+  <guid isPermaLink="false">{{ img }}</guid>
+  <description>
+    {% capture desc %}
+      <img src="{{ site.url }}/{{ img }}" alt="{{ e.alt | escape}}"/>
+      
+      {%- for extra in e.extra -%}
+        <img src="{{ site.url }}/{{ extra.img }}" alt="{{ extra.alt | escape}}"/>
+      {%- endfor -%}
+      
+      {% assign test = item.content | strip %}
+      {%- if test != '' -%}
+        {{ item.content }}
+      {%- endif -%}
+    {% endcapture %}
+    {{ desc | escape }}
+  </description>
+</item>
+{%- endfor -%}

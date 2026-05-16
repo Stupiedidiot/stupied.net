@@ -1,0 +1,84 @@
+---
+layout: default
+permalink: art/img/index.html
+---
+<style>
+:root {
+    --selected: url(/meta/img/clouds.jpg);
+}
+
+body {
+    position: relative;
+}
+
+button {
+    z-index: 2;
+    position: fixed;
+    top: 0.5rem;
+    left: 0.5rem;
+    background-color: unset;
+    color: white;
+    border: 0;
+}
+
+#container {
+    overflow: auto;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: black;
+    position: relative;
+
+    &::after {
+        z-index: 0;
+        content: "";
+        top: 0; left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-image: var(--selected);
+        background-size: cover;
+        filter: saturate(0%) brightness(15%) blur(5px);
+    }
+
+    #image {
+        z-index: 1;
+        background-color: white;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        position: absolute;
+        max-width: 100%;
+        max-height: calc(100% - 1rem);
+        display: block;
+    }
+}
+</style>
+<!-- <button onclick="goBack()">head back</button> -->
+<div id="container">
+    <img id="image" src="#" alt="">
+</div>
+
+<script>
+var currentImage = window.location.search.replace("?","");
+
+fetch("./../main.json")
+    .then((response) => response.json())
+    .then((art) => {
+        if(currentImage === ""){
+            currentImage = art[0].img;
+            window.location.replace("./?" + currentImage);
+        }
+        var imageLink= './' + currentImage;
+        document.getElementById("image").src = imageLink;
+        var rootVar = document.documentElement;
+        rootVar.style.setProperty('--selected',`url(${imageLink})`)
+        }
+)
+
+function goBack(){
+    history.back();
+}
+</script>

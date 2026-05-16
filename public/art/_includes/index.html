@@ -1,0 +1,33 @@
+<header class="home" data-nosnippet>
+    <div id="headerDoll"></div>
+    <div id="headerStamps">
+        {%- assign recent = site.art | sort: date | reverse | first -%}
+        {% assign recent_path = recent.path | getArtPath %}
+        <div style="bottom: 52%; left: 3%;">
+            <a href="./p/{{ recent_path }}" id="recent" class="stamp" style="--bg: url(./img/{{ recent_path | append: '.' | append: recent.ext}});">
+                <span>Most Recent</span>
+            </a>
+        </div>
+
+        <div style="top:52%; left:45%;">
+            <a href="https://ko-fi.com/stupied/commissions" class="stamp" style="--bg: url(/art/img/24/Dear-Diary.jpg);">
+                <span>Commission</span>
+            </a>
+        </div>
+
+        <div style="top:52%; left: 8%; width: 35%;">
+            <a href="/about/art#from-art" class="stamp" style="--bg: url(/art/img/24/Looming.jpg);">
+                <span>Art Usage</span>
+            </a>
+        </div>
+
+        <div style="bottom: 52%; left: 55%; width: 30%;">
+            <a href="https://album.stupied.net/fanart/" class="stamp" style="--bg: url(https://album.stupied.net/fanart/img/21/Greg.jpg);">
+                <span style="color: black;">Fanart</span>
+            </a>
+        </div>
+    </div>
+</header>
+<div class="marquee" data-nosnippet>
+    <div class="track"> <span>How did we end up here? You said happenstance</span> <span>The cruelest lies are often told without a word. The kindest truths are often spoke but never heard.</span> <span>The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.</span> <span>A poem is a song that no one cares about</span> <span>I'm not the boogeyman but I am the <i>boogey man</i></span> <span>Fight for the fact that you're worth more than a decimal</span> <span>WOAH! THAT SNAIL IS FAST!!</span> <span>Well here we are again. It's always such a pleasure :)</span> <span>Oooh you've come so far! The dynamic pose with the vibrant colours and lineless touches is much prettier, the clothes flow nicely (that bow detail is lovely) and more carefully constructed hands are very noticeable, a definite improvement from the squiggly on on the right</span> <span>How did we end up here? You said happenstance</span> <span>The cruelest lies are often told without a word. The kindest truths are often spoke but never heard.</span> <span>The creatures outside looked from pig to man, and from man to pig, and from pig to man again; but already it was impossible to say which was which.</span> <span>A poem is a song that no one cares about</span> <span>I'm not the boogeyman but I am the <i>boogey man</i></span> <span>Fight for the fact that you're worth more than a decimal</span> <span>WOAH! THAT SNAIL IS FAST!!</span> <span>Well here we are again. It's always such a pleasure :)</span> <span>Oooh you've come so far! The dynamic pose with the vibrant colours and lineless touches is much prettier, the clothes flow nicely (that bow detail is lovely) and more carefully constructed hands are very noticeable, a definite improvement from the squiggly on on the right</span> </div>
+</div>
