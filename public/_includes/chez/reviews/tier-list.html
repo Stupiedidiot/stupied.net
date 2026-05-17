@@ -6,7 +6,7 @@
 <article class="tier_list">
 {%- for tier in TIERS -%}
 <section class="{{ tier }} tier">
-    {%- assign selected = REVIEWS | where: "rating", tier -%}
+    {%- assign selected = REVIEWS | where: "rank", tier -%}
     <div class="tier-label"><span>{{ tier }}</span></div>
     <div class="tier-items">
     {%- include chez/reviews/tier-item.html selected = selected -%}
