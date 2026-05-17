@@ -3,7 +3,7 @@
         {% assign path = page.path | getArtPath %}
         {% assign img = path | append: '.' |  append: page.ext %}
         {% assign dime = img | getDime: 'snail/_img/art/img/' %}
-        <img src="/art/img/{{ img }}" alt="{{ page.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
+        <img src="/art/img/{{ img }}" alt="{{ page.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" data-pagefind-meta="image[src]">
 
         {% for e in page.extra %}
             {% assign img = e.img | default: e %}
