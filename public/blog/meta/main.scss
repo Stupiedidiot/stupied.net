@@ -90,6 +90,10 @@ main {
 .main-content {
     padding:0 1.5rem;
 
+    &:only-of-type {
+        min-height: 95vh;
+    }
+
     img{ width:100%; }
     > img{ margin-bottom:0.5rem; }
 }
@@ -338,7 +342,7 @@ img.center{
 }
 
 @media only screen and (min-width: 501px) {
-    #blog_archive {
+    #blog_archive .window{
         display: flex;
         gap:0.5rem;
     }
@@ -446,17 +450,26 @@ footer {
     }
 }
 
-.tagged:has(input:checked) .micro-post {display: none;}
+.tagged:has(input:checked) .micro-post,
+.tagged:has(input:checked) .timeline-item
+ {display: none;}
 
 .tagged:has(#all:checked) .micro-post,
 {% for e in site.data.blog.tags.micro %}
-    .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"]
+    .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"],
+{% endfor %}
+
+.tagged:has(#all:checked) .timeline-item,
+{% for e in site.tags %}
+    {% assign tag = e | first %}
+    .tagged:has(#{{ tag }}:checked) .timeline-item[class~="{{ tag }}"]
     {%- unless forloop.last -%},{%- endunless -%}
 {% endfor %}
-{display: inline-block;}
+{display: block;}
 
 // PAGEFIND 
 #search {
+    margin-top: 0!important;
     .pagefind-ui__filter-panel {
         display: none;
     }

@@ -1,38 +1,40 @@
 {%- assign data = include.data -%}
 {% assign max = include.max | default: data.size %}
-<div class="timeline-list">
+<div class="timeline">
     {%- for e in data limit: max -%}
-        <a href="{{ e.url }}" class="timeline">
-            {%- unless include.no_thumbnail -%}
-                {%- if e.thumbnail -%}
-                    {%- capture thumbnail -%}
-                        style="--bg:url({{ e.thumbnail }});"
-                    {%- endcapture -%}
-                {%- else -%}
-                    {%- assign thumbnail = '' -%}
-                {%- endif -%}
-                <div class="timeline-thumb" {{ thumbnail }}></div>
-            {%- endunless -%}
-            <div class="timeline-info">
-                <div class="timeline-text">
-                    <span class="timeline-title">{{ e.title }}</span>
-                    {%- unless include.no_desc -%}
-                        {%- if e.description -%}
-                            <div class="timeline-desc">
-                                {{ e.description }}
-                            </div>
-                        {%- else -%}
-                            <div class="timeline-desc">
-                                {{ e.content | strip_html | markdownify | strip_html | truncatewords: 25}}
-                            </div>
-                        {%- endif -%}
-                    {%- endunless -%}
-                    <time datetime="">{{ e.date | date: "%b %-d, %Y" }}</time>
-                </div>
-                
-                {%- unless include.no_index -%}
-                    <div class="timeline-index">#{{ forloop.rindex }}</div>
+        <a href="{{ e.url }}" class="timeline-item {{ e.tags | join: ' ' }}">
+            <div class="timeline-content">
+                {%- unless include.no_thumbnail -%}
+                    {%- if e.thumbnail -%}
+                        {%- capture thumbnail -%}
+                            style="--bg:url({{ e.thumbnail }});"
+                        {%- endcapture -%}
+                    {%- else -%}
+                        {%- assign thumbnail = '' -%}
+                    {%- endif -%}
+                    <div class="timeline-thumb" {{ thumbnail }}></div>
                 {%- endunless -%}
+                <div class="timeline-info">
+                    <div class="timeline-text">
+                        <span class="timeline-title">{{ e.title }}</span>
+                        {%- unless include.no_desc -%}
+                            {%- if e.description -%}
+                                <div class="timeline-desc">
+                                    {{ e.description }}
+                                </div>
+                            {%- else -%}
+                                <div class="timeline-desc">
+                                    {{ e.content | strip_html | markdownify | strip_html | truncatewords: 25}}
+                                </div>
+                            {%- endif -%}
+                        {%- endunless -%}
+                        <time datetime="">{{ e.date | date: "%b %-d, %Y" }}</time>
+                    </div>
+                
+                    {%- unless include.no_index -%}
+                        <div class="timeline-index">#{{ forloop.rindex }}</div>
+                    {%- endunless -%}
+                </div>
             </div>
         </a>
     {%- endfor -%}

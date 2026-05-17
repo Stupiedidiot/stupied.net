@@ -334,18 +334,25 @@ fieldset.infobox > legend {
 /* INFOBOX END */
 
 /* TIMELINE START */
-.timeline {
+.timeline-item:nth-child(n + 2){
+    display: block;
+    border-top: var(--border);
+    width: 100%;
+}
+
+.timeline-content {
     --bg: url(/meta/img/clouds.jpg);
     --a: 1/1;
     display: flex;
     gap: 0.5rem;
     margin-bottom: 1rem;
     padding-top: 1rem;
+
+    time {
+        color: lightgray;
+    }
 }
 
-.timeline:nth-child(n + 2){
-    border-top: var(--border);
-}
 .timeline-index {
     color: lightgray;
     padding: 1rem;
@@ -372,10 +379,6 @@ fieldset.infobox > legend {
     display: block;
     font-family: var(--display-font);
     font-weight: bolder;
-}
-
-.timeline time {
-    color: lightgray;
 }
 /* TIMELINE END */
 

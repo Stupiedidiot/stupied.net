@@ -2,9 +2,16 @@
 layout: blog
 title: Archive
 ---
-<article class="main-content">
-    {% include search.html cat='blog' %}
+<article class="main-content tagged">
     <h1> Blog Archive</h1>
+    {% include search.html cat='blog' %}
+    <div id="micro_tags">
+        <label><input type="radio" id="all" name="tag" checked>all</label>
+        {% for e in site.tags %}
+            <label><input type="radio" id="{{ e | first }}" name="tag" data-size="{{e | last | size}}">#{{ e | first }}</label>
+        {% endfor %}
+    </div>
+    
     <section id="blog_archive">
         {%- include widget/timeline.html data=site.posts -%}
     </section>
