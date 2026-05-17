@@ -11,15 +11,7 @@ module Jekyll
         return "TITLE UNKNOWN"
       end
     end
-    
-    # def fileExists(input)
-    #   if()
-    #     return true
-    #   else
-    #     return false
-    #   end
-    # end
-
+  
     def filterFuture(input)
       return [] unless input.is_a?(Array)
       date =  @context.registers[:site].time.to_i

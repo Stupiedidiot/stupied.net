@@ -21,6 +21,11 @@ h1 span {
             max-width: 100%;
         }
     }
+
+    &-thumbnail {
+        height: 200px;
+        border-radius: 4px;
+    }
 }
 
 h3 {

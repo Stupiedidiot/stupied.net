@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Movie Reviews
+title: Media Reviews
 
 pagination: 
     enabled: true
     collection: reviews
-    per_page: 32
+    per_page: 64
     permalink: '/:num/'
     title: ':title'
     trail: 
@@ -13,28 +13,39 @@ pagination:
         after: 2
 ---
 <link rel="stylesheet" href="/chez/reviews/temp.css">
-<script src="/chez/reviews/main.js"></script>
+<script src="/chez/reviews/main.js" defer></script>
 <div class="padded">
     <h1>{{ page.title }}<span>({{ paginator.page }}/{{ paginator.total_pages }})</span></h1>
     <p>Rambling about the media I've seen.</p>
 
-    <div class="review">
-        {% for e in paginator.posts %}
-            <article id="{{  e.slug | downcase }}" class="review-item">
-                <h2>{{  e.title | default:  e.filename | split: '(' | first }}{% if  e.release %} ({{ e.release }}){% endif %}</h2>
-                <div>
-                    {% assign rating = e.rank |  append: ' Tier'  %}
-                    <h3>{{  e.quote | default: rating }}</h3>
-                    {%- if  e.url contains '/f/' -%}
-                        {{  e.content | markdownify }}
-                        <time datetime="{{ e.date | date_to_xmlschema }}">{{  e.date | date: "%B %-d, %Y" }}</time>
-                    {%- else -%}
-                        <p>Review is yet to be written!</p>
-                        <time>To Be Reviewed..</time>
+    {% comment %} Really ought to update the styling for this :P {% endcomment %}
+    <div class="timeline">
+        {%- for e in paginator.posts -%}
+            <a href="{{ e.url }}" class="timeline-item {{ e.tags | join: ' ' }}">
+                <div class="timeline-content">
+                    {% assign thumbnail = e.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
+                    {% assign test = thumbnail |  prepend: '/snail/_img' | check_file %}
+
+                    {%- if test -%}
+                        <div class="timeline-thumb" style="--bg:url({{ thumbnail }});"></div>
                     {%- endif -%}
+                    
+                    <div class="timeline-info">
+                        <div class="timeline-text">
+                            <span class="timeline-title">{{ e.title }}</span>
+                            <div class="timeline-desc">
+                                {%- if  e.path contains '/f/' -%}
+                                    {{  e.content | strip_html | markdownify| strip_html | truncatewords: 25, "..." }}
+                                {%- else -%}
+                                    <p>To Be Reviewed..</p>
+                                {%- endif -%}
+                            </div>
+                            <time datetime="">{{ e.date | date: "%b %-d, %Y" }}</time>
+                        </div>
+                    </div>
                 </div>
-            </article>
-        {% endfor %}
+            </a>
+        {%- endfor -%}
     </div>
 
     {% if paginator.total_pages > 1 %}
@@ -42,13 +53,13 @@ pagination:
             {% if paginator.next_page %}
                 <a id="nextprev-next" href="{{ paginator.next_page_path | prepend: site.baseurl }}" title="View Next Page">
                     <span class="icon-arrow-thin-left"></span>
-                    <span>NEXT</span>
+                    <span>Next</span>
                 </a>
             {% endif %}
 
             {% if paginator.previous_page %}
                 <a id="nextprev-prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
-                    <span>PREV</span>
+                    <span>Prev</span>
                     <span class="icon-arrow-thin-right"></span>
                 </a>
             {% endif %}

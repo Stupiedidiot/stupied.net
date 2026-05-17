@@ -17,7 +17,7 @@ description: Updates of the reviews written by Stupied
     <item>
     <title>{{ item.title | escape }}</title>
     <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-    <link>{{ site.url | append: '/chez/reviews/#' | append: slug }}</link>
+    <link>{{ item.url | prepend: site.url }}</link>
     <guid isPermaLink="false">{{ slug }}-{{ item.date | date: "%Y-%m-%d" }}</guid>
     <description>
         {%- capture description -%}

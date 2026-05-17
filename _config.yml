@@ -27,12 +27,17 @@ collections:
   art:
     output: true
     permalink: /art/p/:path
+    sort_by: date
   img:
     output: true
     permalink: /:path
     
+  # someone pls remind me to make this into their own seperate website ty
   lists:
   reviews:
+    output: true
+    permalink: /chez/reviews/p/:name_raw
+    sort_by: date
   
   micro:
   posts:
@@ -52,6 +57,11 @@ defaults:
       type: art
     values:
       layout: art-view
+
+  - scope:
+      type: reviews
+    values:
+      layout: reviews
 
   - scope:
       type: posts
