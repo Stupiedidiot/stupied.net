@@ -77,7 +77,7 @@ List based on [this](https://mickey-and-friends.fandom.com/wiki/Donald_Duck/Shor
 - [ ] Timber
 - [ ] Golden Eggs
 - [ ] A Good Time for a Dime
-- [ ] Early to Bed
+- [X] Early to Bed
 - [x] Truant Officer Donald
 - [ ] Old MacDonald Duck
 - [ ] Donald's Camera
