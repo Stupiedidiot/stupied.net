@@ -2,5 +2,5 @@
     {%- capture title -%}
         {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
     {%- endcapture -%}
-    <button onclick="viewer('{{ item.slug | downcase }}')" title="{{ title }}" class="tier-thumb {%unless item.url contains 'todo/'%}with-review{% endunless %}"><img src="./img/{{ item.slug | downcase }}.jpg" alt="thumbnail for {{ title }}" loading="lazy"></button>
+    <a href="{{ item.url }}" title="{{ title }}" class="tier-thumb {%if item.path contains '/f/'%}with-review{% endif %}"><img src="./img/{{ item.slug | downcase }}.jpg" alt="thumbnail for {{ title }}" loading="lazy"></a>
 {%- endfor -%}

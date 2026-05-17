@@ -17,34 +17,7 @@ layout: none
     </header>
     <main>
       {% include chez/reviews/tier-list.html selected = page.selected -%}
-
-      <div id="view" class="closed">
-      {%- for item in REVIEWS -%}
-      <article id="{{ item.slug | downcase }}">
-          {%- capture title -%}
-            {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
-          {%- endcapture -%}
-          <section class="view-desc">
-              <img src="/chez/reviews/img/{{ item.slug | downcase }}.jpg" alt="" class="float-right">
-              <h2>{{ title }}</h2>
-              
-              {%- if item.url contains '/f/' -%}
-                {{ item.content | markdownify }}
-              {%- else -%}
-                <p>Review is yet to be written!</p>
-              {%- endif -%}
-
-              {%- if item.link -%}
-                <a href="{{ item.link }}" target="_blank" class="view-link">Watch Now! </a>
-              {%- endif -%}
-              <time datetime="{{ item.date | date: '%B %-d, %Y' }}">{{ item.date | date: "%B %-d, %Y" }}</time>
-
-          </section>
-        </article>
-      {%- endfor -%}
-      </div>
       {% include chez/reviews/tier-recent.html selected = page.selected -%}
-
       {{ content }}
     </main>
     <footer class="default-footer">

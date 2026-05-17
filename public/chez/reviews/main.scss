@@ -1,3 +1,6 @@
+---
+---
+
 body {
   background-color: #1a1a1a;
   color: white;
@@ -56,20 +59,20 @@ header {
   transform: translateY(-8%);
 }
 
-.tier-items button {
+.tier-thumb {
   display: block;
   border: none;
   background-color: unset;
   height: 200px;
   max-width: 100%;
   padding: 0;
-}
 
-.tier-thumb img {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 3px;
+  img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 3px;
+  }
 }
 
 @media only screen and (max-width: 360px) {
