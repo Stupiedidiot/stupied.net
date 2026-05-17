@@ -1,7 +1,7 @@
 ---
 title: The Little Mermaid
 release: 1989
-rating: S
+rank: S
 ---
 
 Lovely beginning of a 

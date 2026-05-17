@@ -1,5 +1,5 @@
 ---
 release: 2013
-rating: A
+rank: A
 ---
 [ Insert My Review ]

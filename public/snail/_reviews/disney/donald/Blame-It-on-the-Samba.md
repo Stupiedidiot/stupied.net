@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/HIpJOD34KD4
 release: 1948
-rating: S
+rank: S
 ---
 
 Ethel Smith

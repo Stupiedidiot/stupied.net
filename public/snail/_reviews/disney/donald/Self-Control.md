@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/-LqsNXA1RVY
 release: 1938
-rating: D
+rank: D
 ---
 
 Bro cannot catch a break.

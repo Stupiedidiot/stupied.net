@@ -1,6 +1,6 @@
 ---
 release: 1950
-rating: A
+rank: A
 ---
 Often people believe Cinderella 
 

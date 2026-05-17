@@ -1,5 +1,5 @@
 ---
 link: https://youtu.be/01_UGffS89Y
 release: 1949
-rating: B
+rank: B
 ---

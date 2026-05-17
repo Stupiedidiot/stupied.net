@@ -23,7 +23,7 @@ pagination:
             <article id="{{  e.slug | downcase }}" class="review-item">
                 <h2>{{  e.title | default:  e.filename | split: '(' | first }}{% if  e.release %} ({{ e.release }}){% endif %}</h2>
                 <div>
-                    {% assign rating = e.rating |  append: ' Tier'  %}
+                    {% assign rating = e.rank |  append: ' Tier'  %}
                     <h3>{{  e.quote | default: rating }}</h3>
                     {%- if  e.url contains '/f/' -%}
                         {{  e.content | markdownify }}

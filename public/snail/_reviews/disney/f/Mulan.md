@@ -1,7 +1,7 @@
 ---
 date: 2025-11-06
 release: 1998
-rating: F
+rank: F
 ---
 Kinda really embarrassed of my previous review. Will revisit this eventually.
 {% comment %}

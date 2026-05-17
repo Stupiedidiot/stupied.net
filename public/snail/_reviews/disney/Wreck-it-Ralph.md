@@ -1,4 +1,4 @@
 ---
 release: 2004
-rating: B
+rank: B
 ---

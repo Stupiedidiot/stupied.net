@@ -1,7 +1,7 @@
 ---
 title: "Mickey, Donald, Goofy: The Three Musketeers"
 release: 2004
-rating: F
+rank: F
 ---
 The only
 

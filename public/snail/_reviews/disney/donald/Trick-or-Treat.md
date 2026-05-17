@@ -1,6 +1,6 @@
 ---
 link: https://youtu.be/aSkXw1bk_NE
 release: 1952
-rating: S
+rank: S
 ---
 [ Insert My Review ]

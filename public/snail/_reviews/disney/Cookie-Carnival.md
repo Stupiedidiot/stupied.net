@@ -2,7 +2,7 @@
 link: https://youtu.be/SRB2YlQOSBI
 title: The Cookie Carnival
 release: 1935
-rating: S
+rank: S
 ---
 
 This Silly Symphony short has a very special place in my heart.

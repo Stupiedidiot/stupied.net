@@ -2,7 +2,7 @@
 link: 
 title: 
 release: 1950
-rating: C
+rank: C
 ---
 
 I'm so in love with Daisy design, you have no idea

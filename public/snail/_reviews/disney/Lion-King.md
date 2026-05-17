@@ -1,7 +1,7 @@
 ---
 title: The Lion King
 release: 1994
-rating: A
+rank: A
 ---
 
 I didn't know it at the time but the totally authentic Disney CD my dad bought had the Special Edition of the Lion King

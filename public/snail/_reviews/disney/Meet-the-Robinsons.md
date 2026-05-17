@@ -1,6 +1,6 @@
 ---
 release: 2007
-rating: S
+rank: S
 ---
 
 A lovely tribute.

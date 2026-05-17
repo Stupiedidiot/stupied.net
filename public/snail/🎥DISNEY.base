@@ -7,7 +7,7 @@ formulas:
   thumbnail: image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
   Status: if(file.path.contains('/f/'), image("_template/done.png"), image("_template/todo.png"))
   title: if(note.title != null, note.title, file.name.replace("-", " "))
-  ranking: if(note.rating == "S", 0, note.rating)
+  ranking: if(note.rank == "S", 0, note.rank)
 properties:
   formula.Status:
     displayName: status

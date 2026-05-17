@@ -1,6 +1,6 @@
 ---
 release: 2010
-rating: B
+rank: B
 ---
 
 Also 

@@ -1,7 +1,7 @@
 ---
 title: Lady and the Tramp
 release: 1995
-rating: C
+rank: C
 ---
 [ Insert My Review ]
 <!-- 

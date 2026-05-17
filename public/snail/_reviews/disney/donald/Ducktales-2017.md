@@ -1,7 +1,7 @@
 ---
 title: Ducktales
 release: 2017
-rating: S
+rank: S
 ---
 
 The more I look into older Duck media, the more I understand Don Rosa's dislike for the Ducktales series. Unfortunately, this was the catalyst for my obsession of these lil guys so my opinion will be incredibly biased.

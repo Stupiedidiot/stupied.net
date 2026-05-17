@@ -1,7 +1,7 @@
 ---
 title: Chicken Little (2025)
 release: 2005
-rating: F
+rank: F
 ---
 
 Disney's first ever FULLY (I am not having this conversation right now) computer generated

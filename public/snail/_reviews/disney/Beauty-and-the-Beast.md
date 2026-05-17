@@ -1,4 +1,4 @@
 ---
 release: 1991
-rating: C
+rank: C
 ---

@@ -1,7 +1,7 @@
 ---
 title: The Princess and the Frog
 release: 2009
-rating: S
+rank: S
 ---
 I am a sucker for good musical numbers. This movie has nothing but banger to banger. Hell to the absolute yeah!
 
