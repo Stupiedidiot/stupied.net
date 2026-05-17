@@ -33,6 +33,7 @@ title: Wesbites!!
 - [lislecoombs.me](https://www.lislecoombs.me/)
 - [waldenfont.com](https://www.waldenfont.com/)
 - [manacake.co](https://manacake.co/)
+- [5amg](https://5amg.web.fc2.com/)
 
 ### Propaganda
 - [Vanilla JS](http://vanilla-js.com/)
