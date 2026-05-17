@@ -6,13 +6,8 @@
             <div class="timeline-content">
                 {%- unless include.no_thumbnail -%}
                     {%- if e.thumbnail -%}
-                        {%- capture thumbnail -%}
-                            style="--bg:url({{ e.thumbnail }});"
-                        {%- endcapture -%}
-                    {%- else -%}
-                        {%- assign thumbnail = '' -%}
-                    {%- endif -%}
-                    <div class="timeline-thumb" {{ thumbnail }}></div>
+                        <div class="timeline-thumb" style="--bg:url({{ e.thumbnail }});"></div>
+                    {%- endif -%}                   
                 {%- endunless -%}
                 <div class="timeline-info">
                     <div class="timeline-text">
@@ -30,10 +25,6 @@
                         {%- endunless -%}
                         <time datetime="">{{ e.date | date: "%b %-d, %Y" }}</time>
                     </div>
-                
-                    {%- unless include.no_index -%}
-                        <div class="timeline-index">#{{ forloop.rindex }}</div>
-                    {%- endunless -%}
                 </div>
             </div>
         </a>

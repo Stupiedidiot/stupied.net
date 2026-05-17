@@ -353,12 +353,6 @@ fieldset.infobox > legend {
     }
 }
 
-.timeline-index {
-    color: lightgray;
-    padding: 1rem;
-    padding-right: 0;
-}
-
 .timeline-thumb {
     background-image: var(--bg);
     background-size: cover;
@@ -368,8 +362,6 @@ fieldset.infobox > legend {
 }
 
 .timeline-info {
-    display: flex;
-    align-items: center;
     flex: 1;
 }
 
