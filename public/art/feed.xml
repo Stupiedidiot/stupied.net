@@ -4,7 +4,7 @@ title: Stupied's Art
 description: RSS Feed for all my art
 ---
 
-{% assign FEED = site.art | sort: date | reverse %}
+{% assign FEED = site.art | reverse %}
 {%- for e in FEED limit: 15 -%}
 {%- assign img = e.path | getArtPath | append: '.' | append: e.ext -%}
 <item>

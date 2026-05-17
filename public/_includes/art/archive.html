@@ -1,4 +1,4 @@
-{% assign default = site.art | sort: date | reverse %}
+{% assign default = site.art | reverse %}
 {%- assign DATA = include.data | default: default -%}
 
 <img data-pagefind-meta="image[src]" src="./img/{{ DATA[0].img }}" alt="" id="pagefind_thumbnail">

@@ -13,7 +13,7 @@
     </div>
 </div>
 
-{% assign col = site.art | sort: date %}
+{% assign col = site.art %}
 {% assign info = col | getArtNxtPrv: page.path %}
 {% assign index = info[0] %}
 {% assign prev = info[1] %}

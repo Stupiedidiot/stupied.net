@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% assign DATA = site.art | sort: date | reverse %}
+{% assign DATA = site.art | reverse %}
 [
     {%- assign dir = 'snail/_img/art/img/' -%}
     {%- for e in DATA -%}

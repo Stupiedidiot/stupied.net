@@ -1,0 +1,56 @@
+---
+layout: page
+---
+<link rel="stylesheet" href="/chez/reviews/temp.css">
+<script src="/chez/reviews/main.js" defer></script>
+<div class="padded">
+    <article id="{{ page.slug | downcase }}" class="review-item">
+        {% assign thumbnail = page.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
+        {% assign test = thumbnail |  prepend: '/snail/_img' | check_file %}
+
+        {%- if test -%}
+            <img src="{{ thumbnail }}" class="float-right review-thumbnail" data-pagefind-meta="image[src]">
+        {%- endif -%}
+
+        <h1>{{  page.title | default:  page.filename | split: '(' | first }}{% if  page.release %} ({{ page.release }}){% endif %}</h1>
+        <div>
+            {% assign rating = page.rank |  append: ' Tier'  %}
+            <h3>{{  page.quote | default: rating }}</h3>
+            {%- if  page.path contains '/f/' -%}
+                {{  page.content | markdownify }}
+                <hr class="clear">
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{  page.date | date: "%B %-d, %Y" }}</time>
+            {%- else -%}
+                <p>Review is yet to be written!</p>
+                <hr class="clear">
+                <time>To Be Reviewed..</time>
+            {%- endif -%}
+        </div>
+    </article>
+
+    {% assign col = site.reviews %}
+    {% assign info = col | getArtNxtPrv: page.path %}
+    {% assign index = info[0] %}
+    {% assign prev = info[1] %}
+    {% assign next = info[2] %}
+    <div id="nextprev">
+        {% if next %}
+            <a id="nextprev-next" href="{{ next.url }}" title="View Next Page">
+                <span class="icon-arrow-thin-left"></span>
+                <span>Next</span>
+            </a>
+        {% endif %}
+        
+        {% if prev %}
+            <a id="nextprev-prev" href="{{ prev.url }}" title="View Previous Page">
+                <span>Prev</span>
+                <span class="icon-arrow-thin-right"></span>
+            </a>
+        {% endif %}
+
+        <a href="/chez/reviews/">
+            <span class="icon-inbox-full"></span>
+            <span>Archive</span>
+        </a>
+    </div>
+</div>

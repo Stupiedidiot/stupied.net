@@ -1,7 +1,7 @@
 <header class="home" data-nosnippet>
     <div id="headerDoll"></div>
     <div id="headerStamps">
-        {%- assign recent = site.art | sort: date | reverse | first -%}
+        {%- assign recent = site.art | reverse | first -%}
         {% assign recent_path = recent.path | getArtPath %}
         <div style="bottom: 52%; left: 3%;">
             <a href="./p/{{ recent_path }}" id="recent" class="stamp" style="--bg: url(./img/{{ recent_path | append: '.' | append: recent.ext}});">

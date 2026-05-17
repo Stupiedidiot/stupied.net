@@ -1,4 +1,4 @@
-{% assign default = site.art | sort: date | reverse %}
+{% assign default = site.art | reverse %}
 {%- assign DATA = include.data | default: default -%}
 
 {%- for item in DATA -%}
