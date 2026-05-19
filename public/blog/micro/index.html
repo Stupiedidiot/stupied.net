@@ -8,7 +8,7 @@ title: Microblog
     
     <div id="micro_tags">
         <label><input type="radio" id="all" name="tag" checked>all</label>
-        {% for e in site.data.blog.tags.micro %}
+        {% for e in site.data.blog.micro %}
             <label><input type="radio" id="{{ e }}" name="tag" data-size="{{ site.micro | where_exp: 'i', 'i.tags contains e' | size }}">#{{ e }}</label>
         {% endfor %}
     </div>
