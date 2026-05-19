@@ -4,7 +4,7 @@ title: Archive
 ---
 <article class="main-content tagged">
     <h1> Blog Archive</h1>
-    {% include search.html cat='blog' %}
+    {% include widget/search.html cat='blog' %}
     <div id="micro_tags">
         <label><input type="radio" id="all" name="tag" checked>all</label>
         {% for e in site.tags %}

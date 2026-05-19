@@ -15,13 +15,6 @@ document.onkeydown = function(event) {
   }
 }
 
-// Yt Embeds
-if (document.querySelector(".yt-embed.custom")){
-  var script = document.createElement('script');
-  script.src = "/meta/js/yt-embed.js";
-  document.head.appendChild(script);
-}
-
 // Code Highlights
 if (document.querySelector("figure.highlight")){
   var script = document.createElement('script');

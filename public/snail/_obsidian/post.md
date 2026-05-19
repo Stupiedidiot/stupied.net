@@ -2,6 +2,7 @@
 title:
 
 tags:
+- art
 - spaghetti
 - jekyll
 - javascript
