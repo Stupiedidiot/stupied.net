@@ -13,6 +13,7 @@ title: Wesbites!!
 - [jb's site](https://jbc.lol/)
 - [outerweb](https://outerweb.org/)
 - [✦ 𝗍𝗁𝖾 𝗆𝖾𝗅𝗍 𝗓𝗈𝗇𝖾](https://meltknuckles.net/)
+- [heatherfranzen.com](https://www.heatherfranzen.com/)
 
 ### Portfolios / Miscellaneous
 - [Louie Zong](https://www.louiezong.com/)
