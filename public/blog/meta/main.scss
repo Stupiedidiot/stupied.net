@@ -451,7 +451,7 @@ footer {
  {display: none;}
 
 .tagged:has(#all:checked) .micro-post,
-{% for e in site.data.blog.tags.micro %}
+{% for e in site.data.blog.micro %}
     .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"],
 {% endfor %}
 
