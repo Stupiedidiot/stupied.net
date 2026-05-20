@@ -6,12 +6,13 @@ description: RSS Feed for all my art
 
 {% assign FEED = site.art | reverse %}
 {%- for e in FEED limit: 15 -%}
-{%- assign img = e.path | getArtPath | append: '.' | append: e.ext -%}
+{%- assign img = e.path | getArtPath -%}
 <item>
   <title>{{ e.title | escape }}</title>
   <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-  <link>{{ site.url }}/art/~?{{ img }}</link>
+  <link>{{ site.url }}/art/p/{{ img }}</link>
   <guid isPermaLink="false">{{ img }}</guid>
+  {% assign img = img | append: '.' | append: e.ext %}
   <description>
     {% capture desc %}
       <img src="{{ site.url }}/{{ img }}" alt="{{ e.alt | escape}}"/>
