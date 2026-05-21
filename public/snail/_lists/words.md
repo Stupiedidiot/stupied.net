@@ -5,6 +5,7 @@ They're so ebic and stuff
 
 ### Neat Sounding Words
 - Paracosm
+- Buckshot
 - Anhedonia
 - Astute
 - Misnomer

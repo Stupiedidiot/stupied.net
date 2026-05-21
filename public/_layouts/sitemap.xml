@@ -1,0 +1,32 @@
+---
+layout: none
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{% assign selected = site[page.data] %}
+{% if selected.size > 0 %}
+    {% assign selected = selected | sort: 'url' %}
+    {%- for p in selected -%}
+        {%- unless 
+            p.url contains '.js'
+            or p.url contains '.css'
+            or  p.url contains '.xml'
+            or  p.url contains '.txt' -%}
+        <url>
+            <loc>{{ site.url }}{{ p.url | replace: '.html', '' | replace: '/index', '/' }}</loc>
+
+            {%- if p.last_modified_at or p.date -%}
+            <lastmod>{{ p.last_modified_at | default: p.date | date_to_xmlschema }}</lastmod>
+            {%- endif -%}
+            
+            {%- assign img = p | getImgs -%}
+            {%- for e in img -%}
+                <image:image>
+                    <image:loc>{{ e }}</image:loc>
+                </image:image>
+            {%- endfor -%}
+        </url>
+        {%- endunless -%}
+    {%- endfor -%}
+    </urlset>
+{% endif %}
