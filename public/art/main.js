@@ -47,7 +47,31 @@ fetch("/art/main.json?v={{ site.time | date: '%Y-%m-%d' }}")
   }
 )
 
-{% include art/get-functions.js %}
+function getIndex(json, current) {
+  for (let i = 0; i < json.length; i++) {
+    // checks the usual image
+    if (json[i].img === current)
+      return i;
+
+    // checks the extras
+    if (json[i].extra !== undefined)
+      for (let x = 0; x < json[i].extra.length; x++)
+        if (json[i].extra[x].img === current)
+          return i;
+  }
+  return -1;
+}
+
+function getTitle(data) {
+  return data.title;
+}
+
+function getDate(data) {
+  if (data.date)
+    return data.date;
+  else
+    return undefined;
+}
 
 lb_open = false
 lb_e = document.getElementById("lightbox")

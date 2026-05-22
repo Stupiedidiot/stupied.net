@@ -123,23 +123,6 @@ function compTags(dataset, tags) {
   return [set, goal, mixed.length];
 }
 
-function sortNot(tags) {
-}
-
-function sortOr(tags) {
-  for (let i = 0; i < ITEMS.length; i++) {
-    if (ITEMS[i].dataset.tags === undefined) continue;
-    let set_goal = compTags(ITEMS[i].dataset.tags, tags);
-
-    if (set_goal[0] === set_goal[1]) {
-      counter++;
-      ITEMS[i].classList.add("all-tags");
-    } else {
-      ITEMS[i].remove();
-    }
-  }
-}
-
 function showEm (increment) {
   if (increment === undefined )
     increment = MAX;
@@ -151,7 +134,7 @@ function showEm (increment) {
     counter = next;
   } else {
     counter = MAX;
-    document.getElementById("archive_buttons").remove()
+    document.getElementById("archive_buttons").remove();
   }
 
   for (let i = prev; i < counter; i++)
