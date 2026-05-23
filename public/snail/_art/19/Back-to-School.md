@@ -8,4 +8,4 @@ tags:
 - back-to-school
 ---
 
-cover for an old i made. i miss them honestly,,,
+Cover for an old I made. I miss them honestly,,, They walked so Psych! could run.

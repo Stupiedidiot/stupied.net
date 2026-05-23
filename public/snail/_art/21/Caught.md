@@ -8,3 +8,4 @@ tags:
   - lily
 ---
 
+This drawing had the [edit](https://youtube.com/shorts/XbJv6d8i8Ss) accompanying it.
