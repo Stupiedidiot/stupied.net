@@ -35,6 +35,7 @@ title: Wesbites!!
 - [waldenfont.com](https://www.waldenfont.com/)
 - [manacake.co](https://manacake.co/)
 - [5amg](https://5amg.web.fc2.com/)
+- [pintr](https://javier.xyz/pintr)
 
 ### Propaganda
 - [Vanilla JS](http://vanilla-js.com/)
