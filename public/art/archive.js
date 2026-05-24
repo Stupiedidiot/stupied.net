@@ -16,13 +16,13 @@ var MAX = ITEMS.length;
 const PAGE = new URL(window.location.href);
 
 var query = "";
-var separator = '~';
+var separator = '+';
 
 if (PAGE.searchParams.has('t'))
   query = PAGE.searchParams.get('t');
 else if (window.location.search) {
   PAGE.search = '';
-  PAGE.searchParams.set('t', window.location.search.replace('?', '').replaceAll('+', separator));
+  PAGE.searchParams.set('t', window.location.search.replace('?', ''));
   window.location.href = PAGE.toString();
 }
 
