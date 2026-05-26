@@ -35,7 +35,14 @@ fetch("/art/main.json?v={{ site.time | date: '%Y-%m-%d' }}")
       let index = getIndex(art, images[i].src.split("img/")[1]);
       if (index > -1) { 
         result.dataset.link = "/art/p/" + art[index].img.split('.')[0];
-        result.dataset.title = getTitle(art[index]);
+        
+        let e;
+        if (e = art[index].alt)
+          images[i].alt = e;
+
+        let title = getTitle(art[index]);
+        result.dataset.title = title;
+        result.title = "Open " + title;
       } else {
         result.dataset.link = "#";
         result.dataset.title = images[i].src.split("/").pop().split(".")[0].replaceAll("-", " ");
@@ -216,14 +223,19 @@ if (e = document.getElementById('art_index')) {
         let item = document.createElement('a');
         item.classList.add('art-related');
         item.href = '/art/p/' + e.img.split('.')[0];
+        
         img = document.createElement('img');
         img.src = '/art/img/' + e.img;
-        img.alt = e.alt;
+        
+        let alt;
+        if (alt = e.alt)
+          img.alt = alt;
+
         let dims = e.dimension.split('x');
         img.width = dims[0];
         img.height = dims[1];
+        
         item.append(img);
-
         POST_RELATED.append(item);
       });
     }
