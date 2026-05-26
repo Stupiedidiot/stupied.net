@@ -82,7 +82,7 @@ jobs:
 
     - name: Build website 4 Nekoweb Mirror
       run: |
-        mv cowtools/nekoweb/elements.css public/
+        mv cowtools/nekoweb/elements.scss public/
         bundle exec jekyll build --config _config.yml,cowtools/config/nekoweb.yml,cowtools/config/deploy.yml
         
     - name: modify _site
