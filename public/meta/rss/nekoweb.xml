@@ -20,11 +20,11 @@ link: https://stupied.nekoweb.org
         {% if item.collection == 'art' %}
             {% assign test = item.content | strip %}
             {%- if test != '' -%}
-            {{ item.content }}
+                {{ item.content | strip_html }}
             {% else %}
                 Added Art
             {%- endif -%}
-        {% elsif item.collection == 'blog' %}
+        {% elsif item.collection == 'posts' %}
             {{ item.description | default: item.desc | default: "Blog Post" | strip_html }}
         {% else %}
             {{ item.content | strip_html | markdownify |  split: '</p>' | first | strip_html | default: "Microblogging" }}

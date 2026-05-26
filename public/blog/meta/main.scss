@@ -361,40 +361,45 @@ footer {
     margin: 1rem auto;
 }
 
-#micro_tags {
+#micro_tags,
+#micro_nav {
     font-family: var(--display-font);
     padding-bottom: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.3rem;
+}
 
-    label {
-        display: block;
-        border-radius: 8px;
-        color: color-mix(in srgb, var(--txt-color), var(--bg-color));
-        background-color: color-mix(in srgb, var(--bg-color) 90%, var(--txt-color));
-        padding: 0.5rem;
-        padding-left: 0;
+#micro_tags label,
+#micro_nav a {
+    display: block;
+    border-radius: 8px;
+    color: color-mix(in srgb, var(--txt-color), var(--bg-color));
+    background-color: color-mix(in srgb, var(--bg-color) 90%, var(--txt-color));
+    padding: 0.5rem;
 
-        &:hover {
-            color: black;
-            background-color: color-mix(in srgb, var(--bg-color) 70%, var(--txt-color));
-        }
-
-        &:has(input:checked) {
-            color: white;
-            background-color: var(--color-accent);
-        }
-
-        &:first-child {
-            color: white;
-            background-color: black;
-        }
-
-        input {
-            appearance: none;
-        }
+    &:hover {
+        color: black;
+        background-color: color-mix(in srgb, var(--bg-color) 70%, var(--txt-color));
     }
+
+    &:has(input:checked) {
+        color: white;
+        background-color: var(--color-accent);
+    }
+
+    &:first-child {
+        color: white;
+        background-color: black;
+    }
+
+    input {
+        appearance: none;
+    }
+}
+
+#micro_tags label{
+    padding-left: 0;
 }
 
 .micro-post {
@@ -451,7 +456,7 @@ footer {
  {display: none;}
 
 .tagged:has(#all:checked) .micro-post,
-{% for e in site.data.blog.micro %}
+{% for e in site.data.blog.micro.tags %}
     .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"],
 {% endfor %}
 

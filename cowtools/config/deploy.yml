@@ -11,6 +11,13 @@ page_gen:
     dir_expr:  "'lib/' + record['volume']"
   # LIBRARY END
 
+  # MICROBLOG START
+  - data: 'site.data.blog.micro.years'
+    template: 'blog-micro'
+    name: "year"
+    dir:  "/blog/micro/"
+  # MICROBLOG END
+
 lib_gen:
   - data: site.data.lib.list
     template: library
