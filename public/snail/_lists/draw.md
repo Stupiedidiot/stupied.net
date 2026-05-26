@@ -1,0 +1,17 @@
+---
+title: Stuff I Really Ought to Be Drawing
+---
+- [ ] Doll art for OCs!!!
+- [ ] Elephant with Elephant Ink
+- [ ] No Jay Walking (Trio on side of road)
+- [ ] Rock Enroll
+- [ ] It's Been One Week (Intramurals)
+- [ ] Happenstance (Trio back in Elem)
+- [ ] Relationship Chart of Teachers
+- [ ] Heart on My Sleeve (Mary and Lily)
+- [ ] Back to Basics
+- [ ] Thank you for Boarding with Us (Edwina)
+- [ ] Junnneeeeeee - Outside Dreamy like
+- [ ] June - Sitting on floor (bloody)
+- [ ] Impressionist Sunset Study
+- [ ] Redraw photographs in 3Ds!
