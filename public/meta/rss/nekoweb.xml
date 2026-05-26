@@ -25,9 +25,9 @@ link: https://stupied.nekoweb.org
                 Added Art
             {%- endif -%}
         {% elsif item.collection == 'blog' %}
-            {{ item.description | default: item.desc | default: "Blog Post" | markdownify }}
+            {{ item.description | default: item.desc | default: "Blog Post" | strip_html }}
         {% else %}
-            {{ item.content | strip_html | markdownify |  split: '</p>' | first | strip_html | default: "Microblog" | markdownify }}
+            {{ item.content | strip_html | markdownify |  split: '</p>' | first | strip_html | default: "Microblogging" }}
         {% endif %}
     </description>
 </item>

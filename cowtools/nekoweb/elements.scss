@@ -1,0 +1,82 @@
+---
+layout: none
+---
+{% assign img = site.art | last %}
+
+.site-box {
+	background-image: none;
+
+	.screenshot {
+		display: none;
+	}
+
+	.sitefeature {
+		background-image: url({{ img.path | getArtPath | append: '.' | append: img.ext | prepend: "https://stupied.nekoweb.org/stupied.nekoweb.org/art/img/"}});
+		background-size: cover;
+		overflow: hidden;
+		border: none;
+		position: relative;
+
+		&::after {
+			content:"{{ img.title }}";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			z-index: 1;
+			color: white;
+			text-shadow: 0 0 10px black;
+			width: 100%;
+			min-height: 2rem;
+			text-align: right;
+			font-size: 1rem;
+			padding: 0.5rem;
+			box-sizing: border-box;
+			background-image: linear-gradient(transparent, black);
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			transition: 0.2s;
+			z-index: 2;
+			position: relative;
+			background: url(https://stupied.nekoweb.org/stupied.nekoweb.org/meta/rss/2025-08-27.png), white;
+			background-size: auto 100%;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+
+		&:hover::before {
+			transform: translateX(-100%);
+		}
+	}
+}
+
+.post-box {
+	font-family: Tahoma;
+	background-image: url(https://stupied.nekoweb.org/stupied.nekoweb.org/meta/img/clouds.jpg);
+	background-size: auto 120%;
+	padding: 1rem;
+	border: 2px solid black;
+	color: white;
+	text-shadow: 0 0 5px white;
+
+	.post-description {
+		margin: 0.4rem 0 0 0;
+		color: black;
+		text-shadow: none;
+		background-color: white;
+		box-shadow: 0 0 10px white;
+		box-sizing: border-box;
+		padding: 0.5rem;
+	}
+
+	.post-title {
+		color: black;
+		font-size: 1.5rem;
+		font-style: unset;
+		font-family: Tahoma;
+	}
+}
