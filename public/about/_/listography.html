@@ -29,14 +29,12 @@ img { max-width: 100%; display: block; }
 
 #info > div { max-width: 800px; }
 
-#lists { width: fit-content; }
 #lists > div {
     margin-bottom: 1rem;
     background-color: white;
     border: var(--border);
     border-radius: var(--border-radius);
     break-inside: avoid;
-    max-width: 600px;
 }
 
 #lists > div:target{ outline: 5px solid var(--color-accent); }
@@ -44,12 +42,9 @@ img { max-width: 100%; display: block; }
 
 #lists > div:has(h2) { padding:1rem; }
 
-@media only screen and (min-width: 600px) {
-    #lists{columns:2;}
-}
-
-@media only screen and (min-width: 1000px) {
-    #lists{columns:3;}
+#lists {
+    gap: 0.5rem;
+    column-width: 290px;
 }
 
 li { position: relative; }
@@ -113,18 +108,20 @@ button { padding: 0.5rem;}
 #buttons img { display: inline-block; }
 #fanfiction > p > strong::after { content: " » "}
 
-.questionnaire {
+#jump_to_artist, #jump_to_webmaster {
     min-height: 300px;
     max-height: 50vh;
     overflow: auto;
+
+    dd {
+        margin: 0.5rem 0 1rem 1rem;
+        padding-left: 1rem;
+        border-left: 3px solid var(--color-accent);
+    }
+    dd a { font-family: var(--display-font);}
+    dd ul { margin-left: 0; padding-left: 0; list-style-position: inside;}
 }
-.questionnaire dd {
-    margin: 0.5rem 0 1rem 1rem;
-    padding-left: 1rem;
-    border-left: 3px solid var(--color-accent);
-}
-.questionnaire dd a { font-family: var(--display-font);}
-.questionnaire dd ul { margin-left: 0; padding-left: 0; list-style-position: inside;}
+
 .justified-gallery {margin-bottom: var(--gap);}
 
 footer.default-footer {

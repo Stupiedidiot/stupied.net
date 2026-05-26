@@ -36,6 +36,7 @@ title: Wesbites!!
 - [manacake.co](https://manacake.co/)
 - [5amg](https://5amg.web.fc2.com/)
 - [pintr](https://javier.xyz/pintr)
+- [htmlhead.dev](https://htmlhead.dev/)
 
 ### Propaganda
 - [Vanilla JS](http://vanilla-js.com/)

@@ -18,6 +18,9 @@ Collection of words string together in ways that stick out to me for years to co
 > I'm trying to find truth in words, in rhymes, in notes, in all the things I wish I'd wrote
 > - The Format (I’m Ready, I Am)
 
+> To whom much is given, much is required
+> - quote from a guy that is definitely not from any religious text
+
 ### Stuff I've Read Online
 > 10 kinds of people exist in the world: those who understand binary, and those who don't.
 

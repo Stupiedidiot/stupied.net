@@ -28,7 +28,3 @@ Sequential images to tell stories,, I cannot stress enough how much I love this 
 ### Sunday Strips
 - [Mopsy](https://en.wikipedia.org/wiki/Mopsy)
 - [Everett True](https://en.wikipedia.org/wiki/The_Outbursts_of_Everett_True)
-
-### Books
-Will put this in it's own category eventually
-- [Javascript: The Good Parts](https://andersonguelphjs.github.io/OReilly_JavaScript_The_Good_Parts_May_2008.pdf)

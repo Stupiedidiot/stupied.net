@@ -2,6 +2,11 @@
 ---
 As a chronic daydreamer, these lil guys live rent free in my head. I will literally kill myself if it weren't for them
 
+<div class="justified-gallery" style="--min-height: 10px;">
+    <img src="https://psych-comic.neocities.org/meta/img/pix-psyche.png" alt="" style="--width:85;--height:85;">
+    <img src="https://psych-comic.neocities.org/meta/img/pix-evan.png" alt="" style="--width:75;--height:85;">
+    <img src="https://psych-comic.neocities.org/meta/img/pix-jay.png" alt="" style="--width:75;--height:85;">
+</div>
 ### \[OCS\] Original
 
 - [Psyche Lea](https://psych-comic.neocities.org/character/psyche-lea.html)

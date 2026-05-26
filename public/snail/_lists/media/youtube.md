@@ -42,8 +42,6 @@ title: Youtube Stuff
 ### Reviews
 - [AlagangCHAPS](https://www.youtube.com/@AlagangCHAPS/videos)
 
-## Filipino History
-- [The Ilustrado](https://www.youtube.com/@TheIlustrado)
 ### Game Shows
 - [The Technnical Difficulties](https://www.youtube.com/@techdif)
 ### What the Hell
