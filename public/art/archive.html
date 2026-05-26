@@ -50,6 +50,7 @@ filters:
 ---
 <article class="main-content" style="min-height: 100vh;">
   <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site.art | size }}</span>)</h1>
+  {% include widget/search.html cat='art' %}
 
   <section id="art_archive">
     {%- include art/archive.html offset=1 -%}

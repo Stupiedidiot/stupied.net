@@ -324,3 +324,11 @@ ul#art_tags {
 #art_index {
     display: none;
 }
+
+// PAGEFIND 
+#search {
+    margin-top: 0!important;
+    .pagefind-ui__filter-panel {
+        display: none;
+    }
+}
