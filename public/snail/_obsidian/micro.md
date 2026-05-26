@@ -7,8 +7,7 @@ tags:
 - irl
 - ocs
 - wip
-- art
-- log
+- meta
 ---
 
 {% capture exp %}
