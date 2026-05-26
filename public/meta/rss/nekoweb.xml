@@ -2,22 +2,33 @@
 layout: rss
 link: https://stupied.nekoweb.org
 ---
-{% assign FEED = site.data.rss | filterFuture %}
-{%- for item in FEED -%}
+{% assign FEED = site.art | concat: site.posts | concat: site.micro | sort: 'date' | reverse %}
+{%- for item in FEED limit: 100 -%}
 <item>
     <title>{{ item.title | escape }}</title>
     <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
     
-    {% if item.link contains 'https://' %}
-        <link>{{ item.link }}</link>
+    {% if item.collection == 'micro' %}
+        <link>{{ site.url }}/blog/micro/</link>
     {% else %}
-        <link>{{ item.link | prepend: site.url }}</link>
+        <link>{{ item.url | prepend: site.url }}</link>
     {% endif %}
 
-    <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+    <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
     <description>
-        {{ item.desc | default: "( •̀ ω •́ )✧" | strip_html | markdownify | strip_html }}
+        {% if item.collection == 'art' %}
+            {% assign test = item.content | strip %}
+            {%- if test != '' -%}
+            {{ item.content }}
+            {% else %}
+                Added Art
+            {%- endif -%}
+        {% elsif item.collection == 'blog' %}
+            {{ item.description | default: item.desc | default: "Blog Post" | markdownify }}
+        {% else %}
+            {{ item.content | strip_html | markdownify |  split: '</p>' | first | strip_html | default: "Microblog" | markdownify }}
+        {% endif %}
     </description>
 </item>
 {%- endfor -%}

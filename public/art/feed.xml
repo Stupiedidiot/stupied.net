@@ -5,28 +5,34 @@ description: RSS Feed for all my art
 ---
 
 {% assign FEED = site.art | reverse %}
-{%- for e in FEED limit: 15 -%}
-{%- assign img = e.path | getArtPath -%}
+{%- for item in FEED limit: 15 -%}
 <item>
-  <title>{{ e.title | escape }}</title>
-  <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-  <link>{{ site.url }}/art/p/{{ img }}</link>
-  <guid isPermaLink="false">{{ img }}</guid>
-  {% assign img = img | append: '.' | append: e.ext %}
+  <title>{{ item.title | escape }}</title>
+  <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+  <link>{{ item.url | prepend: site.url }}</link>
+  
+  <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
   <description>
     {% capture desc %}
-      <img src="{{ site.url }}/{{ img }}" alt="{{ e.alt | escape}}"/>
+    {%- assign img = item.path | getArtPath | append: '.' | append: item.ext %}
+      <img src="{{ site.url }}/{{ img }}" alt="{{ item.alt | escape }}"/>
       
-      {%- for extra in e.extra -%}
-        <img src="{{ site.url }}/{{ extra.img }}" alt="{{ extra.alt | escape}}"/>
+      {%- for extra in item.extra -%}
+        <img src="{{ site.url }}/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
       {%- endfor -%}
       
       {% assign test = item.content | strip %}
       {%- if test != '' -%}
-        {{ item.content }}
+        {{ item.content | markdownify }}
       {%- endif -%}
     {% endcapture %}
     {{ desc | escape }}
   </description>
+  {%- assign tags = item | getTags: true, includitem.offset -%}
+  {% if tags %}
+      {% for tag in tags %}
+        <category>{{ tag }}</category>
+      {% endfor %}
+  {% endif %}
 </item>
 {%- endfor -%}

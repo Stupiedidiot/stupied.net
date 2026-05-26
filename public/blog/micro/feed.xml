@@ -3,28 +3,33 @@ layout: rss
 title: Stupied's Microblog
 description: RSS Feed for my microblog ramblings
 ---
+{% assign micro_replace = 'img src="' | append: site.url | append: '/blog/micro/img/' %}
+
 {% assign DATA = site.micro | reverse %}
-{%- for e in DATA limit: 15 -%}
-  {% if e.path contains '_unpublished' %}
+{%- for item in DATA limit: 15 -%}
+  {% if item.path contains '_unpublished' %}
       {% continue %}
   {% endif %}
   <item>
-    <title>{{ e.title | escape }}</title>
-    <pubDate>{{ e.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-    <link>{{ site.url }}/{{ e.date | date: "%Y-%m-%dT%H-%M" }}</link>
-    <guid isPermaLink="false">{{ e.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+    <title>{{ item.title | escape }}</title>
+    <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+    <link>{{ site.url }}/{{ item.date | date: "%Y-%m-%dT%H-%M" }}</link>
+    <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
     <description>
-      {% assign file = e.path | prepend: 'snail/' %}
-      {% capture content %}{% cat file %}{% endcapture %}
-      {{ content | markdownify | escape }}
-      {% if exp %}
-          {{ exp | markdownify | escape }}
-      {% endif %}
-        {% if e.tags %}
-              {% for tag in e.tags %}
-                <category>{{ tag }}</category>
-              {% endfor %}
-      {% endif %}
+      {%- capture description -%}
+        {% assign file = item.path | prepend: 'snail/' %}
+        {% capture micro %}{% cat file %}{% endcapture %}
+        {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+        {% if micro %}
+            {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+        {% endif %}
+      {%- endcapture -%}
+      {{ description | escape }}
     </description>
+    {% if item.tags %}
+        {% for tag in item.tags %}
+          <category>{{ tag }}</category>
+        {% endfor %}
+    {% endif %}
   </item>
 {%- endfor -%}

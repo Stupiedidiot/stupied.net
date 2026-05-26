@@ -19,9 +19,14 @@ description: RSS feed for all of my blog posts
           {%- else post.before -%}
             {{ post.before }}
           {%- endif -%}
-          {{ post.content }}
+          {{ post.content | markdownify }}
         {% endcapture %}
         {{ description | escape }}
       </description>
+      {% if post.tags %}
+      {% for tag in post.tags %}
+          <category>{{ tag }}</category>
+        {% endfor %}
+      {% endif %}
   </item>
 {% endfor %}

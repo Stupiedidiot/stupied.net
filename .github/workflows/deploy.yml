@@ -45,7 +45,7 @@ jobs:
       uses: ./.github/actions/resize-images
       with: 
         folder: public/snail/_img/blog/micro/img/
-        dimension: x700
+        dimension: 700x
     # IMAGE MANIPULATION END
 
     - name: Setup Ruby

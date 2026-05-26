@@ -1,31 +1,57 @@
 ---
 layout: rss
 ---
-{% assign FEED = site.data.rss | filterFuture %}
+{% assign micro_replace = 'img src="' | append: site.url | append: '/blog/micro/img/' %}
+
+{% assign FEED = site.art | concat: site.posts | concat: site.micro | sort: 'date' | reverse %}
 {%- for item in FEED limit: 15 -%}
 <item>
   <title>{{ item.title | escape }}</title>
   <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
 
-  {% if item.link contains 'https://' %}
-      <link>{{ item.link }}</link>
+  {% if item.collection == 'micro' %}
+    <link>{{ site.url }}/blog/micro/</link>
   {% else %}
-      <link>{{ item.link | prepend: site.url }}</link>
+    <link>{{ item.url | prepend: site.url }}</link>
   {% endif %}
   
-  <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+  <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
   <description>
-    {%- capture description -%}
-      {%- assign thumb = item.thumb -%}
-      {%- for img in thumb -%}
-          <img src="{{ img | prepend: site.url }}" alt="" />
-      {%- endfor -%}
-      {%- if item.desc -%}{{ item.desc | markdownify }}{%- endif -%}
-      <a href="{{ item.link }}">Click to View »</a>
+    
+  {%- capture description -%}
+      {% if item.collection == 'art' %}
+        {%- assign img = item.path | getArtPath | append: '.' | append: item.ext %}
+        <img src="{{ site.url }}/{{ img }}" alt="{{ e.alt | escape }}"/>
+        
+        {%- for extra in e.extra -%}
+          <img src="{{ site.url }}/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
+        {%- endfor -%}
+        
+        {% assign test = item.content | strip %}
+        {%- if test != '' -%}
+          {{ item.content | markdownify }}
+        {%- endif -%}
+      {% elsif item.collection == 'blog' %}
+        {%- if item.thumbnail -%}
+          <img src="{{ item.thumbnail | relative_url | prepend: site.url }}" style="max-width:100%;"/>
+        {%- else item.header -%}
+          <img src="{{ item.header | relative_url | prepend: site.url }}" style="max-width:100%;"/>
+        {%- else item.before -%}
+          {{ item.before }}
+        {%- endif -%}
+        {{ item.content | markdownify }}
+      {% else %}
+        {% assign file = item.path | prepend: 'snail/' %}
+        {% capture micro %}{% cat file %}{% endcapture %}
+        {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+        {% if micro %}
+            {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+        {% endif %}
+      {% endif %}
     {%- endcapture -%}
     {{ description | escape }}
   </description>
-
+  <category>{{ item.collection }}</category>
 </item>
 {%- endfor -%}

@@ -105,38 +105,8 @@ include_path: _includes/head/home.html
             </div>
         </section>
     </article>
-
-    <!-- RSS FEED START -->
-    <section id="feed">
-        {% assign FEED = site.data.rss | filterFuture %}
-        {% assign FEED_FIRST = FEED[0] %}
-        <div id="feed-content">
-            {%- assign thumb = FEED_FIRST.thumb.first | default: FEED_FIRST.thumb -%}
-            <a id="feed-first" href="{{ FEED_FIRST.link }}" style="--thumb:url({{ thumb }});">
-                <div class="outline" style="--c: black;">
-                    <h4>{{ FEED_FIRST.date | date: "%d %b %Y" }}</h4>
-                    <span>{{ FEED_FIRST.title }}</span>
-                </div>
-            </a>
-            
-            <section id="feed-timeline">
-                <h2>Recent Updates</h2>
-                <ul>
-                    {% for e in FEED offset:1 limit:4 %}
-                    <li class="feed-item">
-                        <h4>{{ e.date | date: "%d %b %Y" }}</h4>
-                        <a href="{{ e.link }}" class="feed-title">{{ e.title }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <a class="feed-more" href="./meta/rss/#feed">View More »</a>
-            </section>
-        </div>
-    </section>
-    <!-- RSS FEED END -->
 </main>
 
-<footer class="default-footer" data-nosnippet>
-{%- include_cached footer-old.html -%}
-<img src="./meta/button.png" alt="" style="margin-top: 1rem;border: 2px solid var(--dk-blue);">
+<footer class="default-nav center" data-nosnippet>
+{%- include_cached footer.html -%}
 </footer>
