@@ -63,10 +63,6 @@ about:
     icon: news-paper
     link: /about/faq
 
-  - title: Contact
-    icon: envelope
-    link: /about/contact
-
   - title: Head Back »
     icon: star-full
     link: /  
