@@ -44,8 +44,8 @@ jobs:
     - name: Resize Images in Microblog 
       uses: ./.github/actions/resize-images
       with: 
-        folder: public/snail/_img/blog/
-        dimension: x600
+        folder: public/snail/_img/blog/micro/img/
+        dimension: x700
     # IMAGE MANIPULATION END
 
     - name: Setup Ruby
