@@ -15,7 +15,7 @@ module Jekyll
       end
 
       # Get file and remove frontmatter!
-      raw = File.read(path).sub(/\A---\s*\n.*?\n---\s*\n/m, '')
+      raw = File.read(path).sub(/\A---\s*\r?\n.*?\r?\n---\s*\r?\n/m, '')
 
       partial = Liquid::Template.parse(raw)
       partial.render(context)
