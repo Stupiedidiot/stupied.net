@@ -11,7 +11,7 @@ $images.each do |img|
         file.puts "---"
 
         file.write "ext: "
-        if (img.downcase.include?('.gif'))
+        if (img.downcase.end_with?('.gif'))
             file.puts "gif"
         else
             file.puts "jpg"
