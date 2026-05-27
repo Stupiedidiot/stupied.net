@@ -4,7 +4,7 @@ $images.each do |img|
     out = out.join('/')
     out = out.split('.').first
 
-    out_full = File.join("_ignore", "md", out)
+    out_full = File.join("bulk", out)
     FileUtils.mkdir_p(File.dirname(out_full))
 
     File.open(out_full + ".md", "w") do |file|
