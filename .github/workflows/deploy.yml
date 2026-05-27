@@ -1,4 +1,4 @@
-name: Deploy to Main Neocities and Nekoweb Mirror!
+name: Deploy to Nekoweb Mirror!
 
 on:
   push:
@@ -20,32 +20,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set Pagefind
-      run: |
-        if [ "${SUPPORTER}" = "true" ]; then
-          echo "PROTECTED=" >> $GITHUB_ENV
-        else
-          echo "PROTECTED=**/pagefind/**" >> $GITHUB_ENV
-          mv public/_plugins/pagefind.rb pagefind.rb
-        fi
-
     # IMAGE MANIPULATION START
     - name: Install ImageMagick
       run: |
         sudo apt-get update
         sudo apt-get install imagemagick -y
 
-    - name: Resize Images in Reviews 
-      uses: ./.github/actions/resize-images
-      with: 
-        folder: public/snail/_img/chez/reviews/img/
-        dimension: x200
-
-    - name: Resize Images in Microblog 
-      uses: ./.github/actions/resize-images
-      with: 
-        folder: public/snail/_img/blog/micro/img/
-        dimension: 700x
+    - name: Run script
+      run: ruby resize.rb
     # IMAGE MANIPULATION END
 
     - name: Setup Ruby
@@ -56,30 +38,7 @@ jobs:
     - name: Install Jekyll Bundle 
       run: bundle install
 
-    # NEOCITIES BUILD START
-    - name: Build site 4 Main Neocities 
-      run: bundle exec jekyll build --config _config.yml,cowtools/config/deploy.yml
-
-    - name: Deploy to Main Neocities
-      uses: bcomnes/deploy-to-neocities@v3.0.4
-      with:
-        api_key: ${{ secrets.NEOCITIES_API_TOKEN }}
-        neocities_supporter: ${{ env.SUPPORTER }}
-        protected_files: ${{ env.PROTECTED }} 
-        cleanup: true
-        dist_dir: _site
-    # NEOCITIES BUILD END
-
     # NEKOWEB BUILD START
-    - name: Set Pagefind
-      run: |
-        if [ "${SUPPORTER}" = "false" ]; then
-          mv pagefind.rb public/_plugins/pagefind.rb
-        fi
-
-    - name: Clean Previous Build
-      run: jekyll clean
-
     - name: Build website 4 Nekoweb Mirror
       run: |
         mv cowtools/nekoweb/elements.scss public/

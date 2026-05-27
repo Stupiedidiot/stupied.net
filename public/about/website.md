@@ -21,7 +21,7 @@ For as long as my lungs continues to perform gas exchange, this website will alw
 ---
 
 ## Navigation
-This website is structured very weirdly. So personally wouldn't take offense if you get lost. The difficult part of keeping of an archive of *everything*, is figuring out how to properly organizing it; Especially with the restraints set by [Neocities](https://neocities.org/), where this website is hosted. Due to the temporary and impulsive nature of everything, expect to stumble across unfinished pages and weird looking layouts.
+This website is structured very weirdly. So personally wouldn't take offense if you get lost. The difficult part of keeping of an archive of *everything*, is figuring out how to properly organizing it; Due to the temporary and impulsive nature of everything, expect to stumble across unfinished pages and weird looking layouts.
 
 {% comment %}
 ---
