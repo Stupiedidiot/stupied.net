@@ -20,16 +20,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    # IMAGE MANIPULATION START
-    - name: Install ImageMagick
-      run: |
-        sudo apt-get update
-        sudo apt-get install imagemagick -y
-
-    - name: Run script
-      run: ruby resize.rb
-    # IMAGE MANIPULATION END
-
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:

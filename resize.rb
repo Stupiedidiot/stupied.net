@@ -21,6 +21,10 @@ folders.each do |folder_config|
     p "[#{dimension}] ====================="
 
     images.each do |img|
+        folder = File.join(File.dirname(img), '_ignore')
+        FileUtils.mkdir_p(folder)
+        FileUtils.cp(img, folder)
+
         if (img.downcase.end_with?('.gif'))
             p "SKIPPED: #{img}" 
             next
