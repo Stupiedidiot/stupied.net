@@ -21,8 +21,8 @@ layout: none
     <body id="comicViewer" {% include class.liquid %}>
     {%- include_cached widget/sticky.html -%}
         <div id="container" class="comicViewer">
-            <div id="top">
-                <header data-nosnippet>
+            <div id="top" data-nosnippet>
+                <header>
                     {% if page.prev or page.next %}
                         <a href="./">{{ page.volume_title }}</a>
                         <span>{{ page.title }}</span>
@@ -81,7 +81,7 @@ layout: none
 
             <div id="bottom">
                 <aside>
-                    <nav id="next">
+                    <nav id="next" data-nosnippet>
                         {% if page.next %}
                         <a href="{{ page.next.issue }}">
                             <div>

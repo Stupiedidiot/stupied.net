@@ -1,15 +1,13 @@
 ---
 title: Movies n Films
+tags:
+  - media
+  - picture
 ---
 - [Turbo (2013)](https://www.imdb.com/title/tt1860353/)
 - [Hot Fuzz](https://www.imdb.com/title/tt0425112/)
 - [Momento](https://www.imdb.com/title/tt0209144/)
 - [South Park](https://www.southparkstudios.com/)
-
-### Pinoy Films
-- [Seven Sundays](https://youtu.be/Q3ptS7yXyZg)
-- [Himala](https://youtu.be/4OxDab9IBF4) - A bit of it is censored but the chaos remains
-
 ### Cartoons of All Time
 - [Clarence](https://www.imdb.com/title/tt3061050/)
 - [DuckTales (2017)](https://www.imdb.com/title/tt5531466/)
@@ -57,35 +55,3 @@ title: Movies n Films
 - [Stateside](https://www.imdb.com/title/tt6135828/)
 - [Mind Game](https://en.wikipedia.org/wiki/Mind_Game_(film))
 - The Last Unicorn
-
-#### She Told Me To
-- [ ] Curious George
-- [ ] Tetris
-- [ ] Bad Genius
-- [ ] Frankenstein
-- [ ] Narnia 1
-- [ ] Narnia 2
-- [ ] Narnia 3
-- [X] Knives Out (The Recent One)
-- [ ] Glass Onion
-- [X] Wake Up Dead Man!!!
-- [ ] Mona Lisa
-- [ ] Frieren
-- [ ] Apothecary Diaries
-- [ ] Twisters (the recent one)
-- [ ] Queen Gambit 
-- [ ] The Perks of Being a Wallflower
-- [x] HadesTown !!!!!
-- [ ] The Wind Rises
-- [ ] Kingdom of Heaven (not that interesting unless you're a nerd)
-- [ ] Promise Neverland
-- [ ] Kamisa Kiss
-- [ ] My Liberation Notes
-- [ ] Project Hail Mary
-
-#### The Other Lady told Me To
- - [ ] Infinity train
-- [ ] OK-KO
-
-#### Some Winner-sauce Told Me To
-- [ ] Lego Movie

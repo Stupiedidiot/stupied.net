@@ -1,4 +1,7 @@
 ---
+tags:
+  - media
+  - music
 ---
 - TERF Bangs - Butch Baby
 - Thumbnail - Louie Zong
@@ -12,12 +15,6 @@
 - [You Belong To My Heart](https://youtu.be/snJPsbTxYrU)
 - [Guitar Man](https://youtu.be/KDv7ga2jxhM)
 - [Fever](https://youtu.be/JBANWpzsHts)
-
-### OPM
-- Binibini sa MRT - The Juans
-- Wishing Wells - Eraserheads
-- Para Sayo - Parokya ni Edgar
-- Lagi Mong Tatandaan
 
 ### Bands / Artists
 - LiteralHat
