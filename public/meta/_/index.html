@@ -1,4 +1,5 @@
 <style>
+{% capture scss %}
 :root {
     --yellow: #ffcb67;
     --orange: #ec7239;
@@ -20,12 +21,12 @@ body {
     color: white;
 }
 
-#container #home { grid-area: home; }
-#container main { grid-area: main; }
-#container aside { grid-area: aside; }
-#container footer { grid-area: footer; }
-
 #container {
+    #home { grid-area: home; }
+    main { grid-area: main; }
+    aside { grid-area: aside; }
+    footer { grid-area: footer; }
+
     display: grid;
     grid-template:
     'main home' 
@@ -89,7 +90,7 @@ main {
     break-inside: avoid;
     margin-bottom: 1rem;
     background-color: var(--darker-blue);
-    border: 2px solid black;
+    border: 2px solid black!important;
     transition: 0.2s;
     color: white!important;
 }
@@ -108,15 +109,11 @@ main {
 
 a:hover { color: var(--orange); }
 
-aside { padding: 1rem; }
-
-aside > div { margin-bottom: 2rem; }
-
-footer.default-footer{
-    color: var(--gray);
-    padding: 2rem;
-    user-select: none;
+aside { 
+    padding: 1rem;
+    > div { margin-bottom: 2rem; }
 }
-footer a:hover {color:white;}
-#button { margin-top: 1rem; }
+
+{% endcapture %}
+{{ scss | scssify }}
 </style>

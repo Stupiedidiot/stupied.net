@@ -20,10 +20,11 @@ layout: none
       {% include chez/reviews/tier-recent.html selected = page.selected -%}
       {{ content }}
     </main>
-    <footer class="default-footer">
-      {%- include_cached footer-old.html -%}
-    </footer>
   </div>
+
+  <footer class="default-nav black padded">
+    {%- include_cached footer.html -%}
+  </footer>
 </body>
 
 </html>

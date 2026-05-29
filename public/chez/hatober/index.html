@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Hatober
-include_path: _head.html
+include_path: _/index.html
 ---
 <div id="container">
     <header>
@@ -44,8 +44,8 @@ include_path: _head.html
             </section>
         </article>
     </main>
-    <footer class="default-footer">
+    <footer>
         <p style="margin-bottom: 0.5rem;">The prompts can be found <a href="https://www.instagram.com/p/DO8cEk3EqoH/" target="_blank">here</a></p>
-        {%- include footer-old.html -%}
+        <div class="default-nav center">{%- include_cached footer.html -%}</div>
     </footer>
 </div>

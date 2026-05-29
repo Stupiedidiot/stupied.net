@@ -1,5 +1,8 @@
+
 <style>
+{% capture scss %}
 body {
+    --bg-color: black;
     --color-accent: red;
     background-color: black;
     color: white;
@@ -114,4 +117,6 @@ header ,footer {
         }
     }
 }
+{% endcapture %}
+{{ scss | scssify }}
 </style>

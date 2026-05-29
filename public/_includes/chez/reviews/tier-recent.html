@@ -14,7 +14,7 @@
             {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
         {%- endcapture -%}
         <li>
-            <button onclick="viewer('{{ item.slug | downcase }}')" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}" class="tier-thumb {%unless item.url contains 'todo/'%}with-review{% endunless %}">{{ title }}</button>
+            <button onclick="viewer('{{ item.slug | downcase }}')" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}">{{ title }}</button>
         </li>
     {%- endfor -%}
     </ul>

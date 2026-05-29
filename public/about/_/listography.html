@@ -1,4 +1,5 @@
 <style>
+{% capture scss %}
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 :root {
     --blue: #5177a9;
@@ -124,13 +125,16 @@ button { padding: 0.5rem;}
 
 .justified-gallery {margin-bottom: var(--gap);}
 
-footer.default-footer {
+footer.default-nav {
+    --txt-color: black;
     background-color: var(--color-accent);
     margin-bottom: 0;
     padding: 1rem;
     border-top: var(--border);
 }
 
-footer.default-footer a:hover{color: white!important;}
+footer.default-nav a:hover{color: white!important;}
 .justified-gallery {margin-bottom: var(--space);}
+{% endcapture %}
+{{ scss | scssify }}
 </style>

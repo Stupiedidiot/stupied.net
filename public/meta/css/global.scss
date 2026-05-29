@@ -520,6 +520,15 @@ header.default {
     &.right {
         justify-content: right;
     }
+
+    &.black {
+        --txt-color-hover: white;
+        background-color: black;
+    }
+
+    &.padded {
+        padding: 1.5rem 1rem;
+    }
 }
 
 #container.default nav.default {
@@ -543,7 +552,7 @@ footer.default {
     }
 
     &:nth-child(n + 2) {
-        border-left: 2px solid lightgray;
+        border-left: 2px solid var(--txt-color);
         padding-left: 0.5rem;
     }
     /* 
@@ -556,33 +565,6 @@ footer.default {
     */
 }
 /* DEFAULT CONTAINER END */
-
-/* DELETE IN THE FUTURE! START */
-.default-footer {
-    margin: 1rem 0;
-    user-select: none;
-    transition: 0.2s;
-}
-
-.default-footer.center { text-align: center; }
-
-.default-footer.center ul {
-    align-items: center;
-    justify-content: center;
-    margin: 1rem auto;
-}
-
-.default-footer ul {
-    display: inline-flex;
-    list-style-position: inside;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding-left: 0;
-    margin-bottom: 0.3rem;
-}
-.default-footer a:hover { color: var(--color-accent);opacity: 1!important; }
-.default-footer > span { display: block; margin-top: 0.5rem;opacity: 0.3; }
-/* DELETE IN THE FUTURE! END */
 
 #search {
     margin: 1rem 0;

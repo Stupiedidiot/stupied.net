@@ -158,14 +158,6 @@ footer:
     icon: coffee
     link: https://ko-fi.com/stupied 
   
-  # - title: Github
-  #   icon: github
-  #   link: https://github.com/Stupiedidiot
-  
   - title: Guestbook
     icon: envelope
     link: /guestbook
-
-  - title: Settings
-    icon: cog
-    link: /meta/settings

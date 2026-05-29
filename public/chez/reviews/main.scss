@@ -112,16 +112,6 @@ header {
     color: inherit;
 }
 
-footer.default-footer {
-  text-align: left;
-  padding: 1rem;
-  padding-top: 0;
-}
-  
-footer.default-footer > a:not(:last-of-type)::after {
-  color: white;
-}
-
 #view {
   display: none;
   background-color: #000000cc;
