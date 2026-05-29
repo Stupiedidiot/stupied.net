@@ -15,10 +15,10 @@ description: RSS Feed for all my art
   <description>
     {% capture desc %}
     {%- assign img = item.path | getArtPath | append: '.' | append: item.ext %}
-      <img src="{{ site.url }}/{{ img }}" alt="{{ item.alt | escape }}"/>
+      <img src="{{ site.url }}/art/img/{{ img }}" alt="{{ item.alt | escape }}"/>
       
       {%- for extra in item.extra -%}
-        <img src="{{ site.url }}/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
+        <img src="{{ site.url }}/art/img/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
       {%- endfor -%}
       
       {% assign test = item.content | strip %}
