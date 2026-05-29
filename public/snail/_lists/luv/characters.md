@@ -1,5 +1,10 @@
 ---
+title: Characters I Love
+tags:
+  - media
+  - ocs
 ---
+
 As a chronic daydreamer, these lil guys live rent free in my head. I will literally kill myself if it weren't for them
 
 <div class="justified-gallery" style="--min-height: 10px;">

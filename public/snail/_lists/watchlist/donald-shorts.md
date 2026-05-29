@@ -1,5 +1,10 @@
 ---
 title: Donald Duck Watchlist
+tags:
+  - media
+  - disney
+  - donald
+  - todo
 ---
 
 List based on [this](https://mickey-and-friends.fandom.com/wiki/Donald_Duck/Shorts_List). Prior to writing this down, I thought I watched through a handful of Donald Duck shorts. Now I know I've only scratched the surface...!

@@ -1,5 +1,7 @@
 ---
-title: Fanfiction 
+title: Fanfiction
+tags:
+  - media
 ---
 [The Thaw (Of Frozen Hearts)](https://archiveofourown.org/works/35202442)
 This definitely what happened in cannon guys.

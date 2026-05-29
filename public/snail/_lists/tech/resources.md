@@ -1,4 +1,7 @@
 ---
+tags:
+  - website
+  - resource
 ---
 - [VSCode](https://code.visualstudio.com/) - Text Editor I Use
 - [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) - VSCode Extension I use

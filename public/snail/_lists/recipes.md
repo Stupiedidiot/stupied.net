@@ -1,5 +1,7 @@
 ---
 title: Ebic Recipes
+tags:
+  - website
 ---
 
 My mom keeps sending me random stuff to make haha,, Only using this list for stuff I like but keep forgetting and/or stuff I have yet to try

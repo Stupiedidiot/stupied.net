@@ -1,5 +1,7 @@
 ---
-title: What Do You Use? 
+title: What Do You Use?
+tags:
+  - resource
 ---
 - Huawei - Matebook D15
 - [Huion - Kamvas 13 (Gen 3)](https://www.huion.com/products/kamvas-13-gen-3)

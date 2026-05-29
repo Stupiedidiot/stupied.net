@@ -1,5 +1,8 @@
 ---
 title: Dividers and Symbols
+tags:
+  - resource
+  - website
 ---
 
 - ✎﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏

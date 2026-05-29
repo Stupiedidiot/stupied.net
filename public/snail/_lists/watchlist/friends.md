@@ -2,7 +2,7 @@
 title: Movie Recommendations from Friends
 tags:
   - media
-  - picture
+  - todo
 ---
 
 ### She Told Me To

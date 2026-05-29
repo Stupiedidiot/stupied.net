@@ -1,5 +1,7 @@
 ---
 title: Stuff I Really Ought to Be Drawing
+tags:
+  - todo
 ---
 - [ ] Doll art for OCs!!!
 - [ ] Elephant with Elephant Ink

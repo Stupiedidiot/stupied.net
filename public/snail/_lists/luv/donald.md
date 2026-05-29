@@ -1,5 +1,9 @@
 ---
-title: Loosely Donald Duck Related Stuff
+title: Miscellaneous Donald Duck Things
+tags:
+  - media
+  - disney
+  - donald
 ---
 ### Inanimate Objects Donald Duck Has Had Beef With
 - [A Pot of Cement](https://youtu.be/FoqXzmEYcyU)
