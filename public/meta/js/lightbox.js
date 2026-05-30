@@ -15,10 +15,10 @@ lightbox.innerHTML = `
           <a href="#">View Full Image »</a>
       </div>
   </div>
-`
+`;
 
 // CHANGE THIS TO BE MORE GENERAL!!
-var images = document.querySelectorAll("#p_content img:not(.sign-off)")
+var images = document.querySelectorAll("#p_content img:not(.sign-off), .micro-post img");
 for (let i = 0; i < images.length; i++) {
   let result = document.createElement("button");
   result.style.setProperty("--width", images[i].style.getPropertyValue("--width"));

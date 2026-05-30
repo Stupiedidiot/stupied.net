@@ -1,0 +1,25 @@
+---
+layout: blog
+title: Blog Tags
+---
+<article class="main-content" data-nosnippet>
+    <h1>{{ page.title }}</h1>
+    <p>All the tags used in the blog and posts using it.</p>
+    {% assign DATA = site.posts | concat: site.micro %}
+    <div style="margin-bottom: 1rem;">
+        {% for e in site.tags %}
+            <section class="tagged-list">
+                <details>
+                    <summary><h2>{{ e | first }} <span>({{ e | last | size }})</span></h2></summary>
+                    <div>
+                        <ul>
+                            {% for post in e[1] %}
+                                <li><a href="{{ post.url }}"><span>{{ post.date | date: '%Y-%m-%d'}} »</span> {{ post.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div> 
+                </details>
+            </section>
+        {% endfor %}
+    </div>
+</article>
