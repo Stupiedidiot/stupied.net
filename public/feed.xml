@@ -45,8 +45,8 @@ layout: rss
         {% assign file = item.path | prepend: 'snail/' %}
         {% capture micro %}{% cat file %}{% endcapture %}
         {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
-        {% if micro %}
-            {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+        {% if exp %}
+            {{ exp | markdownify | replace: 'img src="img/', micro_replace }}
         {% endif %}
       {% endif %}
     {%- endcapture -%}

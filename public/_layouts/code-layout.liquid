@@ -13,7 +13,7 @@ layout: none
     <script src="/meta/js/highlight.js" defer></script>
 </head>
 
-<body>
+<body data-nosnippet>
     {%- assign default = page.path | split: "/" | last -%}
     {%- assign default = page.path | replace: default, "" | split: "/" | last -%}
     {% assign selected = page.selected | default: default  %}

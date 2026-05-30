@@ -39,7 +39,7 @@ CHAR_DATA:
       {%- for e in universe.char -%}
         {%- assign char = e | downcase | split: ' ' | first -%}
         <a href="https://wiki.stupied.net/{{ id }}/char/{{ char }}">
-            <img src="https://wiki.stupied.net/{{ id }}/img/thumb/{{ char }}.jpg" alt="Thumbnail of {{ e }}">
+            <img src="https://wiki.stupied.net/img/thumb/{{ char }}.jpg" alt="Thumbnail of {{ e }}">
             <span>{{ e }}</span>
         </a>
       {%- endfor -%}
