@@ -9,6 +9,8 @@
 .justified-gallery button, button.lb-item {
   padding: 0;
   border: unset;
+  display: block;
+  width: 100%;
   background-color: unset;
   > img { display: block; }
 }
