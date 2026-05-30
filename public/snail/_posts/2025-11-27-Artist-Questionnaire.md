@@ -25,5 +25,6 @@ If you ever get around to answering it, please drop your website below! Honestly
 - [nomnomnami.com](https://nomnomnami.com/ask/100q-art)
 - [tofutush.github.io](https://tofutush.github.io/posts/2026-01-29.html)
 - [mintywyvern.neocities.org](https://mintywyvern.neocities.org/posts/2026-03-06-100-Artist-Questions)
+- [mikaorangeart.neocities.org](https://mikaorangeart.neocities.org/galleryzone/100questions)
 - [oleracea.neocities.org](https://oleracea.neocities.org/artists-questionnaire/)
 - [raccffy.com](https://raccffy.com/notes/100-questions-for-artist)

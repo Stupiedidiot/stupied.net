@@ -107,7 +107,7 @@ blog:
 
   - title: Micro
     icon: chat-bubble-dots
-    link: /blog/micro/
+    link: /blog/micro
 
   - title: Random
     icon: shuffle

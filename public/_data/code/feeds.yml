@@ -15,7 +15,7 @@
   desc: For all my blog posts
 
 - title: Microblog Feed
-  link: /blog/micro/feed.xml
+  link: /blog/micro-feed.xml
   desc: For my mini ramblings
 
 # - title: Library Feed
