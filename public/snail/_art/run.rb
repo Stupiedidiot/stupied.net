@@ -17,7 +17,7 @@ $images.each do |img|
         FileUtils.cp(img, out)
         p "MOVED: #{img.split('/').drop(1).join('/')}" 
     else
-        `magick "#{img}" -resize #{size} -quality 90 "#{out.split('.').first}.jpg"`
+        `magick "#{img}" -resize #{size} -quality 90 -background white -alpha remove "#{out.split('.').first}.jpg"`
         p "RESIZED: #{img.split('/').drop(2).join('/')}"
     end
 end
