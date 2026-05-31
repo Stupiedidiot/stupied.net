@@ -3,7 +3,6 @@ title: Using Obsidian for Art Archive
 description: Updating how I store info for my Art Gallery
 thumbnail: /blog/img/26/art-base-card.jpg
 render_with_liquid: false
-before: <img src="/blog/img/26/art-base-card.jpg" alt="">
 tags:
   - spaghetti
   - jekyll

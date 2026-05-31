@@ -102,20 +102,16 @@ main {
 
 .justified-gallery{ margin-bottom: 0.5rem; }
 
+header img,
 .micro-feed img,
 .justified-gallery img,
-#p_content > img,
-#p_content > * > img,
+#p_content img,
 p > img {
     border-radius:8px;
 }
 
 .lb-item img {
     width: 100%;
-}
-
-p > img:not(:last-child), p > button:not(:last-child) > img {
-    margin-bottom: 0.5rem;
 }
 
 figure {
@@ -149,12 +145,15 @@ img.center{
     position: absolute;
     height: 5%; width: 100%;
     left: 0; bottom: 0;
-    background-color: red;
     background: linear-gradient(#00000000,white);
 }
 
 .has-header {
-    margin-top: -1rem;
+    margin-top: -1.5rem;
+}
+
+#blog-title {
+    margin-top: 0.5rem;
 }
 
 #nextprev{

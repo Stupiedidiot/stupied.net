@@ -1,26 +1,29 @@
 ---
-before: <img src="img/23/pakkapets-1.jpg" alt="Screenshot of OC Website">
-thumbnail: /blog/img/23/pakkapets-5.jpg
+thumbnail: /blog/img/23/pakkapets-1.jpg
 ---
-<p>Today I remembered Pakka Pets exsisted.</span> I made so much progress I made before my phone died. To lazy to download it again but I do have images from before.</p>
+
+Today I remembered Pakka Pets exsisted. I made so much progress I made before my phone died. To lazy to download it again but I do have images from before.
 
 <div class="justified-gallery">
     <img src="img/23/pakkapets-2.jpg" style="--width: 900; --height: 893;"/>
     <img src="img/23/pakkapets-3.jpg" style="--width: 900; --height: 896;"/>
     <img src="img/23/pakkapets-4.jpg" style="--width: 900; --height: 827;"/>              
 </div>
-<p>She was my favorite one. What a silly guy.</p>
 
-<img src="img/23/pakkapets-5.jpg"/>
-<p>Kids playing in a park (gone wrong)</p>
+She was my favorite one. What a silly guy.
+
+![](img/23/pakkapets-5.jpg)
+
+Kids playing in a park (gone wrong)
 
 <div class="justified-gallery">
     <img src="img/23/pakkapets-6.jpg" style="--width: 900; --height: 900;"/>
     <img src="img/23/pakkapets-7.jpg" style="--width: 900; --height: 1042;"/>
 </div>
-<p>Bullying people in annymous gossip forms, are we? Naughty-naughty clown!</p>
 
-<div class="justified-gallery" style="margin-bottom:var(--space);"/>
+Bullying people in annymous gossip forms, are we? Naughty-naughty clown!
+
+<div class="justified-gallery" style="margin-bottom:var(--space);">
     <img src="img/23/pakkapets-8.jpg" style="--width: 900; --height: 914;"/>
     <img src="img/23/pakkapets-9.jpg" style="--width: 900; --height: 647;"/>    
 </div>
@@ -28,25 +31,32 @@ thumbnail: /blog/img/23/pakkapets-5.jpg
     <img src="img/23/pakkapets-10.jpg" style="--width: 900; --height: 821;"/>
     <img src="img/23/pakkapets-11.jpg" style="--width: 900; --height: 675;"/>
 </div>
-<p>Wassup man, check out these neat flowers I found! What's that? You're allergic to these? Oh no! Get out! WHat are you doing???? D:</p>
 
-<img src="img/23/pakkapets-12.jpg"/>
-<p>My honest reaction to that information</p>
+Wassup man, check out these neat flowers I found! What's that? You're allergic to these? Oh no! Get out! WHat are you doing???? D:
 
-<img src="img/23/pakkapets-13.jpg"/>
-<p>Is-- is that a duplicant!!?!??!</p>
+![](img/23/pakkapets-12.jpg)
 
-<img src="img/23/pakkapets-14.jpg"/>
-<p>Yipppeee New friend :D</p>
+My honest reaction to that information
 
-<img src="img/23/pakkapets-15.jpg"/>
-<p>uuhhmm...</p>
+![](img/23/pakkapets-13.jpg)
+
+Is-- is that a duplicant!!?!??!
+
+![](img/23/pakkapets-14.jpg)
+
+Yipppeee New friend :D
+
+![](img/23/pakkapets-15.jpg)
+
+uuhhmm...
 
 <div class="justified-gallery">
     <img src="img/23/pakkapets-16.jpg" style="--width: 900; --height: 630;"/>
     <img src="img/23/pakkapets-17.jpg" style="--width: 900; --height: 780;"/>
 </div>
-<p class="txt-center" style="margin-top:1rem;"/>Picnic Party!</p>
+
+Picnic Party!
+
 <div class="justified-gallery" style="--min-height:180px">
     <img src="img/23/pakkapets-18.jpg" style="--width: 900; --height: 636;"/>
     <img src="img/23/pakkapets-19.jpg" style="--width: 900; --height: 612;"/>

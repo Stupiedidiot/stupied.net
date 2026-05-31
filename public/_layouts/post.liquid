@@ -1,26 +1,44 @@
 ---
 layout: blog
 ---
+
+{% capture title %}
+  <div id="blog-title">
+      <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+  </div>
+{% endcapture %}
+
+{% capture date %}
+  <div id="blog-date">
+      <p class="post-meta">
+          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+          {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+          </time>
+          {%- if page.author -%}
+          • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+          {%- endif -%}
+      </p>
+  </div>
+{% endcapture %}
+
 <script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
 <article>
-
   <header id="p_header" class="main-content" data-nosnippet>
-    {%- if page.before -%}
-      {{ page.before | raw }}
-    {%- endif-%}
-	
 	{%- if page.header -%}
     <div id="header-img" style="--img:url({{ page.header }});"></div>
-    <div class="outline has-header" style="--color: var(--bg-color);"/>{% include blog/title.html %}</div>
-    {% include blog/date.html %}
+    <div class="outline has-header" style="--color: var(--bg-color);"/>
+      {{ title }}
+    </div>
 	{%- else -%}
-	  {%- unless page.notitle -%}
-      {% include blog/title.html %}
-    {%- endunless-%}
-    {%- unless page.nodate -%}
-      {% include blog/date.html %}
-    {%- endunless-%}
+    {%- if page.before -%}
+      {{ page.before | raw }}
+    {% else %}
+      <img class="header-thumb" src="{{ page.thumbnail }}" alt="">
+    {%- endif-%}
+    {{ title }}
 	{%- endif -%}
+  {{ date }}
   </header>
 
   <div id="p_content" class="main-content">
