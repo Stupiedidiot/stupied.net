@@ -45,7 +45,12 @@ layout: none
   color: black;
   transition: 0.2s;
 
-  img{width: 100%; display: block;}
+  img{
+    width: 100%;
+    display: block;
+    max-height: 50vh;
+    object-fit: cover;
+  }
   /* should make the extra images sliding..?? */
   img:not(:first-child) { display: none; }
 
