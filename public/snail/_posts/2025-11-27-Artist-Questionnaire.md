@@ -28,3 +28,6 @@ If you ever get around to answering it, please drop your website below! Honestly
 - [mikaorangeart.neocities.org](https://mikaorangeart.neocities.org/galleryzone/100questions)
 - [oleracea.neocities.org](https://oleracea.neocities.org/artists-questionnaire/)
 - [raccffy.com](https://raccffy.com/notes/100-questions-for-artist)
+- [yogomagpie.neocities.org](https://yogomagpie.neocities.org/garden/art/100Q)
+- [vampireapologist.neocities.org](https://vampireapologist.neocities.org/blog/artposts/100questionsforartists)
+- [cobaltex.neocities.org](https://cobaltex.neocities.org/ask)

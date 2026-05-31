@@ -1,0 +1,10 @@
+{% capture result %}
+    {% assign exp = "" %}
+    {% assign file = include.item.path | prepend: 'snail/' %}
+    {% capture micro %}{% cat file %}{% endcapture %}
+    {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+    {% if exp %}
+        {{ exp | markdownify | replace: 'img src="img/', micro_replace }}
+    {% endif %}
+{% endcapture %}
+{{ result | escape }}

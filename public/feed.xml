@@ -18,39 +18,13 @@ layout: rss
   <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
   <description>
-    
-  {%- capture description -%}
-      {% if item.collection == 'art' %}
-        {%- assign img = item.path | getArtPath | append: '.' | append: item.ext %}
-        <img src="{{ site.url }}/art/img/{{ img }}" alt="{{ e.alt | escape }}"/>
-        
-        {%- for extra in e.extra -%}
-          <img src="{{ site.url }}/art/img/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
-        {%- endfor -%}
-        
-        {% assign test = item.content | strip %}
-        {%- if test != '' -%}
-          {{ item.content | markdownify }}
-        {%- endif -%}
-      {% elsif item.collection == 'blog' %}
-        {%- if item.thumbnail -%}
-          <img src="{{ item.thumbnail | prepend: site.url }}" style="max-width:100%;"/>
-        {%- else item.header -%}
-          <img src="{{ item.header | prepend: site.url }}" style="max-width:100%;"/>
-        {%- else item.before -%}
-          {{ item.before }}
-        {%- endif -%}
-        {{ item.content | markdownify }}
-      {% else %}
-        {% assign file = item.path | prepend: 'snail/' %}
-        {% capture micro %}{% cat file %}{% endcapture %}
-        {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
-        {% if exp %}
-            {{ exp | markdownify | replace: 'img src="img/', micro_replace }}
-        {% endif %}
-      {% endif %}
-    {%- endcapture -%}
-    {{ description | escape }}
+    {% if item.collection == 'art' %}
+      {% include rss/art.liquid item=item %}
+    {% elsif item.collection == 'blog' %}
+      {% include rss/blog.liquid item=item %}
+    {% else %}
+      {% include rss/micro.liquid item=item %}
+    {% endif %}
   </description>
   <category>{{ item.collection }}</category>
 </item>

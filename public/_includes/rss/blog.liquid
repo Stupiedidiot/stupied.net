@@ -1,0 +1,11 @@
+{% capture result %}
+    {%- if include.item.thumbnail -%}
+        <img src="{{ include.item.thumbnail | prepend: site.url }}" style="max-width:100%;"/>
+    {%- else include.item.header -%}
+        <img src="{{ include.item.header | prepend: site.url }}" style="max-width:100%;"/>
+    {%- else include.item.before -%}
+        {{ include.item.before }}
+    {%- endif -%}
+    {{ include.item.content | markdownify }}
+{% endcapture %}
+{{ result | escape }}

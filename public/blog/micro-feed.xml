@@ -16,15 +16,7 @@ description: RSS Feed for my microblog ramblings
     <link>{{ site.url }}/{{ item.date | date: "%Y-%m-%dT%H-%M" }}</link>
     <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
     <description>
-      {%- capture description -%}
-        {% assign file = item.path | prepend: 'snail/' %}
-        {% capture micro %}{% cat file %}{% endcapture %}
-        {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
-        {% if exp %}
-            {{ exp | markdownify | replace: 'img src="img/', micro_replace }}
-        {% endif %}
-      {%- endcapture -%}
-      {{ description | escape }}
+      {% include rss/micro.liquid item=item %}
     </description>
     {% if item.tags %}
         {% for tag in item.tags %}
