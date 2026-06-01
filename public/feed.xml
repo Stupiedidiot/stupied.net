@@ -1,8 +1,6 @@
 ---
 layout: rss
 ---
-{% assign micro_replace = 'img src="' | append: site.url | append: '/blog/micro/img/' %}
-
 {% assign FEED = site.art | concat: site.posts | concat: site.micro | sort: 'date' | reverse %}
 {%- for item in FEED limit: 15 -%}
 <item>

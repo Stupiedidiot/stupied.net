@@ -1,10 +1,11 @@
+{% assign replace = 'img src="' | append: site.url | append: '/blog/img/' %}
 {% capture result %}
     {% assign exp = "" %}
     {% assign file = include.item.path | prepend: 'snail/' %}
     {% capture micro %}{% cat file %}{% endcapture %}
-    {{ micro | markdownify | replace: 'img src="img/', micro_replace }}
+    {{ micro | markdownify | replace: 'img src="img/', replace }}
     {% if exp %}
-        {{ exp | markdownify | replace: 'img src="img/', micro_replace }}
+        {{ exp | markdownify | replace: 'img src="img/', replace }}
     {% endif %}
 {% endcapture %}
 {{ result | escape }}

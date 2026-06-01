@@ -8,9 +8,6 @@ destination: _site
 keep_files:
 - pagefind
 
-exclude:
-- "*.base"
-
 sass:
   style: compressed
 
@@ -20,32 +17,6 @@ jekyll-minifier:
   exclude:
   - feed.xml
   - "*.txt"
-
-# Collection Stuff
-collections_dir: snail
-collections:
-  art:
-    output: true
-    permalink: /art/p/:path
-    sort_by: date
-  img:
-    output: true
-    permalink: /:path
-    
-  # someone pls remind me to make this into their own seperate website ty
-  lists:
-  reviews:
-    output: true
-    permalink: /chez/reviews/p/:name_raw
-    sort_by: date
-  
-  micro:
-  posts:
-    permalink: /blog/:name_raw
-  
-  templates:
-    output: true
-    permalink: /code/:path
   
 defaults:
   - scope:
@@ -89,3 +60,28 @@ pagefind:
    - "header"
    - "nav"
    - "footer"
+
+# Collection Stuff
+collections_dir: snail
+collections:
+  art:
+    output: true
+    permalink: /art/p/:path
+    sort_by: date
+  img:
+    output: true
+    permalink: /:path
+  
+  micro:
+  posts:
+    permalink: /blog/:name_raw
+  
+  lists:
+  reviews:
+    output: true
+    permalink: /chez/reviews/p/:name_raw
+    sort_by: date
+  
+  templates:
+    output: true
+    permalink: /code/:path

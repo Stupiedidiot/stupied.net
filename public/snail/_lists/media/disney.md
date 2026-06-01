@@ -2,14 +2,15 @@
 title: Disney Stuff
 ---
 
-{% assign LINKS = site.reviews | where_exp: "e", "e.path contains 'disney/'" | where: "link", true | sort: 'release' %}
-    {% for item in LINKS %}
-        {%- capture title -%}
-            {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
-        {%- endcapture -%}
-        
-    - [{{ title }}]({{ item.link }})
-{% endfor %}
+{% assign LINKS = site.reviews %}
+{% if LINKS %}
+    <ul>
+        {% assign LINKS = LINKS | where_exp: "e", "e.path contains 'disney/'" | where: "link", true | sort: 'release' %}
+        {% for item in LINKS %}
+            <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 ### Youtube Playlists
 - [House of Mouse](https://www.youtube.com/playlist?list=PL9ak1M9WpLPASw5ihysS7FSXaBQfxaECM)

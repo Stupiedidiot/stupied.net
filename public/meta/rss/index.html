@@ -17,8 +17,10 @@ include_path: _head.html
     </div>
 
     <div id="template" class="note">
-        {%- assign CURRENT = site.templates | sort: published | first -%}
-        <img src="{{ CURRENT.url | replace: 'index','' | append: 'thumbnail.jpg'}}" alt="">
+        {% if site.templates %}
+            {%- assign CURRENT = site.templates | sort: published | first -%}
+            <img src="{{ CURRENT.url | replace: 'index','' | append: 'thumbnail.jpg'}}" alt="">
+        {% endif %}
     </div>
 </article>
 <article id="feeds" class="padded">

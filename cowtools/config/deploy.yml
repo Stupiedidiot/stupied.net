@@ -1,3 +1,6 @@
+exclude:
+- "*.base"
+
 # Plugins
 plugins:
   - jekyll-minifier

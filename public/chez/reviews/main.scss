@@ -5,6 +5,7 @@ body {
   background-color: #1a1a1a;
   color: white;
 }
+
 #container {
   width: 95%;
   margin: 1rem auto;
@@ -14,6 +15,10 @@ header {
   padding: 1rem;
   text-align: center;
   user-select: none;
+}
+
+main {
+  min-height: 100vh;
 }
 
 .tier_list {
