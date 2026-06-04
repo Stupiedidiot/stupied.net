@@ -2,20 +2,30 @@
 layout: none
 ---
 
-@mixin yay() {
+@mixin yay($type: null) {
   background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
-  border: 1px solid;
+  border: 1px solid var(--dk-blue);
   border-radius: 4px;
+  padding: 0.5rem;
+  
+  @if $type == 'button' {
+    color: color-mix(in srgb, var(--color-accent) 70%, black);
+    font-family: var(--body-font);
+    font-weight: bold;
+  }
 }
 #aside-content { 
   position: static;
   details {
     @include yay;
     margin-bottom: 0.5rem;
-    padding: 0.5rem;
     text-align: left;
     > details:first-of-type { margin-top: 0.5rem; }
     > details:last-child { margin-bottom: 0; }
+    
+    label {
+      color: color-mix(in srgb, var(--color-accent) 70%, black);
+    }
   }
   h3, h4 {
     display: inline;
@@ -23,10 +33,7 @@ layout: none
 
   // REMEMBER TO CHANGE THIS!
   button, select {
-    @include yay;
-    padding: 0.5rem;
-    font-family: var(--body-font);
-    font-weight: bold;
+    @include yay(button);
   }
 }
 .art-archive-options {
@@ -129,6 +136,13 @@ layout: none
 
 #archive_buttons {
   margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  
+  button {
+    @include yay(button);
+  }
 }
 
 /* NOJS */
@@ -137,17 +151,34 @@ layout: none
   text-decoration: none;
   font-weight: bold;
 }
-#art-archive-nojs { padding: 1rem; }
-#art-archive-nojs a:hover { color: var(--color-accent);}
-#art-archive-nojs h2 { border-bottom: none; }
+#art-archive-nojs {
+  padding: 1rem;
+
+  a:hover {
+    color: var(--color-accent);
+  }
+
+  h2 {
+    border-bottom: none;
+  }
+}
+
 
 .art-archive-nojs-item {
     margin-bottom: 1rem;
     margin-left: 0;
     padding-bottom: 1rem;
     border-bottom: 2px dashed lightgray;
+    
+    &:last-child { border-bottom: none; }
+
+    > a > h2 > span {
+      display: inline-block;
+      color: lightgray;
+      font-size: 1rem;
+      margin-left: 0.5rem;
+    }
 }
-.art-archive-nojs-item:last-child { border-bottom: none; }
 .art-archive-nojs-extra {
     list-style-position: inside;
     padding-left: 0;
@@ -155,11 +186,4 @@ layout: none
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
-}
-
-.art-archive-nojs-item > a > h2 > span {
-  display: inline-block;
-  color: lightgray;
-  font-size: 1rem;
-  margin-left: 0.5rem;
 }

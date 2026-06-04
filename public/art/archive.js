@@ -63,8 +63,11 @@ function sortEm() {
   let counter = 0;
 
   tags.forEach(tag => {
-    if (e = document.getElementById(tag))
+    if (e = document.getElementById(tag)) { 
+      e.closest('details').open = true;
       e.checked = true;
+      console.log("Whoopie")
+    }
   });
 
   if (mode == 'not') {
@@ -107,8 +110,7 @@ function sortEm() {
       }
     }
   }
-  
-  
+    
   MAX = counter;
   ITEMS = TARGET.querySelectorAll('& > *');
   document.getElementById('archive_max').textContent = counter;
@@ -139,6 +141,7 @@ function showEm (increment) {
 
   for (let i = prev; i < counter; i++)
     showItem(i);
+
   COUNTER_TARGET.textContent = counter;
   TARGET_DUP.innerHTML = TARGET.innerHTML;
 }
