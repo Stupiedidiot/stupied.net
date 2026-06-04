@@ -4,7 +4,7 @@
 {%- for item in DATA -%}
     {%- assign img = item.path | getArtPath -%}
     <div class="art-archive-nojs-item" >
-        <a href="./img/{{ img }}.{{ item.ext }}">
+        <a href="/art/p/{{ img }}">
             <h2>{{ item.title }}
                 {%- if item.date -%}
                 <span>({{ item.date | split: '-' | first }})</span>
@@ -21,7 +21,8 @@
             <ul class="art-archive-nojs-extra">
             {%- for extra in item.extra -%}
                 <li>
-                    <a href="./img/{{ extra.img | default: extra }}">{{ extra.img | default: extra | split: "/" | last | split: "." | first | replace: "-", " " }}</a>
+                    {% assign extra_img = extra.img | default: extra | split: "/" | last | split: "." | first %}
+                    <a href="/art/p/{{ img }}">{{ extra_img | replace: "-", " " }}</a>
                 </li>
             {%- endfor -%}
             </ul>
