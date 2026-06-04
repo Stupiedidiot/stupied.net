@@ -49,28 +49,28 @@
         width: 100%;
         object-fit: cover;
     }
-}
 
-#lightbox-content > button {
-    display: block;
-    position: absolute;
-    height: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0;
-    transition: var(--time);
-    background-color: unset;
-    border: none;
+    > button {
+        display: block;
+        position: absolute;
+        height: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: var(--time);
+        background-color: unset;
+        border: none;
 
-    &:hover { opacity:1; }
-    &#lightbox-prev {
-        width: 40%;
-        left: 0;
-    }
+        &:hover { opacity:1; }
+        &#lightbox-prev {
+            width: 40%;
+            left: 0;
+        }
 
-    &#lightbox-next {
-        width: 40%;
-        right: 0;
+        &#lightbox-next {
+            width: 40%;
+            right: 0;
+        }
     }
 }
 

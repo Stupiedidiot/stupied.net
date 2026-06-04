@@ -41,12 +41,12 @@ List based on [this](https://mickey-and-friends.fandom.com/wiki/Donald_Duck/Shor
 
 ### 1940s
 #### 1940
-- [ ] The Riveter
+- [x] The Riveter
 - [ ] Donald's Dog Laundry
 - [ ] Billposters (a Donald and Goofy short)
 - [x] Mr. Duck Steps Out
 - [ ] Put-Put Troubles
-- [ ] Donald's Vacation
+- [x] Donald's Vacation
 - [ ] The Volunteer Worker (public service short)
 - [x] Window Cleaners
 - [ ] The Fire Chief

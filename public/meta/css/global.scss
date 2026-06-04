@@ -334,10 +334,14 @@ fieldset.infobox > legend {
 /* INFOBOX END */
 
 /* TIMELINE START */
-.timeline-item:nth-child(n + 2){
-    display: block;
-    border-top: var(--border);
-    width: 100%;
+.timeline-item{
+    user-select: none;
+    
+    &:nth-child(n + 2){
+        display: block;
+        border-top: var(--border);
+        width: 100%;
+    }
 }
 
 .timeline-content {

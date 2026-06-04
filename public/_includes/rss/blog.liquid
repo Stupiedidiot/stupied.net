@@ -1,3 +1,4 @@
+{% assign replace = 'img src="' | append: site.url | append: '/blog/img/' %}
 {% capture result %}
     {%- if include.item.thumbnail -%}
         <img src="{{ include.item.thumbnail | prepend: site.url }}" style="max-width:100%;"/>
@@ -6,6 +7,6 @@
     {%- else include.item.before -%}
         {{ include.item.before }}
     {%- endif -%}
-    {{ include.item.content | markdownify }}
+    {{ include.item.content | markdownify | replace: 'img src="img/', replace }}
 {% endcapture %}
 {{ result | escape }}

@@ -333,6 +333,7 @@ footer {
 
 #micro_tags,
 #micro_nav {
+    user-select: none;
     font-family: var(--display-font);
     padding-bottom: 1rem;
     display: flex;
