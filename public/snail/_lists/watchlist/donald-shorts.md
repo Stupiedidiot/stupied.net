@@ -34,7 +34,7 @@ List based on [this](https://mickey-and-friends.fandom.com/wiki/Donald_Duck/Shor
 - [x] Beach Picnic
 - [x] Sea Scouts
 - [x] Donald's Penguin
-- [ ] The Autograph Hound
+- [X] The Autograph Hound
 - [ ] Officer Duck
 
 ---

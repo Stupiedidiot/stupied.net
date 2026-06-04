@@ -189,7 +189,7 @@ const TAGS_FILTER_OUT = [
 ];
 
 if (e = document.getElementById('art_index')) { 
-  curr_idx = e.textContent;
+  curr_idx = parseInt(e.textContent);
   fetch("/art/main.json?v={{ site.time | date: '%Y-%m-%d' }}")
     .then((response) => response.json())
     .then((art) => {
@@ -204,7 +204,7 @@ if (e = document.getElementById('art_index')) {
           tags_filtered = tags_filtered.filter(v=>v!=e);
         });
         
-        for (let i = curr_idx + 1; i < art.length + curr_idx; i++) {
+        for (let i = curr_idx + 1; i < (art.length + curr_idx); i++) {
           let index = i % art.length;
           let e = art[index].tags;
           if(e === undefined) continue;

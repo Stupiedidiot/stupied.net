@@ -5,5 +5,4 @@ title:
 extra:
 tags:
   - digital
-  - ocs
 ---
