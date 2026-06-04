@@ -3,13 +3,14 @@ layout: art
 ---
 <article id="art_details" class="main-content">
   <div id="art_details_content">
-    <h1 id="art_title">{{ page.title }} <time class="outline">({{ page.date | date: '%Y' }})</time></h1>
-    {% assign test = content | strip %}
-    {% if test != '' %}
-        <div id="art_desc">
+    <h1 id="art_title">{{ page.title }}</h1>
+    <div id="art_desc">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% assign test = content | strip %}
+            {% if test != '' %}
             {{ content }}
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 </div>
 </article>
 

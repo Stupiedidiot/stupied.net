@@ -40,7 +40,7 @@ pagination:
                                     <p>To Be Reviewed..</p>
                                 {%- endif -%}
                             </div>
-                            <time datetime="">{{ e.date | date: "%b %-d, %Y" }}</time>
+                            <time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }}</time>
                         </div>
                     </div>
                 </div>

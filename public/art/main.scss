@@ -246,7 +246,15 @@ footer {
 }
 
 #art_desc {
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+
+  time {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
 }
 .art-related {
     display: block;

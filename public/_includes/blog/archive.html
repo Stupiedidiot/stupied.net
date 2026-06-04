@@ -8,7 +8,7 @@
                     <div class="blog-item">
                         {%- assign title = e.title | escape -%}
                         <div class="item-title" title="{{ title }}">{{ title }}</div>
-                        <div class="item-date"><time datetime="{{ e.date | date: '%Y-%m-%d'}}">{{ e.date | date: "%Y-%m-%d"}}</time></div>
+                        <div class="item-date"><time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%Y-%m-%d"}}</time></div>
                         {%- unless include.no_desc -%}
                             {%- if e.description -%}
                                 <div class="item-desc">
