@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date:
+date: 2024-01-01
 tags:
   - traditional
   - ink
