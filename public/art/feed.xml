@@ -4,7 +4,7 @@ title: Stupied's Art
 description: RSS Feed for all my art
 ---
 
-{% assign FEED = site.art | reverse %}
+{% assign FEED = site.art | where_exp: "item", "item.date <= site.time" | reverse %}
 {%- for item in FEED limit: 15 -%}
 <item>
   <title>{{ item.title | escape }}</title>

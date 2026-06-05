@@ -35,6 +35,11 @@ layout: none
   button, select {
     @include yay(button);
   }
+
+  select {
+    display: block;
+    width: 100%;
+  }
 }
 .art-archive-options {
   display: flex;
