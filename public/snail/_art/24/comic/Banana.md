@@ -3,7 +3,6 @@ ext: jpg
 date: 2024-01-01
 title: Banana Overlord
 
-extra:
 tags:
 - traditional
 - ink

@@ -18,7 +18,7 @@ module Jekyll
       return [idx, prv, nxt]
     end
     
-    def getTags(input, date = true, offset = nil)
+    def getTags(input, date = nil)
       return unless (input)
       tags = []
 
@@ -30,7 +30,7 @@ module Jekyll
       split = input['path'].sub('_art/','').split("/")
       split.pop
       if (split.length > 1)
-        split.shift(offset.to_i)
+        split.shift(1)
         tags.concat(split)
       end
       

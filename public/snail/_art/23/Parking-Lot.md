@@ -1,8 +1,8 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-07-13
 tags:
-- digital
-- gastropod
+  - digital
+  - gastropod
 ---
 

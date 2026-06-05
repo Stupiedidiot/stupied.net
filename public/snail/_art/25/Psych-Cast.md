@@ -2,7 +2,6 @@
 ext: jpg
 date: 2025-06-26
 title:
-extra:
 tags:
   - digital
   - ocs

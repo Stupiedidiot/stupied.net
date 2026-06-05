@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-09-22
 title: ROOOAAAAaaaR!!
-
-extra:
 tags:
-- digital
-- fanart
-- literalhat
+  - digital
+  - fanart
+  - literalhat
 ---
 

@@ -1,9 +1,9 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-05-05
 tags:
-- digital
-- fanart
-- puyo
+  - digital
+  - fanart
+  - puyo
 ---
 

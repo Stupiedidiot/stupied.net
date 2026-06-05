@@ -1,7 +1,6 @@
 ---
 ext: jpg
 date: 2023-08-18
-extra:
 tags:
   - fanart
   - traditional

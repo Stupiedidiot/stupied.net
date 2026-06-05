@@ -2,7 +2,6 @@
 ext: jpg
 date: 2025-08-16
 title: Introverted
-extra:
 tags:
   - digital
   - sona

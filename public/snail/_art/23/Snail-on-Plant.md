@@ -1,11 +1,9 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-11-25
 title: Snail on Plant! (Real)
-
-extra:
 tags:
-- digital
-- gastropod
+  - digital
+  - gastropod
 ---
 

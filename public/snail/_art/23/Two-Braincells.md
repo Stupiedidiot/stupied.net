@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-04-13
 title: The Perfect Disguise
-
-extra:
 tags:
-- digital
-- fanart
-- turbo
+  - digital
+  - fanart
+  - turbo
 ---
 

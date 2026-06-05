@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-04-05
 title: Stardew Valley Wedding!!!
-
-extra:
 tags:
-- digital
-- fanart
-- stardew-valley
+  - digital
+  - fanart
+  - stardew-valley
 ---
 

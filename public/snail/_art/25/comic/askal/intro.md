@@ -1,7 +1,6 @@
 ---
 ext: jpg
 date: 2025-06-05
-extra:
 tags:
   - digital
   - sona

@@ -3,7 +3,6 @@ ext: jpg
 date: 2022-03-11
 title: Library Redraw
 
-extra:
 tags:
 - digital
 - ocs

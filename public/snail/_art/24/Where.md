@@ -1,14 +1,12 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-05-05
 title: Where Have You Been?
-
-extra:
 tags:
-- digital
-- ocs
-- ashley
-- sunny
-- eighty-four
+  - digital
+  - ocs
+  - ashley
+  - sunny
+  - eighty-four
 ---
 

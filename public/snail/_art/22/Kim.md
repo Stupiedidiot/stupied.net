@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2022-01-01
+date: 2022-12-29
 title: Kim at Beach :]
-
-extra:
 tags:
-- digital
-- fanart
-- scott-pilgrim
+  - digital
+  - fanart
+  - scott-pilgrim
 ---
 

@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-01-03
 title: Lidelle Color Test
-
-extra:
 tags:
-- digital
-- fanart
-- puyo
+  - digital
+  - fanart
+  - puyo
 ---
 

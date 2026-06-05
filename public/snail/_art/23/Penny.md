@@ -1,10 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-01-22
 tags:
-- digital
-- ocs
-- penny
-- doit
+  - digital
+  - ocs
+  - penny
+  - doit
 ---
 

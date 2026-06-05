@@ -5,7 +5,7 @@
 <div id="archive_content" class="art-archive first">
 {%- for item in DATA -%}
     {%- assign title = item.title -%}
-    {%- assign tags = item | getTags: true, include.offset -%}
+    {%- assign tags = item | getTags: true -%}
     {%- assign img = item.path | getArtPath -%}
     <div class="art-archive-item hidden" data-tags="{{ tags | join: ' ' }}">
         <img src="#" data-image="./img/{{ img }}.{{ item.ext }}" alt="{{ item.alt | escape }}" loading="lazy">

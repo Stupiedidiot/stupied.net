@@ -5,7 +5,7 @@
     </div>
     <h3>Tags</h3>
     <ul id="art_tags">
-        {% assign tags = page | getTags: nil, 1 %}
+        {% assign tags = page | getTags %}
         {% for e in tags %}
             <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
         {% endfor %}

@@ -3,7 +3,6 @@ ext: jpg
 date: 2026-01-18
 title: So Kawaii Desu, You Guys!!!
 
-extra:
 tags:
 - digital
 - ocs

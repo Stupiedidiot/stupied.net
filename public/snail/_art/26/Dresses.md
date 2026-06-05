@@ -3,7 +3,6 @@ ext: jpg
 date: 2026-01-29
 title: Dresses from Childhood
 
-extra:
 tags:
 - ocs
 - doodle

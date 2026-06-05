@@ -1,8 +1,8 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-01-20
 tags:
-- digital
-- sona
+  - digital
+  - sona
 ---
 

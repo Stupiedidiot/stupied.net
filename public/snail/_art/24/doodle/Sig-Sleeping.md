@@ -1,11 +1,11 @@
 ---
 ext: jpg
-date: 2024-01-01
+date:
 tags:
-- traditional
-- ink
-- pencil
-- fanart
-- puyo
+  - traditional
+  - ink
+  - pencil
+  - fanart
+  - puyo
 ---
 

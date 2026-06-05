@@ -1,15 +1,13 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-08-13
 title: i sure hope there aren't any werewolves around
-
-extra:
 tags:
-- digital
-- ocs
-- psyche
-- evan
-- lily
-- psych
+  - digital
+  - ocs
+  - psyche
+  - evan
+  - lily
+  - psych
 ---
 

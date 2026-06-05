@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-03-31
 title: Will You Accept His Offer?
-
-extra:
 tags:
-- digital
-- fanart
-- puyo
+  - digital
+  - fanart
+  - puyo
 ---
 

@@ -1,14 +1,12 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-04-16
 title: We Are Not Getting Icecream!
-
-extra:
 tags:
-- digital
-- ocs
-- evan
-- lily
-- psych
+  - digital
+  - ocs
+  - evan
+  - lily
+  - psych
 ---
 

@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-06-18
 title: it's not that deep
-
-extra:
 tags:
-- digital
-- ocs
-- adrina
+  - digital
+  - ocs
+  - adrina
 ---
 

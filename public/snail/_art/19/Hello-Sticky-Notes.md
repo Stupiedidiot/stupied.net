@@ -2,7 +2,6 @@
 ext: jpg
 date: 2019-01-01
 title: Front Page
-extra:
 tags:
   - traditional
   - ink

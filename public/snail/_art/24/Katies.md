@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-09-07
 title: Katie(s)
-
-extra:
 tags:
-- digital
-- fanart
-- seconds
+  - digital
+  - fanart
+  - seconds
 ---
 

@@ -3,7 +3,6 @@ ext: jpg
 date: 2026-03-01
 title: Coffee Painting
 
-extra:
 tags:
 - traditional
 - watercolor

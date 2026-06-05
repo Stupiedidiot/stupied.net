@@ -1,9 +1,9 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-01-14
 tags:
-- digital
-- fanart
-- stardew-valley
+  - digital
+  - fanart
+  - stardew-valley
 ---
 

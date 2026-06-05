@@ -1,12 +1,10 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-06-16
 title: Turbo hogging up the bed >:(
-
-extra:
 tags:
-- digital
-- fanart
-- stardew-valley
+  - digital
+  - fanart
+  - stardew-valley
 ---
 

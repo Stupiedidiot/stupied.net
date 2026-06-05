@@ -1,11 +1,9 @@
 ---
 ext: jpg
-date: 2023-01-01
+date: 2023-09-13
 title: Pay Attention!
-
-extra:
 tags:
-- digital
-- sona
+  - digital
+  - sona
 ---
 

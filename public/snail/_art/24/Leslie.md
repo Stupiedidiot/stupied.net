@@ -1,12 +1,11 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-05-05
 title: Leslie Febee!!!
-
-extra:
 tags:
-- digital
-- ocs
-- leslie
+  - digital
+  - ocs
+  - leslie
+  - eighty-four
 ---
 
