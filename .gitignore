@@ -22,6 +22,8 @@ _private
 # Syncthing
 ~syncthing*.tmp
 *.sync-conflict-*.*
+.stignore
+.stfolder
 
 # Drafts
 _ignore
