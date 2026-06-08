@@ -4,12 +4,12 @@ title: Disney Stuff
 
 {% assign LINKS = site.reviews %}
 {% if LINKS %}
-    <ul>
-        {% assign LINKS = LINKS | where_exp: "e", "e.path contains 'disney/'" | where: "link", true | sort: 'release' %}
-        {% for item in LINKS %}
-            <li><a href="{{ item.link }}">{{ item.title }}</a></li>
-        {% endfor %}
-    </ul>
+<ul>
+	{% assign LINKS = LINKS | where_exp: "e", "e.path contains 'disney/'" | where: "link", true | sort: 'release' %}
+	{% for item in LINKS %}
+		<li><a href="{{ item.link }}">{{ item.title }}</a></li>
+	{% endfor %}
+</ul>
 {% endif %}
 
 ### Youtube Playlists

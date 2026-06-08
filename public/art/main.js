@@ -185,6 +185,7 @@ const TAGS_FILTER_OUT = [
   'pencil',
   'multi',
   'doodle',
+  'comic',
   'with-commentary'
 ];
 

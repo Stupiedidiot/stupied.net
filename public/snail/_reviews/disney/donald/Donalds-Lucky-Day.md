@@ -2,7 +2,7 @@
 link: https://youtu.be/CCTpx0ppk4Y
 title: Donalds Lucky Day
 release: 1939
-rank: S
+rank: A
 ---
 
 Donald immediately running away after insulting Pete is peak Donald Duck behavior.

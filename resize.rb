@@ -4,10 +4,6 @@ folders = [
     [
         "public/snail/_img/chez/reviews/img/",
         "x200"
-    ],
-    [
-        "public/snail/_img/blog/micro/img/",
-        "700x"
     ]
 ]
 
@@ -18,19 +14,23 @@ folders.each do |folder_config|
 
     images = Dir.glob(File.join(target, "**", "*.{jpg,jpeg,png,gif}"))
 
-    p "[#{dimension}] ====================="
+    puts "[#{dimension}] ====================="
 
     images.each do |img|
+        next if (img.include?('_ignore'))
+        
         folder = File.join(File.dirname(img), '_ignore')
+        next if (File.join(folder, img.split('/').pop))
+        
         FileUtils.mkdir_p(folder)
         FileUtils.cp(img, folder)
 
         if (img.downcase.end_with?('.gif'))
-            p "SKIPPED: #{img}" 
+            puts "SKIPPED: #{img}" 
             next
         end
 
         `magick "#{img}" -resize #{dimension} -quality 90 "#{img}"`
-        p "RESIZED: #{img}"
+        puts "RESIZED: #{img}"
     end
 end
