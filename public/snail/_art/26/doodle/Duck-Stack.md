@@ -7,4 +7,4 @@ tags:
   - ducktales
   - disney
 ---
-Happy birthday to unca donalddddd!!! The timing of this drawing is unintentional. The figurine was just too cute not to redraw!
+Happy birthday to Unca Donalddddd!!! The timing of this drawing is unintentional. The figurine was just too cute not to redraw!

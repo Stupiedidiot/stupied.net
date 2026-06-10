@@ -20,7 +20,7 @@ title: Disney Stuff
 - [Goofy Shorts](https://youtube.com/playlist?list=PLWcODnEVd5uuBCxBpKWBn1mo5FI_tOuKT)
 - [Goof Troop](https://youtube.com/playlist?list=PLv042z7GzQ6uVDI5O6mjYNup985n97Dm0)
 - [The MousePack - Mickey and Friends Singing Classic Standards](https://youtube.com/playlist?list=PLK9sc8FKyYZw-xZf_OOurq-G1r-QUCIun)
-
+- [Duckburg Life Podcast](https://youtube.com/playlist?list=PLg6R6yXKSLYBZwfWtMHhk4_qXWG60-MLt)
 ### Disney World Shows
 - [Kitchen Kabaret](https://youtu.be/TKUHjWTvgA0)
 
