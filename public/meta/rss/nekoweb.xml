@@ -3,17 +3,13 @@ layout: rss
 link: https://stupied.nekoweb.org
 ---
 {% assign max = 500 %}
-{% assign FEED = site.art | concat: site.posts | concat: site.micro | sort: 'date' | reverse %}
+{% assign FEED = site.art | concat: site.posts | where_exp: "item", "item.date <= site.time" | sort: 'date' | reverse %}
 {%- for item in FEED limit: 100 -%}
 <item>
     <title>{{ item.title | escape }}</title>
     <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
     
-    {% if item.collection == 'micro' %}
-        <link>{{ site.url }}/blog/micro/</link>
-    {% else %}
-        <link>{{ item.url | prepend: site.url }}</link>
-    {% endif %}
+    <link>{{ item.url | prepend: site.url }}</link>
 
     <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
@@ -25,10 +21,8 @@ link: https://stupied.nekoweb.org
             {% else %}
                 Added Art
             {%- endif -%}
-        {% elsif item.collection == 'posts' %}
-            {{ item.description | default: item.desc | default: "Blog Post" | strip_html | truncate: max, '...Read More' }}
         {% else %}
-            {{ item.content | strip_html | markdownify |  split: '</p>' | first | strip_html | default: "Microblogging" | truncate: max, '...Read More' }}
+            {{ item.description | default: item.desc | default: "Blog Post" | strip_html | truncate: max, '...Read More' }}
         {% endif %}
     </description>
 </item>
