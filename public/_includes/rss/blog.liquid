@@ -1,12 +1,13 @@
 {% assign replace = 'img src="' | append: site.url | append: '/blog/img/' %}
+{% assign item = include.item %}
 {% capture result %}
-    {%- if include.item.thumbnail -%}
-        <img src="{{ include.item.thumbnail | prepend: site.url }}" style="max-width:100%;"/>
-    {%- else include.item.header -%}
-        <img src="{{ include.item.header | prepend: site.url }}" style="max-width:100%;"/>
-    {%- else include.item.before -%}
-        {{ include.item.before }}
+    {%- if item.thumbnail -%}
+        <img src="{{ item.thumbnail | prepend: site.url }}"/>
+    {%- else item.header -%}
+        <img src="{{ item.header | prepend: site.url }}"/>
+    {%- else item.before -%}
+        {{ item.before }}
     {%- endif -%}
-    {{ include.item.content | markdownify | replace: 'img src="img/', replace }}
+    {{ item.content | markdownify | replace: 'img src="img/', replace }}
 {% endcapture %}
 {{ result | escape }}
