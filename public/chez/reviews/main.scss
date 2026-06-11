@@ -85,36 +85,58 @@ main {
   .tier-label { flex: 100%; padding: 0.5rem; }
 }
 
-.tier-feed {
-    padding: 1rem;
-    color: gray;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
+.tier-info {
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.tier-feed h2 {
+.tier-about {
+  flex: 1;
+  min-width: 280px;
+  box-sizing: border-box;
+  padding: 1.8rem 0.8rem;
+  border: 1px dashed gray;
+
+  p {
+    color: lightgray;
+  }
+}
+
+.tier-feed {
+  flex: 2;
+  color: gray;
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+
+  h2 {
     color: white;
     display: inline-block;
     font-size: 1rem;
-}
+  }
 
-.tier-feed ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding-left: 1rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.tier-feed li { margin-right: 1rem; }
-.tier-feed button:hover { color: var(--color-accent);}
-.tier-feed button {
-    background-color: unset;
-    border: none;
-    padding: 0;
-    color: inherit;
+  ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding-left: 1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+  }
+
+  li { margin-right: 1rem; }
+
+  a {
+      background-color: unset;
+      border: none;
+      padding: 0;
+      color: inherit;
+
+      &:hover { color: var(--color-accent);}
+  }
 }
 
 #view {

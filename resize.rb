@@ -20,7 +20,7 @@ folders.each do |folder_config|
         next if (img.include?('_ignore'))
         
         folder = File.join(File.dirname(img), '_ignore')
-        next if (File.join(folder, img.split('/').pop))
+        next if (File.exist?(File.join(folder, img.split('/').pop)))
         
         FileUtils.mkdir_p(folder)
         FileUtils.cp(img, folder)

@@ -1,6 +1,12 @@
 ---
-link: 
-title: 
+link:
+title:
 release: 19
-rank: 
+rank:
+tags:
+  - film
+  - short
+  - comic
+  - game
+  - ace-attorney
 ---

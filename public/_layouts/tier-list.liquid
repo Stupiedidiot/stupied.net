@@ -33,27 +33,30 @@ layout: none
         </article>
 
 
-        {%- assign REVIEWS = REVIEWS | where_exp: 'e', 'e.path contains "/f/"' | sort: "date" | reverse -%}
+        <div class="tier-info">
 
-        {%- if REVIEWS.size > 0 -%}
-        <article class="tier-feed">
-            <h2>Recently Upload Reviews:</h2>
-            <ul>
-            {%- for item in REVIEWS limit:5 -%}
-                {%- capture title -%}
-                    {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
-                {%- endcapture -%}
-                <li>
-                    <button onclick="viewer('{{ item.slug | downcase }}')" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}">{{ title }}</button>
-                </li>
-            {%- endfor -%}
-            </ul>
-        </article>
-      {%- endif -%}
+          <div class="tier-about">
+            <h2>About Teir List</h2>
+            {{ content | markdownify }}
+          </div>
+
+          {%- assign REVIEWS = REVIEWS | where_exp: 'e', 'e.path contains "/f/"' | sort: "date" | reverse -%}
+          {%- if REVIEWS.size > 0 -%}
+              <nav class="tier-feed">
+                  <h2>Recently Upload Reviews:</h2>
+                  <ul>
+                  {%- for item in REVIEWS limit:5 -%}
+                      <li>
+                          <a href="{{ item.url  }}" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}">{{ item.title }}</a>
+                      </li>
+                  {%- endfor -%}
+                  </ul>
+              </nav>
+
+            </div>
+          {%- endif -%}
 
       {% endif %}
-
-      {{ content }}
     </main>
   </div>
 
