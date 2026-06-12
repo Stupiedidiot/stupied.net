@@ -23,7 +23,7 @@ include_path: _/listography.html
     <span id="nextFact" class="randomizer-output"></span>
     <button onclick="randomFact()">What the Fact!</button>
     <script>
-    {%- assign FACT = site.data.lists.facts" -%}
+    {% assign FACT = site.data.lists.facts %}
     {%- assign FACT_TOTAL = FACT | size -%}
     const FACT_TARGET = document.getElementById("nextFact");
     const FACT_LIST = [

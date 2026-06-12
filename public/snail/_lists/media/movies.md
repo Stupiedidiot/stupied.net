@@ -47,6 +47,7 @@ tags:
 - [浮生一戏-WOLO](https://youtu.be/8IXrYCNVtEI)
 - [The Modifyers](https://youtu.be/Q2KBF3iw3is)
 - [POWER RECORDS](https://youtu.be/cu5l_j33J2g)
+- [The Lump (1929)](https://youtu.be/ShzmzcJM7QI)
 <!-- - [When the Wind Blows](https://youtu.be/0zjJYw3c3RI) -->
 
 ### Stuff I Wanna Watch

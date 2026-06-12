@@ -411,11 +411,13 @@ footer {
     align-items: center;
     justify-content: right;
     margin-top: 1rem;
-    span {
+    button {
         color: color-mix(in srgb, var(--txt-color), var(--bg-color));
+        font-size: 1rem;
         display: inline-block;
         background-color: color-mix(in srgb, var(--bg-color) 90%, var(--txt-color));
         border-radius: 8px;
+        border: none;
         &::before {
             content: "#";
         }

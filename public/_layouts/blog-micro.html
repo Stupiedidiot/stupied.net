@@ -13,16 +13,9 @@ layout: blog
         {% endfor %}
     </div>
     
-    {% assign DATA = site.micro | reverse %}
+    {% assign DATA = site.micro | where_exp: "item", "item.date <= site.time" | reverse %}
     <div class="micro-feed">
         {% for e in DATA %}
-            {% assign year = e.date |  date: "%Y" | plus: 0 %}
-            {% if year > page.year %}
-                {% continue %}
-            {% elsif year < page.year %}
-                {% break %}
-            {% endif %}
-
             {% if e.path contains '_unpublished' %}
                 {% continue %}
             {% endif %}
@@ -44,7 +37,7 @@ layout: blog
                 {% if e.tags %}
                     <section class="micro-tags">
                         {% for tag in e.tags %}
-                            <span>{{ tag }}</span>
+                            <button onclick="filterTag('{{ tag }}')">{{ tag }}</button>
                         {% endfor %}
                     </section>
                 {% endif %}

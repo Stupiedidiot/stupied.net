@@ -30,3 +30,8 @@ function randomPost(){
             window.location.href = posts[randomNum]
     })
 }
+
+function filterTag(tag) { 
+  document.querySelector("#micro_tags input:checked").checked = false;
+  document.getElementById(tag).checked = true;
+}
