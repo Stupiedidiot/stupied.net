@@ -63,6 +63,7 @@ pagefind:
 
 # Collection Stuff
 collections_dir: snail
+
 collections:
   art:
     output: true
@@ -75,13 +76,3 @@ collections:
   micro:
   posts:
     permalink: /blog/:name_raw
-  
-  lists:
-  reviews:
-    output: true
-    permalink: /chez/reviews/p/:name_raw
-    sort_by: date
-  
-  templates:
-    output: true
-    permalink: /code/:path

@@ -38,7 +38,7 @@ CHAR_DATA:
     <div class="char-info-list">
       {%- for e in universe.char -%}
         {%- assign char = e | downcase | split: ' ' | first -%}
-        <a href="https://wiki.stupied.net/{{ id }}/char/{{ char }}">
+        <a href="https://wiki.stupied.net/{{ id }}/{{ char }}">
             <img src="https://wiki.stupied.net/img/thumb/{{ char }}.jpg" alt="Thumbnail of {{ e }}">
             <span>{{ e }}</span>
         </a>

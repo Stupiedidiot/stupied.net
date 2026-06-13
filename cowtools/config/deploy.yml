@@ -1,3 +1,14 @@
+collections:
+  lists:
+  reviews:
+    output: true
+    permalink: /chez/reviews/p/:name_raw
+    sort_by: date
+  
+  templates:
+    output: true
+    permalink: /code/:path
+
 exclude:
 - "*.base"
 
