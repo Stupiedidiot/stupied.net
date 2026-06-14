@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date: 2026-06-13T15:31
+date: 2026-06-14T10:00
 title: The 1987 Philippine Constitution
 extra:
   - 26/doodle/Constitution.jpg
