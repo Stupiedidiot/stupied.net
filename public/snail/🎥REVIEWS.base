@@ -12,6 +12,20 @@ properties:
     displayName: status
 views:
   - type: cards
+    name: Everything
+    groupBy:
+      property: formula.ranking
+      direction: ASC
+    order:
+      - formula.title
+      - formula.Status
+    sort:
+      - property: release
+        direction: ASC
+    cardSize: 160
+    imageAspectRatio: 1.35
+    image: formula.thumbnail
+  - type: cards
     name: Donald
     filters:
       and:
@@ -23,20 +37,6 @@ views:
       - formula.title
       - formula.Status
       - release
-    sort:
-      - property: release
-        direction: ASC
-    cardSize: 160
-    imageAspectRatio: 1.35
-    image: formula.thumbnail
-  - type: cards
-    name: Everything
-    groupBy:
-      property: formula.ranking
-      direction: ASC
-    order:
-      - formula.title
-      - formula.Status
     sort:
       - property: release
         direction: ASC
