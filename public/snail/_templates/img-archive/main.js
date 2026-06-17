@@ -1,9 +1,12 @@
 ---
 ---
 
-{% unless include.demo %}const IMG_FOLDER = '/art/img/'; // this is the folder your images are stored in
-{% else %}const IMG_FOLDER = 'img'; // this is the folder your images are stored in - relative to the page location
-{% endunless %}
+{% unless include.demo -%}
+const IMG_FOLDER = '/art/img/'; // this is the folder your images are stored in
+{% else -%}
+const IMG_FOLDER = 'img'; // this is the folder your images are stored in - relative to the page location
+{%- endunless -%}
+
 const START = 3; // the amount shown when first loaded in
 
 const ARCHIVE_TAGS = [
@@ -22,35 +25,23 @@ const ARCHIVE_TAGS = [
 
 const ARCHIVE_LIST = [
 {% unless include.demo %}
-  {%- assign limit = 69 -%}
-  {%- assign SELECTED_RAW = site.data.art.list | where_exp: 'item','item.tags contains "psych"' -%}
-  {%- assign SELECTED = "" | split: ""-%}
-  {%- for item in SELECTED_RAW -%}
-      {%- unless item.img contains 'doodle/' or item.tags contains 'doodle' -%}
-          {%- assign SELECTED = SELECTED | push: item -%}
-      {%- endunless -%}
-      
-      {%- if SELECTED.size >= limit -%}
-          {%- break -%}
-      {%- endif -%}
-  {%- endfor -%}
+  {%- assign DATA = site.art | where_exp: 'item','item.tags contains "psych"' | reverse -%}
   
-  {%- for item in SELECTED -%}
+  {%- for item in DATA limit: 69 -%}
       {
-          "img": {{ item.img | jsonify }}
-          
-          {%- if item.title -%}
-              ,"title": {{ item.title | jsonify }}
-          {%- endif -%}
+          {%- assign img = item.path | getArtPath | append: '.' | append: item.ext -%}
+          "img": {{ img | jsonify }}
+          ,"title": {{ item.title | jsonify }}
 
-          {%- if item.desc -%}
-              ,"desc": {{ item.desc | markdownify  | strip_html | jsonify  }}
-          {%- endif -%}
+        {% assign desc = item.content | markdownify | strip %}
+        {%- if desc != '' -%}
+            ,"desc": {{ item.content | jsonify }}
+        {%- endif -%}
 
           {%- if item.extra -%}
               ,"extra": [
                   {%- for extra in item.extra -%}
-                      {{ extra | jsonify }}
+                      {{ extra.img | default: extra | jsonify }}
                       {%- unless forloop.last -%},{%- endunless -%}
                   {%- endfor -%}
               ]

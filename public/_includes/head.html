@@ -10,13 +10,13 @@
 <meta name="description" content="{{ page.description | default: page.desc | default: layout.description | default: site.description | strip_html }}">
 <meta name="keywords" content="stupied, stupiedidiot, stupied.idiot, stupied_idiot, art, comics, blog, ocs, tier lists">
 
-{%- unless page.nojs or include.nojs -%}
+{%- unless layout.nojs or page.nojs -%}
 <script type="" src="/meta/js/global.js"></script>
 {%- endunless -%}
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
-{%- unless page.nocss or include.nocss -%}
+{%- unless layout.nocss or page.nocss -%}
 <link rel="stylesheet" href="/meta/css/global.css">
 {%- endunless -%}
 

@@ -23,7 +23,7 @@ if (document.querySelector("figure.highlight")){
 }
 
 function randomPost(){
-    fetch("/blog/meta/posts.json")
+    fetch("/blog/posts.json")
         .then((response) => response.json())
         .then((posts) => {
             randomNum = Math.floor(Math.random() * posts.length);
