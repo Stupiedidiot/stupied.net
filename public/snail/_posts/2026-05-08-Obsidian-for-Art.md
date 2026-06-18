@@ -7,6 +7,7 @@ tags:
   - spaghetti
   - jekyll
   - obsidian
+  - ruby
 ---
 
 As mentioned in a previous [blog post](2025-10-11-Art-Archive), my art is stored in a yaml file. Which means whenever I want to add a new artwork, I'd have to manually type it to the top of the list then build my website to see whether it has been written down correctly. This process is slow, tedious, and an indent away from fucking over. It basically discourage me from adding too much info about a piece; Instead opting for shorter sentences. Which is a shame since I want my art posts to be more akin to [Ember's Art Log](https://sachersketchbook.neocities.org/) Where I could ramble more in depth about the rationale of some pieces. But the process of sifting through a 4800+ line text file is cumbersome... If only I could separate them into their own files... Hey, isn't that what Jekyll [Collections](https://jekyllrb.com/docs/collections/) are for??
@@ -215,6 +216,13 @@ Once I register the filter, I can use it in my liquid code like so!
 {% assign index = info[0] %}
 {% assign prev = info[1] %}
 {% assign next = info[2] %}
+```
+
+**2026/06/18 »** Bruh found out that Jekyll has built in next and previous properties for collections but, for some god damn reason, it said otherwise when I initially searched?? Script is useless now or whatever, since I can just do this.
+
+```liquid
+{{ page.next.url }}
+{{ page.previous.url }}
 ```
 
 ### Getting tags

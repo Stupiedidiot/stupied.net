@@ -20,12 +20,16 @@
 {% assign col = site.art %}
 {% assign info = col | getArtNxtPrv: page.path %}
 {% assign index = info[0] %}
-{% assign prev = info[1] %}
-{% assign next = info[2] %}
 
 <span id="art_index" hidden>{{ index }}</span>
 <nav id="nextprev">
-    {% if next %}<a href="{{ next.url }}" id="nextprev-next"><span class="icon-arrow-thin-left"> </span>Next</span></a>{% endif %}
+    {% if page.next %}
+        <a href="{{ page.next.url }}" id="nextprev-next"><span class="icon-arrow-thin-left"></span> Next</a>
+    {% endif %}
+    
     <a href="/art/archive" id="nextprev-archive"><span class="icon-inbox-full"></span> Archive</a>
-    {% if prev %}<a href="{{ prev.url }}" id="nextprev-prev">Prev <span class="icon-arrow-thin-right"></span></a></a>{% endif %}
+    
+    {% if page.previous %}
+        <a href="{{ page.previous.url }}" id="nextprev-prev">Prev <span class="icon-arrow-thin-right"></span></a></a>
+    {% endif %}
 </nav>
