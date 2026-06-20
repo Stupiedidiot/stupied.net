@@ -5,6 +5,6 @@ tags:
   - digital
   - fanart
   - undertale
-alt: Chara from Undertale happily basking under a sunlight on a patch of dandelions with a knife on hand.
+alt: Chara from Undertale on a patch of dandelions with a knife on hand.
 ---
 

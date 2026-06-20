@@ -6,5 +6,6 @@ tags:
   - digital
   - fanart
   - scott-pilgrim
+alt: Kim Pine from Scott Pilgrim sitting down in a beach blanket with a yellow swim suit.
 ---
 

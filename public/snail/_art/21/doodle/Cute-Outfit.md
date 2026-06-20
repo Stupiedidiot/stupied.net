@@ -7,5 +7,6 @@ tags:
   - ocs
   - psyche
   - psych
+alt: Doodle of Psyche Lea in a spaghetti strapped dress with a leather jacket.
 ---
 

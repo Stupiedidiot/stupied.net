@@ -2,6 +2,7 @@
 ext: jpg
 date: 2019-01-01
 tags:
-- digital
+  - digital
+alt: Headshot of a cartoon dog.
 ---
 
