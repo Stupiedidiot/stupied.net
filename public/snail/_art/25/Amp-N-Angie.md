@@ -6,7 +6,7 @@ tags:
   - acrylic
   - fanart
   - insaniquarium
-alt: An acrylic painting of Amp and Angie from the 2001 video game Insaniquarium.
+alt:
 ---
 
 i love insaniquarium so much

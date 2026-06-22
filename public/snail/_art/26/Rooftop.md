@@ -8,5 +8,5 @@ tags:
   - ocs
   - psych
   - athena
-alt:
+alt: A digital painting of Athena on a rooftop during
 ---

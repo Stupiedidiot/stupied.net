@@ -3,6 +3,7 @@ ext: jpg
 date: 2025-07-22
 tags:
   - digital
+alt: Revenge for Daomecau77
 ---
 
-Revenge for <a href='https://artfight.net/attack/11901502.gionn'>Daomecau77</a>
+Revenge for [Daomecau77](https://artfight.net/attack/11901502.gionn)

@@ -6,6 +6,7 @@ extra:
     alt:
 tags:
   - digital
+alt: Attack for Dwinky
 ---
 
-Attack for <a href='https://artfight.net/attack/9543355.trinity'>Dwinky</a>
+Attack for [Dwinky](https://artfight.net/attack/9543355.trinity)
