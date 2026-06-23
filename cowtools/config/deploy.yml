@@ -4,10 +4,6 @@ collections:
     output: true
     permalink: /chez/reviews/p/:name_raw
     sort_by: date
-  
-  templates:
-    output: true
-    permalink: /code/:path
 
 exclude:
 - "*.base"
@@ -45,3 +41,5 @@ jekyll_get_json:
     json: https://archive.stupied.net/main.json
   - data: albums
     json: https://album.stupied.net/ext.json
+  - data: templates
+    json: https://code.stupied.net/ext.json

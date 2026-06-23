@@ -43,11 +43,6 @@ defaults:
       path: comic/*/
     values:
       layout: comic
-    
-  - scope:
-      type: templates
-    values:
-      layout: code-layout
 
 # Paginate  
 pagination:

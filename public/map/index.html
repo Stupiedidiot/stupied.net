@@ -100,19 +100,8 @@ include_path: _/index.html
     
             <a href="/code/">Templates</a>
             <ul>
-            {%- assign LAYOUTS_RAW = site.templates | where_exp: "item", "item.path contains 'index.html'" -%}
-    
-            {%- assign LAYOUTS = "" | split: "" -%}
-            {%- for item in LAYOUTS_RAW -%}
-                {% unless item.path contains '_todo/' %}
-                    {%- assign LAYOUTS = LAYOUTS | push: item -%}
-                {% endunless %}
-            {%- endfor -%}
-            {%- assign LAYOUTS = LAYOUTS | sort: "published" | reverse -%}
-    
-            {%- for item in LAYOUTS -%}
-            {%- assign folder = item.path | split: "/" | pop | last -%}
-                <li><a href="/code/{{ folder }}">{{ item.title }}</a></li>
+            {%- for item in site.templates -%}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
             {%- endfor -%}
             </ul>
         </div>

@@ -18,8 +18,8 @@ include_path: _head.html
 
     <div id="template" class="note">
         {% if site.templates %}
-            {%- assign CURRENT = site.templates | sort: published | first -%}
-            <img src="{{ CURRENT.url | replace: 'index','' | append: 'thumbnail.jpg'}}" alt="">
+            {%- assign CURRENT = site.templates | first -%}
+            <img src="{{ CURRENT.dir | append: 'thumbnail.jpg'}}" alt="">
         {% endif %}
     </div>
 </article>
