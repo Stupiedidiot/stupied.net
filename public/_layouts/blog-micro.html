@@ -13,9 +13,11 @@ layout: blog
         {% endfor %}
     </div>
     
-    {% assign DATA = site.micro | where_exp: "item", "item.date <= site.time" | reverse %}
+    {% if site.micro %}
+        {% assign DATA = site.micro | where_exp: "item", "item.date <= site.time" %}
+    {% endif %}
     <div class="micro-feed">
-        {% for e in DATA %}
+        {% for e in DATA reversed %}
             {% if e.path contains '_unpublished' %}
                 {% continue %}
             {% endif %}

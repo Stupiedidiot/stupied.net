@@ -5,7 +5,6 @@ title: Blog Tags
 <article class="main-content" data-nosnippet>
     <h1>{{ page.title }}</h1>
     <p>All the tags used in the blog and posts using it.</p>
-    {% assign DATA = site.posts | concat: site.micro %}
     <div style="margin-bottom: 1rem;">
         {% for e in site.tags %}
             <section class="tagged-list">
