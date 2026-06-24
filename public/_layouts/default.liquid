@@ -6,9 +6,22 @@ layout: none
 
 <head>
   {%- include head.html -%}
+  
+  {% if layout.type == "blog" %}
+    <link rel="stylesheet" href="/blog/main.css">
+    <script type="text/javascript" src="/blog/main.js" defer></script>
+
+    {%- if  page.previous.url -%}
+      <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
+    {%- endif -%}
+    {%- if  page.next.url -%}
+        <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
+    {%- endif -%}
+    <meta data-pagefind-filter="category:blog">
+  {% endif %}
 </head>
 
-<body {% include class.liquid %}>
+<body>
   {{ content }}
 </body>
 

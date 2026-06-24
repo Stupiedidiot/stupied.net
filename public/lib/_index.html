@@ -4,10 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
-#container {
-    max-width: 1200px!important;
-}
-
 #comicContainer .item-container{
     .psych{
         --display-font:"Barriecito";
@@ -77,6 +73,7 @@
 }
 
 #comicContainer{
+    column-width: 310px;
     box-sizing: border-box;
     width: 98%;
     margin: auto;
@@ -121,14 +118,6 @@
         opacity: 1;
         transform: none;
     }
-}
-
-@media only screen and (min-width: 600px) {
-    #comicContainer{columns:2;}
-}
-
-@media only screen and (min-width: 900px) {
-    #comicContainer{columns:3;}
 }
 {% endcapture %}
 {{ css | scssify }}

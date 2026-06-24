@@ -16,7 +16,7 @@ description: Archive of Stupied's Art
     {%- include_cached widget/sticky.html -%}
     <div id="container">
         <nav id="navMain" class="default-nav right" data-nosnippet>
-            {%- include_cached nav.html data = site.data.nav.art -%}
+            {%- include_cached nav.liquid data = site.data.nav.art -%}
         </nav>
         {% if page.include%}
             {% assign selected = page.include | default: layout.include %}

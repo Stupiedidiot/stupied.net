@@ -2,6 +2,39 @@ url: "https://stupied.net"
 title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
 
+nav:
+  - title: Home 
+    icon: home
+    link: /
+  
+  - title: About
+    icon: mood-happy-outline
+    link: /about/
+  
+  - title: Art
+    icon: camera
+    link: /art/
+  
+  - title: Blog
+    icon: compose
+    link: /blog/
+  
+  - title: Library
+    icon: book-reference
+    link: /lib/
+
+  - title: Chez
+    icon: music-notes
+    link: /chez/
+
+  - title: Code
+    icon: printer
+    link: /code/
+
+  - title: Outer
+    icon: globe
+    link: /outlinks/
+
 # Build settings
 source: public
 destination: _site
@@ -19,6 +52,11 @@ jekyll-minifier:
   - "*.txt"
   
 defaults:
+  - scope:
+      path: about/
+    values:
+      layout: about
+
   - scope:
       path: art/
     values:

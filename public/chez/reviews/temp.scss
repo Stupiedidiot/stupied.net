@@ -29,13 +29,13 @@ h1 span {
 }
 
 h3 {
-    color: var(--color-accent);
+    color: var(--color);
     margin-bottom: 0.5rem;
     border-bottom: var(--border);
 }
 
-.review-item:target{ outline: 5px solid var(--color-accent); }
-.review-item:target h2{ color: var(--color-accent); }
+.review-item:target{ outline: 5px solid var(--color); }
+.review-item:target h2{ color: var(--color); }
 
 .yt-embed { margin-bottom: 1rem; }
 
@@ -66,8 +66,8 @@ time {
     }
 
     .nextprev-current {
-        color: var(--color-accent);
-        border: 2px solid var(--color-accent);
+        color: var(--color);
+        border: 2px solid var(--color);
     }
 }
 #nextprev-next {

@@ -4,7 +4,7 @@ title: The Red Room
 ---
 <style>
 body {
-    --color-accent: #ff0000;
+    --color: #ff0000;
     width: 100vw;
     height: 100vh;
 }
@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-canvas { background-color: var(--color-accent); }
+canvas { background-color: var(--color); }
 
 main::after {
     content: "";
@@ -64,7 +64,7 @@ button {
 
 .size {
     font-family: var(--display-font);
-    color-accent: color-mix(in srgb, var(--color-accent), white);;
+    color-accent: color-mix(in srgb, var(--color), white);;
 }
 
 .selected {
@@ -108,7 +108,7 @@ const canvasOffsetY = canvas.offsetTop;
 canvas.width = window.innerWidth - canvasOffsetX;
 canvas.height = window.innerHeight - canvasOffsetY;
 
-const eraser = getComputedStyle(document.body).getPropertyValue('--color-accent');
+const eraser = getComputedStyle(document.body).getPropertyValue('--color');
 const sizeLabel = document.getElementById('sizeLabel');
 const size = document.getElementById('size');
 

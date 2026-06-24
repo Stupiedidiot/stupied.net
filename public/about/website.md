@@ -1,5 +1,5 @@
 ---
-layout: page-md
+
 title: About Website
 ---
 <img src="/chez/album/meirl/img/Wobble.gif" alt="" style="max-width:120px; width: 100%; filter: hue-rotate(-20deg);" class="float-right">

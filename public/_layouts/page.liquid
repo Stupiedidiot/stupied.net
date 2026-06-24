@@ -1,26 +1,51 @@
 ---
 layout: default
+
+# nav:
+#   - title: Info
+#     icon: information-outline
+#     link: /art/
+
+#   - title: Archive 
+#     icon: inbox-full
+#     link: /art/archive
+  
+#   - title: Random
+#     icon: shuffle
+#     func: randomArt()
+
+#   - title: Usage
+#     icon: news-paper
+#     link: /about/art#usage
 ---
 {%- include_cached widget/sticky.html -%}
-<div id="container" class="default">
-    <header class="default" data-nosnippet><a href="/"></a></header>
-    <nav id="container_nav" class="default-nav default right" data-nosnippet>
-        {%- assign folder = page.url | split: '/' -%}
-        {%- include_cached nav.html data = site.data.nav.const_first -%}
+<div id="container" class="default {{ page.class | default: layout.class }}">
+    
+    {% unless page.no_nav %}
+        <div>
+            <div id="nav_root" class="ribbon" data-nosnippet>
+                <nav class="default-nav">
+                    {%- include_cached nav.liquid data = site.nav -%}
+                </nav>
+            </div>
+            
+            {% if layout.nav %}
+                <div id="nav_sub" data-nosnippet>
+                    <nav class="default-nav">
+                        {%- include_cached nav.liquid data = layout.nav -%}
+                    </nav>
+                </div>
+            {% endif %}
+        </div>
+    {% endunless %}
 
-        {%- if page.url contains '/about/' -%}
-            {%- include_cached nav.html data = site.data.nav.about -%}
-        {%- else -%}
-            {%- include_cached nav.html data = site.data.nav.default -%}
-        {%- endif -%}
-        {%- include_cached nav.html data = site.data.nav.const_last -%}
-    </nav>
-
-    <main>
+    <div id="container_content">
         {{ content }}
-    </main>
+    </div>
 
-    <footer id="container_footer" class="default-nav default" data-nosnippet>
-        {%- include_cached footer.html -%}
+    <footer id="nav_foot" class="ribbon" data-nosnippet>
+        <nav class="default-nav">
+            {%- include_cached footer.html -%}
+        </nav>
     </footer>
 </div>

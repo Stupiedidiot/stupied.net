@@ -135,7 +135,7 @@ main {
       padding: 0;
       color: inherit;
 
-      &:hover { color: var(--color-accent);}
+      &:hover { color: var(--color);}
   }
 }
 
@@ -186,7 +186,7 @@ a.view-link {
   position: relative;
   margin-bottom: 1rem;
 }
-a.view-link:hover {color: var(--color-accent);}
+a.view-link:hover {color: var(--color);}
 a.view-link:after {
     opacity: 0;
     transform: translateX(-100%);

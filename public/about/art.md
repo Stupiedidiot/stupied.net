@@ -1,5 +1,5 @@
 ---
-layout: page-md
+
 title: About My Art
 ---
 <img src="/art/img/26/doodle/Elementary.jpg" alt="" style="max-width:220px; filter: hue-rotate(185deg);" class="float-right">

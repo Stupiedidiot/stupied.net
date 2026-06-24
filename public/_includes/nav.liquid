@@ -1,5 +1,5 @@
 {%- assign data = include.data -%}
-{%- for e in data -%}
+{%- for e in data offset: include.offset -%}
     {%- assign url = page.url | replace: '.html' -%}
     {% if e.func %}
         <a onclick="{{ e.func }}" role="button" title="{{ e.title | downcase }}">
@@ -9,8 +9,12 @@
         {%- if e.icon -%}
         <span class="icon-{{ e.icon }}"></span>
         {%- endif -%}
-        {%- unless e.title == 'Home' or e.title == 'RSS' -%}
-        <span class="default-nav-label">{{ e.title }}</span>
+
+        {%- unless e.title == 'Home' -%}
+            <span class="default-nav-label">{{ e.title }}</span>
         {%- endunless -%}
     </a>
+    {% unless forloop.last %}
+        <span></span>
+    {% endunless %}
 {%- endfor -%}

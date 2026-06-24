@@ -1,5 +1,5 @@
 ---
-layout: page-md
+
 title: Frequently Asked Questions
 ---
 # {{ page.title }}

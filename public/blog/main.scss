@@ -95,7 +95,7 @@ main {
 }
 
 #blog-date{
-    color:var(--color-accent);
+    color:var(--color);
     font-family: var(--display-font);
     font-weight: bolder;
 }
@@ -187,7 +187,7 @@ img.center{
 }
 
 ::selection{
-    background-color:var(--color-accent);
+    background-color:var(--color);
     color:black;
 }
 
@@ -250,7 +250,7 @@ img.center{
     }
     .item-desc{margin-left:1rem;}
     a:hover .blog-item{
-        background-color:var(--color-accent);
+        background-color:var(--color);
         padding:0.5rem;
     }
 }
@@ -266,8 +266,8 @@ img.center{
         margin-bottom: 1rem;
     }
 
-    a:hover { outline: 3px solid var(--color-accent)}
-    a:hover .item-title { color: var(--color-accent)}
+    a:hover { outline: 3px solid var(--color)}
+    a:hover .item-title { color: var(--color)}
     .blog-item{
         border: 2px solid;
         background-color: white;
@@ -356,7 +356,7 @@ footer {
 
     &:has(input:checked) {
         color: white;
-        background-color: var(--color-accent);
+        background-color: var(--color);
     }
 
     &:first-child {
@@ -382,7 +382,7 @@ footer {
         border-bottom: var(--border);
         margin-bottom: 1rem;
         span {
-            color: var(--color-accent);
+            color: var(--color);
 
             &::before {
                 content: "»";
@@ -454,7 +454,7 @@ footer {
         margin-bottom: 0.5rem;
 
         > summary {
-            background-color: var(--color-accent);
+            background-color: var(--color);
             padding: 0.3rem;
         }
 
@@ -492,10 +492,10 @@ footer {
 
 // CODE BLOCKS
 p > code, li > code {
-    background-color: color-mix(in srgb, white 85%, var(--color-accent));
+    background-color: color-mix(in srgb, white 85%, var(--color));
     font-weight: bolder;
     border-radius: 10px;
-    outline: 1px solid var(--color-accent);
+    outline: 1px solid var(--color);
     padding: 0 0.3rem;
     white-space: nowrap;
 }

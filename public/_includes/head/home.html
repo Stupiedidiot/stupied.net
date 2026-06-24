@@ -1,11 +1,22 @@
 <style>
 {% capture css %}
-header #meirl {grid-area: meirl; } 
-header #blog { grid-area: blog; } 
-header #all { grid-area: all; } 
 
 header {
-    margin: 1rem auto;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    user-select: none;
+    nav {
+        margin-top: 0.5rem;
+        position: relative;
+        z-index: 3;
+    }
+}
+#header_content {
+    #meirl {grid-area: meirl; } 
+    #blog { grid-area: blog; } 
+    #all { grid-area: all; }
+
+    margin: auto;
     display: grid;
     grid-template: 
     'meirl all'
@@ -22,36 +33,68 @@ header {
 
     > * { border: 3px solid black; }
     a { display: block; }
-}
 
-header #meirl {
-    background: url(/meta/img/sunburst.svg);
-    background-size: 100% 100%;
-    background-color: #a7dddc;
-    overflow: hidden;
+    #meirl {
+        background: url(/meta/img/sunburst.svg);
+        background-size: 100% 100%;
+        background-color: #a7dddc;
+        overflow: hidden;
 
-    a, div { width: 100%; height: 100%; }
-    img { position: absolute; }
+        a, div { width: 100%; height: 100%; }
+        img { position: absolute; }
 
-    a > div { 
+        a > div { 
+            position: relative;
+            animation: 1.5s ease-out dragUp;
+        }
+
+        .doll {
+            z-index: 1;
+            top: 5%;
+            left: 7%;
+            width: 90%;
+            animation: 5s sway infinite ease-in-out;
+            transform-origin: 40% 0;
+        }
+
+        .cursor {
+            z-index: 2;
+            width: 15%;
+            top: 3%;
+            left: 37%;
+        }
+    }
+
+    #blog {
+        background-color: var(--color-dker);
         position: relative;
-        animation: 1.5s ease-out dragUp;
-    }
-
-    .doll {
-        z-index: 1;
-        top: 5%;
-        left: 7%;
-        width: 90%;
-        animation: 5s sway infinite ease-in-out;
-        transform-origin: 40% 0;
-    }
-
-    .cursor {
         z-index: 2;
-        width: 15%;
-        top: 3%;
-        left: 37%;
+        a {
+            position: absolute;
+            width: 105%;
+            top: -20%;
+            left: 0;
+        }
+        img { 
+            transform: rotate(12deg);
+            transition: 0.2s transform;
+            width: 100%;
+        }
+
+        a:hover img { transform: rotate(14deg); }
+    }
+
+    #all { overflow: hidden; }
+
+    @media only screen and (max-width: 500px) {
+        display: block;
+        aspect-ratio: unset;
+        max-height: none;
+        > * { margin-bottom: 0.5rem ;}
+        
+        #meirl { aspect-ratio: 8/9; }
+        #blog { aspect-ratio: 4/2; overflow: hidden; }
+        #all { aspect-ratio: 8/9; }
     }
 }
 
@@ -65,27 +108,6 @@ header #meirl {
     50% { transform: rotate(-5deg); }
     100% { transform: rotate(5deg); }
 }
-
-header #blog {
-    background-color: var(--dk-blue);
-    position: relative;
-    z-index: 2;
-    a {
-        position: absolute;
-        width: 105%;
-        top: -20%;
-        left: 0;
-    }
-    img { 
-        transform: rotate(12deg);
-        transition: 0.2s transform;
-        width: 100%;
-    }
-
-    a:hover img { transform: rotate(14deg); }
-}
-
-header #all { overflow: hidden; }
 
 #topbar {
     height: 10%;
@@ -180,18 +202,6 @@ header #all { overflow: hidden; }
     100%{ transform: translateY(2%); }
 }
 
-@media only screen and (max-width: 500px) {
-    header {
-        display: block;
-        aspect-ratio: unset;
-        max-height: none;
-        > * { margin-bottom: 0.5rem ;}
-    }
-    #meirl { aspect-ratio: 8/9; }
-    #blog { aspect-ratio: 4/2; overflow: hidden; }
-    #all { aspect-ratio: 8/9; }
-}
-
 main #frame {
     background-color: #e5e5f7;
     background-image:  linear-gradient(#444cf7 1.1px, transparent 1.1px), linear-gradient(to right, #444cf7 1.1px, #e5e5f7 1.1px);
@@ -221,26 +231,23 @@ main {
 }
 
 article { display: flex; gap: 1rem; }
-#intro { flex: 3; }
+#intro {
+    margin-top: 1.5rem;
+    flex: 3;
+}
 #temp { flex: 2; }
 
-#outlinks {
-    font-family: var(--display-font);
-    font-weight: bolder;
-    font-size: 2rem;
-    display: block;
-    padding: 0.5rem;
-}
-
-#intro a:hover {color: var(--color-accent);}
+#intro a:hover {color: var(--color);}
 
 #webrings {
     flex: 300px;
     box-sizing: border-box;
-    border: 3px solid black;
+    border: 2px solid black;
+    border-radius: 4px;
     width: 100%;
     aspect-ratio: 1/1;
     position: relative;
+    background-color: white;
 }
 
 #webrings > div {
@@ -263,28 +270,6 @@ article { display: flex; gap: 1rem; }
 
 #grrrl img { width: 100%; }
 
-nav {
-    margin: 1rem auto;
-    width: 90%;
-    color: var(--color-accent);
-    text-align: center;
-    position: relative;
-    z-index: 3;
-
-    > a:hover { color: black; }
-    > a:not(:last-of-type)::after {
-        content: "•";
-        color: var(--color-accent);
-        display: inline-block;
-        margin: auto 1rem;
-    }
-}
-
-footer {
-    border-top: var(--border);
-    margin-top: 1rem;
-}
-
 @media only screen and (max-width: 600px) {
     article { display: block; }
     #temp #webrings {
@@ -297,7 +282,7 @@ footer {
     margin: auto;
     margin-top: 1rem;
     border: 3px solid black;
-    a:hover { color: var(--color-accent) }
+    a:hover { color: var(--color) }
     ul { padding-left: 0.5rem; }
 }
 
