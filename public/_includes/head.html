@@ -16,7 +16,8 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:title" content="{{ page.title | default: site.title }}" />
 
-<script type="" src="/meta/js/global.js"></script>
+<script src="/meta/js/bootstrap.bundle.min.js" defer></script>
+<script src="/meta/js/global.js"></script>
 {%- unless layout.nocss or page.nocss -%}
 <link rel="stylesheet" href="/meta/css/global.css">
 {%- endunless -%}

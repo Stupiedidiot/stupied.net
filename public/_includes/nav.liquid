@@ -1,6 +1,5 @@
 {%- assign data = include.data -%}
 {%- for e in data offset: include.offset -%}
-    {%- assign url = page.url | replace: '.html' -%}
     {% if e.func %}
         <a onclick="{{ e.func }}" role="button" title="{{ e.title | downcase }}">
     {% else %}

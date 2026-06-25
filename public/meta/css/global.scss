@@ -1,345 +1,51 @@
 ---
 ---
+@use "splash";
 @use "yay";
+@use "bootstrap/bootstrap" with (
+    $headings-font-family: "Grandstander",
+    $font-family-base: ("Chiron GoRound TC", Arial, Helvetica, sans-serif)
+);
 
-@mixin content ($padding: 1rem){
-    padding: $padding;
-    box-sizing: border-box;
+@import url(./fonts.css);
+@import url(./icons.css);
+
+
+body {
 }
 
-@mixin bored ($width: 2px, $color: var(--color-dker), $radius: 4px){
-    border: $width solid $color;
-    border-radius: $radius;
+#container {
+    background-color: color-mix(in srgb, var(--bs-body-bg), transparent);
+    backdrop-filter: blur(3px);
+    color: var(--bs-body-color);
+    max-width: 1080px;
 }
 
-@mixin frills (){
-    content: "";
-    display: block;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 0.5rem;
-    background-repeat: repeat-x;
-    background-size: auto 100%;
-    position: absolute;
-    background-image: url(/meta/img/frills.png);
-}
+#sidebar {
+    &_wrapper {
+    }
 
-.button-wall-item img {
-    width: 88px;
-    height: 31px;
-    object-fit: contain;
-    object-position: center;
-    display: inline-block;
-}
-
-#container.default {
-    border: 1px solid black;
-    background-color: var(--color-dker);
-    border-top: none;
-    border-bottom: none;
-
-    min-height: 100vh;
-    width: 100%;
-    margin: auto;
-    max-width: 1920px;
-    
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-#container_content {
-    background-color: white;
-}
-
-.floral {
-    background:
-        url(/meta/img/tile/floral-top.png),
-        url(/meta/img/tile/floral-bottom.png),
-        linear-gradient(var(--color));
-    background-size: 100px 100px, 150px 150px;
-}
-
-.lines {
-    background-color: var(--color-dkest);
-    background-image: url(/meta/img/tile/lines.png);
-    background-size: 150px 150px;
-}
-
-/* INFOBOX START */
-.infobox-list {
-    --a: 3/4;
-    display: grid;
-    grid-column: 1fr;
-    gap: 0.5rem;
-}
-
-fieldset.infobox > legend {
-    font-family: var(--display-font);
-    font-weight: bold;
-    
-    > a { color: inherit; }
-    > a:hover { color: var(--color); background-color: unset; }
-}
-
-.infobox-content {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 1rem;
-}
-
-.infobox-thumb {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    height: 100%;
-    gap: 0.5rem;
-}
-
-.infobox-thumb img {
-    width: 100%;
-    aspect-ratio: var(--a);
-    object-fit: cover;
-    object-position: 50% 0;
-    border: 1px solid;
-    box-sizing: border-box;
-}
-
-@media only screen and (max-width: 401px) {
-    .infobox-content { grid-template-columns: 1fr; }
-    .infobox-thumb > div { display: none };
-
-}
-/* INFOBOX END */
-
-/* TIMELINE START */
-.timeline-item{
-    user-select: none;
-    
-    &:nth-child(n + 2){
-        display: block;
-        border-top: var(--border);
-        width: 100%;
+    &_content {
     }
 }
 
-.timeline-content {
-    --bg: url(/meta/img/clouds.jpg);
-    --a: 1/1;
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-
-    time {
-        color: lightgray;
+#main {
+    &_wrapper {
     }
 }
 
-.timeline-thumb {
-    background-image: var(--bg);
-    background-size: cover;
-    height: 4rem;
-    aspect-ratio: var(--a);
-    border-radius: 5px;
-    background-position: center;
-}
-
-.timeline-info {
-    flex: 1;
-}
-
-.timeline-text { flex: 1; }
-
-.timeline-title {
-    display: block;
-    font-family: var(--display-font);
-    font-weight: bolder;
-}
-/* TIMELINE END */
-
-.default-nav {
-    --txt-color: inherit;
-    --txt-color-hover: inherit;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 0.5rem;
-    user-select: none;
-    gap: 0.5rem;
-
-    color: var(--txt-color);
-
-    &.center {
-        justify-content: center;
-    }
-
-    &.right {
-        justify-content: right;
-    }
-
-    &.padded {
-        padding: 1.5rem 1rem;
-    }
-
-    a {
-        display: flex;
-        transition: 0.1s;
-        gap: 0.3rem;
-        
-        &:hover {
-            color: var(--txt-color-HOVER);
-            transform: scale(110%);
-        }
-    }
-
-    > span {
-        display: block; 
-
-        &::before {
-            content: "|";
-        }
+#intro {
+    &_img {
+        background-position: center;
+        background-size: cover;
+        background-image: url(/test.jpg);
+        aspect-ratio: 2/1;
     }
 }
 
-.ribbon {
-    background-color: var(--color-dker);
-    box-sizing: border-box;
-    padding: 0.2rem 0;
-    position: relative;
-    z-index: 3;
-
-    > nav {
-        color: white;
-        border: 0.2rem dashed var(--color-dkest);
-        border-left: none;
-        border-right: none;
-
-        a:hover {
-            color: white;
-        }
-
-        > span {
-            color: var(--color-dkest);
-        }
+#aside {
+    > div {
+        padding: 1rem;
+        border-bottom: var(--bs-border-width) solid var(--bs-border-color);
     }
-}
-
-#nav_sub {
-    position: relative;
-    color: var(--color-dkest);
-    background-color: white;
-    z-index: 3;
-
-    &::before {
-        @include frills;
-    }
-
-    nav > span {
-        color: var(--color-dk);
-    }
-}
-
-.frills {
-    position: relative;
-    &::before {
-        @include frills;
-    }
-}
-
-.note {
-    background-image: url(/meta/img/tile/paper.png);
-    background-size: 50px 50px;
-    box-shadow: 0 0 0.5rem black;
-    border-radius: 4px;
-    @include content;
-    // @include bored;
-}
-
-.framed {
-    background-color: var(--color);
-    background-image: url(/meta/img/tile/floral.png);
-    box-sizing: border-box;
-    padding: 0.4rem;
-    @include bored;
-
-    &-content {
-        background-color: white;
-        @include content;
-        @include bored($width: 1px);
-    }
-}
-
-#page-sticky {
-    z-index: 100;
-    position: fixed;
-    bottom: 0.5rem;
-    right: 0.5rem;
-    padding: 0.5rem;
-    border-radius: 100%;
-    background-color: var(--bg-color);
-    color: var(--txt-color);
-    border: 2px solid;
-    aspect-ratio: 1/1;
-    min-width: 1.5rem;
-    user-select: none;
-
-    > a { 
-        opacity: 0;
-        transition: 0.2s transform;
-        position: relative;
-        display: block;
-        height: 0;
-        > span {
-            top: 50%;
-            left: 50%;
-            position: absolute;
-            transform: translate(-50%, -50%)
-        }
-        &.top {
-            transform: rotate(180deg);
-        }
-        &.bottom {
-            transform: rotate(-180deg);
-        }
-    }
-
-    &.top a.top,
-    &.bottom a.bottom {
-        opacity: 1;
-        height: 100%;
-        transform: none;
-    }
-}
-
-#search {
-    margin: 1rem 0;
-
-    .pagefind-ui__drawer {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .pagefind-ui__filter-block {
-        border: 1px solid lightgray;
-        border-radius: 8px;
-        padding: 0.8rem;
-    }
-
-    .pagefind-ui__result {
-        flex-direction: row-reverse;
-    }
-
-    .pagefind-ui__result-thumb:not(:has(img)){
-        display: none;
-    }
-}
-
-#pagefind_thumbnail {
-    display: none!important;
-}
-
-#giscus_temp {
-    font-size: 0.8rem;
-    color: gray;
 }

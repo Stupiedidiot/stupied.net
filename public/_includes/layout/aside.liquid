@@ -1,0 +1,22 @@
+<aside id="aside" class="offcanvas-sm offcanvas-start">
+    <div>
+        <h2 class="h6 m-0">Recently Added</h2>
+        <ul>
+            {% for item in site.posts limit: 5 %}
+                <li>
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <h2 class="h6 m-0">Most Used Tags</h2>
+        {{ site.tags }}
+    </div>
+
+    <div>
+        <h2 class="h6 m-0">Outline</h2>
+    </div>
+
+</aside>

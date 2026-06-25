@@ -1,0 +1,23 @@
+<footer>
+    <div class="container-md">
+        <div class="row justify-content-center">
+            <div class="col col-4">
+                <nav>
+                    <ul class="nav flex-column" style="columns: 2;">
+                        {% for link in site.nav limit: 3 %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ link.url }}">
+                                    <span class="icon-{{ link.icon }}"></span>
+                                    <span>{{ link.title }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+            <div class="col">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, modi facere? Quia pariatur nostrum non numquam, rerum blanditiis eveniet, ratione expedita, recusandae perferendis nam consequuntur error repudiandae. Iusto, dolorem libero!</p>
+            </div>
+        </div>
+    </div>
+</footer>
