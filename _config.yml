@@ -1,6 +1,7 @@
 url: "https://stupied.net"
 title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
+keywords: [stupied,art,comics,blog,ocs]
 
 nav:
   - title: Home 
@@ -44,6 +45,7 @@ keep_files:
 sass:
   style: compressed
   sourcemap: never
+  quiet_deps: true
 
 jekyll-minifier:
   compress_css: false

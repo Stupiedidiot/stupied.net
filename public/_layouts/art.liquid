@@ -9,6 +9,18 @@ description: Archive of Stupied's Art
     {% include head.html %}
     <link rel="stylesheet" href="/art/main.css">
     <script src="/art/main.js" defer></script>
+    
+    {% if layout.view %}
+        {% assign img = page.path | getArtPath | append: '.' |  append: page.ext %}
+        {% assign dime = img | getDime: 'snail/_img/art/img/' %}
+        <meta property="og:image" content="{{ img | append: site.url | append: '/art/img/'}}" />
+        <meta property="og:image:height" content="{{ dime[1] }}" />
+        <meta property="og:image:width" content="{{ dime[0] }}" />
+        {% if page.alt %}
+            <meta property="og:image:alt" content="{{ page.alt }}" />
+        {% endif %}
+    {% endif %}
+    
     <meta data-pagefind-filter="category:art">
 </head>
 
