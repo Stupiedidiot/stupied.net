@@ -1,3 +1,5 @@
 cowtools/**/*.js linguist-vendored
+public/_sass/bootstrap/** linguist-vendored
+public/meta/js/*.min.js linguist-vendored
 *.html linguist-detectable=false
 *.bat linguist-detectable=false

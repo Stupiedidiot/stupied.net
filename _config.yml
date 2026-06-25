@@ -43,6 +43,7 @@ keep_files:
 
 sass:
   style: compressed
+  sourcemap: never
 
 jekyll-minifier:
   compress_css: false
