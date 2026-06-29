@@ -1,12 +1,20 @@
+@use "vars" as *;
+@import url(./fonts.css);
+@import url(./icons.css);
+
+%outline {
+  --color:white;
+  --c: var(--color);
+  --w:2px;
+  filter:
+  drop-shadow(var(--w)0 0 var(--c))
+  drop-shadow(calc(var(--w) * -1) 0 0 var(--c))
+  drop-shadow(0 var(--w)0 var(--c))
+  drop-shadow(0 calc(var(--w) * -1) 0 var(--c));
+}
+
 .outline, .outline-hover:hover {
-    --color:white;
-    --c: var(--color);
-    --w:2px;
-    filter:
-    drop-shadow(var(--w)0 0 var(--c))
-    drop-shadow(calc(var(--w) * -1) 0 0 var(--c))
-    drop-shadow(0 var(--w)0 var(--c))
-    drop-shadow(0 calc(var(--w) * -1) 0 var(--c));
+    @extend %outline;
 }
 
 .justified-gallery {
@@ -58,39 +66,6 @@
         width: 100%;
         height: 100%;
     }
-
-    > button {
-        transition: 0.5s;
-        content: "";
-        display: block;
-        z-index: 100;
-        position: absolute;
-        top:0;
-        background-image: var(--embed-thumb);
-        background-color: unset;
-        background-size: 100%;
-        background-position: center;
-        border: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-
-        &:hover { background-size: 110%; }
-    }
-
-    > button::after {
-        content: var(--embed-title);
-        position: absolute;
-        display: block;
-        color: white;
-        font-family: var(--display-font);
-        font-size: 1.5rem;
-        left: 0.5rem;
-        bottom: 0.5rem;
-        --color:black;
-        --width:2px;
-        filter:drop-shadow(var(--width)0 0 var(--color))drop-shadow(calc(-1*var(--width))0 0 var(--color))drop-shadow(0 var(--width)0 var(--color))drop-shadow(0 calc(-1*var(--width)) 0 var(--color))
-    }
 }
 
 .tooltip {
@@ -114,47 +89,38 @@
     }
 }
 
-.float-right{float:right;margin-left:1rem;margin-bottom:1rem;display:block;}
-.float-left{float:left;margin-right:1rem;margin-bottom:1rem;display:block;}
+%float {
+  display:block;
+  margin-bottom:1rem;
+  
+  @media only screen and (max-width: 450px) {
+    float:none;
+    margin:1rem auto;
+  }
+}
 
-@media only screen and (max-width: 450px) {
-.float-right,.float-left{float:none;margin:1rem auto;}
+.float-right{
+  float:right;
+  margin-left:1rem;
+  @extend %float;
+}
+
+.float-left{
+  float:left;
+  margin-right:1rem;
+  @extend %float;
 }
 
 @media only screen and (min-width: 450px) {
     .db-list{columns:2;}
 }
 
-.grid { 
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0.5rem;
-}
-
-.grid aside { width: 200px; }
-
-.divided { 
-    padding: 1rem 0;
-    border-top: var(--border);
-}
-
-.padded {
-    padding: 1rem;
-    box-sizing: border-box;
-}
-
-@media only screen and (max-width: 500px) {
-    .grid { grid-template-columns: 1fr; }
-}
-
-.txt-center{text-align: center;}
-.txt-right{text-align: right;}
-    
-.checklist > li { list-style-type: "□ "; }
-
-.x { 
-    text-decoration: line-through;
-    list-style-type: "■ "!important;
+.checklist > li {
+    list-style-type: "□ ";
+    .x { 
+        text-decoration: line-through;
+        list-style-type: "■ "!important;
+    }
 }
 
 ul.arrow-hover a[href="#"]{ color: gray; }
@@ -217,7 +183,7 @@ figure.highlight > button {
         &.top {
             transform: rotate(180deg);
         }
-        &.bottom {
+        &.bottom {  
             transform: rotate(-180deg);
         }
     }
@@ -230,35 +196,9 @@ figure.highlight > button {
     }
 }
 
-#search {
-    margin: 1rem 0;
-
-    .pagefind-ui__drawer {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .pagefind-ui__filter-block {
-        border: 1px solid lightgray;
-        border-radius: 8px;
-        padding: 0.8rem;
-    }
-
-    .pagefind-ui__result {
-        flex-direction: row-reverse;
-    }
-
-    .pagefind-ui__result-thumb:not(:has(img)){
-        display: none;
-    }
-}
-
-#pagefind_thumbnail {
-    display: none!important;
-}
-
-#giscus_temp {
-    font-size: 0.8rem;
-    color: gray;
+@mixin bg-graph-paper() {
+    background-color: var(--bg);
+    background-image: repeating-linear-gradient(to right, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), repeating-linear-gradient(to bottom, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), linear-gradient(to bottom, var(--clr) 0.6px, transparent 0.6px), linear-gradient(to right, var(--clr) 0.6px, transparent 0.6px) ;
+    background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+    background-position: 0 0, 0 0, 0 -0.2px, -0.2px 0;
 }

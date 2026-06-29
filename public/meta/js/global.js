@@ -68,3 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updatePosition();
 });
+
+function themeToggle() {
+    let e = document.querySelector('html')
+    if (e.dataset.bsTheme == "dark")
+        e.dataset.bsTheme = "light";
+    else
+        e.dataset.bsTheme = "dark";
+}

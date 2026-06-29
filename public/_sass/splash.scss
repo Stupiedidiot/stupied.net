@@ -2,7 +2,8 @@
     #meirl {grid-area: meirl; } 
     #blog { grid-area: blog; } 
     #all { grid-area: all; }
-
+    
+    color: black;
     margin: auto;
     display: grid;
     grid-template: 
@@ -11,9 +12,8 @@
     grid-template-columns: 2fr 3fr;
     grid-template-rows: 2fr 1fr;
     box-sizing: border-box;
-    max-height: 95vh;
     height: auto;
-    max-width: 95%;
+    max-height: 95vh;
     width: auto;
     gap: 0.5rem;
     aspect-ratio: 3/2;
@@ -53,7 +53,7 @@
     }
 
     #blog {
-        background-color: var(--color-dker);
+        background-color: #001745;
         position: relative;
         z-index: 2;
         a {

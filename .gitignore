@@ -3,7 +3,6 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-vendor
 
 # VSCode / Local
 fiveserver.config.js

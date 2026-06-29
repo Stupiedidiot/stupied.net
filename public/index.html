@@ -1,57 +1,86 @@
 ---
-layout: default
-include_path: _includes/head/home.html
-no_nav: true
+layout: fuck
+title: Mother Fucking Redesign
 ---
-{%- include_cached widget/sticky.html -%}
-<noscript>
-    <div style="margin: auto; max-width: 600px; padding: 1rem;">
-        <h1>Attention!</h1>
-        <p>Although most of the website is navigable without Javascript, there are some pages that utilize it heavily and may not work with it disabled. So, If possible, keep it on :'D</p>
-    </div>
-</noscript>
-<header data-nosnippet>
-    {% include splash.html %}
-</header>
-<div>
-    
-    <main>
-        <article>
-            <section id="intro">
-                <h1 class="meow">
-                    <span>H</span><span>e</span><span>n</span><span>l</span><span>o</span> <span>T</span><span>h</span><span>e</span><span>r</span><span>e</span><span>!</span><span>!</span>
-                </h1>
-                <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
-    
-                {%- if site.url contains 'nekoweb.org'-%}
-                <p>You are currently on the Nekoweb Mirror! My main is hosted on <a href="https://stupied.net/">Neocities</a>. Everything should mostly be the same though.</p>
-                {%- endif-%}
-    
-                {%- if site.url == 'http://localhost:4000'-%}
-                <a href="/meta/tester" style="display: block; margin-bottom: 1rem;">JUMP TO TESTER</a>
-                {%- endif-%}
-    
-                <div id="other">
-                    <h2>Other Stuff</h2>
-                    <ul class="db-list">
-                        <li><a href="https://literalwiki.neocities.org/">LiteralWiki</a></li>
-                        <li><a href="/guestbook">Guestbook</a></li>
-                        <li><a href="/meta/">Changelog</a></li>
-                        <li><a href="/outlinks/">Outlinks</a></li>
-                    </ul>
+{% assign DATA = site.art | concat: site.posts %}
+{% assign ctr = 0 %}
+{% for item in DATA %}
+    {% if ctr >= 3 %}
+        {% break %}
+    {% endif %}
+
+    {% unless item.extra or item.thumbnail %}
+        {% continue %}
+    {% else %}
+        {% assign ctr = ctr | plus: 1 %}
+    {% endunless %}
+    <div id="{{ item.name }}" class="carousel slide">
+        <a class="carousel-inner" onclick="console.log('WOW')">
+            {% if item.collection == 'art' %}
+                {% assign img = item.path | getArtPath | append: '.' | append: item.ext %}
+                {% assign dime = img | getDime: 'snail/_img/art/img/' %}
+                <div class="carousel-item active">
+                    <img src="/art/img/{{ img }}" alt="{{ item.alt }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
                 </div>
-            </section>
-            <section id="temp">
-                <div id="webrings">
-                    {%- unless site.url == 'http://localhost:4000'-%}
-                    <div>
-                        {%- include webrings.html home="true" -%}
-                        <a href="/outlinks/webrings">View More »</a>
+            {% else %}
+                <div class="carousel-item active">
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
+                </div>
+            {% endif %}
+
+            {% if item.extra %}
+                {% for extra in item.extra %}
+                    <div class="carousel-item">
+                        <img src="/art/img/{{ extra.img | default: extra }}" alt="{{ extra.alt }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
                     </div>
-                    {%- endunless-%}
-                    <a href="https://www.grrrl.valentinely.cc/" target="_blank" style="display:block;margin-bottom:0.5rem;" id="grrrl"><img src="/about/img/grrrl-v2.png" alt="Made By Girl Button"></a>
+                {% endfor %}
+
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#{{ item.name }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    {% for extra in item.extra %}
+                        <button type="button" data-bs-target="#{{ item.name }}" data-bs-slide-to="{{ forloop.index }}" aria-label="Slide {{ forloop.index }}"></button>
+                    {% endfor %}
                 </div>
-            </section>
-        </article>
-    </main>
+            {% endif %}
+        </a>
+        {% if item.extra %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#{{ item.name }}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#{{ item.name }}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<!-- One row to rule them all. gy-2 manages the bottom margins automatically -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+</ul>
+
+<div class="bg-body-secondary text-body-secondary p-1">
+    <div class="row gx-1 gy-1">
+        {% for i in (1..5) %}
+            <!-- The loop only generates individual column items -->
+            <div class="col-12">
+                <article class="p-2 border bg-body-tertiary text-body-tertiary">
+                    <h2>Hello World</h2>
+                    <p>This is main content!</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati est dignissimos laboriosam nihil suscipit ex, repudiandae minima. Nisi, ipsam placeat nostrum sint, pariatur velit excepturi, quaerat beatae corporis repudiandae quae?</p>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
 </div>

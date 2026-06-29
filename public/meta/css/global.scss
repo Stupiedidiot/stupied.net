@@ -1,31 +1,41 @@
 ---
 ---
+@use "defaults" as *;
 @use "splash";
-@use "yay";
-@use "bootstrap/bootstrap" with (
-    $headings-font-family: "Grandstander",
-    $font-family-base: ("Chiron GoRound TC", Arial, Helvetica, sans-serif)
-);
 
-@import url(./fonts.css);
-@import url(./icons.css);
+:root, [data-bs-theme=light] {
+    --body-bg: white;
+}
 
+[data-bs-theme=dark] {
+    --body-bg: black;
+}
 
 body {
+    --bg: var(--body-bg);
+    --clr: var(--bs-body-bg);
+    @include bg-graph-paper();
 }
 
 #container {
-    background-color: color-mix(in srgb, var(--bs-body-bg), transparent);
-    backdrop-filter: blur(3px);
-    color: var(--bs-body-color);
-    max-width: 1080px;
+    &_content {
+        backdrop-filter: blur(3px);
+        max-width: 1080px;
+        padding: 0;
+    }
 }
 
 #sidebar {
+
     &_wrapper {
     }
 
     &_content {
+    }
+
+    .nav-link {
+        color: inherit;
+        border-bottom: var(--bs-tertiary-color) var(--bs-border-width) dashed;
     }
 }
 
@@ -35,10 +45,10 @@ body {
 }
 
 #intro {
-    &_img {
-        background-position: center;
-        background-size: cover;
-        background-image: url(/test.jpg);
+    &_img img {
+        width: 100%;
+        object-position: center;
+        object-fit: cover;
         aspect-ratio: 2/1;
     }
 }
@@ -48,4 +58,52 @@ body {
         padding: 1rem;
         border-bottom: var(--bs-border-width) solid var(--bs-border-color);
     }
+}
+
+.carousel {
+    &-inner {
+        display: block;
+        background-color: var(--body-bg);
+    }
+
+    &-item img {
+        display: block;
+        width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        object-position: center;
+    }
+}
+
+#search {
+    margin: 1rem 0;
+
+    .pagefind-ui__drawer {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .pagefind-ui__filter-block {
+        border: 1px solid lightgray;
+        border-radius: 8px;
+        padding: 0.8rem;
+    }
+
+    .pagefind-ui__result {
+        flex-direction: row-reverse;
+    }
+
+    .pagefind-ui__result-thumb:not(:has(img)){
+        display: none;
+    }
+}
+
+#pagefind_thumbnail {
+    display: none!important;
+}
+
+#giscus_temp {
+    font-size: 0.8rem;
+    color: gray;
 }

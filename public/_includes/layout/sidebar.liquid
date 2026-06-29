@@ -1,23 +1,27 @@
-<!-- The Side Bar -->
+<!-- sidebar start -->
+<aside id="sidebar" class="offcanvas-lg offcanvas-start vh-100 overflow-y-auto" aria-label="Sidebar" tabindex="-1">
+    <div class="offcanvas-header d-lg-none border-bottom">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
+    </div>
 
-<aside aria-label="Sidebar" id="sidebar" class="offcanvas-lg offcanvas-start vh-100 overflow-y-auto position-md-sticky top-0 start-0">
-  <div id="sidebar_content">
-
-    <header id="sidebar_content"></header>
-
-    <nav id="sidebar_nav" class="">
-        <ul class="nav flex-column">
-            {% for item in site.nav %}
-                <li class="nav-item {% if item.link == page.url %}{{ " active" }}{% endif %} link-unstyled">
-                    <a class="nav-link" href="{{ item.link }}">
-                        <span class="icon-{{ item.icon }}"></span>
-                        <span>{{ item.title }}</span>
-                    </a>
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
-
-  </div>
+    <div class="offcanvas-body">
+        <div id="sidebar_content" class="w-100">
+            <nav id="sidebar_nav">
+                <ul class="nav flex-column">
+                    {% for item in site.nav %}
+                        <li class="nav-item {% if item.link == page.url %}{{ " active" }}{% endif %}">
+                            <a class="nav-link" href="{{ item.link }}">
+                                <span class="icon-{{ item.icon }}"></span>
+                                <span>{{ item.title }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li class="nav-item">
+                        <button onclick="themeToggle()">TOGGLE THEME</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </aside>
-<!-- #sidebar -->
+<!-- sidebar end -->

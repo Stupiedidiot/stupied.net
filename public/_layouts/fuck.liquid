@@ -1,37 +1,46 @@
 ---
 layout: default
+aside: true
 ---
-<nav class="navbar bg-body-tertiary d-lg-none border-bottom">
-  <div class="container-xl">
-    <a class="navbar-brand" href="#">
-        <span>{{ site.title }}</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-</nav>
 
 
-<div id="container" data-bs-theme="light" class="container-fluid p-0 border-end border-start">
-    <div class="row g-0">
-        <div id="sidebar_wrapper" class="col col-lg-2 col-12">
-            {% include layout/sidebar.liquid %}
-        </div>
-
-        <div id="main_wrapper" class="col min-vh-100 border-start border-end">
-            {% include layout/intro.liquid %}
-            <main>
-                {{ content }}
-            </main>
-        </div>
-        
-        <div id="aside_wrapper" class="col col-sm-4 col-md-3 col-12">
-            {% include layout/aside.liquid %}
+<div id="container" class="container-fluid m-auto p-0">
+    <div class="row m-0 border-bottom bg-body-secondary">
+        <div class="col-12 m-0 p-1">
+            {% include splash.html %}
         </div>
     </div>
-</div>
 
-<div class="container-fluid bg-body-tertiary border-top">
-    {% include layout/footer.liquid %}
+    <nav class="navbar d-lg-none border-bottom bg-body-secondary text-body-secondary sticky-top overflow-y-auto">
+        <div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="container_content" class="m-auto border-end border-start bg-body-tertiary text-body-tertiary">
+        <div class="row g-0">
+            <div id="sidebar_wrapper" class="col-12 col-lg-2 border-end bg-body-secondary text-body-secondary">
+                {% include layout/sidebar.liquid %}
+            </div>
+
+            <div id="main_wrapper" class="col min-vh-100">
+                {% include layout/intro.liquid %}
+                <main>
+                    {{ content }}
+                </main>
+            </div>
+
+            {% if layout.aside %}
+                <div id="aside_wrapper" class="col-sm-4 col-md-3 col-12 border-start bg-body-secondary text-body-secondary">
+                    {% include layout/aside.liquid %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    <footer class="m-0 border-top bg-body-secondary text-body-secondary">
+        {% include layout/footer.liquid %}
+    </footer>
 </div>
