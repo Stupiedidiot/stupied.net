@@ -105,10 +105,10 @@ collections:
     output: true
     permalink: /art/p/:path
     sort_by: date
-  img:
-    output: true
-    permalink: /:path
+  # img:
+  #   output: true
+  #   permalink: /:path
   
-  micro:
+  # micro:
   posts:
     permalink: /blog/:name_raw

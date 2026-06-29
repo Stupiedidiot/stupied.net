@@ -1,0 +1,113 @@
+// colors ================================
+
+@use "sass:map" as *;
+
+@function color($target) {
+  @return map-get($colors, $target);
+}
+
+$colors: (
+  white-dk: #d5d8d9,
+  white: #ededed,
+  white-lt: #f6f6f6,
+
+  brown-dk: #1c1716,
+  brown: #2a1f1d,
+  brown-lt: #362f2e,
+  
+  red: #f25235,
+  red-lt: #f6725a,
+  yellow: #fac150,
+  yellow-lt: #f6cf83,
+  blue: #16a2c2,
+  blue-lt: #4ebdd7
+);
+
+$themes: (
+  dark: (
+    text: white,
+    body: black,
+    first: color(brown-lt),
+    second: color(brown-dk),
+    third: color(brown),
+
+    red: color(red),
+    yellow: color(yellow),
+    blue: color(blue)
+  ),
+  light: (
+    text: black,
+    body: color(white-dk),
+    first: white,
+    second: color(white),
+    third: color(white-lt),
+
+    red: color(red),
+    yellow: color(yellow),
+    blue: color(blue)
+  )
+);
+
+
+// fonts =================================
+
+$font-display: "Grandstander";
+$font-body: "Chiron GoRound TC";
+
+$font-size-base: 1rem;
+
+$font-sizes: (
+  1: $font-size-base * 2.5,
+  2: $font-size-base * 2,
+  3: $font-size-base * 1.75,
+  4: $font-size-base * 1.5,
+  5: $font-size-base * 1.25,
+  6: $font-size-base
+);
+
+// grids =================================
+
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+);
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.5,
+    2: $spacer * 0.8,
+    3: $spacer,
+);
+
+// borders ===============================
+
+$bw: 2px;
+$br: 5px;
+$bc: black;
+$borders: (
+    left: "0 0 0 #{$bw}", 
+    right: "0 #{$bw} 0 0", 
+    top: "#{$bw} 0 0 0", 
+    bottom: "0 0 #{$bw} 0",
+    x: "#{$bw} 0",
+    y: "0 #{$bw}"
+);
+
+// dropdowns ============================
+
+$dropdown-color: var(--color-text);
+$dropdown-bg: var(--color-first);
+
+$dropdown-border-color: #{$bc};
+$dropdown-border-radius: #{$br};
+$dropdown-border-width: #{$bw};

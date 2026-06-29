@@ -1,0 +1,60 @@
+<nav id="navbar" class="navbar navbar-expand-md color-body border-bottom">
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">
+      <div class="d-flex justify-center">
+        <img src="/meta/pfp-transparent.png" alt="" width="30" height="30" class="d-block">
+        <span class="d-block">stupied.net</span>
+      </div>  
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar_content" aria-controls="navbar_content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar_content">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        {% for item in site.nav %}
+          
+          {% if item.drop %}
+            <li class="nav-item dropdown">
+              <span>
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="icon-{{ item.icon }}"></span>
+                    <span> {{ item.title }}</span>
+                </a>
+                <ul class="dropdown-menu bg-first border">
+                  {% for drop in item.drop %}
+                    <li>
+                      <a class="dropdown-item" href="{{ drop.link }}">
+                        <span>{{ drop.title }}</span>
+                      </a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </span>
+            </li>  
+          {% else %}
+            <li class="nav-item {%- if item.link == page.url -%}{{ " active" }}{%- endif -%}">
+                <span>
+                  <a class="nav-link" href="{{ item.link }}">
+                      <span class="icon-{{ item.icon }}"></span>
+                      <span> {{ item.title }}</span>
+                  </a>
+                </span>
+            </li>
+          {% endif %}
+        {% endfor %}
+
+      </ul>
+      <form class="d-flex" role="search">
+        <button class="yippee" type="submit">
+          <span>
+            <span class="icon-search"></span>
+          </span>
+        </button>
+      </form>
+
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,38 @@
+@use "vars" as *;
+@use "sass:list";
+@use "sass:map";
+
+@mixin loopValues($prefix, $list) {
+  @each $name, $value in $list {
+    --#{$prefix}#{$name}: #{$value};
+  }
+}
+
+@mixin classes($name, $value) {
+  .bg-#{$name} {
+    background-color: #{$value};
+  }
+
+  .color-#{$name} {
+    background-color: #{$value};
+  }
+}
+
+// change this to :root, [data-bs-theme="light"]
+// or like, whatever the hell comes first
+:root {
+  --font-display: #{$font-display};
+  --font-body: #{$font-body};
+  @include loopValues("color-", $colors);
+}
+
+@each $name, $value in $themes {
+  [data-bs-theme="#{$name}"] {
+    @include loopValues("color-", $value);
+  }
+}
+
+$theme-colors: map.keys(map.get($themes, dark));
+@each $name in $theme-colors {
+  @include classes($name, var(--color-#{$name}));
+}

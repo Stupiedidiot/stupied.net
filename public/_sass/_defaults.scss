@@ -1,6 +1,47 @@
 @use "vars" as *;
-@import url(./fonts.css);
-@import url(./icons.css);
+@use "fonts";
+@use "icons";
+@use "root";
+@use "beep";
+
+body{
+    padding:0;
+    margin:0;
+    font-family: var(--font-body);
+    background-color: var(--color-body);
+    color: var(--color-text);
+}
+
+%heading {
+  margin-top: 0;
+  font-family: var(--font-display);
+  font-weight: bold;
+}
+
+@each $name, $value in $font-sizes {
+    .h#{$name} {
+        @extend %heading;
+        font-size: #{$value};
+    }
+}
+
+%border {
+    border-color: black;
+    border-style: solid;
+}
+
+.border {
+    @extend %border;
+    border-width: #{$bw};
+}
+
+@each $name, $value in $borders {
+    .border-#{$name} {
+        @extend %border;
+        border-width: #{$value};
+    }
+}
+
 
 %outline {
   --color:white;
@@ -44,9 +85,9 @@
     }
 
     &.w-space::after {
-    content: " ";
-    flex-grow: 1000000000;
-    background: var(--last-row-background);
+        content: " ";
+        flex-grow: 1000000000;
+        background: var(--last-row-background);
     }
 }
 
@@ -123,35 +164,47 @@
     }
 }
 
-ul.arrow-hover a[href="#"]{ color: gray; }
-ul.arrow-hover a:not([href="#"]):hover { color: var(--color); }
-ul.arrow-hover li a:after {
-    position: absolute;
-    opacity: 0;
-    transform: translateX(-100%);
-    display:inline-block;
-    margin-left: 0.5rem;
-    content: " »";
-    transition: 0.1s;
-}
-ul.arrow-hover li a:hover:after{
-    opacity: 1;
-    transform: none;
+ul.arrow-hover {
+    a[href="#"]{
+        color: gray;
+    }
+
+    a:not([href="#"]):hover {
+        color: var(--color);
+    }
+
+    li a {
+       &:after {
+            position: absolute;
+            opacity: 0;
+            transform: translateX(-100%);
+            display:inline-block;
+            margin-left: 0.5rem;
+            content: " »";
+            transition: 0.1s;
+        }
+        &:hover:after{
+            opacity: 1;
+            transform: none;
+        }
+    }
 }
 
-figure.highlight { position: relative; }
-figure.highlight > button {
-    display: block;
-    top: 1rem; right: 1rem;
-    position: absolute;
-    background-image: url(/meta/svg/copy.svg);
-    background-size: 70%;
-    background-repeat: no-repeat;
-    background-position: 50%;
-    border-radius: 8px;
-    width: 1.5rem;
-    height: 1.5rem;
-    border: none;
+figure.highlight {
+    position: relative;
+    > button {
+        display: block;
+        top: 1rem; right: 1rem;
+        position: absolute;
+        background-image: url(/meta/svg/copy.svg);
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 8px;
+        width: 1.5rem;
+        height: 1.5rem;
+        border: none;
+    }
 }
 
 #page-sticky {
@@ -196,7 +249,7 @@ figure.highlight > button {
     }
 }
 
-@mixin bg-graph-paper() {
+%bg-graph-paper {
     background-color: var(--bg);
     background-image: repeating-linear-gradient(to right, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), repeating-linear-gradient(to bottom, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), linear-gradient(to bottom, var(--clr) 0.6px, transparent 0.6px), linear-gradient(to right, var(--clr) 0.6px, transparent 0.6px) ;
     background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
