@@ -8,31 +8,39 @@
   }
 }
 
-@mixin classes($name, $value) {
+@mixin classes($name) {
   .bg-#{$name} {
-    background-color: #{$value};
+    background-color: var(--color-#{$name});
   }
 
-  .color-#{$name} {
-    background-color: #{$value};
+  .clr-#{$name} {
+    color: var(--color-#{$name});
   }
 }
 
-// change this to :root, [data-bs-theme="light"]
-// or like, whatever the hell comes first
-:root {
+$first_name: nth(map.keys($themes), 1);
+$first_theme: nth(map.values($themes), 1);
+$first_props: map.keys($first_theme);
+
+:root, [data-bs-theme="#{$first_name}"] {
+  --font-size: #{$font-size-base};
   --font-display: #{$font-display};
   --font-body: #{$font-body};
   @include loopValues("color-", $colors);
+  @include loopValues("color-", $first_theme);
 }
 
+$index: 1;
 @each $name, $value in $themes {
-  [data-bs-theme="#{$name}"] {
-    @include loopValues("color-", $value);
+  @if $index > 1 {
+    [data-bs-theme="#{$name}"] {
+      @include loopValues("color-", $value);
+    }
+  } @else {
+    $index: $index + 1;
   }
 }
 
-$theme-colors: map.keys(map.get($themes, dark));
-@each $name in $theme-colors {
-  @include classes($name, var(--color-#{$name}));
+@each $name in $first_props {
+  @include classes($name);
 }

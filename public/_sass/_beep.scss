@@ -34,35 +34,28 @@ $utilities: map-get-multiple(
     "margin-end",
     "margin-bottom",
     "margin-start",
-    "negative-margin",
-    "negative-margin-x",
-    "negative-margin-y",
-    "negative-margin-top",
-    "negative-margin-end",
-    "negative-margin-bottom",
-    "negative-margin-start",
     "padding",
     "padding-x",
     "padding-y",
     "padding-top",
     "padding-end",
     "padding-bottom",
-    "padding-start"
+    "padding-start",
+    "gap",
   )
 );
 
 // Layout & components
 @import "bs/containers";
 @import "bs/grid";
-@import "bs/transitions";
-@import "bs/dropdown";
 @import "bs/nav";
-@import "bs/navbar";
-@import "bs/accordion";
-@import "bs/modal";
-@import "bs/carousel";
-@import "bs/offcanvas";
-@import "bs/list-group";
+// @import "bs/transitions";
+// @import "bs/dropdown";
+// @import "bs/accordion";
+// @import "bs/modal";
+// @import "bs/carousel";
+// @import "bs/offcanvas";
+// @import "bs/list-group";
 
 // Helpers
 @import "bs/helpers";

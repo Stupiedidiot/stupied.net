@@ -1,5 +1,40 @@
-<!-- footer start -->
-<div>
-    This is a footer!!!!!!!
-</div>
-<!-- footer end -->
+<footer id="footer" data-nosnippet>
+    <nav id="footer_nav">
+        <div class="newspaper">
+            <div>
+                <span class="h5">Navigation</span>
+                <ul class="toc">
+                    {% for item in site.data.nav.footer %}
+                        <li>
+                            <a href="{{ item.link }}">
+                                <span>{{ item.title }}</span>
+                                <span class="dash"></span>
+                                <span class="icon-{{ item.icon }}"></span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <span class="h5">Most Used Tags</span>
+                <ul class="toc">
+                    {% assign TAGS = site.tags | sort_tags %}
+                    {% for item in TAGS limit: 5 %}
+                        <li>
+                            <a href="/search/?tag={{ item.first }}">
+                                <span>{{ item | first }}</span>
+                                <span class="dash"></span>
+                                <span>{{ item | last | size }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <p>Coded with Impulsivity!! - since <span class="h6">2023</span></p>
+
+    </nav>
+</footer>

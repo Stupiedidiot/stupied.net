@@ -1,105 +1,112 @@
 ---
 layout: none
 ---
-@use "defaults" as *;
+@use "vars" as *;
+@use "defaults";
 @use "splash";
 
 body {
-    --bg: var(--color-body);
-    --clr: var(--color-third);
-    @extend %bg-graph-paper;
+    @extend %checkered;
 }
 
-%yippee {
-    --clr: var(--color-red);
-    --clr-lt: var(--color-red-lt);
-    background-color: var(--clr);
-    border-radius: 2rem;
-    padding: 0.2rem;
+#container {
+    display: grid;
+    grid-template-columns: 1fr auto 2fr;
+    grid-template-rows: auto 1fr;
 
-    &:nth-of-type(3n + 2){
-        --clr: var(--color-yellow);
-        --clr-lt: var(--color-yellow-lt);
-    }
-    &:nth-of-type(3n + 3){
-        --clr: var(--color-blue);
-        --clr-lt: var(--color-blue-lt);
-    }
+    background-color: var(--color-body);
 
-    > span {
-        border-radius: 2rem;
-        border: 2px dashed var(--clr-lt);
-        display: block;
+    width: 100%;
+    max-width: 1440px;
+    min-height: 100vh;
+    outline: 3px solid;
+    
+    @include res {
+        grid-template-columns: 1fr;
     }
 }
 
-.yippee {
-    @extend %yippee;
-}
+#sidebar {
+    display: flex;
+    justify-content: center;
+    align-items: end;
 
-#navbar {
+    position: sticky;
     top: 0;
     left: 0;
-    position: sticky;
-    z-index: 5;
 
-    .navbar-brand > div {
-        gap: 0.8rem;
+    width: 100%;
+    height: 100vh;
+    background: url(/art/img/26/Pagsure.jpg);
+    background-size: cover;
+    background-position: center right;
+
+    border-right: 3px solid black;
+    
+    &_wrapper {
+        width: 100%;
+        padding: 0.8rem;
+        padding-top: 2rem;
+        background: linear-gradient(transparent 10%, black);
+        overflow: auto;
+        max-height: 100vh;
     }
 
-    .navbar-nav {
-        padding-top: 0;
-        margin-top: 0;
-        gap: 0.2rem;
+    &_nav {
+        color: white;
+        text-shadow: 0 0 8px black;
+    }
 
-        > .nav-item {
-            @extend %yippee;
+    &_content {
+        background-color: red;
+        display: none;
+    }
+
+    @include res {
+        height: auto;
+        position: static;
+        &_wrapper {
+            max-height: unset;
         }
     }
 }
 
-#container {
-    &_content {
-        backdrop-filter: blur(3px);
-        max-width: 900px;
-        padding: 0;
+#divider {
+    $s: 1.5rem;
+    $b: 3px solid var(--color-accent-dk);
+    border-right: $b;
+    width: $s;
+
+    @extend %stripped;
+
+    @include res {
+        border-right: none;
+        border-bottom: $b;
+        width: 100%;
+        height: $s;
     }
+
 }
 
 #main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    width: 100%;
+    
     &_wrapper {
     }
 }
 
-#intro {
-    &_img img {
-        display: block;
-        width: 100%;
-        object-position: center;
-        object-fit: cover;
-        aspect-ratio: 2/1;
-    }
-}
+#footer {
+    @extend %padded;
+    border-top: 2px solid var(--color-accent-dk);
+    background-color: var(--color-accent-lter);
+    color: var(--color-accent-dk);
 
-#aside {
-    > div {
-        padding: 1rem;
-        border-bottom: var(--bs-border-width) solid var(--bs-border-color);
-    }
-}
-
-.carousel {
-    &-inner {
-        display: block;
-        background-color: var(--body-bg);
-    }
-
-    &-item img {
-        display: block;
-        width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        object-position: center;
+    a {
+        color: inherit;
+        text-decoration: none;
     }
 }
 
@@ -129,9 +136,4 @@ body {
 
 #pagefind_thumbnail {
     display: none!important;
-}
-
-#giscus_temp {
-    font-size: 0.8rem;
-    color: gray;
 }

@@ -3,7 +3,7 @@ layout: rss
 title: Stupied's Comic Feed
 description: RSS Feed for all comics hosted on the main website
 ---
-{% assign FEED = site.data.lib.list | mergeIssues | sort: 'date' | reverse | filterFuture %}
+{% assign FEED = site.data.lib.list | mergeIssues | sort: 'date' | reverse %}
 {%- for e in FEED limit: 15 -%}
 <item>
   <title>{{ e | getTitle: 'issue' }}</title>

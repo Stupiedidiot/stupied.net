@@ -3,39 +3,6 @@ title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
 keywords: [stupied,art,comics,blog,ocs]
 
-nav:
-  - title: Home 
-    icon: home
-    link: /
-  
-  - title: About
-    icon: mood-happy-outline
-    link: /about/
-  
-  - title: Art
-    icon: camera
-    link: /art/
-  
-  - title: Blog
-    icon: compose
-    link: /blog/
-  
-  - title: Library
-    icon: book-reference
-    link: /lib/
-
-  - title: Chez
-    icon: music-notes
-    link: /chez/
-
-  - title: Code
-    icon: printer
-    link: /code/
-
-  - title: Outer
-    icon: globe
-    link: /outlinks/
-
 # Build settings
 source: public
 destination: _site
@@ -105,10 +72,10 @@ collections:
     output: true
     permalink: /art/p/:path
     sort_by: date
-  # img:
-  #   output: true
-  #   permalink: /:path
+  img:
+    output: true
+    permalink: /:path
   
-  # micro:
+  micro:
   posts:
     permalink: /blog/:name_raw

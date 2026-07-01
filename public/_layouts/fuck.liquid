@@ -3,33 +3,43 @@ layout: default
 aside: true
 ---
 
-{% include layout/nav.liquid %}
+<div id="container">
+    <!-- sidebar srt -->
+        {% include_cached layout/sidebar.liquid %}
+    <!-- sidebar end -->
+    <div id="divider"></div>
 
-<div class="bg-second border-bottom">
-    <div class="p-1">
-        {% include splash.html %}
-    </div>
-</div>
+    <div id="main">
+        <main id="main_wrapper">
+            <article class="padded">
+                <h1>{{ page.title }}</h1>
+                <blockquote>
+                    <p>Blockquote</p>
+                </blockquote>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim tempora accusantium nisi distinctio. Quidem sint praesentium quisquam mollitia, eum aut quaerat autem iure reprehenderit doloremque accusantium illum fugiat nam repudiandae?</p>
 
-<div id="container" class="container-fluid m-auto p-0">
-    <div id="container_content" class="m-auto bg-first border-y">
-        <div class="row g-0">
-            <div id="main_wrapper" class="col min-vh-100 border-y">
-                <main>
-                    {% include layout/intro.liquid %}
-                    {{ content }}
-                </main>
-            </div>
+                <hr>
 
-            {% if layout.aside %}
-                <div id="aside_wrapper" class="bg-second col-sm-4 col-md-3 col-12">
-                    {% include layout/aside.liquid %}
+                <h2 class="clr-accent">Table of Contents</h2>
+                <ul class="toc">
+                    {% for item in site.posts %}
+                        <li>
+                            <a href="{{ item.url }}">
+                                <span>{{ item.title }}</span>
+                                <span class="dash"></span>
+                                <span>{{ item.date | date: '%Y-%m-%-d' }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="card">
+                    <div class="card-item"></div>
                 </div>
-            {% endif %}
-        </div>
+            </article>
+        </main>
+        <!-- footer srt -->
+            {% include_cached layout/footer.liquid %}
+        <!-- footer end -->
     </div>
-    
-    <footer class="m-0 bg-body border-top">
-        {% include layout/footer.liquid %}
-    </footer>
 </div>

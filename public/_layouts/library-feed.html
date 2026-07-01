@@ -2,7 +2,7 @@
 layout: rss
 ---
 {% if page.files %}
-    {% assign FEED = page.files | sort: 'date' | reverse | filterFuture %}
+    {% assign FEED = page.files | sort: 'date' | reverse %}
     {%- for e in FEED limit: 15 -%}
     <item>
     <title>{{ e.title }}</title>

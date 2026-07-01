@@ -16,8 +16,11 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:title" content="{{ page.title | default: site.title }}" />
 
+
+{%- unless layout.nojs or page.nojs -%}
 <script src="/meta/js/global.js"></script>
-<script src="/meta/js/bootstrap.bundle.min.js" defer></script>
+{%- endunless -%}
+
 {%- unless layout.nocss or page.nocss -%}
 <link rel="stylesheet" href="/meta/css/global.css">
 {%- endunless -%}
@@ -28,7 +31,21 @@
 {%- endif -%}
 
 {% assign tags = site.keywords %}
+{% if layout.tags %}
+    {% assign tags = tags | concat: layout.tags | uniq %}
+{% endif %}    
 {% if page.tags %}
     {% assign tags = tags | concat: page.tags | uniq %}
 {% endif %}    
 <meta name="keywords" content="{{ tags | join: ',' }}">
+
+{%- if  page.previous.url -%}
+    <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
+{%- endif -%}
+{%- if  page.next.url -%}
+    <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
+{%- endif -%}
+
+{% if layout.category %}
+    <meta data-pagefind-filter="category:{{ layout.catergory }}">
+{% endif %}

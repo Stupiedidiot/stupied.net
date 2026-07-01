@@ -1,50 +1,47 @@
-// colors ================================
-
 @use "sass:map" as *;
+@use "sass:color" as *;
+
+// mixins ================================
 
 @function color($target) {
   @return map-get($colors, $target);
 }
 
-$colors: (
-  white-dk: #d5d8d9,
-  white: #ededed,
-  white-lt: #f6f6f6,
+$break: 600px;
+@mixin res ($type: m){
+    @if ($type == m){
+        @media only screen and (max-width: #{$break}) {
+            @content;
+        }
+    } @else {
+        @media only screen and (min-width: #{$break}) {
+            @content;
+        }
+    }
+}
 
-  brown-dk: #1c1716,
-  brown: #2a1f1d,
-  brown-lt: #362f2e,
-  
-  red: #f25235,
-  red-lt: #f6725a,
-  yellow: #fac150,
-  yellow-lt: #f6cf83,
+// colors ================================
+
+
+$colors: (
   blue: #16a2c2,
-  blue-lt: #4ebdd7
 );
 
 $themes: (
-  dark: (
-    text: white,
-    body: black,
-    first: color(brown-lt),
-    second: color(brown-dk),
-    third: color(brown),
-
-    red: color(red),
-    yellow: color(yellow),
-    blue: color(blue)
-  ),
   light: (
     text: black,
-    body: color(white-dk),
-    first: white,
-    second: color(white),
-    third: color(white-lt),
-
-    red: color(red),
-    yellow: color(yellow),
-    blue: color(blue)
+    body: white,
+    accent: color(blue),
+    accent-dk: mix(color(blue), black, 90%, lab),
+    accent-dker: mix(color(blue), black, 60%, lab),
+    accent-dkest: mix(color(blue), black, 30%, lab),
+    accent-lt: mix(color(blue), white, 80%),
+    accent-lter: mix(color(blue), white, 50%),
+    accent-ltest: mix(color(blue), white, 20%)
+  ),
+  dark: (
+    text: white,
+    body: black
   )
 );
 
@@ -54,7 +51,8 @@ $themes: (
 $font-display: "Grandstander";
 $font-body: "Chiron GoRound TC";
 
-$font-size-base: 1rem;
+$font-size-base: 1.2rem;
+$font-after: $font-size-base * 0.5;
 
 $font-sizes: (
   1: $font-size-base * 2.5,

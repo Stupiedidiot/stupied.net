@@ -1,46 +1,38 @@
-const_first:
-
-const_last:
-  # - title: Back to Top
-  #   icon: icon-arrow-thick-up
-  #   link: "#"
-
 default:
-  - title: Home 
-    icon: home
-    link: /
-  
+  # - title: Home
+  #   icon: home
+  #   link: /
+    
   - title: About
-    icon: mood-happy-outline
+    icon: information-outline
     link: /about/
   
   - title: Art
-    icon: camera
+    icon: photo
     link: /art/
   
   - title: Blog
     icon: compose
     link: /blog/
-  
+
   - title: Library
     icon: book-reference
     link: /lib/
 
-  - title: Chez
+  - title: Other
     icon: music-notes
-    link: /chez/
+    drop:
+      - title: Chez
+        icon: music-notes
+        link: /chez/
 
-  - title: Code
-    icon: printer
-    link: /code/
+      - title: Code
+        icon: printer
+        link: /code/
 
   - title: Outer
     icon: globe
     link: /outlinks/
-
-  - title: Head Back »
-    icon: star-full
-    func: history.back()  
 
 about:
   - title: Me!!!
@@ -115,31 +107,6 @@ blog:
   
   # - title: Head Back »
   #   link: /
-
-album:
-  - title: Home
-    icon: home
-    link: ./
-  
-  - title: About 
-    icon: mood-happy-outline
-    link: /about/#from-chez/album
-
-  - title: Archive 
-    icon: inbox-full
-    link: ./archive
-
-  - title: Random
-    icon: shuffle
-    func: randomImg()
-
-  - title: Others 
-    icon: photo
-    link: /chez/album/
-  
-  - title: Head Back »
-    icon: star-full
-    link: /
 
 footer:
   - title: RSS 
