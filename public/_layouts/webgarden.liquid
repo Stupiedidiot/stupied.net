@@ -1,0 +1,28 @@
+---
+layout: default
+nojs: true
+nocss: true
+---
+<!DOCTYPE html>
+<html lang="en-US" data-bs-theme="light">
+  
+<head>
+  {%- include head.html -%}
+  <link rel="stylesheet" href="/{{ page.path | split: '/' | pop | push: 'main.css' | join: '/' }}">
+  <style>
+        .plant {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+  {{ content }}
+</body>
+
+</html>
