@@ -1,6 +1,6 @@
 <header class="home" data-nosnippet>
     <div id="headerDoll"></div>
-    <div id="headerStamps">
+    <div id="headerStamps" class="bg-graphed">
         {%- assign recent = site.art | reverse | where_exp: "item", "item.date <= site.time" | first -%}
         {% assign recent_path = recent.path | getArtPath %}
         <div style="bottom: 52%; left: 3%;">

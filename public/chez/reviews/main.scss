@@ -135,7 +135,7 @@ main {
       padding: 0;
       color: inherit;
 
-      &:hover { color: var(--color);}
+      &:hover { color: var(--color-accent);}
   }
 }
 
@@ -152,7 +152,7 @@ main {
 #view::before{
   content: "X";
   display: block;
-  font-family: var(--display-font);
+  font-family: var(--font-display);
   position: fixed;
   top: 1rem;
   right: 1.5rem;
@@ -181,12 +181,12 @@ main {
 .view-desc img { max-width: 100%; }
 a.view-link {
   display: inline-block;
-  font-family: var(--display-font);
+  font-family: var(--font-display);
   font-weight: bold;
   position: relative;
   margin-bottom: 1rem;
 }
-a.view-link:hover {color: var(--color);}
+a.view-link:hover {color: var(--color-accent);}
 a.view-link:after {
     opacity: 0;
     transform: translateX(-100%);

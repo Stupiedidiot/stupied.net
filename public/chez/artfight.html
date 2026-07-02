@@ -5,7 +5,7 @@ layout: page
 <style>
 #af_stats {
   display: grid;
-  gap: 0.5rem;
+  gap: 1.5rem;
   grid-template-columns: 1fr;
 
   .af-item {
@@ -15,9 +15,9 @@ layout: page
   }
 
   .af-team {
-    background-color: black;
+    background-color: var(--color-accent-dkest);
     padding: 0.5rem;
-    color: white;
+    color: var(--color-accent-ltest);
     margin-bottom: 1px;
   }
 
@@ -36,7 +36,7 @@ layout: page
     width: 100%;
     padding: 0.5rem;
     box-sizing: border-box;
-    background-color: lightgray;
+    background-color: var(--color-accent-ltest);
     text-align: right;
 
     &::after {
@@ -48,7 +48,7 @@ layout: page
   }
 
   .af-stats-ratio .af-value {
-    background-color: var(--color);
+    background-color: var(--color-accent);
     width: var(--w);
   }
 }

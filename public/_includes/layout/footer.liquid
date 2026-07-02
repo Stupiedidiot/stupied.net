@@ -22,7 +22,8 @@
                     {% assign TAGS = site.tags | sort_tags %}
                     {% for item in TAGS limit: site.data.nav.footer.size %}
                         <li>
-                            <a href="/search/?tag={{ item.first }}">
+                            {% comment %} <a href="/search/?tag={{ item.first }}"> {% endcomment %}
+                            <a href="#">
                                 <span>{{ item | first }}</span>
                                 <span class="dash"></span>
                                 <span>{{ item | last | size }}</span>

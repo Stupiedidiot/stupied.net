@@ -15,7 +15,7 @@ body {
     overflow: hidden;
 }
 
-canvas { background-color: var(--color); }
+canvas { background-color: var(--color-accent); }
 
 main::after {
     content: "";
@@ -63,8 +63,8 @@ button {
 }
 
 .size {
-    font-family: var(--display-font);
-    color-accent: color-mix(in srgb, var(--color), white);;
+    font-family: var(--font-display);
+    color-accent: color-mix(in srgb, var(--color-accent), white);;
 }
 
 .selected {
@@ -79,7 +79,7 @@ footer {
     right: 1rem;
     a {
         font-weight: bold;
-        font-family: var(--display-font);
+        font-family: var(--font-display);
     }   
     a:hover { color: white; }
 }

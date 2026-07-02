@@ -16,26 +16,37 @@
 <meta property="og:url" content="{{ page.url | absolute_url }}" />
 <meta property="og:title" content="{{ page.title | default: site.title }}" />
 
-
 {%- unless layout.nojs or page.nojs -%}
     <script src="/meta/js/global.js"></script>
-
-    {% if layout.script %}
-        {% for item in layout.script %}
-            <script src="{{ item }}" defer></script>
-        {% endfor %}    
-    {% endif %}
-
-    {% if layout.script %}
-        {% for item in layout.script %}
-            <script src="{{ item }}" defer></script>
-        {% endfor %}    
-    {% endif %}
 {%- endunless -%}
+
+{% if layout.js %}
+    {% for item in layout.js %}
+        <script src="{{ item }}" defer></script>
+    {% endfor %}    
+{% endif %}
+
+{% if page.js %}
+    {% for item in page.js %}
+        <script src="{{ item }}" defer></script>
+    {% endfor %}    
+{% endif %}
 
 {%- unless layout.nocss or page.nocss -%}
     <link rel="stylesheet" href="/meta/css/global.css">
 {%- endunless -%}
+
+{% if layout.css %}
+    {% for item in layout.css %}
+        <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}    
+{% endif %}
+
+{% if page.css %}
+    {% for item in page.css %}
+        <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}    
+{% endif %}
 
 {%- if page.include_path -%}
     {% assign selected = page.include_path %}

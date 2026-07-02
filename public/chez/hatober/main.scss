@@ -1,9 +1,8 @@
-
-<style>
-{% capture scss %}
+---
+---
 body {
     --bg-color: black;
-    --color: red;
+    --color-accent: red;
     background-color: black;
     color: white;
 }
@@ -52,24 +51,23 @@ header ,footer {
     section:nth-child(1){ flex: 2; }
     section:nth-child(2){ flex: 5; }
 }
-
-.calender { box-sizing: border-box; margin: auto; user-select: none;}
-.calender > span { display: none; }
-.calender > li { list-style-position: inside; }
-.calender a[href="#"] { opacity: 0.3; }
-
 .calender {
     display: grid;
     padding-left: 0;
     padding: 0!important;
     grid-template-columns: repeat(2, 1fr);
-    font-family: var(--display-font);
+    font-family: var(--font-display);
+
+    box-sizing: border-box;
+    margin: auto;
+    user-select: none;
 
     > li {
         padding: 1rem;
         position: relative;
         border: 0.5px dotted;
         overflow: hidden;
+        list-style-position: inside;
     }
 
     > li::after {
@@ -99,6 +97,14 @@ header ,footer {
         transform: scale(120%);
         text-shadow: 0 0 3px;
     }
+
+    span { display: none; }
+    a[href="#"] { opacity: 0.3; }
+
+    @media only screen and (min-width: 450px) {
+        columns:2;
+    }
+
 }
 
 @media (min-width:900px) {
@@ -117,6 +123,3 @@ header ,footer {
         }
     }
 }
-{% endcapture %}
-{{ scss | scssify }}
-</style>

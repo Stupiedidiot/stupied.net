@@ -5,7 +5,7 @@ include_path: _/index.html
 ---
 <div id="container">
     <div id="home">
-        <a href="/index.html">
+        <a href="/index.html" title="Head Back Home">
             <img src="./img/hole.png" alt="">
         </a>
     </div>
@@ -59,40 +59,4 @@ include_path: _/index.html
             {% include lists/item.html where='tools' %}
         </div>
     </aside>
-    <footer class="default-nav black">
-        {%- include footer.html -%}
-    </footer>
 </div>
-<script>
-// get website's age
-const DATE_CURRENT = new Date().getTime()
-const DATE_CREATED = new Date("2023-04-06").getTime();
-
-const pageAge = Math.floor(( DATE_CURRENT - DATE_CREATED )/ 3.154e+10)
-document.getElementById("date").textContent = pageAge + " years old!!";
-
-const MOD_ELEM = document.getElementById("lastupdate");
-
-// get website's last update date
-// stole the code from here: https://dannarchy.com/tut/tut_002
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        var site_data = JSON.parse(this.responseText);
-        var date_obj = new Date(site_data.info.last_updated);
-        var date_mod=(new Date().getTime()- date_obj.getTime())/1000
-
-        // should probably change this
-        if (date_mod<60){date_mod=Math.floor(date_mod);if(date_mod===1){date_mod+=" second ago"}else{date_mod+=" seconds ago"}}
-        if (date_mod<3600){date_mod=Math.floor(date_mod/60);if(date_mod===1){date_mod+=" minute ago"}else{date_mod+=" minutes ago"}}
-        if (date_mod<86400){date_mod=Math.floor(date_mod/3600);if(date_mod===1){date_mod+=" hour ago"}else{date_mod+=" hours ago"}}
-        if (date_mod<31540000){date_mod=Math.floor(date_mod/86400);if(date_mod===1){date_mod+=" day ago"}else{date_mod+=" days ago"}}
-        if (date_mod>31540000){date_mod=Math.floor(date_mod/3.154e+10);if(date_mod===1){date_mod+=" year ago"}else{date_mod+=" years ago"}}
-
-        MOD_ELEM.textContent = date_mod;
-        MOD_ELEM.title = date_obj;
-    }
-};
-xhttp.open("GET", "https://weirdscifi.ratiosemper.com/neocities.php?sitename=stupied", true);
-xhttp.send();
-</script>

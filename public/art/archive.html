@@ -2,7 +2,12 @@
 layout: art
 title: Archive
 description: Every single art piece uploaded on this website
-include_path: _includes/head/archive.html
+
+css:
+  - /art/archive.css
+
+js:
+  - /art/archive.js
 
 filters:
   - title: Year
@@ -61,15 +66,15 @@ filters:
   <p class="art-archive-nojs-text">Have Javascript disabled? <a href="./archive-nojs">Click Here!</a><br></p>
 </article>
 
-<ul class="sub border-top">
+<ul id="archive_buttons" class="sub border-top">
     <li>
-        <button title="Current Microblog Archive" onclick="showEm(32)">
+        <button title="Show 32 More Artworks" onclick="showEm(32)">
             <span>[32] Load More</span>
         </button>
     </li>
 
     <li>
-        <button href="/blog/micro" title="Current Microblog Archive" onclick="showEm()">
+        <button title="Show All Artworks" onclick="showEm()">
             <span>Load Everything!</span>
         </button>
     </li>

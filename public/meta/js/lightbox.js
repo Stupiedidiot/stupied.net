@@ -18,7 +18,7 @@ lightbox.innerHTML = `
 `;
 
 // CHANGE THIS TO BE MORE GENERAL!!
-var images = document.querySelectorAll("header .header-thumb, #p_content img:not(.sign-off), .micro-post img");
+var images = document.querySelectorAll("header .header-thumb, #blog_content img:not(.sign-off), .micro-post img");
 for (let i = 0; i < images.length; i++) {
   let result = document.createElement("button");
   result.style.setProperty("--width", images[i].style.getPropertyValue("--width"));

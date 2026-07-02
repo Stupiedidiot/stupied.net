@@ -3,28 +3,26 @@ layout: blog
 ---
 
 {% capture title %}
-  <div id="blog-title">
+  <div id="blog_title">
       <h1 itemprop="name headline">{{ page.title | escape }}</h1>
   </div>
 {% endcapture %}
 
 {% capture date %}
-  <div id="blog-date">
-      <p class="post-meta">
-          <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-            {{ page.date | date: "%B %-d, %Y" }}
-          </time>
-      </p>
+  <div id="blog_date" class="h3 clr-accent">
+      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
   </div>
 {% endcapture %}
 
 <script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
 
 <article>
-  <header id="p_header" class="content" data-nosnippet>
+  <header id="blog_header" data-nosnippet>
   {%- if page.header -%}
-    <div id="header-img" style="--img:url({{ page.header }});"></div>
-    <div class="outline has-header" style="--color: var(--bg-color);"/>
+    <div id="blog_header_img" style="--img:url({{ page.header }});"></div>
+    <div class="outline has-header" style="--color: var(--color-body);"/>
       {{ title }}
     </div>
   {%- else -%}
@@ -38,7 +36,7 @@ layout: blog
   {{ date }}
   </header>
 
-  <div id="p_content">
+  <div id="blog_content" class="padded">
     {{ content }}
     <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
   </div>
@@ -55,7 +53,7 @@ layout: blog
       {% endif %}
       
       <li>
-          <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
+          <a href="/blog/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
       </li>
       
       {% if page.previous %}

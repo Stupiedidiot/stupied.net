@@ -9,9 +9,15 @@ layout: none
 </head>
 
 <body
-  {% if layout.category %}
-    class="{{ layout.category }}"
-  {% endif %}
+    class="
+      {%- if layout.category -%}
+        {{ layout.category }}
+      {%- endif -%}
+      
+      {%- if layout.bg -%}
+        {{ " default" }}
+      {%- endif -%}
+    "
 >
   {{ content }}
 </body>

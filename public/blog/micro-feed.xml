@@ -3,8 +3,8 @@ layout: rss
 title: Stupied's Microblog
 description: RSS Feed for my microblog ramblings
 ---
-{% assign DATA = site.micro %}
-{%- for item in DATA limit:15 reversed -%}
+{% assign DATA = site.micro | reverse %}
+{%- for item in DATA limit:15 -%}
   {% if item.path contains '_unpublished' %}
       {% continue %}
   {% endif %}

@@ -10,7 +10,7 @@ body.default {
     @extend %checkered;
 }
 
-#container {
+#container_default {
     display: grid;
     grid-template-columns: 1fr auto 2fr;
     grid-template-rows: auto 1fr;
@@ -75,6 +75,11 @@ body.default {
     }
 
     @extend %no-print;
+
+    a:hover {
+        color: var(--color-accent);
+        text-shadow: 0 0 8px black;
+    }
 }
 
 #divider {
@@ -155,38 +160,6 @@ body.default {
 
 #pagefind_thumbnail {
     display: none!important;
-}
-
-// layout =====================================
-
-.split {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
-
-    &-aside {
-        @extend %polka;
-        border-right: $border-dashed;
-        grid-area: 1 / 1 / 2 / 2;
-        max-width: 250px;
-        
-        &_content {
-            @extend %padded;
-            text-align: justify;
-        }
-    }
-
-
-    @include res(lg) {
-        grid-template-columns: 1fr;
-
-        &-aside {
-            border-right: 0;
-            border-top: $border-dashed;
-            grid-area: unset;
-            max-width: unset;
-        }
-    }
 }
 
 // art ========================================
@@ -296,6 +269,56 @@ body.default {
 }
 
 // blog =======================================
+// pls update everything </3
+#blog {
+    img {
+        width: 100%;
+    }
+
+    &_title {
+        position: relative;
+        padding: 0 $font-size-base;
+        margin-top: 0.5rem;
+        z-index: 1;
+        color: var(--color-text);
+    }
+
+    &_date {
+        padding: 0 $font-size-base;
+    }
+
+    &_header_img{
+        background-image: var(--img);
+        background-size: cover;
+        background-position: center;
+        aspect-ratio: 3/1;
+        position: relative;
+
+        &::after {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 5%; width: 100%;
+            left: 0; bottom: 0;
+            background: linear-gradient(#00000000,var(--color-body));
+        }
+    }
+    
+
+    .has-header {
+        margin-top: -1.5rem;
+    }
+
+    .sign-off {max-width: 200px;}
+
+    header img,
+    .micro-feed img,
+    .justified-gallery img,
+    &_content img,
+    p > img {
+        border-radius:8px;
+    }
+}
 
 .micro-feed {
     display: grid;
@@ -318,13 +341,13 @@ body.default {
 #micro_nav a {
     display: block;
     border-radius: 8px;
-    color: color-mix(in srgb, var(--color-text), var(--color-bg));
-    background-color: color-mix(in srgb, var(--color-bg) 90%, var(--color-text));
+    color: color-mix(in srgb, var(--color-text), var(--color-body));
+    background-color: color-mix(in srgb, var(--color-body) 90%, var(--color-text));
     padding: 0.5rem;
 
     &:hover {
         color: black;
-        background-color: color-mix(in srgb, var(--color-bg) 70%, var(--color-text));
+        background-color: color-mix(in srgb, var(--color-body) 70%, var(--color-text));
     }
 
     &:has(input:checked) {
@@ -469,5 +492,15 @@ body.default {
         width: 100%;
         height: auto;
         display: block;
+    }
+}
+
+// reviews ====================================
+
+
+#review {
+    p > img {
+        width: 100%;
+        border-radius: 8px;
     }
 }

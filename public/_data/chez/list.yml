@@ -12,17 +12,17 @@
 
 - label: Reviews
   items: 
-  - title: Animated Disney Films
+  - title: Disney Films
     link: /chez/reviews/disney
 
-  - title: All Things Donald Duck!
+  - title: Donald Duck!
     link: /chez/reviews/donald
 
   - title: Ace Attorney Games
     link: /chez/reviews/ace-attorney
 
   - title: Turbo FAST Episodes
-    link: /chez/reviews/turbo/
+    link: /chez/reviews/turbo
 
   - title: All Reviews
     link: /chez/reviews/
@@ -60,8 +60,8 @@
   - title: Calculator
     link: /chez/calc/
 
-  - title: Draw Box!! (TO DO)
-    link: /meta/construction
+  # - title: Draw Box!! (TO DO)
+  #   link: /meta/construction
     # link: /chez/drawbox/
 
   - title: Artfight Stats
@@ -70,11 +70,11 @@
   - title: Pig Latin
     link: /chez/pig-latin/
 
-  - title: Tomodachi Life Quiz (TO DO)
-    link: /meta/construction
+  # - title: Tomodachi Life Quiz (TO DO)
+  #   link: /meta/construction
 
-  - title: Things That Happened (TO DO)
-    link: /meta/construction
+  # - title: Things That Happened (TO DO)
+  #   link: /meta/construction
     # link: /chez/years/
 
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡

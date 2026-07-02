@@ -3,7 +3,7 @@ layout: page
 description: Yapping to the void
 category: blog
 
-script:
+js:
 - /blog/main.js
 
 nav:
@@ -26,4 +26,6 @@ nav:
 
 {% include_cached layout/subnav.liquid cat="blog" %}
 
-{{ content }}
+<div id="blog">
+  {{ content }}
+</div>
