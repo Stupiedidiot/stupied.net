@@ -6,7 +6,7 @@ layout: none
 @use "comments";
 @use "splash";
 
-body {
+body.default {
     @extend %checkered;
 }
 
@@ -157,16 +157,14 @@ body {
     display: none!important;
 }
 
-// art ========================================
+// layout =====================================
 
-#art {
-    &_container {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        grid-template-rows: 1fr
-    }
+.split {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
 
-    &_aside {
+    &-aside {
         @extend %polka;
         border-right: $border-dashed;
         grid-area: 1 / 1 / 2 / 2;
@@ -176,39 +174,42 @@ body {
             @extend %padded;
             text-align: justify;
         }
-
-        .archive {
-            h3, h4 {
-                display: inline;
-            }
-            details {
-                background-color: color-mix(in srgb, var(--color-body) 60%, transparent);
-                border: 1px solid var(--color-accent-dker);
-                border-radius: 4px;
-                padding: 0.5rem;
-
-                margin-bottom: 0.5rem;
-                text-align: left;
-                > details:first-of-type { margin-top: 0.5rem; }
-                > details:last-child { margin-bottom: 0; }
-                
-                label {
-                    color: var(--color-accent-dkest);
-                }
-            }
-        }
     }
 
-    @include res(lg) {
-        &_container {
-            grid-template-columns: 1fr;
-        }
 
-        &_aside {
+    @include res(lg) {
+        grid-template-columns: 1fr;
+
+        &-aside {
             border-right: 0;
             border-top: $border-dashed;
             grid-area: unset;
             max-width: unset;
+        }
+    }
+}
+
+// art ========================================
+
+#art {
+    &_aside .archive {
+        h3, h4 {
+            display: inline;
+        }
+        details {
+            background-color: color-mix(in srgb, var(--color-body) 60%, transparent);
+            border: 1px solid var(--color-accent-dker);
+            border-radius: 4px;
+            padding: 0.5rem;
+
+            margin-bottom: 0.5rem;
+            text-align: left;
+            > details:first-of-type { margin-top: 0.5rem; }
+            > details:last-child { margin-bottom: 0; }
+            
+            label {
+                color: var(--color-accent-dkest);
+            }
         }
     }
 

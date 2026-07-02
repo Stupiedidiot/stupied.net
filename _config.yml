@@ -49,6 +49,12 @@ defaults:
       layout: reviews
 
   - scope:
+      type: reviews
+      path: "**/f/"
+    values:
+      category: completed
+
+  - scope:
       type: posts
     values:
       layout: post
