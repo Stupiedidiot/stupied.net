@@ -2,6 +2,12 @@
 layout: none
 ---
 const WARNED = localStorage.getItem("warned");
+const THEME = localStorage.getItem("theme");
+
+if (THEME) {
+  themeToggle(THEME);
+}
+
 
 if (
   WARNED != "true" &&
@@ -28,12 +34,10 @@ if (
   }
 }
 
-function themeToggle() {
-    let e = document.querySelector('html')
-    if (e.dataset.bsTheme == "dark")
-        e.dataset.bsTheme = "light";
-    else
-        e.dataset.bsTheme = "dark";
+function themeToggle(theme) {
+  let e = document.querySelector('html')
+  e.dataset.bsTheme = theme;
+  localStorage.setItem("theme", theme);
 }
 
 var STICKY_CLIKED;

@@ -19,13 +19,15 @@
 }
 
 $first_name: nth(map.keys($themes), 1);
-$first_theme: nth(map.values($themes), 1);
+$first_theme: map.get(nth(map.values($themes), 1), 'colors');
 $first_props: map.keys($first_theme);
 
 :root, [data-bs-theme="#{$first_name}"] {
   --font-size: #{$font-size-base};
   --font-display: #{$font-display};
   --font-body: #{$font-body};
+  
+  --img: url(/meta/img/#{$first_name}.jpg);
   @include loopValues("color-", $colors);
   @include loopValues("color-", $first_theme);
 }
@@ -34,7 +36,8 @@ $index: 1;
 @each $name, $value in $themes {
   @if $index > 1 {
     [data-bs-theme="#{$name}"] {
-      @include loopValues("color-", $value);
+      --img: url(/meta/img/#{$name}.jpg);
+      @include loopValues("color-", map.get($value, 'colors'));
     }
   } @else {
     $index: $index + 1;
@@ -43,4 +46,12 @@ $index: 1;
 
 @each $name in $first_props {
   @include classes($name);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
 }

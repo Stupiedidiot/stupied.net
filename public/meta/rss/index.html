@@ -6,7 +6,7 @@ include_path: _head.html
 ---
 <article id="board">
     <h1 class="outline">The Now!</h1>
-    <div id="main" class="note">
+    <div id="art" class="note">
         {%- assign item = site.art | where_exp: "item", "item.date <= site.time" | last -%}
         <img src="/art/img/{{ item.path | getArtPath | append: '.' | append: item.ext }}" alt="">
     </div>
@@ -26,7 +26,7 @@ include_path: _head.html
 <article id="feeds" class="padded">
     <h2>The RSS Feeds</h2>
     <p>Yeah I have a handful of RSS Feeds lol. As per usual, it's still a wip and I promise to make this page prettier in the future. I recommend something like <a href="https://fraidyc.at/">fraidyc.at</a> to keep up with em!</p>
-    <section id="feeds_content" class="db-list">
+    <section id="feeds_content" class="newspaper">
         {%- for item in site.data.code.feeds -%}
         <a href="{{ item.link }}" class="rss-item">
             <h3>{{ item.title }}</h3>

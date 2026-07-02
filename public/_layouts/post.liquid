@@ -12,48 +12,64 @@ layout: blog
   <div id="blog-date">
       <p class="post-meta">
           <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-          {%- assign date_format = site.minima.date_format | default: "%B %-d, %Y" -%}
-          {{ page.date | date: date_format }}
+            {{ page.date | date: "%B %-d, %Y" }}
           </time>
-          {%- if page.author -%}
-          • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-          {%- endif -%}
       </p>
   </div>
 {% endcapture %}
 
 <script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
+
 <article>
-  <header id="p_header" class="main-content" data-nosnippet>
-	{%- if page.header -%}
+  <header id="p_header" class="content" data-nosnippet>
+  {%- if page.header -%}
     <div id="header-img" style="--img:url({{ page.header }});"></div>
     <div class="outline has-header" style="--color: var(--bg-color);"/>
       {{ title }}
     </div>
-	{%- else -%}
+  {%- else -%}
     {%- if page.before -%}
       {{ page.before | raw }}
     {% else %}
       <img class="header-thumb" src="{{ page.thumbnail }}" alt="">
     {%- endif-%}
     {{ title }}
-	{%- endif -%}
+  {%- endif -%}
   {{ date }}
   </header>
 
-  <div id="p_content" class="main-content">
+  <div id="p_content">
     {{ content }}
-
     <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
   </div>
-
-  <div id="p_nav" class="main-content">
-    {%- include blog/nextprev.html -%}
-  </div>
-
-  <div id="blog_comments" class="padded">
-    {% include widget/giscus.html category="Blog" %}
-  </div>
-  
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
+
+  <ul id="art_nextprev"class="sub border-x">
+      {% if page.next %}
+          <li>
+              <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
+                  <span class="icon-arrow-thin-left"></span>
+                  <span>Next</span>
+              </a>
+          </li>
+      {% endif %}
+      
+      <li>
+          <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
+      </li>
+      
+      {% if page.previous %}
+          <li>
+              <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
+                  <span>Prev</span>
+                  <span class="icon-arrow-thin-right"></span>
+              </a>
+          </li>
+      {% endif %}
+  </ul>
+
+<div id="blog_comments" class="padded">
+  {% include widget/giscus.html category="Blog" %}
+</div>
+
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

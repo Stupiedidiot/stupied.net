@@ -1,11 +1,11 @@
 <div id="sidebar" data-nosnippet>
     <div id="sidebar_wrapper">
         <nav id="sidebar_nav">
-            <span class="h1">{{ site.title }}</span>
+            <a href="/" class="h1" title="{{ site.title }}">{{ site.title }}</a>
             <ul class="toc">
                 {% for item in site.data.nav.default %}
                     <li>
-                        <a href="{{ item.link }}">
+                        <a href="{{ item.link }}" title="{{ item.title }}">
                             <span>{{ item.title }}</span>
                             <span class="dash"></span>
                             <span class="icon-{{ item.icon }}"></span>

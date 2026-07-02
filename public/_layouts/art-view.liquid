@@ -2,19 +2,26 @@
 layout: art
 view: true
 ---
-<article id="art_details" class="main-content">
-  <div id="art_details_content">
-    <h1 id="art_title">{{ page.title }}</h1>
-    <div id="art_desc">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        {% assign test = content | strip %}
-            {% if test != '' %}
-            {{ content }}
-        {% endif %}
+
+<article id="art_details">
+    <div id="art_details_content">
+        <h1 id="art_title">
+            <span>{{ page.title }}</span>    
+        </h1>
+
+        <div id="art_desc" class="padded">
+            <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+            </time>
+
+            {% assign test = content | strip %}
+                {% if test != '' %}
+                {{ content }}
+            {% endif %}
+        </div>
     </div>
-</div>
 </article>
 
-<article class="main-content">
+<article class="content">
   {% include widget/giscus.html category="Art" %}
 </article>

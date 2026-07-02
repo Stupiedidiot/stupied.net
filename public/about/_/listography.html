@@ -8,22 +8,7 @@
     --border-radius: 10px;
 }
 
-body {
-    background-image: url(./img/bg.png);
-    min-width: 300px;
-}
-
-main {
-    min-height: 100vh;
-    margin-bottom: 1rem;
-}
-
 img { max-width: 100%; display: block; }
-
-#container {
-    width: 95%;
-    margin: auto;
-}
 
 #info {
     margin-bottom: 1rem; padding: 1rem;
@@ -130,15 +115,6 @@ button { padding: 0.5rem;}
 
 .justified-gallery {margin-bottom: var(--gap);}
 
-footer.default-nav {
-    --txt-color: black;
-    background-color: var(--color);
-    margin-bottom: 0;
-    padding: 1rem;
-    border-top: var(--border);
-}
-
-footer.default-nav a:hover{color: white!important;}
 .justified-gallery {margin-bottom: var(--space);}
 {% endcapture %}
 {{ scss | scssify }}

@@ -1,26 +1,23 @@
 default:
-  # - title: Home
-  #   icon: home
-  #   link: /
-    
   - title: About
     icon: information-outline
     link: /about/
   
   - title: Art
-    icon: photo
+    icon: camera
     link: /art/
   
   - title: Blog
-    icon: compose
+    icon: chat
     link: /blog/
 
-  - title: Library
+  - title: Comics
     icon: book-reference
     link: /lib/
 
   - title: Other
-    icon: music-notes
+    icon: globe
+    link: /other
     drop:
       - title: Chez
         icon: music-notes
@@ -30,101 +27,19 @@ default:
         icon: printer
         link: /code/
 
-  - title: Outer
-    icon: globe
-    link: /outlinks/
-
-about:
-  - title: Me!!!
-    icon: mood-happy-outline
-    link: /about/
-  
-  - title: Website
-    icon: network
-    link: /about/website
-  
-  - title: Artwork
-    icon: camera
-    link: /about/art
-
-  - title: OCS
-    icon: film
-    link: /about/ocs
-
-  - title: FAQ
-    icon: news-paper
-    link: /about/faq
-
-  - title: Head Back »
-    icon: star-full
-    link: /  
-
-art:
-  - title: Home
-    icon: home
-    link: /art/
-
-  - title: About 
-    icon: mood-happy-outline
-    link: /about/#from-art
-
-  - title: Archive 
-    icon: inbox-full
-    link: /art/archive
-  
-  - title: Random
-    icon: shuffle
-    func: randomArt()
-
-  - title: Usage
-    icon: news-paper
-    link: /about/art#usage
-  
-  - title: Head Back »
-    icon: star-full
-    link: /
-
-blog:
-  - title: Home
-    icon: home
-    link: /blog/
-  
-  - title: About 
-    icon: mood-happy-outline
-    link: /about/#from-blog
-
-  - title: Archive 
-    icon: inbox-full
-    link: /blog/archive
-
-  - title: Micro
-    icon: chat-bubble-dots
-    link: /blog/micro
-
-  - title: Random
-    icon: shuffle
-    func: randomPost()
-  
-  # - title: Head Back »
-  #   link: /
-
 footer:
-  - title: RSS 
-    icon: rss-solid
-    link: /meta/rss/
-  
-  - title: FAQ
-    icon: question
+  - title: Frequently Asked
+    icon: news-paper
     link: /about/faq
+
+  - title: Guestbook
+    icon: envelope
+    link: /guestbook
 
   - title: Map
     icon: map
     link: /map/
-  
-  - title: Ko-fi
-    icon: coffee
-    link: https://ko-fi.com/stupied 
-  
-  - title: Guestbook
-    icon: envelope
-    link: /guestbook
+    
+  - title: RSS 
+    icon: rss-solid
+    link: /meta/rss/

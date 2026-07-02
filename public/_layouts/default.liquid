@@ -8,7 +8,11 @@ layout: none
   {%- include head.html -%}
 </head>
 
-<body>
+<body
+  {% if layout.category %}
+    class="{{ layout.category }}"
+  {% endif %}
+>
   {{ content }}
 </body>
 

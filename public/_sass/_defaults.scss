@@ -2,6 +2,7 @@
 @use "root";
 @use "classes";
 @use "lightbox";
+@use "codeblocks";
 @use "fonts";
 @use "icons";
 
@@ -21,9 +22,9 @@ body{
 
 %heading {
     margin: 0;
-    display: inline-block;
+    display: block;
     font-family: var(--font-display);
-    font-weight: bold;
+    font-weight: bold;  
 }
 
 @each $name, $value in $font-sizes {
@@ -31,11 +32,25 @@ body{
         @extend %heading;
         font-size: #{$value};
     }
+
+    .h#{$name} {
+        display: inline-block;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 p, ol, ul, blockquote {
   margin: 0;
   margin-bottom: $font-after;
+}
+
+p a {
+    color: var(--color-accent);
+    text-decoration: underline;
 }
 
 ul li {
@@ -51,11 +66,34 @@ hr {
     border: unset;
     border-top: 3px dotted;
     opacity: 0.3;
-    margin: #{$font-size-base * 1.5} 0;
+    margin: $font-size-base 0;
 }
 
 img {
-    display: block;
     max-width: 100%;
     margin: auto;
+}
+
+button,
+select {
+    background-color: var(--color-accent-lter);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent-dkest);
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+
+blockquote,
+.blockquote {
+    font-style: italic;
+    background: var(--color-accent-ltest);
+    padding: 0.5rem 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--color-accent);
+    
+    p {
+        margin-top: $font-after;
+    }
 }

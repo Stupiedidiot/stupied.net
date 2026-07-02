@@ -1,45 +1,29 @@
 ---
-layout: none
+layout: page
+description: Yapping to the void
+category: blog
+
+script:
+- /blog/main.js
+
+nav:
+  - title: Home
+    icon: home
+    link: /blog/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /blog/archive
+
+  - title: Micro
+    icon: chat
+    link: /blog/micro
+
+  - title: Random
+    icon: shuffle
+    func: randomPost()
 ---
-<!DOCTYPE html>
-<html lang="en-US">
 
-<head>
-    {%- include head.html -%}
-    <link rel="stylesheet" href="/blog/main.css">
-    <script type="text/javascript" src="/blog/main.js" defer></script>
-    
-    {%- if  page.previous.url -%}
-      <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
-    {%- endif -%}
-    {%- if  page.next.url -%}
-        <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
-    {%- endif -%}
-    <meta data-pagefind-filter="category:blog">
-</head>
+{% include_cached layout/subnav.liquid cat="blog" %}
 
-<body>
-    {%- include_cached widget/sticky.html -%}
-    <header></header>
-    <div id="container">
-        <aside data-nosnippet>
-            <div>
-                <a href="/blog/index"><img src="/meta/pfp-transparent.png" alt=""/></a>
-                <div>
-                    <nav>
-                        {%- include_cached nav.liquid data = site.data.nav.blog -%}
-                    </nav>
-                    <a href="/index.html">✮ head back »</a>
-                </div>
-            </div>
-        </aside>
-        <main>
-            {{ content }}
-            <footer class="default-nav" data-nosnippet>
-                {%- include_cached footer.html -%}
-            </footer>
-        </main>
-    </div>
-</body>
-
-</html>
+{{ content }}

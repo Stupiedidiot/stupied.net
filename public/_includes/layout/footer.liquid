@@ -2,7 +2,7 @@
     <nav id="footer_nav">
         <div class="newspaper">
             <div>
-                <span class="h5">Navigation</span>
+                <span class="h5">Hell Yeah</span>
                 <ul class="toc">
                     {% for item in site.data.nav.footer %}
                         <li>
@@ -20,7 +20,7 @@
                 <span class="h5">Most Used Tags</span>
                 <ul class="toc">
                     {% assign TAGS = site.tags | sort_tags %}
-                    {% for item in TAGS limit: 5 %}
+                    {% for item in TAGS limit: site.data.nav.footer.size %}
                         <li>
                             <a href="/search/?tag={{ item.first }}">
                                 <span>{{ item | first }}</span>
@@ -34,7 +34,14 @@
         </div>
 
         <hr>
-        <p>Coded with Impulsivity!! - since <span class="h6">2023</span></p>
-
+        <div id="theme_switcher">
+            <label for="themeToggler" class="h6">Theme:</label>
+            <select name="themeToggler" id="themeToggler" onchange="themeToggle(this.value)">
+                <option disabled selected>Select theme!</option>
+                {% for item in site.themes %}
+                    <option value="{{ item.id }}">{{ item.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
     </nav>
 </footer>

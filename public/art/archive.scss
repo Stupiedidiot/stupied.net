@@ -41,10 +41,6 @@ layout: none
     width: 100%;
   }
 }
-.art-archive-options {
-  display: flex;
-  flex-wrap: wrap;
-}
 .art-archive-item {
   display: block;
   margin-bottom: 0.5rem;
@@ -117,14 +113,6 @@ layout: none
 .strict-hidden { display: none; }
 
 .filtered.strict .strict-hidden { display: block; padding: 3rem 1rem; }
-
-.art-archive-options label {
-    display: inline-flex;
-    margin-right: 0.5rem;
-    padding: 0%;
-}
-
-
 @media only screen and (max-width: 500px) {
     .art-archive.second {display: none;}
 }

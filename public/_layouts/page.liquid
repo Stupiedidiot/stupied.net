@@ -1,51 +1,24 @@
 ---
 layout: default
-
-# nav:
-#   - title: Info
-#     icon: information-outline
-#     link: /art/
-
-#   - title: Archive 
-#     icon: inbox-full
-#     link: /art/archive
-  
-#   - title: Random
-#     icon: shuffle
-#     func: randomArt()
-
-#   - title: Usage
-#     icon: news-paper
-#     link: /about/art#usage
 ---
-{%- include_cached widget/sticky.html -%}
-<div id="container" class="default {{ page.class | default: layout.class }}">
+
+{% include_cached layout/sticky.html %}
+
+<div id="container">
+    <!-- sidebar srt -->
+        {% include_cached layout/sidebar.liquid %}
+    <!-- sidebar end -->
     
-    {% unless page.no_nav %}
-        <div>
-            <div id="nav_root" class="ribbon" data-nosnippet>
-                <nav class="default-nav">
-                    {%- include_cached nav.liquid data = site.nav -%}
-                </nav>
-            </div>
-            
-            {% if layout.nav %}
-                <div id="nav_sub" data-nosnippet>
-                    <nav class="default-nav">
-                        {%- include_cached nav.liquid data = layout.nav -%}
-                    </nav>
-                </div>
-            {% endif %}
-        </div>
-    {% endunless %}
+    <div id="divider"></div>
 
-    <div id="container_content">
-        {{ content }}
+    <div id="main">
+        
+        <main id="main_wrapper">
+            {{ content }}
+        </main>
+        
+        <!-- footer srt -->
+            {% include_cached layout/footer.liquid %}
+        <!-- footer end -->
     </div>
-
-    <footer id="nav_foot" class="ribbon" data-nosnippet>
-        <nav class="default-nav">
-            {%- include_cached footer.html -%}
-        </nav>
-    </footer>
 </div>

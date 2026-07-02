@@ -2,7 +2,7 @@
 
 title: About My Art
 ---
-<img src="/art/img/26/doodle/Elementary.jpg" alt="" style="max-width:220px; filter: hue-rotate(185deg);" class="float-right">
+
 # {{ page.title }}
 I have making art since forever. Honestly cannot recall a time I was never not drawing and writing stories. Art has always played an important role in my life. It has help me compartmentalized my experiences. Genuinely don't know what I'd be doing without it. 
 
@@ -41,6 +41,7 @@ I will be very sad...
 I only make art for people who make me happy and those who give me money. If you are neither of those, then alams na ka :)
 
 Also I'm an incredibly paranoid person so sorry if I don't respond quickly,,,
+
 <script>
 var previous = document.URL;
 if(previous.includes("#from-") === true){

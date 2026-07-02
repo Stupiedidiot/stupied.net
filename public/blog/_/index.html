@@ -1,4 +1,6 @@
+
 <style>
+{% capture css %}
 #hell-yeah{
     display: flex;
     gap:10px;
@@ -6,58 +8,62 @@
 }
 
 
-#blog{
-    background:var(--color);
+#status {
+    background:var(--color-accent);
     position: relative;
     overflow:hidden;
     border: 3px solid black;
     max-width:200px;
     user-select: none;
+    color: black;
+
+    &_design{
+       min-height:100px;
+        height:100%;
+
+        img{
+            margin-top:10px;
+            width:100%;
+            height: auto;
+            z-index:1;
+        }
+
+        h1{
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            color:white;
+            z-index:2;
+        }
+    }
+    &_content {
+        background-color:white;
+        border-radius:0 0 50% 50%;
+        border-top:0;
+        transform:scaleX(200%);
+        border:3px solid black;
+        border-top:0;
+    }
 }
 
-#blog #blogDesign{
-    min-height:100px;
-    height:100%;
-}
-
-#blog #blogDesign img{
-    margin-top:10px;
-    width:100%;
-    height: auto;
-    z-index:1;
-}
-
-#blog h1{
-    position:absolute;
-    bottom:10px;
-    right:10px;
-    color:white;
-    z-index:2;
-}
-#micro{
-    background-color:white;
-    border-radius:0 0 50% 50%;
-    border-top:0;
-    transform:scaleX(200%);
-    border:3px solid black;
-    border-top:0;
-}
 
 #statuscafe {
     padding:2rem 1rem;
     transform:scaleX(50%);
-}
-#statuscafe-username{
-    font-family:grandstander;
-    font-weight: bold;
-}
-#statuscafe-username a{display:none;}
 
-#doll { max-width:300px; }
+    &-username {
+        font-family:grandstander;
+        font-weight: bold;
+
+        a {
+            display:none;
+        }
+    }
+}
 
 @media only screen and (max-width: 700px) {
     #hell-yeah{ display: block; }
-    #blog{
+    #micro{
         margin: auto;
         margin-bottom: 2rem;
         max-width: 250px;
@@ -70,5 +76,7 @@
     gap:0.5rem 2rem;
 }
 
-#other a:hover { color: var(--color); }
+#other a:hover { color: var(--color-accent); }
+{% endcapture %}
+{{ css | scssify }}
 </style>

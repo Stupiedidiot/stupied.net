@@ -3,6 +3,7 @@ layout: none
 ---
 @use "vars" as *;
 @use "defaults";
+@use "comments";
 @use "splash";
 
 body {
@@ -19,7 +20,7 @@ body {
     width: 100%;
     max-width: 1440px;
     min-height: 100vh;
-    outline: 3px solid;
+    outline: 3px solid black;
     
     @include res {
         grid-template-columns: 1fr;
@@ -37,15 +38,17 @@ body {
 
     width: 100%;
     height: 100vh;
-    background: url(/art/img/26/Pagsure.jpg);
+    background: var(--img);
     background-size: cover;
     background-position: center right;
+    background-color: var(--color-accent);
 
     border-right: 3px solid black;
     
+    $p: 0.8rem;
     &_wrapper {
         width: 100%;
-        padding: 0.8rem;
+        padding: $p;
         padding-top: 2rem;
         background: linear-gradient(transparent 10%, black);
         overflow: auto;
@@ -66,26 +69,29 @@ body {
         height: auto;
         position: static;
         &_wrapper {
+            padding-top: $p;
             max-height: unset;
         }
     }
+
+    @extend %no-print;
 }
 
 #divider {
     $s: 1.5rem;
-    $b: 3px solid var(--color-accent-dk);
-    border-right: $b;
+    border-right: $border;
     width: $s;
 
     @extend %stripped;
 
     @include res {
         border-right: none;
-        border-bottom: $b;
+        border-bottom: $border;
         width: 100%;
         height: $s;
     }
 
+    @extend %no-print;
 }
 
 #main {
@@ -95,20 +101,33 @@ body {
     width: 100%;
     
     &_wrapper {
+        min-width: 0;
     }
+}
+
+#subnav {
+    border-bottom: 2px solid var(--color-accent-dk);
 }
 
 #footer {
     @extend %padded;
+    @extend %graphed;
+    
     border-top: 2px solid var(--color-accent-dk);
-    background-color: var(--color-accent-lter);
-    color: var(--color-accent-dk);
+    color: var(--color-accent-dkest);
 
     a {
         color: inherit;
         text-decoration: none;
     }
+
+    ul {
+        color: var(--color-accent-dker);
+    }
+    @extend %no-print;
 }
+
+// search =====================================
 
 #search {
     margin: 1rem 0;
@@ -136,4 +155,307 @@ body {
 
 #pagefind_thumbnail {
     display: none!important;
+}
+
+// art ========================================
+
+#art {
+    &_container {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr
+    }
+
+    &_aside {
+        @extend %polka;
+        border-right: $border-dashed;
+        grid-area: 1 / 1 / 2 / 2;
+        max-width: 250px;
+        
+        &_content {
+            @extend %padded;
+            text-align: justify;
+        }
+
+        .archive {
+            h3, h4 {
+                display: inline;
+            }
+            details {
+                background-color: color-mix(in srgb, var(--color-body) 60%, transparent);
+                border: 1px solid var(--color-accent-dker);
+                border-radius: 4px;
+                padding: 0.5rem;
+
+                margin-bottom: 0.5rem;
+                text-align: left;
+                > details:first-of-type { margin-top: 0.5rem; }
+                > details:last-child { margin-bottom: 0; }
+                
+                label {
+                    color: var(--color-accent-dkest);
+                }
+            }
+        }
+    }
+
+    @include res(lg) {
+        &_container {
+            grid-template-columns: 1fr;
+        }
+
+        &_aside {
+            border-right: 0;
+            border-top: $border-dashed;
+            grid-area: unset;
+            max-width: unset;
+        }
+    }
+
+    &_title {
+        width: 100%;
+        background: linear-gradient(90deg, var(--color-accent), var(--color-body));
+        padding: 1rem;
+    }
+
+    &_tags {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-position: inside;
+        gap: 0.5rem;
+        margin-left: 0;
+        padding-left: 0;
+    }
+}
+
+.art-archive-options {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+      display: inline-flex;
+      margin-right: 0.5rem;
+      padding: 0%;
+  }
+}
+
+.art-related {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid;
+    background-color: white;
+    transition: 0.2s;
+
+    &:hover {
+        outline: 3px solid var(--color-accent);
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+#art_viewer {
+    --selected: url(/meta/img/clouds.jpg);
+    display:flex; align-content: center;
+    background-color: black;
+    position: relative;
+    overflow: hidden;
+    &::before {
+        z-index: 0;
+        content: "";
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-image: var(--selected);
+        background-size: cover;
+        filter: saturate(0%) brightness(15%) blur(5px);
+    }
+
+    #image {
+        position: relative;
+        z-index: 1;
+        margin: auto;
+        text-align: center;
+    }
+
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: auto;
+    }
+}
+
+#art_index {
+    display: none;
+}
+
+// blog =======================================
+
+.micro-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+
+#micro_tags,
+#micro_nav {
+    user-select: none;
+    font-family: var(--display-font);
+    padding-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+#micro_tags label,
+#micro_nav a {
+    display: block;
+    border-radius: 8px;
+    color: color-mix(in srgb, var(--color-text), var(--color-bg));
+    background-color: color-mix(in srgb, var(--color-bg) 90%, var(--color-text));
+    padding: 0.5rem;
+
+    &:hover {
+        color: black;
+        background-color: color-mix(in srgb, var(--color-bg) 70%, var(--color-text));
+    }
+
+    &:has(input:checked) {
+        color: white;
+        background-color: var(--color-accent);
+    }
+
+    &:first-child {
+        color: white;
+        background-color: black;
+    }
+
+    input {
+        appearance: none;
+    }
+}
+
+#micro_tags label{
+    padding-left: 0;
+}
+
+.micro-post {
+    border-radius: 8px;
+    border: 1px solid;
+    padding: 1rem;
+
+    h2 {
+        border-bottom: var(--border);
+        margin-bottom: 1rem;
+        span {
+            color: var(--color-accent);
+
+            &::before {
+                content: "»";
+                display: inline-block;
+                margin: 0 0.5rem;
+                color: var(--color-text);
+            }
+        }
+    }
+
+    details {
+        &[open] summary {
+            margin-bottom: 1rem;
+        }
+        summary {
+            font-family: var(--display-font);
+        }
+    }
+}
+
+.micro-tags {
+    border-top: var(--border);
+    padding-top: 1rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: right;
+    margin-top: 1rem;
+    
+    button {
+        color: var(--color-accent-dker);
+        background-color: var(--color-accent-lter);
+        border: 1px solid;
+
+        font-size: #{$font-size-base * 0.8};
+        display: inline-block;
+        border-radius: 8px;
+        border: none;
+        &::before {
+            content: "#";
+        }
+    }
+}
+
+.tagged:has(input:checked) .micro-post,
+.tagged:has(input:checked) .timeline-item
+ {display: none;}
+
+.tagged:has(#all:checked) .micro-post,
+{% for e in site.data.blog.micro.tags %}
+    .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"],
+{% endfor %}
+
+.tagged:has(#all:checked) .timeline-item,
+{% for e in site.tags %}
+    {% assign tag = e | first %}
+    .tagged:has(#{{ tag }}:checked) .timeline-item[class~="{{ tag }}"]
+    {%- unless forloop.last -%},{%- endunless -%}
+{% endfor %}
+{display: block;}
+
+.tagged-list {
+    h2 {
+        display: inline-block;
+        span {
+            color: white;
+        }
+    }
+    
+    details {
+        border: 1px solid;
+        margin-bottom: 0.5rem;
+
+        > summary {
+            background-color: var(--color-accent);
+            padding: 0.3rem;
+        }
+
+        &[open] {
+            > summary {
+                border-bottom: 1px solid;
+            }
+            
+            > div {
+                padding: 0.8rem;
+            }
+        }
+
+        ul {
+            padding-left: 0;
+            margin-left: 0;
+            list-style-position: inside;
+
+            span {
+                font-weight: bold;
+                color: gray;
+                background-color: rgb(235, 235, 235);
+                margin-bottom: 0.5rem;
+                border-radius: 1rem;
+                border: 0;
+            }
+        }
+    }
 }

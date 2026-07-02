@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 ---
 <header id="info">
     <div>
@@ -7,26 +7,21 @@ layout: default
         <p>This page is inspired by <a href="https://listography.com/">listography.com</a>, where you make list of whatever. These lists are mostly about stuff I like and things I want to keep pinned. It is constantly updating whenever :3</p>
     </div>
 </header>
-<div id="container">
-    <main id="lists">
-        <div>
-            <h2>Table of Contents</h2>
-            <ul id="table"></ul>
-            <a href="/">Head Back »</a>
-        </div>
-        {{ content }}
-        <div>
-            <h2>Okay that's all!</h2>
-            <ul>
-                <li><a href="#table">Back to Top</a></li>
-                <li><a href="/">Head Back</a></li>
-            </ul>
-        </div>
-    </main>
+<div id="lists">
+    <div>
+        <h2>Table of Contents</h2>
+        <ul id="table"></ul>
+        <a href="/">Head Back »</a>
+    </div>
+    {{ content }}
+    <div>
+        <h2>Okay that's all!</h2>
+        <ul>
+            <li><a href="#table">Back to Top</a></li>
+            <li><a href="/">Head Back</a></li>
+        </ul>
+    </div>
 </div>
-<footer class="default-nav" data-nosnippet>
-    {%- include_cached footer.html -%}
-</footer>
 
 <script>
 const LISTS = document.querySelectorAll("#lists > div:has(h2)")

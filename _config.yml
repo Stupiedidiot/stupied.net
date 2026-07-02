@@ -3,6 +3,12 @@ title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
 keywords: [stupied,art,comics,blog,ocs]
 
+themes:
+- id: light
+  title: Tres...?
+- id: dark
+  title: Stu-DYING!
+
 # Build settings
 source: public
 destination: _site

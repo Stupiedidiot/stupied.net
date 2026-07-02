@@ -1,11 +1,12 @@
+<!-- Sandy for the love of god, update this -->
 <style>
 {% capture css %}
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
-#comicContainer .item-container{
-    .psych{
+#comicContainer .item-container {
+    .psych {
         --display-font:"Barriecito";
         overflow: hidden;
         color:white;
@@ -27,38 +28,50 @@
         --yellow:#efe4b0;
         --light-pink:#edb18b;
         --pink:#ed4d46;
+        color: black;
         background-color: var(--yellow);
         background-size: 20px 20px;
         background-image: 
         repeating-linear-gradient(0deg, var(--light-pink), var(--light-pink) 2px, var(--yellow) 2px, var(--yellow));
-    }
 
-    .muse .item-thumb{
-        flex:0;
-        position: relative;
-        img{
-            position: absolute;
-            width:5rem;
-            height: unset;
-            z-index:1;
-            transform: scale(130%) rotate(-15deg) translateX(-10%);
-            filter: drop-shadow(1px 0 0 var(--yellow)) drop-shadow(-1px 0 0 var(--yellow)) drop-shadow(0 1px 0 var(--yellow)) drop-shadow(0 -1px 0 var(--yellow));
+        .item-thumb{
+            flex:0;
+            position: relative;
+            img{
+                position: absolute;
+                width:5rem;
+                height: unset;
+                z-index:1;
+                transform: scale(130%) rotate(-15deg) translateX(-10%);
+                filter: drop-shadow(1px 0 0 var(--yellow)) drop-shadow(-1px 0 0 var(--yellow)) drop-shadow(0 1px 0 var(--yellow)) drop-shadow(0 -1px 0 var(--yellow));
+            }
+        }
+
+        .item-side > div {
+            padding:0.5rem;
+        }
+
+        .item-title > * {
+            color:white;
+            background-color:var(--pink);
+            padding:8px;
+            margin-bottom:0.5rem;
+            padding-left:5rem;
+        }
+        .item-desc{
+            margin-left:5rem;
+            margin-right:0.5rem;
+        }
+        .item-link{
+            margin-left:5.5rem;
+            color:var(--pink);
         }
     }
-    .muse .item-side > div{
-        padding:0.5rem;
-    }
-    .muse .item-title > *{
-        color:white;
-        background-color:var(--pink);
-        padding:8px;
-        margin-bottom:0.5rem;
-        padding-left:5rem;
-    }
-    .muse  .item-desc{margin-left:5rem;margin-right:0.5rem;}
-    .muse  .item-link{margin-left:5.5rem;color:var(--pink);}
 
-    .askal { background-color: #edeeff; }
+    .askal {
+        background-color: #edeeff;
+        color: black;
+    }
     .askal .item-thumb img{
         height: auto;
         width: auto;
@@ -80,20 +93,29 @@
 
     .item-container > div{
         display:flex;
-        background-color:white;
-        max-width: 700px;
         margin: auto;
-        border: 3px solid black;
         margin-bottom: 0.5rem;
-    }
-    .item-thumb{flex:1;}
-    .item-thumb img{
-        width: 100%;height:100%;
-        object-fit: cover;
-        display: block;
+        max-width: 700px;
+
+        background-color:var(--color-body);
+        color: var(--color-text);
+        border: 2px solid var(--color-text);
     }
 
-    .item-side {flex:2;position:relative;}
+    .item-thumb{
+        flex:1;
+        img{
+            width: 100%;
+            height:100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .item-side {
+        flex:2;
+        position:relative;
+    }
 
     .item-side > div {
         padding:1rem;
@@ -102,21 +124,24 @@
     }
     .item-link{margin-top:1rem;}
 
-    a {font-weight: bolder;font-family: var(--display-font);}
-
-    a:after {
-        opacity: 0;
-        transform: translateX(-100%);
-        position: absolute;
-        display:inline-block;
-        margin-left: 0.5rem;
-        content: " »";
-        transition: 0.1s;
-    }
-
-    a:hover:after{
-        opacity: 1;
-        transform: none;
+    a {
+        font-weight: bolder;
+        font-family: var(--display-font);
+        
+        &:after {
+            opacity: 0;
+            transform: translateX(-100%);
+            position: absolute;
+            display:inline-block;
+            margin-left: 0.5rem;
+            content: " »";
+            transition: 0.1s;
+        }
+        
+        &:hover:after{
+            opacity: 1;
+            transform: none;
+        }
     }
 }
 {% endcapture %}

@@ -1,22 +1,5 @@
 @use "vars" as *;
 
-%border {
-    border-color: black;
-    border-style: solid;
-}
-
-.border {
-    @extend %border;
-    border-width: #{$bw};
-}
-
-@each $name, $value in $borders {
-    .border-#{$name} {
-        @extend %border;
-        border-width: #{$value};
-    }
-}
-
 %outline {
   --color:white;
   --c: var(--color);
@@ -42,13 +25,17 @@
 
     & > * {
         width:100%;
+        margin: 0 !important;
+        padding: 0 !important;
+
         flex-grow: calc(var(--width) * (100000 / var(--height)));
         flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
         aspect-ratio: var(--width) / var(--height);
+        
+        border-radius: 4px;
+
         position: relative;
         overflow: hidden;
-        margin: 0 !important;
-        padding: 0 !important;
     }
 
     & > * > img {
@@ -126,8 +113,10 @@
   @extend %float;
 }
 
-@media only screen and (min-width: 450px) {
-    .db-list{columns:2;}
+hr.clear {
+    border: none;
+    margin: 0;
+    clear: both;
 }
 
 .checklist > li {
@@ -160,13 +149,16 @@ figure.highlight {
     position: fixed;
     bottom: 0.5rem;
     right: 0.5rem;
+    
     padding: 0.5rem;
     border-radius: 100%;
-    background-color: var(--bg-color);
-    color: var(--txt-color);
+    background-color: var(--color-body);
+
+    color: var(--color-text);
     border: 2px solid;
+
     aspect-ratio: 1/1;
-    min-width: 1.5rem;
+    min-width: 2rem;
     user-select: none;
 
     > a { 
@@ -175,6 +167,8 @@ figure.highlight {
         position: relative;
         display: block;
         height: 0;
+        
+
         > span {
             top: 50%;
             left: 50%;
@@ -195,20 +189,9 @@ figure.highlight {
         height: 100%;
         transform: none;
     }
-}
 
-
-%list {
-    list-style-type: none;
-    list-style-position: inside;
-}
-
-%nav {
-    @extend %list;
-    padding: 0;
-
-    li {
-        @extend %list;
+    &:hover {
+        outline: 3px solid var(--color-accent)
     }
 }
 
@@ -218,23 +201,88 @@ figure.highlight {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 0.2rem;
+    padding: 0;
 
     li {
         flex: 100%;
     }
+}
 
-    a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+.sub {
+    @extend %nav;
+    @extend %graphed;
 
-        text-decoration: none;
-        color: inherit  ;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.8rem;
+
+    color: var(--color-accent-dkest);
+    
+    padding: $font-after;
+    margin-bottom: 0;
+
+    $p: 0.5rem;
+    li {
+        flex: 1;
+        outline: 2px solid var(--color-accent-dk);
+        border: 2px solid var(--color-accent);
+        transition: 0.2s;
+
+        background-color: var(--color-accent);
+        border-radius: #{$font-size-base + $p};
+
+        &:hover {
+            @extend %stripped;
+        }
     }
 
-    span {
-        display: block;
+    .sub-title-home {
+        flex: 0!important;
+        .sub-title {
+            display: none!important;
+        }
+    }
+
+    @include res {
+        flex-wrap: wrap;
+    }
+
+    a, button {
+        background-color: unset;
+        border: 2px dashed var(--color-accent-lter);
+        border-radius: #{$font-size-base + $p};
+        font-weight: bold;
+        padding: $p;
+    }
+
+}
+
+.tabs {
+    @extend %nav;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.8rem;
+
+    background-color: var(--color-accent-lter);
+    color: var(--color-accent-dker);
+    
+    border-bottom: $border;
+    padding: $font-after;
+    padding-bottom: 0;
+
+    a.active {
+        color: var(--color-text );
+        padding: $font-after $font-size-base;
+        border: 2px solid var(--color-accent-dk);
+        border-bottom: 0;
+        border-radius: 0.5rem 0.5rem 0 0;
+        background-color: white;
+        transform: translateY(2px);
     }
 }
 
@@ -244,22 +292,15 @@ figure.highlight {
     flex: 1;
 }
 
-%padded {
-    padding: $font-size-base;
-}
-
 .padded {
     @extend %padded;
 }
 
-blockquote,
-.blockquote {
-    font-style: italic;
-    background: var(--color-accent-ltest);
-    padding: 0.5rem 1rem;
-    margin: 0;
-    margin-bottom: 1rem;
-    border-left: 3px solid var(--color-accent);
+.content {
+    @extend %padded;
+    &:not(:last-of-type){
+        padding-bottom: 0;
+    }
 }
 
 .newspaper {
@@ -270,20 +311,141 @@ blockquote,
     }
 }
 
+@include res {
+    .hide-max {
+        display: none!important;
+    }
+}
+
+@include res(f) {
+    .hide-min {
+        display: none!important;
+    }
+}
+
+// borders ============================================
+
+.border {
+    @extend %border;
+    border-width: #{$border_width};
+}
+
+@each $name, $value in $borders {
+    .border-#{$name} {
+        @extend %border;
+        border-width: #{$value};
+    }
+}
+
+// placeholders =======================================
+
+%no-print {
+    @media print {
+        display: none!important;
+    }
+}
+
+%border {
+    border-color: $border_color;
+    border-style: solid;
+}
+
+%padded {
+    padding: $font-size-base;
+}
+
+%list {
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+%nav_a {
+    a, button {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2rem;
+        
+        font-size: $font-size-base;
+        font-family: var(--font-body);
+        white-space: nowrap;
+    }
+
+    span {
+        display: block;
+    }
+}
+
+%nav {
+    @extend %list;
+    @extend %nav_a;
+
+    li {
+        @extend %list;
+    }
+}
+
 // patterns ===========================================
 
 %stripped {
     --bg: var(--color-accent);
     --clr: var(--color-accent-lt);
     background-color: var(--bg);
+    
+    $w: 45.25px;
+    background-size: $w $w;
+
     background-image: linear-gradient(46deg, var(--clr) 25%, var(--bg) 25%, var(--bg) 50%, var(--clr) 50%, var(--clr) 75%, var(--bg) 75%, var(--bg) 100%);
-    background-size: 45.25px 45.25px;
+    
+    animation: stripped 10s infinite linear;
+    @keyframes stripped {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 0 #{$w};
+        }
+    }
 }
 
 %checkered {
     --bg: var(--color-accent-dk);
     --clr: var(--color-accent);
     background-color: var(--bg);
+
     background-image: linear-gradient(45deg, var(--clr) 25%, transparent 25%, transparent 75%, var(--clr) 75%), linear-gradient(-45deg, var(--clr) 25%, transparent 25%, transparent 75%, var(--clr) 75%);
-    background-size: 50px 50px;
+    
+    $w: 45.25px;
+    background-size: $w $w;
+
+    animation: checkered 10s infinite linear;
+    @keyframes checkered {
+        0% {
+            background-position: 0 #{$w};
+        }
+        100% {
+            background-position: #{$w} 0;
+        }
+    }
+}
+
+%graphed {
+    --bg: var(--color-accent-ltest);
+    --clr: var(--color-accent-lter);
+    background-color: var(--bg);
+
+    background-image:  repeating-linear-gradient(to right, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), repeating-linear-gradient(to bottom, transparent 0, transparent 1.6666666666666667px, var(--bg) 1.6666666666666667px, var(--bg) 5px, transparent 5px, transparent 6.666666666666667px), linear-gradient(to bottom, var(--clr) 0.6px, transparent 0.6px), linear-gradient(to right, var(--clr) 0.6px, transparent 0.6px) ;
+    background-size: 100% 100%, 100% 100%, 20px 20px, 20px 20px;
+    background-position: 0 0, 0 0, 0 -0.2px, -0.2px 0;
+}
+
+%polka {
+    --bg: var(--color-accent-lter);
+    --clr: var(--color-accent-ltest);
+    background-color: var(--bg);
+
+    background-image:  radial-gradient(var(--clr) 1.5px, transparent 1.5px), radial-gradient(var(--clr) 1.5px, var(--bg) 1.5px);
+    background-size: 20px 20px;
+    background-position: 0 0,10px 10px;
 }

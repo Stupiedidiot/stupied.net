@@ -1,9 +1,8 @@
 ---
-layout: page-md
-
+layout: page
 nav:
   - title: Me!!!
-    icon: mood-happy-outline
+    icon: grin
     link: /about/
   
   - title: Website
@@ -22,4 +21,13 @@ nav:
     icon: news-paper
     link: /about/faq
 ---
-{{ content }}
+  
+{% include_cached layout/subnav.liquid cat="about" %}
+
+{% if page.name contains 'md' %}
+  <div class="content">
+    {{ content }}
+  </div>
+{% else %}
+  {{ content }}
+{% endif %}

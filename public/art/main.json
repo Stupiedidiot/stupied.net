@@ -17,11 +17,6 @@ layout: none
         ,"title": {{ item.title | jsonify }}
         ,"dimension": {{ img | writeDime: dir | jsonify }}
 
-        {% assign desc = item.content | strip %}
-        {%- if desc != '' -%}
-            ,"desc": {{ item.content | jsonify }}
-        {%- endif -%}
-
         {%- if item.alt -%}
             ,"alt": {{ item.alt | escape | jsonify }}
         {%- endif -%}
