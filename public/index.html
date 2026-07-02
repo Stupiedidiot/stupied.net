@@ -12,9 +12,12 @@ layout: page
         <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
     </blockquote>
 
-    <hr>
-    
-    <div class="card">
-        <div class="card-item"></div>
-    </div>
+    <p>Currently undergoing a massive redesign! So things might look a bit janky.</p>
 </article>
+
+<script>
+    var USER_AGENT = navigator.userAgent.toLowerCase();
+    if (USER_AGENT == screenjesus) {
+        window.location.pathname = window.location.pathname.replace("/","/splash");
+    }
+</script>
