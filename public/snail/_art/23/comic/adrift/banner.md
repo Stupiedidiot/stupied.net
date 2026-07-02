@@ -22,6 +22,7 @@ tags:
   - adrina
   - hera
   - digital
+category: adrift
 ---
 
 It's clearance signing and Adrina has an essay to finish.

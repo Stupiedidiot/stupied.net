@@ -7,5 +7,6 @@ tags:
   - sona
   - ink
   - pencil
+category: misc
 ---
 

@@ -19,15 +19,19 @@ Generally, people idolize the tortured artist who spend their waking moment *per
 Truthfully, I do not care what people do with my work. Claim it as your own or vandalize it with profanities. Just remember to keep it free and for everyone <span style="display: inline-block;">(❁´◡`❁)</span>
 
 ### Allowed
+<div class="blockquote" markdown="1">
 - For profile pictures, collages, or school projects (if you're cringe enough)
 - Reposting without credit; Telling your grandma you made them.
 - Printing into physical items for non-commercial use
 - Literally just don't sell my art
+</div>
 
 ### Not Allowed
+<div class="blockquote" markdown="1">
 - Selling digital copies of my art
 - Selling physical copies of my art
 - Yeah, that's literally it
+</div>
 
 ### Making and Selling Fanart of Your Characters?
 Probably the only exception. Mainly because I find the thought of someone putting the time and effort to draw and sell out my characters really amusing. I've also had my fair share of selling fanart of IPs I don't own.

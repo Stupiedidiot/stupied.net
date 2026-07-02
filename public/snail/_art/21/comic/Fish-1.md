@@ -7,5 +7,6 @@ tags:
   - digital
   - ocs
 title: Fish
+category: zombie
 ---
 

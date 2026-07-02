@@ -8,4 +8,5 @@ tags:
   - jay
   - psych
 title:
+category: psych
 ---

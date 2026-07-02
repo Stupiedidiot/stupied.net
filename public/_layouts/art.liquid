@@ -28,20 +28,7 @@ nav:
 {% elsif layout.view %}
     <div id="art_viewer">
         <div id="image">
-            {% assign path = page.path | getArtPath %}
-            {% assign img = path | append: '.' |  append: page.ext %}
-            {% assign dime = img | getDime: 'snail/_img/art/img/' %}
-            <a href="/art/img/{{ img }}" title="Open {{ page.title }}">
-                <img src="/art/img/{{ img }}" alt="{{ page.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" data-pagefind-meta="image[src]">
-            </a>
-
-            {% for e in page.extra %}
-                {% assign img = e.img | default: e %}
-                {% assign dime = img | getDime: 'snail/_img/art/img/' %}
-                <a href="/art/img/{{ img }}" title="Open {{ e.img | split: '/' | last | replace: '-', ' ' }}">
-                    <img src="/art/img/{{ img }}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
-                </a>
-            {% endfor %}
+            {% include art/write-imgs.liquid data = page %}
         </div>
     </div>
 

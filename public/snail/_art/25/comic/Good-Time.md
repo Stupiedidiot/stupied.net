@@ -7,4 +7,5 @@ tags:
   - jay
   - august
   - psych
+category: psych
 ---

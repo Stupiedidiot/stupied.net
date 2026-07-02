@@ -9,6 +9,7 @@ extra:
 tags:
   - fanart
   - digital
+category: hat
 ---
 
 Cringy self insert oc because i can hell yeah!!! Annoyingly there's a typo i was too lazy to fix.

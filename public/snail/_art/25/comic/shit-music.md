@@ -7,6 +7,7 @@ extra:
 tags:
   - digital
   - sona
+category: misc
 ---
 
 These comics are brought to you by, me forgetting to set my scanners dpi higher.

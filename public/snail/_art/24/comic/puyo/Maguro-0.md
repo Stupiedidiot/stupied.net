@@ -9,6 +9,7 @@ extra:
 tags:
   - fanart
   - digital
+category: puyo
 ---
 
 Idk some dumb Puyo comic I made,,

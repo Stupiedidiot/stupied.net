@@ -325,6 +325,11 @@ figure.highlight {
 
 // borders ============================================
 
+%border {
+    border-color: $border_color;
+    border-style: solid;
+}
+
 .border {
     @extend %border;
     border-width: #{$border_width};
@@ -335,6 +340,12 @@ figure.highlight {
         @extend %border;
         border-width: #{$value};
     }
+
+    .border-dashed-#{$name} {
+        @extend %border;
+        border-width: #{$value};
+        border-style: dashed;
+    }
 }
 
 // placeholders =======================================
@@ -343,11 +354,6 @@ figure.highlight {
     @media print {
         display: none!important;
     }
-}
-
-%border {
-    border-color: $border_color;
-    border-style: solid;
 }
 
 %padded {

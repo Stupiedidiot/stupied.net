@@ -1,0 +1,15 @@
+{% assign data = include.data %}
+{% assign path = data.path | getArtPath %}
+{% assign img = path | append: '.' |  append: data.ext %}
+{% assign dime = img | getDime: 'snail/_img/art/img/' %}
+<a href="/art/img/{{ img }}" title="Open {{ data.title }}">
+    <img src="/art/img/{{ img }}" alt="{{ data.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" data-pagefind-meta="image[src]">
+</a>
+
+{% for e in data.extra %}
+    {% assign img = e.img | default: e %}
+    {% assign dime = img | getDime: 'snail/_img/art/img/' %}
+    <a href="/art/img/{{ img }}" title="Open {{ e.img | split: '/' | last | replace: '-', ' ' }}">
+        <img src="/art/img/{{ img }}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
+    </a>
+{% endfor %}

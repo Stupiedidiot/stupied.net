@@ -7,6 +7,7 @@ tags:
   - sona
   - ink
   - pencil
+category: misc
 ---
 
 Fun fact, for years i replayed through all gen 3 games because they were the only ones i knew how to pirate

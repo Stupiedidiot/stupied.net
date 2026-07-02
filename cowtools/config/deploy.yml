@@ -14,11 +14,10 @@ plugins:
 
 page_gen:
   # LIBRARY START
-  - data: 'site.data.lib.list'
-    template: 'library-feed'
-    name_expr: "'feed'"
-    extension: 'xml'
-    dir_expr:  "'lib/' + record['volume']"
+  - data: 'site.data.library'
+    template: 'library'
+    name_expr: "'index'"
+    dir_expr:  "'lib/' + record['id']"
   # LIBRARY END
 
   # MICROBLOG START
@@ -27,11 +26,6 @@ page_gen:
     name: "year"
     dir:  "/blog/"
   # MICROBLOG END
-
-lib_gen:
-  - data: site.data.lib.list
-    template: library
-    dir: lib
 
 timezone: Asia/Manila
 deploying: true

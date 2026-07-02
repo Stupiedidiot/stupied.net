@@ -6,6 +6,7 @@ tags:
   - traditional
   - sona
   - ink
+category: misc
 ---
 
 Made during a very simple time in my life, sigh...

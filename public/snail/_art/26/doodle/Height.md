@@ -11,4 +11,5 @@ tags:
   - august
   - evan
 alt: August July teasing Jay Swift about his height.
+category: psych
 ---

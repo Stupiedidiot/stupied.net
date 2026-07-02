@@ -5,5 +5,6 @@ title: Easy Way Out
 tags:
   - digital
   - sona
+category: misc
 ---
 
