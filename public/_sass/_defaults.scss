@@ -1,0 +1,98 @@
+@use "vars" as *;
+@use "root";
+@use "classes";
+@use "lightbox";
+@use "codeblocks";
+@use "fonts";
+@use "icons";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+    padding:0;
+    margin:0;
+    font-size: $font-size-base;
+    font-family: var(--font-body);
+    color: var(--color-text);
+}
+
+%heading {
+    margin: 0;
+    display: block;
+    font-family: var(--font-display);
+    font-weight: bold;  
+}
+
+@each $name, $value in $font-sizes {
+    h#{$name}, .h#{$name} {
+        @extend %heading;
+        font-size: #{$value};
+    }
+
+    .h#{$name} {
+        display: inline-block;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+p, ol, ul, blockquote {
+  margin: 0;
+  margin-bottom: $font-after;
+}
+
+p a {
+    color: var(--color-accent);
+    text-decoration: underline;
+}
+
+ul li {
+    list-style-type:"★ ";
+
+    li:nth-child(2n){
+        list-style-type:"✮ ";
+    }
+}
+
+hr {
+    color: inherit;
+    border: unset;
+    border-top: 3px dotted;
+    opacity: 0.3;
+    margin: $font-size-base 0;
+}
+
+img {
+    max-width: 100%;
+    margin: auto;
+}
+
+button,
+select {
+    background-color: var(--color-accent-lter);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent-dkest);
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+
+blockquote,
+.blockquote {
+    background: var(--color-accent-ltest);
+    padding: 0.5rem 1rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--color-accent);
+    
+    p {
+        margin-top: $font-after;
+    }
+}

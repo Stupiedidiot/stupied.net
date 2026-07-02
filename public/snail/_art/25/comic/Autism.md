@@ -9,5 +9,6 @@ tags:
   - evan
   - jay
   - psych
+category: psych
 ---
 First part is based on an actual interaction I had with a classmate

@@ -3,8 +3,21 @@ layout: rss
 link: https://stupied.nekoweb.org
 ---
 {% assign max = 500 %}
-{% assign FEED = site.art | concat: site.posts | where_exp: "item", "item.date <= site.time" | sort: 'date' | reverse %}
-{%- for item in FEED limit: 100 -%}
+
+{% assign COL = "art posts micro" | split: " " %}
+{% assign FEED = "" | split: "" %}
+
+{% for e in COL %}
+  {% if site[e] %}
+    {% assign FEED = FEED | concat: site[e] %}
+  {% endif %}
+{% endfor %}
+
+{% if FEED %}
+  {% assign FEED = FEED | where_exp: "item", "item.date <= site.time" | sort: 'date' | reverse %}
+{% endif %}
+
+{%- for item in FEED limit: max -%}
 <item>
     <title>{{ item.title | escape }}</title>
     <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>

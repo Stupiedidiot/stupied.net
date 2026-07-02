@@ -1,22 +1,23 @@
 ---
-layout: default
+layout: page
 title: Warning!
 include_path: _/warning.html
 ---
-<img src="/meta/rss/2025-08-27.png" alt="" style="display: none;">
-<div id="container">
-    <header id="meirl">
-        <a href="/about/" title="About the Webmaster">
-            <div class="outline-hover">
-                <img class="cursor" src="/meta/img/cursor.webp" alt=""/>
-                <img class="doll" src="/meta/img/meirl.webp" alt=""/>
-            </div>
-        </a>
-    </header>
-    <main>
-        <h1 class="outline">Content Warning!</h1>
-        <p>This website is ran by an adult with a dislike for censorship.</p>
-        <p>There might be bad-words, artworks that features gore and violence, and mildly suggestive content.</p>
-        <button onclick="redirectBack()">Continue Anyways</button>
-    </main>
+<div class="padded">
+    <div id="warning">
+        <header id="meirl">
+            <a href="/about/" title="About the Webmaster">
+                <div class="outline-hover">
+                    <img class="cursor" src="/meta/img/cursor.webp" alt=""/>
+                    <img class="doll" src="/meta/img/meirl.webp" alt=""/>
+                </div>
+            </a>
+        </header>
+        <article>
+            <h1 class="outline h4" style="--c: var(--color-body)!important;">Content Warning!</h1>
+            <p>This website is ran by an adult with a dislike for censorship.</p>
+            <p>There might be bad-words, artworks that features gore and violence, and mildly suggestive content.</p>
+            <button onclick="redirectBack()">Continue Anyways</button>
+        </article>
+    </div>
 </div>

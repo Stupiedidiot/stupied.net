@@ -1,0 +1,210 @@
+@use "vars" as *;
+@use "sass:list";
+@use "sass:map";
+
+%tooltip {
+    .tooltip > span {
+        display: none!important;
+    }
+}
+
+@each $name, $value in $themes {
+    $filter: map.get($value, 'shift');
+    @if $filter {
+        [data-bs-theme="#{$name}"] #index_splash {
+            filter: #{$filter};
+            @extend %tooltip;
+        }
+    }
+}
+
+#index_splash {
+    #meirl {grid-area: meirl; } 
+    #blog { grid-area: blog; } 
+    #all { grid-area: all; }
+    
+    color: black;
+    margin: auto;
+    display: grid;
+    grid-template: 
+    'meirl all'
+    'blog all';
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows: 2fr 1fr;
+    box-sizing: border-box;
+    height: auto;
+    max-height: 100vh;
+    width: auto;
+    gap: 0.5rem;
+    aspect-ratio: 3/2;
+
+    > * { border: 3px solid black; }
+    a { display: block; }
+
+    #meirl {
+        background: url(/meta/img/sunburst.svg);
+        background-size: 100% 100%;
+        background-color: #a7dddc;
+        overflow: hidden;
+
+        a, div { width: 100%; height: 100%; }
+        img { position: absolute; }
+
+        a > div { 
+            position: relative;
+            animation: 1.5s ease-out dragUp;
+        }
+
+        .doll {
+            z-index: 1;
+            top: 5%;
+            left: 7%;
+            width: 90%;
+            animation: 5s sway infinite ease-in-out;
+            transform-origin: 40% 0;
+        }
+
+        .cursor {
+            z-index: 2;
+            width: 15%;
+            top: 3%;
+            left: 37%;
+        }
+    }
+
+    #blog {
+        background-color: #001745;
+        position: relative;
+        z-index: 2;
+        a {
+            position: absolute;
+            width: 105%;
+            top: -20%;
+            left: 0;
+        }
+        img { 
+            transform: rotate(12deg);
+            transition: 0.2s transform;
+            width: 100%;
+        }
+
+        a:hover img { transform: rotate(14deg); }
+    }
+
+    #all { overflow: hidden; }
+
+    @media only screen and (max-width: 500px) {
+        display: block;
+        aspect-ratio: unset;
+        max-height: none;
+        > * { margin-bottom: 0.5rem ;}
+        
+        #meirl { aspect-ratio: 8/9; }
+        #blog { aspect-ratio: 4/2; overflow: hidden; }
+        #all { aspect-ratio: 8/9; }
+    }
+}
+
+@keyframes dragUp {
+    0% { transform: translateY(90%); }
+    100% { transform: none; }
+}
+
+@keyframes sway {
+    0% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+#topbar {
+    height: 10%;
+    background-color: #0ebde4;
+    border-bottom: 3px solid black;
+    box-sizing: border-box;
+    position: relative;
+    
+    > span {
+        font-family: var(--display-font);
+        position: absolute;
+        top:50%; right: 5%;
+        transform: translateY(-50%);
+    }
+    > span > span {
+        font-weight: bolder;
+    } 
+}
+
+#scene {
+    height: 90%;
+    background-image: url(/meta/img/clouds.jpg);
+    background-size: auto 120%;
+    animation:bg-scroll 240s infinite linear;
+    position: relative;
+
+    > * { position: absolute; }
+    img { width: 100%; }
+    #pole {
+        z-index: 1;
+        position: absolute;
+        width: 5%;
+        bottom: -10%;
+        left: 21%;
+    }
+
+    #warning {
+        z-index: 3;
+        width: 39%;
+        top: -9%;
+        left: 6%;
+    }
+
+    #art {
+        z-index: 3;
+        width: 45%;
+        top: 33%;
+        left: 5%;
+    }
+
+    #art img { transition: 0.2s; transform: rotate(-6deg); }
+    #art:hover img { transform: none;}
+
+    #comic {
+        z-index: 3;
+        width: 35%;
+        top: 60%;
+        left: 8%;
+    }
+
+    #comic img {
+        transform-origin: 50% 0;
+        animation: 3s ease-in-out infinite wind;
+    }
+
+    #ocs {
+        z-index: 2;
+        width: 60%;
+        bottom: -5%;
+        right: 3%;
+    }
+
+    #ocs img {
+        animation: 5s ease-in-out infinite breathe;
+    }
+}
+
+@keyframes bg-scroll {
+    0%{ background-position: 0 100%; }
+    100%{ background-position: calc(1350px * 1.5) 100%; }
+}
+
+@keyframes wind {
+    0%{ transform: rotate(-10deg); }
+    50%{ transform: rotate(2deg); }
+    100%{ transform: rotate(-10deg); }
+}
+
+@keyframes breathe {
+    0%{ transform: translateY(2%); }
+    50%{ transform: translateY(0%); }
+    100%{ transform: translateY(2%); }
+}

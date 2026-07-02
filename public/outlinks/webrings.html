@@ -1,6 +1,5 @@
 ---
 layout: page
-include_path: _/webrings.html
 ---
 <article class="padded">
     <h1>Webrings I'm In!!</h1>
@@ -10,12 +9,12 @@ include_path: _/webrings.html
         {%- endif-%}
     </p>
 
-    <section id="webrings">
+    <section id="webrings" class="border">
         {%- include webrings.html -%}
     </section>
 </article>
 
-<article id="fanlisting" class="padded divided">
+<article id="fanlisting" class="padded">
     <h2>Fanlistings</h2>
     {%- for item in site.data.fanlistings -%}
         {%- assign slug = item.title | replace: ' ', '-' | downcase -%}

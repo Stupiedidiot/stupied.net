@@ -6,5 +6,6 @@ tags:
   - traditional
   - sona
   - ink
+category: misc
 ---
 

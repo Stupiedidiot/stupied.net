@@ -1,8 +1,8 @@
-
+<div class="archive">
   <h2>Filter by</h2>
   {% for e in page.filters %}
     <details open>
-        <summary><h3>{{ e.title }}</h3></summary>
+        <summary><h3 class="h6">{{ e.title }}</h3></summary>
         {% assign tag = e.tag | default: e.title |  downcase %}
         {%- include art/write-tags.html selected = tag -%}
         
@@ -27,3 +27,4 @@
   </select><br>
 
   {%- include art/filters.html -%}
+</div>

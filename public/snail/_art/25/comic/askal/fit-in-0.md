@@ -10,6 +10,7 @@ extra:
 tags:
   - digital
   - sona
+category: askal
 ---
 
 I had to cut out a lot of the text so I'm not really sure if this feels cohesive to anyone else haha

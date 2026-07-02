@@ -1,6 +1,13 @@
 url: "https://stupied.net"
 title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
+keywords: [stupied,art,comics,blog,ocs]
+
+themes:
+- id: light
+  title: Tres...?
+- id: dark
+  title: Stu-DYING!
 
 # Build settings
 source: public
@@ -10,6 +17,8 @@ keep_files:
 
 sass:
   style: compressed
+  sourcemap: never
+  quiet_deps: true
 
 jekyll-minifier:
   compress_css: false
@@ -19,6 +28,11 @@ jekyll-minifier:
   - "*.txt"
   
 defaults:
+  - scope:
+      path: about/
+    values:
+      layout: about
+
   - scope:
       path: art/
     values:
@@ -33,6 +47,12 @@ defaults:
       type: reviews
     values:
       layout: reviews
+
+  - scope:
+      type: reviews
+      path: "**/f/"
+    values:
+      category: completed
 
   - scope:
       type: posts

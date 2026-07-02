@@ -1,57 +1,100 @@
 ---
-layout: none
+layout: page
 description: Archive of Stupied's Art
+category: art
+
+js:
+- /art/main.js
+
+nav:
+  - title: Home
+    icon: home
+    link: /art/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /art/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt()
 ---
-<!DOCTYPE html>
-<html lang="en-US">
 
-<head>
-    {% include head.html %}
-    <link rel="stylesheet" href="/art/main.css">
-    <script src="/art/main.js" defer></script>
-    <meta data-pagefind-filter="category:art">
-</head>
+{% include_cached layout/subnav.liquid cat="art" %}
 
-<body>
-    {%- include_cached widget/sticky.html -%}
-    <div id="container">
-        <nav id="navMain" class="default-nav right" data-nosnippet>
-            {%- include_cached nav.html data = site.data.nav.art -%}
-        </nav>
-        {% if page.include%}
-            {% assign selected = page.include | default: layout.include %}
-            {% include_relative _includes/{{selected}}.html %}
-        {% elsif layout.view %}
-            {% include art/viewer.liquid %}
+{% if page.include%}
+  {% assign selected = page.include | default: layout.include %}
+  {% include_relative _includes/{{selected}}.html %}
+{% elsif layout.view %}
+    <div id="art_viewer">
+        <div id="image">
+            {% include art/write-imgs.liquid data = page %}
+        </div>
+    </div>
+
+    {% assign col = site.art %}
+    {% assign info = col | getArtNxtPrv: page.path %}
+    {% assign index = info[0] %}
+
+    <span id="art_index" hidden>{{ index }}</span>
+    <ul id="art_nextprev"class="sub border-x">
+        {% if page.next %}
+            <li>
+                <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
+                    <span class="icon-arrow-thin-left"></span>
+                    <span>Next</span>
+                </a>
+            </li>
         {% endif %}
-        <div id="content">
-            <main>
-                {% if content contains 'justified-gallery' %}
-                    {{ content | justifyImages: 'snail/_img/art/' }}
-                {% else %}
-                    {{ content}}
-                {% endif %}
-            </main>
-            {% assign aside = page.name | prepend: '_includes/aside/' %}
-            {% assign aside_check = aside | prepend: 'art/' | check_file %}
-            {% if aside_check or layout.view %}
-            <aside>
-                <div id="aside-content">
-                    {% if layout.view %}
-                        {% include art/aside.liquid %}
-                    {% else %}
-                        {% include_relative {{ aside }} %} 
-                    {% endif %}
-                </div>
-            </aside>
+        
+        <li>
+            <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
+        </li>
+        
+        {% if page.previous %}
+            <li>
+                <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
+                    <span>Prev</span>
+                    <span class="icon-arrow-thin-right"></span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}
+
+<div id="art_container" class="split">
+  <div id="art_main">
+    {% if content contains 'justified-gallery' %}
+        {{ content | justifyImages: 'snail/_img/art/' }}
+    {% else %}
+        {{ content}}
+    {% endif %}
+  </div>
+
+  {% assign aside = page.name | prepend: '_includes/aside/' %}
+  {% assign aside_check = aside | prepend: 'art/' | check_file %}
+
+  {% if aside_check or layout.view %}
+    <aside id="art_aside" class="split-aside">
+        <div id="art_aside_content" class="split-aside-content">
+            {% if layout.view %}
+                <section id="aside-content" data-nosnippet>
+                    <h2 class="h3">Related Artwork</h2>
+                    <div id="art_related">
+                        
+                    </div>
+                    <h3>Tags</h3>
+                    <ul id="art_tags">
+                        {% assign tags = page | getTags %}
+                        {% for e in tags %}
+                            <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            {% else %}
+                {% include_relative {{ aside }} %} 
             {% endif %}
         </div>
-        <footer data-nosnippet>
-            <nav class="default-nav">
-                {%- include_cached footer.html -%}
-            </nav>
-        </footer>
-    </div>
-</body>
-
-</html>
+    </aside>
+  {% endif %}
+</div>

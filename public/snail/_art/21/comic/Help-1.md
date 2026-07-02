@@ -11,5 +11,6 @@ tags:
   - jay
   - psych
 title: Help
+category: psych
 ---
 

@@ -10,4 +10,5 @@ tags:
   - evan
   - psych
 title: Sweets
+category: psych
 ---

@@ -1,0 +1,126 @@
+@use "sass:map" as *;
+@use "sass:color" as *;
+
+// mixins ================================
+
+@function color($target) {
+  @return map-get($colors, $target);
+}
+
+// really should us an array...!
+@mixin res ($type: md){
+  $border_widtheak: 780px;
+  @if ($type != md){
+    $border_widtheak: 1300px;
+  }
+
+  @media only screen and (max-width: #{$border_widtheak}) {
+      @content;
+  }
+}
+
+// colors ================================
+
+
+$colors: (
+  blue: #16a2c2,
+  red: #b5473d
+);
+
+$themes: (
+  light: (
+    colors: (
+      text: black,
+      body: white,
+      accent: color(blue),
+      accent-dk: mix(color(blue), black, 90%, lab),
+      accent-dker: mix(color(blue), black, 60%, lab),
+      accent-dkest: mix(color(blue), black, 30%, lab),
+      accent-lt: mix(color(blue), white, 80%),
+      accent-lter: mix(color(blue), white, 50%),
+      accent-ltest: mix(color(blue), white, 20%)
+    )
+  ),
+  dark: (
+    colors: (
+      text: white,
+      body: #0f0f0e,
+      accent: color(red),
+      accent-dk: mix(color(red), white, 90%, lab),
+      accent-dker: mix(color(red), white, 60%, lab),
+      accent-dkest: mix(color(red), white, 30%, lab),
+      accent-lt: mix(color(red), black, 90%),
+      accent-lter: mix(color(red), black, 60%),
+      accent-ltest: mix(color(red), black, 30%)
+    ),
+    shift: hue-rotate(170deg)
+  )
+);
+
+
+// fonts =================================
+
+$font-display: "Grandstander";
+$font-body: "Chiron GoRound TC";
+
+$font-size-base: 1.1rem;
+$font-after: $font-size-base * 0.5;
+
+$font-sizes: (
+  1: $font-size-base * 2,
+  2: $font-size-base * 1.75,
+  3: $font-size-base * 1.5,
+  4: $font-size-base * 1.25,
+  5: $font-size-base * 1.10,
+  6: $font-size-base
+);
+
+// grids =================================
+
+$border_widtheakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px
+);
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+);
+
+$spacer: 1rem;
+$spacers: (
+    0: 0,
+    1: $spacer * 0.5,
+    2: $spacer * 0.8,
+    3: $spacer,
+);
+
+// borders ===============================
+
+$border_radius: 4px;
+$border_width: 2px;
+$border_color: var(--color-accent-dk);
+$border: 2px solid $border_color;
+$border_dashed: 1px dashed $border_color;
+
+$borders: (
+    left: "0 0 0 #{$border_width}", 
+    right: "0 #{$border_width} 0 0", 
+    top: "#{$border_width} 0 0 0", 
+    bottom: "0 0 #{$border_width} 0",
+    x: "#{$border_width} 0",
+    y: "0 #{$border_width}"
+);
+
+// dropdowns ============================
+
+$dropdown-color: var(--color-text);
+$dropdown-bg: var(--color-first);
+
+$dropdown-border-color: #{$border_color};
+$dropdown-border-radius: #{$border_radius};
+$dropdown-border-width: #{$border_width};

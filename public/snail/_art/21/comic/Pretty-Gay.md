@@ -4,5 +4,6 @@ date: 2021-01-01
 tags:
   - digital
   - sona
+category: misc
 ---
 

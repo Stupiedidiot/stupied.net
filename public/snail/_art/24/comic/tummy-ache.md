@@ -5,5 +5,6 @@ title: Tummy Ache
 tags:
   - digital
   - sona
+category: misc
 ---
 

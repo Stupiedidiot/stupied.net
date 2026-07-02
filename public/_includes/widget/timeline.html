@@ -3,6 +3,7 @@
 <div class="timeline">
     {%- for e in data limit: max -%}
         <a href="{{ e.url }}" class="timeline-item {{ e.tags | join: ' ' }}">
+            <hr>
             <div class="timeline-content">
                 {%- unless include.no_thumbnail -%}
                     {%- if e.thumbnail -%}

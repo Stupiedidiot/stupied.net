@@ -1,5 +1,5 @@
 ---
-layout: page-md
+
 title: Frequently Asked Questions
 ---
 # {{ page.title }}
@@ -34,9 +34,7 @@ They're so awesome and stuff. Like seriously you guys.
 Usually with a lot of pain and suffering.
 
 {% assign RELATED = site.posts | where_exp: "item", "item.tags contains 'spaghetti'" %}
-<div id="blog-archive">
-{% include widget/timeline.html data=RELATED no_desc=true %}
-</div>
+{% include widget/timeline.html data=RELATED %}
 
 ---
 <img src="/art/img/23/Vicious-Cycle.jpg" alt="" class="float-left" style="max-width: 280px;">

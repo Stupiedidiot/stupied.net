@@ -2,38 +2,43 @@
 layout: page
 title: Codez n Layouts!!!
 description: A page to share code I've made
-include_path: _head.html
 ---
-<article id="first" class="padded">
-    <h1>Codez!!</h1>
-    <p>I am very fond of DIY-ing stuff in javascript.</p>
-    <section>
-        <h2>Utility n Snippets</h2>
-        <ul class="arrow-hover">
-            {%- for item in site.data.code.list -%}
-            <li><a href="{{ item.link }}">{{ item.title }}</a></li>
-            {%- endfor -%}
-        </ul>
-    </section>
-    <p>
-        Feel free to use codes. Credit is optional.<br>
-        <span style="color: gray;">In fact, you should claim you made it!!</span>
-    </p>
-</article>
 
-<article id="layouts" class="padded divided">
-    <h2>Templates</h2>
-    <p>I'm incredibly impulsive and redesign everything!! It feels bad to discard all my code sooo feel free to
-        steal them!</p>
-    <div class="db-list">
-        {%- for item in site.templates -%}
-        <a href="{{ item.url }}">
-            <img src="{{ item.dir }}/thumbnail.jpg" alt="">
-            <div>
-                <h3>{{ item.title }}</h3>
-                <p>{{ item.description }}</p>
-            </div>
-        </a>
-        {%- endfor -%}
-    </div>
-</article>
+<div class="split">
+    <article class="split-aside">
+        <div class="split-aside-content">
+            <h1>Codez!!</h1>
+            <p>I am very fond of DIY-ing stuff in javascript.</p>
+            <section>
+                <h2>Utility n Snippets</h2>
+                <ul class="arrow-hover">
+                    {%- for item in site.data.code.list -%}
+                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                    {%- endfor -%}
+                </ul>
+            </section>
+            <p>
+                Feel free to use codes. Credit is optional.<br>
+                <span class="clr-accent-lter">In fact, you should claim you made it!!</span>
+            </p>
+        </div>
+    </article>
+    
+    <article class="padded">
+        <h2>Templates</h2>
+        <p>I'm incredibly impulsive and redesign everything!! It feels bad to discard all my code sooo feel free to
+            steal them!</p>
+        <div class="db-list">
+            <!-- temporary, remember to change this!!! -->
+            {%- for item in site.data.code.templates -%}
+            <a href="{{ item.url }}">
+                <img src="https://code.stupied.net/{{ item.dir }}thumbnail.jpg" alt="">
+                <div>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.description }}</p>
+                </div>
+            </a>
+            {%- endfor -%}
+        </div>
+    </article>
+</div>

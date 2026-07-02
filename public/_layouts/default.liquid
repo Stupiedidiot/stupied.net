@@ -2,13 +2,23 @@
 layout: none
 ---
 <!DOCTYPE html>
-<html lang="en-US">
-
+<html lang="en-US" data-bs-theme="light">
+  
 <head>
   {%- include head.html -%}
 </head>
 
-<body {% include class.liquid %}>
+<body
+    class="
+      {%- if layout.category -%}
+        {{ layout.category }}
+      {%- endif -%}
+      
+      {%- if layout.bg -%}
+        {{ " default" }}
+      {%- endif -%}
+    "
+>
   {{ content }}
 </body>
 

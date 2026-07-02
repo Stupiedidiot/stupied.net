@@ -1,0 +1,55 @@
+---
+layout: page
+title: Other Stuff
+
+
+links:
+  - title: Chez
+    icon: boat
+    link: /chez/
+    desc: For all my miscellaneous projects. Generally they are janky and all over the place.
+  
+  - title: Code
+    icon: bug
+    link: /code/
+    desc: Code I've written that you are free to nab.
+  
+  - title: Outlinks
+    icon: globe
+    link: /outlinks/
+    desc: Check out other people's cool websites!
+
+  - title: Webrings
+    icon: travel-walk
+    link: /outlinks/webrings
+    desc: Webrings and Fanlisting I am part of. 
+  
+  - title: Guestbook
+    icon: envelope
+    link: /guestbook
+    desc: Let people know you've been here. You'll need to have a github account though.
+  
+  - title: Changelog
+    icon: calendar
+    link: /meta/
+    desc: A timeline of when my website was made and what it looked in the past.
+---
+
+<article>
+    <div class="padded">
+        <h1>{{ page.title }}</h1>
+    </div>
+
+    {% for item in page.links %}
+        <section class="padded border-dashed-top">
+            <h2 class="hover_color">
+                <a href="{{ item.link }}">
+                    <span class="icon-{{ item.icon }}"></span> <span>{{ item.title }}</span>
+                </a>
+            </h2>
+            <div class="blockquote">
+                {{ item.desc | markdownify }}
+            </div>
+        </section>
+    {% endfor %}
+</article>

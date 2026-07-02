@@ -9,4 +9,5 @@ tags:
   - daphne
   - charmaine
   - psych
+category: psych
 ---

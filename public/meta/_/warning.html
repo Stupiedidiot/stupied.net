@@ -13,6 +13,7 @@ document.head.append(prefetched)
 </script>
 
 <style>
+{% capture css %}
 #meirl {
     border: 3px solid black;
     background: url(/meta/img/sunburst.svg);
@@ -56,20 +57,16 @@ document.head.append(prefetched)
     50% { transform: rotate(-5deg); }
     100% { transform: rotate(5deg); }
 }
-#container {
+#warning {
     max-width: 300px;
     padding: 1rem;
     margin: auto;
-}
 
-h1 {
-    padding: 0 0.5rem;
+    article {
+        transform: translateY(-1rem);
+    }
 }
+{% endcapture %}
 
-button { padding: 0.5rem; }
-
-main > * {
-    transform: translateY(-1.2rem);
-    z-index: 3;   
-}
+{{ css | scssify }}
 </style>

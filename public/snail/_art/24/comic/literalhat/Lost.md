@@ -4,6 +4,7 @@ date: 2023-08-18
 tags:
   - fanart
   - traditional
+category: hat
 ---
 
 This was made for one of the hatober prompts. I remember drawing this after an exam,,

@@ -1,0 +1,147 @@
+---
+---
+
+:root{
+    --wheat: #fff0d7;
+    --dk-blue: #001745;
+    --accent-color: #0ebde4;
+    --display-font:grandstander;
+    --body-font:Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.plant {
+    border: 2px solid black;
+    background-color: var(--accent-color);
+}
+
+#all { 
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+#topbar {
+    height: 10%;
+    background-color: var(--accent-color);
+    border-bottom: 2px solid black;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 0.8rem;
+    
+    > a {
+        font-family: var(--display-font);
+        position: absolute;
+        top:50%; right: 5%;
+        transform: translateY(-50%);
+    }
+    > a > span {
+        font-weight: bolder;
+    }
+    > a:hover { color: white; }
+}
+
+#scene {
+    height: 90%;
+    background-image: url(/webgardens/v2/img/clouds.jpg);
+    background-size: auto 120%;
+    animation:bg-scroll 240s infinite linear;
+    position: relative;
+
+    > * { position: absolute; }
+    img { width: 100%; }
+    #pole {
+        z-index: 1;
+        position: absolute;
+        width: 5%;
+        bottom: -10%;
+        left: 21%;
+    }
+
+    #warning {
+        z-index: 3;
+        width: 39%;
+        top: -9%;
+        left: 4%;
+    }
+
+    #art {
+        z-index: 3;
+        width: 45%;
+        top: 33%;
+        left: 3%;
+    }
+
+    #art img { transition: 0.2s; transform: rotate(-6deg); }
+    #art:hover img { transform: none;}
+
+    #comic {
+        z-index: 3;
+        width: 35%;
+        top: 60%;
+        left: 6%;
+    }
+
+    #comic img {
+        transform-origin: 50% 0;
+        animation: 3s ease-in-out infinite wind;
+    }
+
+    #ocs {
+        z-index: 2;
+        width: 60%;
+        bottom: -5%;
+        right: 3%;
+    }
+
+    #ocs img {
+        animation: 5s ease-in-out infinite breathe;
+    }
+}
+
+@keyframes bg-scroll {
+    0%{ background-position: 0 100%; }
+    100%{ background-position: calc(1350px * 1.5) 100%; }
+}
+
+@keyframes wind {
+    0%{ transform: rotate(-10deg); }
+    50%{ transform: rotate(2deg); }
+    100%{ transform: rotate(-10deg); }
+}
+
+@keyframes breathe {
+    0%{ transform: translateY(2%); }
+    50%{ transform: translateY(0%); }
+    100%{ transform: translateY(2%); }
+}
+
+.tooltip {
+    text-decoration:none;
+    position:relative;
+
+    & span {
+        color: #000;
+        display:none;
+        background: #fff;
+        outline: 1px solid #000;
+        padding: 0.3rem;
+        z-index: 100;
+    }
+
+    &:hover span {
+        display:block;
+        position:fixed;
+        overflow:hidden;
+        z-index: 1000;
+    }
+}

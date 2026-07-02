@@ -5,5 +5,6 @@ title: Birthday
 tags:
   - digital
   - sona
+category: misc
 ---
 

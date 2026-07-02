@@ -3,7 +3,7 @@ layout: blog
 ---
 <script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
 <div class="main-content padded tagged">
-    <h1>Microblog » <span style="color: var(--color-accent);">{{ page.year }}</span></h1>
+    <h1>Microblog » <span style="color: var(--color);">{{ page.year }}</span></h1>
     <p>Posting ramblings that aren't significant to be in a blog post and too wordy for a status update.</p>
     
     <div id="micro_tags" data-nosnippet>
@@ -13,9 +13,11 @@ layout: blog
         {% endfor %}
     </div>
     
-    {% assign DATA = site.micro | where_exp: "item", "item.date <= site.time" | reverse %}
+    {% if site.micro %}
+        {% assign DATA = site.micro | where_exp: "item", "item.date <= site.time" %}
+    {% endif %}
     <div class="micro-feed">
-        {% for e in DATA %}
+        {% for e in DATA reversed %}
             {% if e.path contains '_unpublished' %}
                 {% continue %}
             {% endif %}
@@ -46,11 +48,23 @@ layout: blog
     </div>
     
     <div id="micro_nav" data-nosnippet>
-        <a href="/blog/micro">NOW!</a>
-        {% for e in site.data.blog.micro.years offset: 1 %}
-            <a href="./{{ e.year }}">{{ e.year }}</a>
-        {% endfor %}
+
     </div>
 
     <p>Thank you to <a href="https://nomnomnami.com/">NomnomNami</a> for the tagging system code :3</p>
 </div>
+
+<ul class="sub border-top">
+    <li>
+        <a href="/blog/micro" title="Current Microblog Archive">
+            <span>NOW!</span>
+        </a>
+    </li>
+    {% for e in site.data.blog.micro.years offset: 1 %}
+        <li>
+            <a href="./{{ e.year }}" title="Microblog {{ e.year }} Archive">
+                <span>{{ e.year }}</span>
+            </a>
+        </li>
+    {% endfor %}
+</ul>

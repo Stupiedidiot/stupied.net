@@ -6,5 +6,6 @@ tags:
   - sunni
   - dayy
   - ocs
+category: sunidayy
 ---
 

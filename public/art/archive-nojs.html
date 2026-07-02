@@ -2,11 +2,45 @@
 layout: art
 title: No JS Archive
 description: Every single art piece uploaded on this website
-include_path: _includes/head/archive.html
+
+css:
+  - /art/archive.css
 ---
 <article data-nosnippet data-pagefind-ignore>
-  <h1>[{{ site.art | size }}] Art Archive</h1>
+  <div class="padded">
+    <h1>[{{ site.art | size }}] Art Archive</h1>
+  </div>
   <div id="art-archive-nojs">
-      {%- include art/archive-nojs.html -%}
+      {%- assign DATA = site.art | reverse -%}
+
+      {%- for item in DATA -%}
+          {%- assign img = item.path | getArtPath -%}
+          <div class="art-archive-nojs-item" >
+              <a href="/art/p/{{ img }}">
+                  <h2>{{ item.title }}
+                      {%- if item.date -%}
+                      <span>({{ item.date | split: '-' | first }})</span>
+                      {%- endif -%}
+                  </h2>
+              </a>
+              
+              {% assign test = item.content | strip %}
+              {%- if test != '' -%}
+              <div class="art-archive-nojs-desc">{{ item.content }}</div>
+              {%- endif -%}
+
+              {%- if item.extra.size > 0 -%}
+                  <ul class="art-archive-nojs-extra">
+                  {%- for extra in item.extra -%}
+                      <li>
+                          {% assign extra_img = extra.img | default: extra | split: "/" | last | split: "." | first %}
+                          <a href="/art/p/{{ img }}">{{ extra_img | replace: "-", " " }}</a>
+                      </li>
+                  {%- endfor -%}
+                  </ul>
+              {%- endif -%}
+          </div>
+
+      {%- endfor -%}
   </div>
 </article>

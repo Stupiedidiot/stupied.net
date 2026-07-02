@@ -8,4 +8,5 @@ tags:
   - queenie
   - psych
 title:
+category: psych
 ---

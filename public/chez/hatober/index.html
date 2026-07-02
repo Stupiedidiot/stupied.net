@@ -1,7 +1,8 @@
 ---
 layout: default
 title: Hatober
-include_path: _/index.html
+css:
+    - /chez/hatober/main.css
 ---
 <div id="container">
     <header>
@@ -16,7 +17,7 @@ include_path: _/index.html
         <article id="yr-2025">
             <section></section>
             <section>
-                <ol class="calender db-list">
+                <ol class="calender">
                     <span>Sun</span>
                     <span>Mon</span>
                     <span>Tue</span>
@@ -30,7 +31,7 @@ include_path: _/index.html
                     {%- for prompt in site.data.chez.hatober -%}
                         {% unless prompt[1] == '#' %}
                             {% if prompt[1] contains '/art/' %}
-                                {% assign thumb = prompt[1] | replace: '/art/~?', '/art/img/' %}
+                                {% assign thumb = prompt[1] | replace: '/art/p/', '/art/img/'  | append: '.jpg' %}
                             {% else %}
                                 {% assign thumb = prompt[1] | append: 'thumbnail.jpg' %}
                             {% endif %}
@@ -46,6 +47,5 @@ include_path: _/index.html
     </main>
     <footer>
         <p style="margin-bottom: 0.5rem;">The prompts can be found <a href="https://www.instagram.com/p/DO8cEk3EqoH/" target="_blank">here</a></p>
-        <div class="default-nav center">{%- include_cached footer.html -%}</div>
     </footer>
 </div>

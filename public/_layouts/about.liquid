@@ -1,0 +1,33 @@
+---
+layout: page
+nav:
+  - title: Me!!!
+    icon: grin
+    link: /about/
+  
+  - title: Website
+    icon: network
+    link: /about/website
+  
+  - title: Artwork
+    icon: camera
+    link: /about/art
+
+  - title: OCS
+    icon: film
+    link: /about/ocs
+
+  - title: FAQ
+    icon: news-paper
+    link: /about/faq
+---
+  
+{% include_cached layout/subnav.liquid cat="about" %}
+
+{% if page.name contains 'md' %}
+  <div class="content">
+    {{ content }}
+  </div>
+{% else %}
+  {{ content }}
+{% endif %}

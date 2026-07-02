@@ -5,5 +5,6 @@ title: Deep Frying
 tags:
   - digital
   - sona
+category: misc
 ---
 

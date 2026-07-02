@@ -2,10 +2,11 @@
 ext: jpg
 date: 2020-01-01
 tags:
-- traditional
-- pencil
-- ink
-- fanart
-- puyo
+  - traditional
+  - pencil
+  - ink
+  - fanart
+  - puyo
+category: puyo
 ---
 

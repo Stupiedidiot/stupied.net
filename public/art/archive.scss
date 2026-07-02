@@ -1,50 +1,6 @@
 ---
 layout: none
 ---
-
-@mixin yay($type: null) {
-  background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
-  border: 1px solid var(--dk-blue);
-  border-radius: 4px;
-  padding: 0.5rem;
-  
-  @if $type == 'button' {
-    color: color-mix(in srgb, var(--color-accent) 70%, black);
-    font-family: var(--body-font);
-    font-weight: bold;
-  }
-}
-#aside-content { 
-  position: static;
-  details {
-    @include yay;
-    margin-bottom: 0.5rem;
-    text-align: left;
-    > details:first-of-type { margin-top: 0.5rem; }
-    > details:last-child { margin-bottom: 0; }
-    
-    label {
-      color: color-mix(in srgb, var(--color-accent) 70%, black);
-    }
-  }
-  h3, h4 {
-    display: inline;
-  }
-
-  // REMEMBER TO CHANGE THIS!
-  button, select {
-    @include yay(button);
-  }
-
-  select {
-    display: block;
-    width: 100%;
-  }
-}
-.art-archive-options {
-  display: flex;
-  flex-wrap: wrap;
-}
 .art-archive-item {
   display: block;
   margin-bottom: 0.5rem;
@@ -53,8 +9,8 @@ layout: none
   border-radius: 4px;
   overflow: hidden;
   
-  background-color: white;
-  color: black;
+  background-color: var(--color-body);
+  color: var(--color-text);
   transition: 0.2s;
 
   img{
@@ -68,7 +24,7 @@ layout: none
 
   .art-archive-title {
     font-weight: bolder;
-    font-family: var(--display-font);
+    font-family: var(--font-display);
     font-size: 1.2rem;
     padding: 0.5rem;
     padding-bottom: 0;
@@ -98,8 +54,8 @@ layout: none
     margin-top: 0.5rem;
     padding: 0.5rem;
     button {
-      color: gray;
-      background-color: rgb(235, 235, 235);
+      color: var(--color-accent-dker);
+      background-color: var(--color-accent-ltest);
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
       border-radius: 1rem;
@@ -117,14 +73,6 @@ layout: none
 .strict-hidden { display: none; }
 
 .filtered.strict .strict-hidden { display: block; padding: 3rem 1rem; }
-
-.art-archive-options label {
-    display: inline-flex;
-    margin-right: 0.5rem;
-    padding: 0%;
-}
-
-
 @media only screen and (max-width: 500px) {
     .art-archive.second {display: none;}
 }
@@ -139,23 +87,13 @@ layout: none
   .art-archive.second > :nth-of-type(odd){display:none;}
 }
 
-#archive_buttons {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  
-  button {
-    @include yay(button);
-  }
-}
-
 /* NOJS */
 .art-archive-nojs-text a {
-  font-family: var(--display-font);
+  font-family: var(--font-display);
   text-decoration: none;
   font-weight: bold;
 }
+
 #art-archive-nojs {
   padding: 1rem;
 
@@ -168,12 +106,11 @@ layout: none
   }
 }
 
-
 .art-archive-nojs-item {
     margin-bottom: 1rem;
     margin-left: 0;
     padding-bottom: 1rem;
-    border-bottom: 2px dashed lightgray;
+    border-bottom: 2px dashed var(--color-accent-ltest);
     
     &:last-child { border-bottom: none; }
 

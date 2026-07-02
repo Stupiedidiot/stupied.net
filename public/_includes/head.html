@@ -2,23 +2,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{%- comment -%}
-<meta name="robots" content="noindex">
-<meta name="robots" content="noarchive">
-{%- endcomment -%}
-
-<meta name="description" content="{{ page.description | default: page.desc | default: layout.description | default: site.description | strip_html }}">
-<meta name="keywords" content="stupied, stupiedidiot, stupied.idiot, stupied_idiot, art, comics, blog, ocs, tier lists">
-
-{%- unless layout.nojs or page.nojs -%}
-<script type="" src="/meta/js/global.js"></script>
-{%- endunless -%}
-
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-{%- unless layout.nocss or page.nocss -%}
-<link rel="stylesheet" href="/meta/css/global.css">
-{%- endunless -%}
 
 {%- if page.title-%}
 <title>{{ page.title }} » {{ site.title }}</title>
@@ -26,7 +10,65 @@
 <title>{{ site.title }}</title>
 {%- endif -%}
 
+<meta name="description" content="{{ page.description | default: page.desc | default: layout.description | default: site.description | strip_html }}">
+
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+<meta property="og:title" content="{{ page.title | default: site.title }}" />
+
+{%- unless layout.nojs or page.nojs -%}
+    <script src="/meta/js/global.js"></script>
+{%- endunless -%}
+
+{% if layout.js %}
+    {% for item in layout.js %}
+        <script src="{{ item }}" defer></script>
+    {% endfor %}    
+{% endif %}
+
+{% if page.js %}
+    {% for item in page.js %}
+        <script src="{{ item }}" defer></script>
+    {% endfor %}    
+{% endif %}
+
+{%- unless layout.nocss or page.nocss -%}
+    <link rel="stylesheet" href="/meta/css/global.css">
+{%- endunless -%}
+
+{% if layout.css %}
+    {% for item in layout.css %}
+        <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}    
+{% endif %}
+
+{% if page.css %}
+    {% for item in page.css %}
+        <link rel="stylesheet" href="{{ item }}">
+    {% endfor %}    
+{% endif %}
+
 {%- if page.include_path -%}
     {% assign selected = page.include_path %}
     {% include_relative {{selected}} %}
 {%- endif -%}
+
+{% assign tags = site.keywords %}
+{% if layout.tags %}
+    {% assign tags = tags | concat: layout.tags | uniq %}
+{% endif %}    
+{% if page.tags %}
+    {% assign tags = tags | concat: page.tags | uniq %}
+{% endif %}    
+<meta name="keywords" content="{{ tags | join: ',' }}">
+
+{%- if  page.previous.url -%}
+    <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
+{%- endif -%}
+{%- if  page.next.url -%}
+    <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
+{%- endif -%}
+
+{% if layout.category %}
+    <meta data-pagefind-filter="category:{{ layout.category }}">
+{% endif %}

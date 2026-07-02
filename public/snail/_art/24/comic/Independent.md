@@ -9,6 +9,7 @@ tags:
   - maudie
   - ocs
   - digital
+category: pmd
 ---
 The very first misfit comic!! Hell yeah :D
 

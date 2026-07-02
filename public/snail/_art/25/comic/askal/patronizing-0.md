@@ -8,5 +8,6 @@ extra:
 tags:
   - digital
   - sona
+category: askal
 ---
 

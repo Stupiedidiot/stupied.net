@@ -14,11 +14,10 @@ plugins:
 
 page_gen:
   # LIBRARY START
-  - data: 'site.data.lib.list'
-    template: 'library-feed'
-    name_expr: "'feed'"
-    extension: 'xml'
-    dir_expr:  "'lib/' + record['volume']"
+  - data: 'site.data.library'
+    template: 'library'
+    name_expr: "'index'"
+    dir_expr:  "'lib/' + record['id']"
   # LIBRARY END
 
   # MICROBLOG START
@@ -28,11 +27,6 @@ page_gen:
     dir:  "/blog/"
   # MICROBLOG END
 
-lib_gen:
-  - data: site.data.lib.list
-    template: library
-    dir: lib
-
 timezone: Asia/Manila
 deploying: true
 
@@ -41,5 +35,3 @@ jekyll_get_json:
     json: https://archive.stupied.net/main.json
   - data: albums
     json: https://album.stupied.net/ext.json
-  - data: templates
-    json: https://code.stupied.net/ext.json

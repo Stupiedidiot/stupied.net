@@ -1,0 +1,48 @@
+<footer id="footer" data-nosnippet>
+    <nav id="footer_nav">
+        <div class="newspaper">
+            <div>
+                <span class="h5">Hell Yeah</span>
+                <ul class="toc">
+                    {% for item in site.data.nav.footer %}
+                        <li>
+                            <a href="{{ item.link }}">
+                                <span>{{ item.title }}</span>
+                                <span class="dash"></span>
+                                <span class="icon-{{ item.icon }}"></span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <span class="h5">Most Used Tags</span>
+                <ul class="toc">
+                    {% assign TAGS = site.tags | sort_tags %}
+                    {% for item in TAGS limit: site.data.nav.footer.size %}
+                        <li>
+                            {% comment %} <a href="/search/?tag={{ item.first }}"> {% endcomment %}
+                            <a href="#">
+                                <span>{{ item | first }}</span>
+                                <span class="dash"></span>
+                                <span>{{ item | last | size }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <hr>
+        <div id="theme_switcher">
+            <label for="themeToggler" class="h6">Theme:</label>
+            <select name="themeToggler" id="themeToggler" onchange="themeToggle(this.value)">
+                <option disabled selected>Select theme!</option>
+                {% for item in site.themes %}
+                    <option value="{{ item.id }}">{{ item.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </nav>
+</footer>
