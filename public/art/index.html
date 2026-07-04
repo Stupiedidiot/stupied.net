@@ -4,9 +4,11 @@ title: gallery
 include: index
 include_path: _includes/head/index.html
 ---
+
 <article class="content">
   <h1>Stupied Art Gallery!</h1>
   <div id="about">
+
     <div id="list">
       <p>
         Welcome to the archive of my work! You are allowed to do whatever with my art just as long it's for personal use. Majority of my art is about my OCs. You can learn about them <a href="https://wiki.stupied.net/">here</a>.
@@ -27,6 +29,7 @@ include_path: _includes/head/index.html
           <li><a href="./2016">2016</a></li>
         </ul>
     </div>
+
     <div id="links" class="padded">
       <h3>Hell Yeah!!</h3>
       <ul style="columns:2;">
@@ -35,11 +38,14 @@ include_path: _includes/head/index.html
         <li><a href="./feed.xml">RSS Feed</a></li>
       </ul>
 
-      <div id='dumri-art'>
-        <script type="text/javascript" src="https://dumbiee.neocities.org/webring/art/variables.js"></script>
-        <script type="text/javascript" src="https://dumbiee.neocities.org/webring/art/widget3.js"></script>
-      </div>
+      {% if site.deploying %}
+        <div id='dumri-art'>
+          <script type="text/javascript" src="https://dumbiee.neocities.org/webring/art/variables.js"></script>
+          <script type="text/javascript" src="https://dumbiee.neocities.org/webring/art/widget3.js"></script>
+        </div>
+      {%- endif-%}
     </div>
+
   </div>
 
   <div class="justified-gallery">

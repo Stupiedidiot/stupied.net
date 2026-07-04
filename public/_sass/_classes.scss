@@ -614,7 +614,7 @@ ul.arrow-hover {
 
 .stamp {
     --fold: 2rem;
-    --border: 3px;
+    --border: 3px!important;
     --bg: url(/meta/img/clouds.jpg);
     display: block;
     position: relative;

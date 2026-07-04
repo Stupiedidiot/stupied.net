@@ -57,7 +57,6 @@ body.default {
 
     &_nav {
         color: white;
-        text-shadow: 0 0 8px black;
     }
 
     &_content {
@@ -76,9 +75,13 @@ body.default {
 
     @extend %no-print;
 
-    a:hover {
-        color: var(--color-accent);
+    a{
         text-shadow: 0 0 8px black;
+
+        &:hover {
+            text-shadow: 0 0 8px white;
+            color: black;
+        }
     }
 }
 
@@ -403,6 +406,7 @@ body.default {
     border-top: var(--border);
     padding-top: 1rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 0.8rem;
     align-items: center;
     justify-content: right;

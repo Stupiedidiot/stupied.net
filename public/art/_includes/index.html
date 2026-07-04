@@ -1,10 +1,10 @@
-<header class="home" data-nosnippet>
-    <div id="headerDoll"></div>
-    <div id="headerStamps" class="bg-graphed">
+<header id="header" data-nosnippet>
+    <div id="header_doll"></div>
+    <div id="header_stamps" class="bg-graphed">
         {%- assign recent = site.art | reverse | where_exp: "item", "item.date <= site.time" | first -%}
         {% assign recent_path = recent.path | getArtPath %}
         <div style="bottom: 52%; left: 3%;">
-            <a href="./p/{{ recent_path }}" id="recent" class="stamp" style="--bg: url(./img/{{ recent_path | append: '.' | append: recent.ext}});">
+            <a href="./p/{{ recent_path }}" id="recent" class="stamp" style="--bg: url(/art/img/{{ recent_path | append: '.' | append: recent.ext}});">
                 <span>Most Recent</span>
             </a>
         </div>

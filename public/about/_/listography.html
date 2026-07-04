@@ -1,58 +1,35 @@
 <style>
 {% capture scss %}
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
-:root {
-    --blue: #5177a9;
-    --color: var(--blue);
-    --border: 3px solid black;
-    --border-radius: 10px;
-}
 
 img { max-width: 100%; display: block; }
 
-#info {
-    margin-bottom: 1rem; padding: 1rem;
-    background-color: var(--color);
-    border-bottom: var(--border);
-}
-#info a:not(:hover){ text-decoration: none; }
-#info a { font-weight: bolder; }
-
-#info > div { max-width: 800px; }
-
 #lists > div {
-    margin-bottom: 1rem;
-    background-color: white;
-    border: var(--border);
-    border-radius: var(--border-radius);
-    break-inside: avoid;
+    background-color: var(--color-body);
+    border-color: var(--color-accent-dkest)!important;
+    border-radius: 4px;
 }
 
-#lists > div:target{ outline: 5px solid var(--color); }
-#lists > div:target h2{ color: var(--color); }
+#lists > div:target{ outline: 5px solid var(--color-accent); }
+#lists > div:target h2{ color: var(--color-accent); }
 
-#lists > div:has(h2) { padding:1rem; }
+#lists li { 
+    position: relative;
 
-#lists {
-    gap: 0.5rem;
-    column-width: 290px;
-}
+    a:after {
+        position: absolute;
+        opacity: 0;
+        transform: translateX(-100%);
+        display:inline-block;
+        margin-left: 0.5rem;
+        content: " »";
+        transition: 0.1s;
+    }
 
-li { position: relative; }
-
-li a:after {
-    position: absolute;
-    opacity: 0;
-    transform: translateX(-100%);
-    display:inline-block;
-    margin-left: 0.5rem;
-    content: " »";
-    transition: 0.1s;
-}
-
-li a:hover:after{
-    opacity: 1;
-    transform: none;
+    &:after{
+        opacity: 1;
+        transform: none;
+    }
 }
 
 button { padding: 0.5rem;}
@@ -60,7 +37,7 @@ button { padding: 0.5rem;}
 .randomizer-output {
     display: block;
     margin-bottom: 1rem;
-    border-left: 3px solid var(--color);
+    border-left: 3px solid var(--color-accent);
     padding-left: 1rem;
 }
 
@@ -79,25 +56,13 @@ button { padding: 0.5rem;}
     width: 100%; height: auto;
 }
 
-#music span {color: lightgray;}
-
-#meirl img {
-    width: 100%;
-    display: block;
-    margin-bottom: 0.3rem;
+/* Remember to change this ty */
+#jump_to_strings li::marker { color: lightgray; }
+#jump_to_buttons {
+    margin-bottom: 1rem;
 }
 
-#kins { --min-height:10px; }
-
-#kins img {
-    --width: 200;
-    --height: 200; 
-}
-
-#strings li::marker { color: lightgray; }
-#buttons { margin-bottom: 1rem; }
-#buttons img { display: inline-block; }
-#fanfiction > p > strong::after { content: " » "}
+#jump_to_fanfiction > p > strong::after { content: " » "}
 
 #jump_to_artist, #jump_to_webmaster {
     min-height: 300px;
@@ -107,7 +72,7 @@ button { padding: 0.5rem;}
     dd {
         margin: 0.5rem 0 1rem 1rem;
         padding-left: 1rem;
-        border-left: 3px solid var(--color);
+        border-left: 3px solid var(--color-accent);
     }
     dd a { font-family: var(--display-font);}
     dd ul { margin-left: 0; padding-left: 0; list-style-position: inside;}

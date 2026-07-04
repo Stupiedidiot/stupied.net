@@ -100,7 +100,7 @@ include_path: _/index.html
     
             <a href="/code/">Templates</a>
             <ul>
-            {%- for item in site.templates -%}
+            {%- for item in site.data.templates -%}
                 <li><a href="{{ item.url }}">{{ item.title }}</a></li>
             {%- endfor -%}
             </ul>

@@ -17,9 +17,9 @@ include_path: _head.html
     </div>
 
     <div id="template" class="note">
-        {% if site.templates %}
-            {%- assign CURRENT = site.templates | first -%}
-            <img src="{{ CURRENT.dir | append: 'thumbnail.jpg'}}" alt="">
+        {% if site.data.templates %}
+            {%- assign CURRENT = site.data.templates | first -%}
+            <img src="https://code.stupied.net{{ CURRENT.dir | append: 'thumbnail.jpg'}}" alt="">
         {% endif %}
     </div>
 </article>
