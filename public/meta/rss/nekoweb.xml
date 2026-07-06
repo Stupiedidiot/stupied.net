@@ -2,9 +2,9 @@
 layout: rss
 link: https://stupied.nekoweb.org
 ---
-{% assign max = 500 %}
+{% assign max = 256 %}
 
-{% assign COL = "art posts micro" | split: " " %}
+{% assign COL = "art posts" | split: " " %}
 {% assign FEED = "" | split: "" %}
 
 {% for e in COL %}
