@@ -1,9 +1,9 @@
 - year: 2026
   team: Mystery
-  pts: 267.75
-  atk: 1
+  pts: 344.75
+  atk: 2
   ffr: 2
-  def: 6
+  def: 9
 
 - year: 2025
   team: Fossils

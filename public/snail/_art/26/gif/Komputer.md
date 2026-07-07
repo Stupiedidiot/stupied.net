@@ -6,4 +6,5 @@ tags:
   - ocs
   - psych
   - psyche
+alt: Animated looping gif of Psyche typing on her computer.
 ---
