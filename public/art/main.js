@@ -210,7 +210,7 @@ if (e = document.getElementById('art_index')) {
           let e = art[index].tags;
           if(e === undefined) continue;
 
-          let regex = new RegExp(`\\b(${tags_filtered.join('|')})\\b`, 'i');
+          let regex = new RegExp(`\\b(?<!\\d)(${tags_filtered.join('|')})(?!\\d)\\b`, 'i');
           if (regex.test(e)) related.push(art[index]);
           if (related.length >= POST_RELATED_MAX) break;
         }
@@ -232,7 +232,7 @@ if (e = document.getElementById('art_index')) {
         if (alt = e.alt)
           img.alt = alt;
 
-        let dims = e.dimension.split('x');
+        let dims = e.dime.split('x');
         img.width = dims[0];
         img.height = dims[1];
         

@@ -1,0 +1,42 @@
+---
+layout: art
+js:
+  - /meta/js/archive.js
+---
+<article class="content" style="min-height: 100vh;" data-nosnippet data-pagefind-ignore>
+  {% include widget/search.html cat='art' %}
+  <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site.art | size }}</span>)</h1>
+  <div id="archive_filter" class="art-archive-filter hidden" style="margin-bottom: 1rem;">
+      <div>Filtering Tags:</div>
+  </div>
+  
+  <noscript>
+    <h2>Attention!</h2>
+    <p>
+        Hello, this archive requires Javascript to work!
+    </p>
+  </noscript>
+
+  <div id="archive_info" data-info="art" class="hidden" hidden></div>
+  <div id="archive_target" class="art-archive default"></div>
+</article>
+
+<ul id="archive_buttons" class="sub border-top">
+    <li class="white">
+        <button title="Toggle View" onclick="toggleView()">
+            <span>Toggle View</span>
+        </button>
+    </li>
+    
+    <li class="archive-button">
+        <button title="Show 32 More Artworks" onclick="showEm(32)">
+            <span>[32] Load More</span>
+        </button>
+    </li>
+
+    <li class="archive-button">
+        <button title="Show All Artworks" onclick="showEm()">
+            <span>Everything!</span>
+        </button>
+    </li>
+</ul>

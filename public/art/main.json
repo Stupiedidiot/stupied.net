@@ -15,7 +15,7 @@ layout: none
         {%- endif -%}
         
         ,"title": {{ item.title | jsonify }}
-        ,"dimension": {{ img | writeDime: dir | jsonify }}
+        ,"dime": {{ img | writeDime: dir | jsonify }}
 
         {%- if item.alt -%}
             ,"alt": {{ item.alt | escape | jsonify }}
@@ -33,7 +33,7 @@ layout: none
             ]
         {%- endif -%}
 
-        {%- assign tags = item | getTags -%}
+        {%- assign tags = item | getTags: true -%}
         {%- if tags.size > 0 -%}
             ,"tags": {{ tags | join: ' ' | downcase | jsonify }}
         {%- endif -%}

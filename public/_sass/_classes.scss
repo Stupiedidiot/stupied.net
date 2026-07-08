@@ -192,6 +192,10 @@ hr.clear {
     clear: both;
 }
 
+.hidden {
+    display: none!important;
+}
+
 // meh ================================================
 
 .button-wall-item img {
@@ -333,13 +337,23 @@ figure.highlight {
 .toc {
     @extend %nav;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     gap: 0.2rem;
     padding: 0;
 
     li {
         flex: 100%;
+    }
+
+    a {
+        min-width: 0;
+    }
+
+    span {
+        
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 }
 
@@ -650,6 +664,7 @@ ul.arrow-hover {
     &::after{
         transition: 0.2s;
         content: "";
+        box-sizing: unset;
         top: calc(0px - var(--border));
         right: calc(0px - var(--border));
         position: absolute;
