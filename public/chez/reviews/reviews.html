@@ -12,7 +12,7 @@ pagination:
     sort_field: date
 
     per_page: 16
-    permalink: '/chez/reviews/:num/'
+    permalink: '/:num/'
     trail: 
         before: 1
         after: 1
@@ -24,10 +24,10 @@ pagination:
 
     {% comment %} Really ought to update the styling for this :P {% endcomment %}
     <div class="timeline">
-        {%- for e in paginator.posts -%}
-            <a href="{{ e.url }}" class="border-dashed-top timeline-item {{ e.tags | join: ' ' }}">
+        {%- for item in paginator.posts -%}
+            <a href="{{ item.url }}" class="border-dashed-top timeline-item {{ item.tags | join: ' ' }}">
                 <div class="timeline-content">
-                    {% assign thumbnail = e.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
+                    {% assign thumbnail = item.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
                     {% assign test = thumbnail |  prepend: '/snail/_img' | check_file %}
 
                     {%- if test -%}
@@ -36,11 +36,11 @@ pagination:
                     
                     <div class="timeline-info">
                         <div class="timeline-text">
-                            <span class="timeline-title">{{ e.title }}</span>
+                            <span class="timeline-title">{{ item.title }}</span>
                             <div class="timeline-desc">
-                                {{  e.content | strip_html | markdownify| strip_html | truncatewords: 25, "..." }}
+                                {{  item.content | strip_html | markdownify| strip_html | truncatewords: 25, "..." }}
                             </div>
-                            <time datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }}</time>
+                            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %-d, %Y" }}</time>
                         </div>
                     </div>
                 </div>
@@ -49,37 +49,4 @@ pagination:
     </div>
 </div>
 
-
-{% if paginator.total_pages > 1 %}
-    <ul class="sub">
-        {% if paginator.next_page %}
-            <li>
-                <a id="nextprev-next" href="{{ paginator.next_page_path | prepend: site.baseurl }}" title="View Next Page">
-                    <span class="icon-arrow-thin-left"></span>
-                    <span>Next</span>
-                </a>
-            </li>
-        {% endif %}
-
-        {% if paginator.page_trail %}
-            {% for trail in paginator.page_trail %}
-                <li class="white">
-                    <a href="{{ trail.path | prepend: site.baseurl }}" title="{{trail.title}}"
-                        {% if paginator.page == trail.num %}
-                            class="nextprev-current"
-                        {% endif %}
-                    ><span>{{ trail.num }}</span></a>
-                </li>
-            {% endfor %}
-        {% endif %}
-
-        {% if paginator.previous_page %}
-            <li>
-                <a id="nextprev-prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
-                    <span>Prev</span>
-                    <span class="icon-arrow-thin-right"></span>
-                </a>
-            </li>
-        {% endif %}
-    </ul>
-{% endif %}
+{% include widget/page-nav.liquid %}

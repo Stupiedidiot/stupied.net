@@ -2,7 +2,7 @@ module Jekyll
   module ImageFilters
     def getArtPath(input)
       return if (input == nil)
-      return input.sub('bulk/','').split('_art/')[1].split('.')[0]
+      return input.sub('_art/', '').split('.')[0]
     end
 
     def getArtNxtPrv(input, target)

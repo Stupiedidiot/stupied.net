@@ -2,14 +2,15 @@
 {% assign path = data.path | getArtPath %}
 {% assign img = path | append: '.' |  append: data.ext %}
 {% assign dime = img | getDime: 'snail/_img/art/img/' %}
-<a href="/art/img/{{ img }}" title="Open {{ data.title }}">
+<a href="/art/img/{{ img }}" id="{{ img | slugify }}" title="Open {{ data.title }}">
     <img src="/art/img/{{ img }}" alt="{{ data.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" data-pagefind-meta="image[src]">
 </a>
 
 {% for e in data.extra %}
     {% assign img = e.img | default: e %}
     {% assign dime = img | getDime: 'snail/_img/art/img/' %}
-    <a href="/art/img/{{ img }}" title="Open {{ e.img | split: '/' | last | replace: '-', ' ' }}">
+    {% assign title = img | split: '/' | last | replace: '-', ' ' %}
+    <a href="/art/img/{{ img }}" id="{{ img | slugify }}" title="Open {{ title }}">
         <img src="/art/img/{{ img }}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}">
     </a>
 {% endfor %}

@@ -57,13 +57,16 @@ filters:
 ---
 <article class="content" style="min-height: 100vh;" data-nosnippet data-pagefind-ignore>
   <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site.art | size }}</span>)</h1>
+  
+  <noscript>
+    <p class="art-archive-nojs-text">Have Javascript disabled? <a href="/art/nojs/">Click Here!</a><br></p>
+  </noscript>
+
   {% include widget/search.html cat='art' %}
 
   <section id="art_archive">
     {%- include art/archive.html -%}
   </section>
-
-  <p class="art-archive-nojs-text">Have Javascript disabled? <a href="./archive-nojs">Click Here!</a><br></p>
 </article>
 
 <ul id="archive_buttons" class="sub border-top">
