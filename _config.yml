@@ -42,7 +42,7 @@ defaults:
   - scope:
       type: art
     values:
-      layout: img-view
+      layout: art-view
 
   - scope:
       type: fanart

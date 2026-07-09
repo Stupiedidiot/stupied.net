@@ -59,7 +59,7 @@ js:
         </article>
 
         {% if page.collection == 'art' %}
-            <article id="art_comment" class="content">
+            <article id="art_comment" class="content" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
             </article>
         {% endif %}
@@ -70,8 +70,6 @@ js:
             <section id="aside-content" data-nosnippet>
 
                 {% assign index = site[page.collection] | getIndex: page.path %}
-
-                <span id="art_index" hidden>{{ index }}</span>
                 <h2 class="h3">Related Artwork</h2>
                 <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ index }}">
                     
