@@ -1,0 +1,40 @@
+{% assign DATA = site[include.col] | reverse %}
+
+{%- assign dir = 'snail/_img/' | append: include.col | append: '/img/' -%}
+[
+{%- for item in DATA -%}
+    {%- assign img = item.path | getArtPath | append: '.' | append: item.ext-%}
+    {
+        "img": {{ img | jsonify }}
+
+        {%- if item.date -%}
+            ,"date": {{ item.date | default: '2007-08-04' | jsonify }}
+        {%- endif -%}
+        
+        ,"title": {{ item.title | jsonify }}
+        ,"dime": {{ img | writeDime: dir | jsonify }}
+
+        {%- if item.alt -%}
+            ,"alt": {{ item.alt | escape | jsonify }}
+        {%- endif -%}
+
+        {%- if item.extra -%}
+            ,"extra": [
+                {%- for extra in item.extra -%}
+                    {
+                        "img": {{ extra.img | default: extra | jsonify }},
+                        "alt": {{ extra.alt | escape | jsonify }}
+                    }
+                    {%- unless forloop.last -%},{%- endunless -%}
+                {%- endfor -%}
+            ]
+        {%- endif -%}
+
+        {%- assign tags = item | getTags: true -%}
+        {%- if tags.size > 0 -%}
+            ,"tags": {{ tags | join: ' ' | downcase | jsonify }}
+        {%- endif -%}
+    }
+    {%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}
+]

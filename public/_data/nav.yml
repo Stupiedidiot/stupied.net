@@ -43,3 +43,29 @@ footer:
   - title: RSS 
     icon: rss-solid
     link: /meta/rss/
+
+art:
+  - title: Home
+    icon: home
+    link: /art/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /art/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('art')
+
+fanart:
+  - title: Home
+    icon: home
+    link: /fanart/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /fanart/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('fanart')

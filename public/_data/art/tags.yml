@@ -11,6 +11,14 @@ year:
 - '2017'
 - '2016'
 
+year_fanart:
+- '2026'
+- '2025'
+- '2024'
+- '2023'
+- '2022'
+- '2021'
+
 psych:
 - psyche
 - evan
@@ -167,20 +175,22 @@ medium:
 - ink
 - Oil-Pastel
 - Crayons
+- crochet
+- pixel
 
 misc:
 - OCs
 - 3DS
-- crochet
 - fanart
 - sona
 - comic
 - gastropod
 - short-story
 - jedog
-- pixel
 - doodle
-- GIF
 - meta
+
+meta:
+- GIF
 - multi
 - With-Commentary

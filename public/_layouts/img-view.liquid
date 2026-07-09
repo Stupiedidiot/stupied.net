@@ -1,0 +1,90 @@
+---
+layout: page
+js:
+  - /meta/js/img-view.js
+---
+
+{% assign data = site.data.nav[page.collection] %}
+{% include_cached layout/subnav.liquid data=data %}
+
+<div id="art_viewer">
+    <div id="image">
+        {% include art/write-imgs.liquid data=page %}
+    </div>
+</div>
+
+<ul id="art_nextprev"class="sub border-x">
+    {% if page.next %}
+        <li>
+            <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
+                <span class="icon-arrow-thin-left"></span>
+                <span>Next</span>
+            </a>
+        </li>
+    {% endif %}
+    
+    <li>
+        <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
+    </li>
+    
+    {% if page.previous %}
+        <li>
+            <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
+                <span>Prev</span>
+                <span class="icon-arrow-thin-right"></span>
+            </a>
+        </li>
+    {% endif %}
+</ul>
+
+<div id="art_container" class="split">
+  <div id="art_main">
+    <article id="art_details">
+            <div id="art_details_content">
+                <h1 id="art_title">
+                    <span>{{ page.title }}</span>    
+                </h1>
+
+                <div id="art_desc" class="padded">
+                    <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
+                        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+                    </time>
+
+                    {% assign test = content | strip %}
+                        {% if test != '' %}
+                        {{ content }}
+                    {% endif %}
+                </div>
+            </div>
+        </article>
+
+        {% if page.collection == 'art' %}
+            <article id="art_comment" class="content">
+                {% include widget/giscus.html category="Art" %}
+            </article>
+        {% endif %}
+  </div>
+
+    <aside id="art_aside" class="split-aside">
+        <div id="art_aside_content" class="split-aside-content">
+            <section id="aside-content" data-nosnippet>
+
+                {% assign index = site[page.collection] | getIndex: page.path %}
+
+                <span id="art_index" hidden>{{ index }}</span>
+                <h2 class="h3">Related Artwork</h2>
+                <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ index }}">
+                    
+                </div>
+                <h3>Tags</h3>
+                <ul id="art_tags">
+                    {% assign tags = page | getTags %}
+                    {% for e in tags %}
+                        <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
+                    {% endfor %}
+                </ul>
+
+            </section>
+        </div>
+    </aside>
+</div>

@@ -2,7 +2,17 @@ module Jekyll
   module ImageFilters
     def getArtPath(input)
       return if (input == nil)
-      return input.sub('_art/', '').split('.')[0]
+      return input.sub(/^_[^\/]*\//, '').split('.')[0]
+    end
+
+    def getIndex(input, target)
+      idx = nil
+      input.each_with_index do |e, i|
+        if ( e.relative_path == target )
+           idx = input.size - i - 1
+        end
+      end
+      return idx
     end
 
     def getArtNxtPrv(input, target)
@@ -27,7 +37,7 @@ module Jekyll
         tags << date
       end
 
-      split = input['path'].sub('_art/','').split("/")
+      split = input['path'].sub(/^_[^\/]*\//, '').split("/")
       split.pop
       if (split.length > 1)
         split.shift(1)

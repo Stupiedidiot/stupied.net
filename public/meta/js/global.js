@@ -36,7 +36,7 @@ if (
 
 function themeToggle(theme) {
   let e = document.querySelector('html')
-  e.dataset.bsTheme = theme;
+  e.dataset.stupiedTheme = theme;
   localStorage.setItem("theme", theme);
 }
 
@@ -80,3 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updatePosition();
 });
+
+function randomArt(folder) {
+  fetch("/" + folder + "/main.json")
+    .then((response) => response.json())
+    .then((art) => {
+      randomNum = Math.floor(Math.random() * art.length);
+      window.location.href = "/" + folder + "/p/" + art[randomNum].img.split('.')[0];
+    })
+}

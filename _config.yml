@@ -33,6 +33,7 @@ defaults:
     values:
       layout: about
 
+  # IMG GALLERIES ================
   - scope:
       path: art/
     values:
@@ -41,7 +42,13 @@ defaults:
   - scope:
       type: art
     values:
-      layout: art-view
+      layout: img-view
+
+  - scope:
+      type: fanart
+    values:
+      layout: img-view
+  # ==============================
 
   - scope:
       type: reviews

@@ -1,18 +1,20 @@
-{%- assign DATA = layout.nav -%}
+{%- assign DATA = include.data | default: layout.nav -%}
 
-<ul id="subnav" class="sub">
-    {%- for item in DATA offset: include.offset -%}
-        <li class="sub-title-{{ item.title | downcase }}">
-            <a 
-                {% if item.func %} onclick="{{ item.func }}" role="button"
-                {% else %} href="{{ item.link }}"
-                {% endif %}
+{% if DATA %}
+    <ul id="subnav" class="sub">
+        {%- for item in DATA offset: include.offset -%}
+            <li class="sub-title-{{ item.title | downcase }}">
+                <a 
+                    {% if item.func %} onclick="{{ item.func }}" role="button"
+                    {% else %} href="{{ item.link }}"
+                    {% endif %}
 
-                title="{{ item.title | downcase }}"
-            >
-                <span class="icon-{{ item.icon }}"></span>
-                <span class="sub-title">{{ item.title }}</span>
-            </a>
-        </li>
-    {%- endfor -%}
-</ul>
+                    title="{{ item.title | downcase }}"
+                >
+                    <span class="icon-{{ item.icon }}"></span>
+                    <span class="sub-title">{{ item.title }}</span>
+                </a>
+            </li>
+        {%- endfor -%}
+    </ul>
+{% endif %}

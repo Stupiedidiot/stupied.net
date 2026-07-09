@@ -22,7 +22,7 @@ $first_name: nth(map.keys($themes), 1);
 $first_theme: map.get(nth(map.values($themes), 1), 'colors');
 $first_props: map.keys($first_theme);
 
-:root, [data-bs-theme="#{$first_name}"] {
+:root, [data-stupied-theme="#{$first_name}"] {
   --font-size: #{$font-size-base};
   --font-display: #{$font-display};
   --font-body: #{$font-body};
@@ -35,7 +35,7 @@ $first_props: map.keys($first_theme);
 $index: 1;
 @each $name, $value in $themes {
   @if $index > 1 {
-    [data-bs-theme="#{$name}"] {
+    [data-stupied-theme="#{$name}"] {
       --img: url(/meta/img/#{$name}.jpg);
       @include loopValues("color-", map.get($value, 'colors'));
     }

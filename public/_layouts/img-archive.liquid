@@ -1,0 +1,86 @@
+---
+layout: page
+js:
+  - /meta/js/img-archive.js
+---
+
+{% assign data = site.data.nav[page.collection] %}
+{% include_cached layout/subnav.liquid data=data %}
+
+<div id="art_container" class="split">
+    <div id="art_main">
+        <article class="content" style="min-height: 100vh;" data-nosnippet data-pagefind-ignore>
+            {% if page.collection == "art" %}
+                {% include widget/search.html cat='art' %}
+            {% endif %}
+            <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site[page.collection] | size }}</span>)</h1>
+            <div id="archive_filter" class="art-archive-filter hidden" style="margin-bottom: 1rem;">
+                <div>Filtering Tags:</div>
+            </div>
+            
+            <noscript>
+                <h2>Attention!</h2>
+                <p>Hello, this archive requires Javascript to work!</p>
+            </noscript>
+
+            <div id="archive_target" class="art-archive justified-gallery" data-col="{{ page.collection }}"></div>
+        </article>
+
+        <ul id="archive_buttons" class="sub border-top">
+            <li class="white">
+                <button title="Toggle View" onclick="toggleView()">
+                    <span>Toggle View</span>
+                </button>
+            </li>
+            
+            <li class="archive-button">
+                <button title="Show 32 More Artworks" onclick="showEm(32)">
+                    <span>[32] Load More</span>
+                </button>
+            </li>
+
+            <li class="archive-button">
+                <button title="Show All Artworks" onclick="showEm()">
+                    <span>Everything!</span>
+                </button>
+            </li>
+        </ul>
+  </div>
+
+    <aside id="art_aside" class="split-aside">
+        <div id="art_aside_content" class="split-aside-content">
+            <div class="archive">
+                <h2>Filter by</h2>
+                {% for e in page.filters %}
+                    <details>
+                        <summary><h3 class="h6">{{ e.title }}</h3></summary>
+                        {% assign tag = e.tag | default: e.title |  downcase %}
+                        {%- include art/write-tags.html selected = tag -%}
+                        
+                        {% if e.extra %}
+                            {% for j in e.extra %}
+                            <details>
+                                <summary><h4>{{ j.title }}</h4></summary>
+                                {% assign tag = j.tag | default: j.title |  downcase %}
+                                {%- include art/write-tags.html selected = tag -%}
+                            </details>
+                            {% endfor %}
+                        {% endif %}
+                    </details>
+                {% endfor %}
+
+                <hr>
+
+                <h3>Mode</h3>
+                <select name="filter_mode" id="archive_mode">
+                    <option value="and" selected>AND</option>
+                    <option value="or">OR</option>
+                    <option value="not">NOT</option>
+                </select><br>
+
+                <hr>
+                {%- include art/filters.html -%}
+            </div>
+        </div>
+    </aside>
+</div>

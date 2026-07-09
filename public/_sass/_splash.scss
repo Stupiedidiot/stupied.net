@@ -11,7 +11,7 @@
 @each $name, $value in $themes {
     $filter: map.get($value, 'shift');
     @if $filter {
-        [data-bs-theme="#{$name}"] #index_splash {
+        [data-stupied-theme="#{$name}"] #index_splash {
             filter: #{$filter};
             @extend %tooltip;
         }

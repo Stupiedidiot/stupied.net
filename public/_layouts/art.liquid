@@ -5,61 +5,13 @@ category: art
 
 js:
 - /art/main.js
-
-nav:
-  - title: Home
-    icon: home
-    link: /art/
-
-  - title: Archive 
-    icon: inbox-full
-    link: /art/archive
-
-  - title: Random
-    icon: shuffle
-    func: randomArt()
 ---
 
-{% include_cached layout/subnav.liquid cat="art" %}
+{% include_cached layout/subnav.liquid cat="art" data=site.data.nav.art %}
 
 {% if page.include%}
   {% assign selected = page.include | default: layout.include %}
-  {% include_relative _includes/{{selected}}.html %}
-{% elsif layout.view %}
-    <div id="art_viewer">
-        <div id="image">
-            {% include art/write-imgs.liquid data = page %}
-        </div>
-    </div>
-
-    {% assign col = site.art %}
-    {% assign info = col | getArtNxtPrv: page.path %}
-    {% assign index = info[0] %}
-
-    <span id="art_index" hidden>{{ index }}</span>
-    <ul id="art_nextprev"class="sub border-x">
-        {% if page.next %}
-            <li>
-                <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
-                    <span class="icon-arrow-thin-left"></span>
-                    <span>Next</span>
-                </a>
-            </li>
-        {% endif %}
-        
-        <li>
-            <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
-        </li>
-        
-        {% if page.previous %}
-            <li>
-                <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
-                    <span>Prev</span>
-                    <span class="icon-arrow-thin-right"></span>
-                </a>
-            </li>
-        {% endif %}
-    </ul>
+  {% include_relative _/{{selected}}.html %}
 {% endif %}
 
 <div id="art_container" class="split">
@@ -71,7 +23,7 @@ nav:
     {% endif %}
   </div>
 
-  {% assign aside = page.name | prepend: '_includes/aside/' %}
+  {% assign aside = page.name | prepend: '_/aside/' %}
   {% assign aside_check = aside | prepend: 'art/' | check_file %}
 
   {% if aside_check or layout.view %}

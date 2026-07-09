@@ -3,7 +3,7 @@
   margin-bottom: var(--space);
 }
 
-.justified-gallery button, button.lb-item {
+.justified-gallery > button, button.lb-item {
   padding: 0;
   border: unset;
   display: block;

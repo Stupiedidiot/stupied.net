@@ -48,9 +48,10 @@ p, ol, ul, blockquote {
   margin-bottom: $font-after;
 }
 
-p a {
+p > a {
     color: var(--color-accent);
     text-decoration: underline;
+    font-weight: bold;
 }
 
 ul li {

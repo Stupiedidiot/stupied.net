@@ -1,4 +1,8 @@
 collections:
+  fanart:
+    output: true
+    permalink: /fanart/p/:path
+    sort_by: date
   lists:
   reviews:
     output: true

@@ -1,0 +1,32 @@
+---
+layout: page
+title: Fanart
+description: "Awesome artwork I’ve received from others through out the years! :D"
+---
+
+{% assign data = site.data.nav.fanart %}
+{% include_cached layout/subnav.liquid data=data %}
+
+<div class="padded">    
+    <article>
+        <h1>{{ page.title }}</h1>
+        <p>Awesome artwork I’ve received from others through out the years! :D</p>
+    
+        <p>For storage purposes, I won’t be able to upload everyone art. Just know that I love them all very much!! If you feel uncomfortable about your art being featured, please feel free to <a href="/about/contact">contact</a> me and tell me off for it.</p>
+    </article>
+
+    <hr>
+
+    <div class="justified-gallery">
+        {%- assign dir = 'snail/_img/fanart/img/' -%}
+        {% assign data = site.fanart |  where: 'featured', true  %}
+        {% for item in data reversed %}
+            {% assign path = item.path | getArtPath %}
+            {% assign img = path | append: '.' | append: item.ext %}
+            {% assign dime = img | writeDime: dir | split: 'x' %}
+            <a href="/fanart/p/{{ path }}" style="--width: {{ dime[0] }}; --height: {{ dime[1] }};">
+                <img src="/fanart/img/{{ img }}" alt="{{ item.alt }}" loading="lazy">
+            </a>
+        {% endfor %}
+    </div>
+</div>
