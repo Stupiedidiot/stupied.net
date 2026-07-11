@@ -1,4 +1,9 @@
-{% assign DATA = site[include.col] | reverse %}
+{% if include.data %}
+    {% assign DATA = include.data %}
+{% else %}
+    {% assign DATA = site[include.col] | reverse %}
+{% endif %}
+
 
 {%- assign dir = 'snail/_img/' | append: include.col | append: '/img/' -%}
 [
@@ -17,6 +22,14 @@
         {%- if item.alt -%}
             ,"alt": {{ item.alt | escape | jsonify }}
         {%- endif -%}
+
+        {%- if include.w_desc -%}
+            {% assign test = item.content | strip %}
+            {% if test != "" %}
+                ,"desc": {{ item.content | markdownify | jsonify }}
+            {% endif %}
+        {%- endif -%}
+
 
         {%- if item.extra -%}
             ,"extra": [

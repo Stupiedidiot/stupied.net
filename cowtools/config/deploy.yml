@@ -22,6 +22,13 @@ page_gen:
     template: 'library'
     name_expr: "'index'"
     dir_expr:  "'lib/' + record['id']"
+
+  - data: 'site.data.library'
+    template: 'library-ext'
+    name_expr: "'ext'"
+    extension: json
+    dir_expr:  "'lib/' + record['id']"
+    filter: external
   # LIBRARY END
 
   # MICROBLOG START

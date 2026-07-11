@@ -14,11 +14,11 @@ include_path: _index.html
                 {%- for e in site.data.library -%}
                     <div class="item-container">
                         <div class="{{ e.id }}">
-                            <div class="item-thumb"><img src="./{{ e.id }}/main.png"></div>
+                            <div class="item-thumb"><img src="/lib/img/{{ e.id }}.png"></div>
                             <div class="item-side">
                                 <div>
                                 <div class="item-title"><h2>{{ e.title }}</h2></div>
-                                <div class="item-desc">{{ e.desc }}</div>
+                                <div class="item-desc">{{ e.description }}</div>
                                 <div class="item-link"><a href="./{{ e.id }}/">Click to Read</a></div>
                                 </div>
                             </div>

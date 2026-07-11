@@ -9,6 +9,6 @@ tags:
   - jay
   - psych
 title: Rainbows
-category: psych
+category: psych-old
 ---
 I cannot properly express to you all how badly this comic hurts my soul. But I will push through the cringe in the spirit of archival!!!

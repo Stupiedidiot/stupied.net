@@ -4,20 +4,25 @@ layout: page
 
 {% assign DATA = site.art | where_exp: 'e', 'e.category == page.id' %}
 
-<header class="padded">
+<header class="padded border-dashed-bottom">
     <h1>{{ page.title }}</h1>
-    <blockquote>
-        <p>Hello, this layout kinda sucks rn. Feel free to read over <a href="/art/archive?comic+{{ page.id }}">here</a> instead.</p>
-    </blockquote>
+    <div class="blockquote">
+        {{ page.description | markdownify }}
+    </div>
 
-    {{ page.desc | markdownify }}
+    {% if page.yap %}
+        {{ page.yap | markdownify }}
+    {% endif %}
 
     {% if page.external %}
         <p>
             <a href="{{ page.external }}">External Website »</a>
         </p>
     {% endif %}
+</header>
 
+<nav class="padded">
+    <h2>Table of Contents</h2>
     {% if DATA.size > 1 %}
         <ul class="toc">
             {% for item in DATA %}
@@ -31,7 +36,7 @@ layout: page
             {% endfor %}
         </ul>
     {% endif %}
-</header>
+</nav>
 
 <div id="comic">
     {% for item in DATA %}

@@ -1,0 +1,7 @@
+---
+---
+
+[
+    {% assign DATA = site.art | where_exp: 'e', 'e.category == page.id' %}
+    {% include art/list.liquid data=DATA col="art" w_desc=true %}
+]

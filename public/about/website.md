@@ -14,6 +14,6 @@ A culmination of everything in my being. There are certain pages titled as "Arch
 To elaborate further on my quote, I don't think algorithms are inherently bad. In fact, I spend quite some time studying them myself! Algorithms are just apathetic rulers that values numbers over social impact. It curates narrow views that too many people passively adopt regardless of it's accuracy. There are too many beautiful things in this world obfuscated by algorithms. Which is why this website exists! It is my way of actively seeking and promoting those beautiful things.
 
 ---
-
+zz
 ## Propaganda
 You should make a website, it's fun (lying).

@@ -12,6 +12,6 @@ tags:
   - lily
   - psych
 title: DNA
-category: psych
+category: psych-old
 ---
 

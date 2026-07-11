@@ -90,16 +90,19 @@ views:
       note.title: 107
       note.extra: 175
       note.tags: 464
-  - type: cards
+  - type: table
     name: comics
     filters:
-      and:
+      or:
         - file.folder.contains("comic")
+        - file.tags.contains("comic")
     groupBy:
       property: formula.year
       direction: DESC
     order:
+      - formula.thumbnail
       - formula.title
+      - category
       - tags
     sort:
       - property: date
@@ -109,4 +112,7 @@ views:
     imageAspectRatio: 0.55
     columnSize:
       formula.thumbnail: 110
+      formula.title: 102
+      note.category: 188
+      note.tags: 464
     rowHeight: tall
