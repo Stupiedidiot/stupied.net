@@ -31,6 +31,7 @@ body.default {
     display: flex;
     justify-content: center;
     align-items: end;
+    user-select: none;
 
     position: sticky;
     top: 0;
@@ -120,6 +121,7 @@ body.default {
 #footer {
     @extend %padded;
     @extend %graphed;
+    user-select: none;
     
     border-top: 2px solid var(--color-accent-dk);
     color: var(--color-accent-dkest);
@@ -222,6 +224,7 @@ body.default {
     border: 1px solid;
     background-color: white;
     transition: 0.2s;
+    user-select: none;
 
     &:hover {
         outline: 3px solid var(--color-accent);
@@ -240,6 +243,8 @@ body.default {
     background-color: black;
     position: relative;
     overflow: hidden;
+    user-select: none;
+
     &::before {
         z-index: 0;
         content: "";
@@ -324,7 +329,9 @@ body.default {
     &-tags {
         display: flex;
         flex-wrap: wrap;
+        user-select: none;
         gap: 0.2rem;
+        
         button {
             font-size: $font-size-base * 0.8;
             &:before {

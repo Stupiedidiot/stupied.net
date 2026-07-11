@@ -1,30 +1,16 @@
 ---
 layout: page
 title: Media Reviews
-
-pagination: 
-    enabled: true
-    title: ':title'
-    collection: reviews
-    category: completed
-
-    sort_reverse: true
-    sort_field: date
-
-    per_page: 16
-    permalink: '/:num/'
-    trail: 
-        before: 1
-        after: 1
 ---
 
 <div class="padded">
-    <h1>{{ page.title }} <span>(<span class="clr-accent">{{ paginator.page }}</span>/{{ paginator.total_pages }})</span></h1>
+    <h1>{{ page.title }}</span></h1>
     <p>Rambling about the media I've seen.</p>
 
     {% comment %} Really ought to update the styling for this :P {% endcomment %}
     <div class="timeline">
-        {%- for item in paginator.posts -%}
+        {% assign DATA = site.reviews | where: 'category', 'completed' %}
+        {%- for item in DATA -%}
             <a href="{{ item.url }}" class="border-dashed-top timeline-item {{ item.tags | join: ' ' }}">
                 <div class="timeline-content">
                     {% assign thumbnail = item.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
@@ -48,5 +34,3 @@ pagination:
         {%- endfor -%}
     </div>
 </div>
-
-{% include widget/page-nav.liquid %}

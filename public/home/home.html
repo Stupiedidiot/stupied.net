@@ -1,0 +1,61 @@
+---
+layout: page
+js:
+- /meta/js/lightbox.js
+
+pagination: 
+    enabled: true
+    collection:
+        - art
+        - posts
+    per_page: 24
+    sort_reverse: true
+    sort_field: date
+    permalink: '/:num/'
+---
+
+<div class="padded border-dashed-bottom">
+    <h1>{{ site.title }} <span>(<span class="clr-accent">{{ paginator.page }}</span>/{{ paginator.total_pages }})</span></h1>
+    <p>A linear feed of all the art and blog post I've made!</p>
+</div>
+
+<div class="padded">
+    {% include widget/post-feed.liquid data=paginator.posts %}
+</div>
+
+{% if paginator.total_pages > 1 %}
+    <ul class="sub border-dashed-top">
+        {% if paginator.previous_page %}
+            <li>
+                <a id="nextprev-prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
+                    <span class="icon-arrow-thin-left"></span>
+                    <span>Prev</span>
+                </a>
+            </li>
+        {% endif %}
+
+        {% if paginator.page_trail %}
+            {% for trail in paginator.page_trail offset:1 %}
+                {% if paginator.page == trail.num or forloop.last %}
+                    {% continue %}
+                {% endif %}
+                <li class="white">
+                    <a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}"
+                        {% if paginator.page == trail.num %}
+                            class="nextprev-current"
+                        {% endif %}
+                    ><span>{{ trail.num }}</span></a>
+                </li>
+            {% endfor %}
+        {% endif %}
+
+        {% if paginator.next_page %}
+            <li>
+                <a id="nextprev-next" href="{{ paginator.next_page_path | prepend: site.baseurl }}" title="View Next Page">
+                    <span>Next</span>
+                    <span class="icon-arrow-thin-right"></span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

@@ -1,0 +1,53 @@
+{% assign limit = include.limit | default: data.size %}
+<div class="post-feed">
+    {%- for item in include.data limit:limit -%}
+        <div class="post-feed-item" id="{{ forloop.index }}">
+            <a href="{{ item.url }}" class="post-feed-header padded">
+                <div class="post-feed-pfp">
+                    <img src="/home/img/{{ item.collection }}.jpg" alt="">
+                </div>
+
+                <div class="post-feed-title">
+                    <h2>{{ item.title }}</h2>
+                </div>
+            </a>
+
+            <div class="post-feed-thumbnail" data-link="{{ item.url }}">
+                {% if item.collection == 'art' %}
+                    {% include art/write-imgs.liquid data=item no_link=true no_extra=true %}
+                {% else %}
+                    <img src="{{ item.thumbnail }}" alt="">
+                {% endif %}
+            </div>
+
+            <div class="post-feed-desc padded">
+                <div class="post-feed-time">
+                    <time datetime="{{ item.date | date_to_xmlschema }}" itemprop="datePublished" class="h3">
+                        {{ item.date | date: "%B %-d, %Y" }}
+                    </time>
+                </div>
+
+                {% if item.description %}
+                    <div class="blockquote">
+                        {{ item.description | markdownify }}
+                    </div>
+                {% endif %}
+
+                {% assign test = item.content | strip %}
+                {% if test != '' %}
+                    <p>
+                        {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
+                    </p>
+                {% endif %}
+                
+                <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
+            </div>
+
+            <div class="post-feed-tags padded">
+                {% for tag in item.tags %}
+                    <a href="#" class="button">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    {%- endfor -%}
+</div>

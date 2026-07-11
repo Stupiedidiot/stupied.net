@@ -14,11 +14,11 @@ js:
 </div>
 
 <ul id="art_nextprev"class="sub border-x">
-    {% if page.next %}
+    {% if page.previous %}
         <li>
-            <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
+            <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
                 <span class="icon-arrow-thin-left"></span>
-                <span>Next</span>
+                <span>Prev</span>
             </a>
         </li>
     {% endif %}
@@ -26,11 +26,11 @@ js:
     <li>
         <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
     </li>
-    
-    {% if page.previous %}
+
+    {% if page.next %}
         <li>
-            <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
-                <span>Prev</span>
+            <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
+                <span>Next</span>
                 <span class="icon-arrow-thin-right"></span>
             </a>
         </li>

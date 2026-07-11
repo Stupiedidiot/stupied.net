@@ -30,6 +30,7 @@
     background-image: linear-gradient(46deg, var(--clr) 25%, var(--bg) 25%, var(--bg) 50%, var(--clr) 50%, var(--clr) 75%, var(--bg) 75%, var(--bg) 100%);
     
     animation: stripped 10s infinite linear;
+    @include anim;
     @keyframes stripped {
         0% {
             background-position: 0 0;
@@ -328,6 +329,7 @@ figure.highlight {
 %nav {
     @extend %list;
     @extend %nav_a;
+    user-select: none;
 
     li {
         @extend %list;
@@ -514,6 +516,83 @@ figure.highlight {
     > * {
         break-inside: avoid;
         margin-bottom: $font-size-base;
+    }
+}
+
+// post feed ====== ===================================
+
+.post-feed {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    user-select: none;
+
+    &-item {
+        width: 100%;
+        overflow: hidden;
+        border-radius: 8px;
+        border: 2px solid;
+    }
+
+    &-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+
+        &:hover {
+            color: var(--color-accent);
+        }
+    }
+
+    &-pfp {
+        @include res {
+            display: none;
+        }
+        img {
+            border: 1px solid;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            width: 2rem;
+        }
+    }
+
+    &-title {
+        flex: 1;
+        display: block;
+        &, h2 {
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    &-thumbnail {
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        overflow: hidden;
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 50vh;
+            object-fit: cover;
+            object-position: center;
+            transition: 0.2s;
+        }
+        &:hover img {
+            transform: scale(105%);
+        }
+    }    
+
+    &-tags {
+        display: flex;
+        flex-wrap: wrap;
+        border-top: 1px dashed;
+        gap: 0.5rem;
+        justify-content: right;
+        align-items: center;
     }
 }
 

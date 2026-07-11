@@ -1,5 +1,8 @@
 ---
 layout: page
+
+js:
+- /meta/js/lightbox.js
 ---
 
 <header class="padded">
@@ -11,9 +14,25 @@ layout: page
     <blockquote>
         <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
     </blockquote>
-
     <p>Currently undergoing a massive redesign! So things might look a bit janky.</p>
 </article>
+
+<div>
+    <div class="padded border-dashed-top">
+        <h2>Recently Uploaded</h2>
+        {% assign limit = 3 %}
+        {% assign DATA = site.art | concat: site.posts | sort: 'date' | reverse %}
+        {% include widget/post-feed.liquid data=DATA limit=limit %}
+    </div>
+    <ul class="sub border-dashed-top">
+        <li>
+            <a href="/home/#{{ limit | plus: 1 }}" title="View More of Feed">
+                <span>View More</span>
+                <span class="icon-arrow-thin-right"></span>
+            </a>
+        </li>
+    </ul>
+</div>
 
 <script>
     var USER_AGENT = navigator.userAgent.toLowerCase();

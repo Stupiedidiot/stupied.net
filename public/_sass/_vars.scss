@@ -19,6 +19,12 @@
   }
 }
 
+@mixin anim (){
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
 // colors ================================
 
 

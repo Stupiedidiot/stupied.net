@@ -1,4 +1,13 @@
-function wrap(el, wrapper) {el.parentNode.insertBefore(wrapper, el);wrapper.appendChild(el);}
+---
+layout: none
+targets:
+  - "header .header-thumb"
+  - "#blog_content img:not(.sign-off)"
+  - ".micro-post img"
+  - ".post-feed-thumbnail img"
+---
+
+function wrap(el, wrapper) { el.parentNode.insertBefore(wrapper, el); wrapper.appendChild(el); }
 
 var lightbox = document.createElement('div');
 lightbox.setAttribute('onclick', 'closeLightBox()');
@@ -12,13 +21,13 @@ lightbox.innerHTML = `
       <button id="lightbox-next"></button>
 
       <div id="lightbox-info">
-          <a href="#">View Full Image »</a>
+          <a href="#">View Full »</a>
       </div>
   </div>
 `;
 
 // CHANGE THIS TO BE MORE GENERAL!!
-var images = document.querySelectorAll("header .header-thumb, #blog_content img:not(.sign-off), .micro-post img");
+var images = document.querySelectorAll("{{ page.targets | join: ',' }}");
 for (let i = 0; i < images.length; i++) {
   let result = document.createElement("button");
   result.style.setProperty("--width", images[i].style.getPropertyValue("--width"));
@@ -31,7 +40,10 @@ for (let i = 0; i < images.length; i++) {
   }
   result.classList.add("lb-item");
 
-  result.dataset.link = images[i].src;
+  if (images[i].parentElement.dataset.link)
+    result.dataset.link = images[i].parentElement.dataset.link;
+  else
+    result.dataset.link = images[i].src;
 
   wrap(images[i], result);
 }

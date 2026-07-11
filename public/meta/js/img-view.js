@@ -2,15 +2,15 @@ document.onkeydown = function (event) {
   if (document.activeElement === document.body) {
     switch (event.keyCode) {
       case 37:
-        if (e = document.getElementById("nextprev-next"))
-          e.click();
-        break;
-      case 39:
         if (e = document.getElementById("nextprev-prev"))
           e.click();
         break;
+      case 39:
+        if (e = document.getElementById("nextprev-next"))
+          e.click();
+        break;
       case 27:
-        if (e = document.getElementById("nextprev-home"))
+        if (e = document.getElementById("nextprev-archive"))
           e.click();
         break;
       case 82:
@@ -25,8 +25,6 @@ const POST_RELATED = document.getElementById("art_related"),
 
 const POST_FOLDER = POST_RELATED.dataset.col;
 const POST_CURR_IDX = parseInt(POST_RELATED.dataset.idx);
-console.log(POST_FOLDER)
-console.log(POST_CURR_IDX)
 
 const TAGS_FILTER_OUT = [
   'ocs',

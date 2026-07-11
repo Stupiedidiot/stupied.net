@@ -37,6 +37,7 @@
     width: auto;
     gap: 0.5rem;
     aspect-ratio: 3/2;
+    user-select: none;
 
     > * { border: 3px solid black; }
     a { display: block; }
