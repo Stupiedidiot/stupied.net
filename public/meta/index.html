@@ -60,3 +60,11 @@ include_path: _/index.html
         </div>
     </aside>
 </div>
+
+<script>
+const DATE_CURRENT = new Date().getTime()
+const DATE_CREATED = new Date("2023-04-06").getTime();
+
+const pageAge = Math.floor(( DATE_CURRENT - DATE_CREATED )/ 3.154e+10)
+document.getElementById("date").textContent = pageAge + " years old!!";
+</script>
