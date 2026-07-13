@@ -572,8 +572,8 @@ figure.highlight {
         img {
             display: block;
             width: 100%;
-            aspect-ratio: 4/3;
             height: auto;
+            max-height: 70vh;
             object-fit: cover;
             object-position: center;
             transition: 0.2s;

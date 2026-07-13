@@ -4,6 +4,7 @@
     {% assign DATA = site[include.col] | reverse %}
 {% endif %}
 
+{% assign DATA = DATA | where_exp: "item", "item.date <= site.time" %}
 
 {%- assign dir = 'snail/_img/' | append: include.col | append: '/img/' -%}
 [

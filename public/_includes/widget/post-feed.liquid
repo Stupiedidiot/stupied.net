@@ -1,6 +1,7 @@
 {% assign limit = include.limit | default: data.size %}
+{% assign DATA = include.data | where_exp: "item", "item.date <= site.time" %}
 <div class="post-feed">
-    {%- for item in include.data limit:limit -%}
+    {%- for item in DATA limit:limit -%}
         <div class="post-feed-item" id="{{ forloop.index }}">
             <a href="{{ item.url }}" class="post-feed-header padded">
                 <div class="post-feed-pfp">
