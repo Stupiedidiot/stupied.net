@@ -24,6 +24,8 @@ Collection of words string together in ways that stick out to me for years to co
 ### Stuff I've Read Online
 > 10 kinds of people exist in the world: those who understand binary, and those who don't.
 
+> youre allowed to hurt me because i understand you. im not allowed to complain because you have your reasons
+
 ### Random Stuff I hear from Other People
 > Life is short, Make it shorter
 

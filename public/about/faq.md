@@ -30,16 +30,15 @@ They're so awesome and stuff. Like seriously you guys.
 
 ---
 
+{% include lists/item.html where='tools' %}
+
+---
+
 ## How'd You Do _?
 Usually with a lot of pain and suffering.
 
 {% assign RELATED = site.posts | where_exp: "item", "item.tags contains 'spaghetti'" %}
 {% include widget/timeline.html data=RELATED %}
-
----
-<img src="/art/img/23/Vicious-Cycle.jpg" alt="" class="float-left" style="max-width: 280px;">
-{% include lists/item.html where='tools' %}
-<hr class="clear">
 
 ---
 
