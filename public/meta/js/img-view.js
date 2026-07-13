@@ -1,3 +1,7 @@
+---
+layout: none
+---
+
 document.onkeydown = function (event) {
   if (document.activeElement === document.body) {
     switch (event.keyCode) {
@@ -27,6 +31,9 @@ const POST_FOLDER = POST_RELATED.dataset.col;
 const POST_CURR_IDX = parseInt(POST_RELATED.dataset.idx);
 
 const TAGS_FILTER_OUT = [
+  {%- for item in site.data.art.tags.year %}
+  {{ item | jsonify }},
+  {%- endfor %}
   'ocs',
   'fanart-by-others',
   'fanart',
@@ -64,7 +71,7 @@ if (POST_CURR_IDX !== undefined) {
           let e = art[index].tags;
           if(e === undefined) continue;
 
-          let regex = new RegExp(`\\b(?<!\\d)(${tags_filtered.join('|')})(?!\\d)\\b`, 'i');
+          let regex = new RegExp(`\\b(${tags_filtered.join('|')})\\b`, 'i');
           if (regex.test(e)) related.push(art[index]);
           if (related.length >= POST_RELATED_MAX) break;
         }

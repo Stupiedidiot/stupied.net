@@ -11,7 +11,7 @@
 @mixin res ($type: md){
   $border_widtheak: 780px;
   @if ($type != md){
-    $border_widtheak: 1300px;
+    $border_widtheak: 1080px;
   }
 
   @media only screen and (max-width: #{$border_widtheak}) {
