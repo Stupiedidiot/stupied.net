@@ -1,7 +1,13 @@
 {% assign limit = include.limit | default: data.size %}
 {% assign DATA = include.data | where_exp: "item", "item.date <= site.time" %}
+
+
 <div class="post-feed">
     {%- for item in DATA limit:limit -%}
+        {% if item.collection == 'art' %}
+            {% assign art = true %}
+        {% endif %}
+
         <div class="post-feed-item" id="{{ forloop.index }}">
             <a href="{{ item.url }}" class="post-feed-header padded">
                 <div class="post-feed-pfp">
@@ -14,7 +20,7 @@
             </a>
 
             <div class="post-feed-thumbnail" data-link="{{ item.url }}">
-                {% if item.collection == 'art' %}
+                {% if art %}
                     {% include art/write-imgs.liquid data=item no_link=true no_extra=true %}
                 {% else %}
                     <img src="{{ item.thumbnail }}" alt="">
@@ -45,9 +51,16 @@
             </div>
 
             <div class="post-feed-tags padded">
-                {% for tag in item.tags %}
-                    <a href="#" class="button">{{ tag }}</a>
-                {% endfor %}
+                {% if art %}
+                    {% assign tags = item | getTags: true %}
+                    {% for tag in tags %}
+                        <a href="/art/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                    {% endfor %}
+                {% else %}
+                    {% for tag in item.tags %}
+                        <a href="#" class="button">{{ tag }}</a>
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     {%- endfor -%}
