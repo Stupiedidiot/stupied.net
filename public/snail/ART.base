@@ -96,6 +96,7 @@ views:
       or:
         - file.folder.contains("comic")
         - file.tags.contains("comic")
+        - "!category.isEmpty()"
     groupBy:
       property: formula.year
       direction: DESC

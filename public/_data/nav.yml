@@ -69,3 +69,16 @@ fanart:
   - title: Random
     icon: shuffle
     func: randomArt('fanart')
+
+mii:
+  - title: Home
+    icon: home
+    link: /mii/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /mii/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('mii')

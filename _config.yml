@@ -48,6 +48,11 @@ defaults:
       type: fanart
     values:
       layout: img-view
+
+  - scope:
+      type: mii
+    values:
+      layout: img-view
   # ==============================
 
   - scope:

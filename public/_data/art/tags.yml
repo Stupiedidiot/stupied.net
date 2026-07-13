@@ -11,14 +11,6 @@ year:
 - '2017'
 - '2016'
 
-year_fanart:
-- '2026'
-- '2025'
-- '2024'
-- '2023'
-- '2022'
-- '2021'
-
 psych:
 - psyche
 - evan
@@ -194,3 +186,37 @@ meta:
 - GIF
 - multi
 - With-Commentary
+
+
+mii_year:
+  - '2026'
+  - '2025'
+
+mii:
+  - psyche
+  - evan
+  - jay
+  - mary
+  - august
+  - daphne
+  - mopsy
+  - pepper
+  - dahila
+  - donald
+  - daisy
+  - webby
+  - lena
+  - frisk
+  - noelle
+  - stupied
+  - dwinky
+  - beetke
+  - bob
+
+fanart_year:
+- '2026'
+- '2025'
+- '2024'
+- '2023'
+- '2022'
+- '2021'

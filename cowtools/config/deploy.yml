@@ -3,6 +3,11 @@ collections:
     output: true
     permalink: /fanart/p/:path
     sort_by: date
+  mii:
+    output: true
+    permalink: /mii/p/:path
+    sort_by: date
+    
   lists:
   reviews:
     output: true

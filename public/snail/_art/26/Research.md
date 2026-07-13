@@ -11,4 +11,5 @@ tags:
   - psyche
   - jay
 alt: Illustration of Jay Swift and Psyche Lea in a library.
+category: psych
 ---
