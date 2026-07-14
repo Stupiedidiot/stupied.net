@@ -60,7 +60,7 @@ js:
                         {% if e.extra %}
                             {% for j in e.extra %}
                             <details>
-                                <summary><h4>{{ j.title }}</h4></summary>
+                                <summary><h4 class="h6">{{ j.title }}</h4></summary>
                                 {% assign tag = j.tag | default: j.title |  downcase %}
                                 {%- include art/write-tags.html selected = tag -%}
                             </details>

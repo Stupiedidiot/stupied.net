@@ -4,6 +4,7 @@
 
 <div class="post-feed">
     {%- for item in DATA limit:limit -%}
+        {% assign art = false %}
         {% if item.collection == 'art' %}
             {% assign art = true %}
         {% endif %}
@@ -19,13 +20,23 @@
                 </div>
             </a>
 
-            <div class="post-feed-thumbnail" data-link="{{ item.url }}">
-                {% if art %}
+            {% assign thumbnail = nil %}
+            {% if art %}
+                {% capture thumbnail %}
                     {% include art/write-imgs.liquid data=item no_link=true no_extra=true %}
-                {% else %}
+                {% endcapture %}
+            {% elsif item.thumbnail %}
+                {% capture thumbnail %}
                     <img src="{{ item.thumbnail }}" alt="">
-                {% endif %}
-            </div>
+                {% endcapture %}
+            {% endif %}
+
+            {% if thumbnail %}
+                <div class="post-feed-thumbnail" data-link="{{ item.url }}">
+                    {{ thumbnail }}    
+                </div>    
+            {% endif %}
+            
 
             <div class="post-feed-desc padded">
                 <div class="post-feed-time">

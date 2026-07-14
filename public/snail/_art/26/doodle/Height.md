@@ -10,6 +10,6 @@ tags:
   - jay
   - august
   - evan
-alt: August July teasing Jay Swift about his height.
+alt: August July teasing Jay Swift about his height. The measurements are 5'9 and 5'3 respectively.
 category: psych
 ---

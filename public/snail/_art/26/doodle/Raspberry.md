@@ -7,5 +7,6 @@ tags:
   - ocs
   - psych
   - psyche
+alt: Psyche Lea sticking her tongue out.
 ---
 I like to imagine she has a bad habit of sticking her tongue out when she's bored or playing video games.

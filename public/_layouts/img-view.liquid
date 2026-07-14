@@ -27,7 +27,7 @@ js:
         <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
     </li>
 
-    {% if page.next %}
+    {% if page.next and page.next.date <= site.time %}
         <li>
             <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
                 <span>Next</span>
@@ -69,14 +69,14 @@ js:
         <div id="art_aside_content" class="split-aside-content">
             <section id="aside-content" data-nosnippet>
 
-                {% assign index = site[page.collection] | getIndex: page.path %}
+                {% assign index = site[page.collection] | where_exp: "item", "item.date <= site.time" | getIndex: page.path %}
                 <h2 class="h3">Related Artwork</h2>
                 <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ index }}">
                     
                 </div>
                 <h3>Tags</h3>
                 <ul id="art_tags">
-                    {% assign tags = page | getTags %}
+                    {% assign tags = page | getTags: true %}
                     {% for e in tags %}
                         <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
                     {% endfor %}
