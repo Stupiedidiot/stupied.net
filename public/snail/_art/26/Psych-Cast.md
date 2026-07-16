@@ -19,6 +19,7 @@ tags:
   - athena
   - june
   - ict
+alt: A lineup of the Psych cast. It consists of Evan Odd, Psyche Lea, Jay Swift, August July, Daphne, Mary Day, Lily Odd, June July, Charmaine, Benedict, Juan Dela Cruz, the ICT teacher, Athena, ane Bloom.
 ---
 Redraw the Psych Cast lineup from [2025](/art/p/25/Psych-Cast). It gets longer every year haha. This was partially motivated by Artfight but mostly just so I can make the OC wiki prettier.
 

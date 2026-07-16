@@ -4,24 +4,44 @@ title: Artfight
 description: Attacks I drew for artfight
 ---
 
-<div id="2026" class="content">
+{% assign total = site.data.chez.artfight | afTotal %}
+{% assign DATA = total | concat: site.data.chez.artfight %}
+<article id="af_stats" class="padded">
   <h1>Artfight Attacks</h1>
-  <h2>2026</h2>
-  {% include art/artfight.liquid year = 2026 %}
-</div>
+  {% for e in DATA %}
+    <section id="{{ e.year }}">
+      <div class="af-item">
+        <div  class="af-team">
+            <h2>{% if e.year %}{{ e.year }}{% endif %} » {{ e.team }} Stats</h2>
+        </div>
+        <div class="af-stats">
+          <div class="af-stats-ratio">
+            {%- assign ratio = e | afRatio | slice: 0, 5 | append: '%' -%}
+            <div class="af-label">Battle Ratio</div>
+            <div class="af-value" style="--w:{{ ratio }};">{{ ratio }}</div>
+          </div>
+          <div class="af-stats-pts">
+            <div class="af-label">Points</div>
+            <div class="af-value">{{ e.pts }}</div>
+          </div>
+          <div class="af-stats-atk">
+            <div class="af-label">Attacks</div>
+            <div class="af-value">{{ e.atk }}</div>
+          </div>
+      
+          <div class="af-stats-ffr">
+            <div class="af-label">Friendly Fires</div>
+            <div class="af-value">{{ e.ffr }}</div>
+          </div>
+          <div class="af-stats-def">
+            <div class="af-label">Defenses</div>
+            <div class="af-value">{{ e.def }}</div>
+          </div>
+        </div>
+      </div>
 
-<div id="2025" class="content">
-  <h2>2025</h2>
-  {% include art/artfight.liquid year = 2025 %}
-</div>
+      {% include art/artfight.liquid year = e.year %}
+    </section>
 
-<div id="2024" class="content">
-  <h2>2024</h2>
-  {% include art/artfight.liquid year = 2024 %}
-</div>
-
-<div id="2023" class="content">
-  <h2>2023</h2>
-  {% include art/artfight.liquid year = 2023 %}
-</div>
-
+  {% endfor %}
+</article>

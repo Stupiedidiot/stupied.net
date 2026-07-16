@@ -10,5 +10,6 @@ tags:
   - psych
   - evan
   - doodle
+alt: Animated looping gif of Evan Odd flapping the two strands on the top of his head like wings.
 ---
 Do not seperate Evan from his ahoge. His fuck ass can NOT hear without it.
