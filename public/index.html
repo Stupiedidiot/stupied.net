@@ -20,7 +20,7 @@ js:
 <div>
     <div class="padded border-dashed-top">
         <h2>Recently Uploaded</h2>
-        {% assign limit = 3 %}
+        {% assign limit = 4 %}
         {% assign DATA = site.art | concat: site.posts | sort: 'date' | reverse %}
         {% include widget/post-feed.liquid data=DATA limit=limit %}
     </div>

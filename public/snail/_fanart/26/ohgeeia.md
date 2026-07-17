@@ -5,7 +5,6 @@ title: From Ohgeeia
 extra:
 tags:
   - digital
-  - ocs
   - sona
   - artfight
 featured: true

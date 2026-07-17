@@ -522,9 +522,10 @@ figure.highlight {
 // post feed ====== ===================================
 
 .post-feed {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+    column-width: 340px;
+    // display: grid;
+    // grid-template-columns: 1fr;
+    // gap: 1rem;
     user-select: none;
 
     &-item {

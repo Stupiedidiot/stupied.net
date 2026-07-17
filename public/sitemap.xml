@@ -4,20 +4,20 @@ layout: none
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <sitemap>
-        <loc>{{ site.url }}/sitemap/pages.xml</loc>
+        <loc>{{ site.url }}/meta/sitemap/pages.xml</loc>
     </sitemap>
     
     <sitemap>
-        <loc>{{ site.url }}/sitemap/art.xml</loc>
+        <loc>{{ site.url }}/meta/sitemap/art.xml</loc>
         <lastmod>{{ site.art.last.date | date_to_xmlschema }}</lastmod>
     </sitemap>
     
     <sitemap>
-        <loc>{{ site.url }}/sitemap/blog.xml</loc>
+        <loc>{{ site.url }}/meta/sitemap/blog.xml</loc>
         <lastmod>{{ site.posts.first.date | date_to_xmlschema }}</lastmod>
     </sitemap>
     
     <sitemap>
-        <loc>{{ site.url }}/sitemap/reviews.xml</loc>
+        <loc>{{ site.url }}/meta/sitemap/reviews.xml</loc>
     </sitemap>
 </sitemapindex>
