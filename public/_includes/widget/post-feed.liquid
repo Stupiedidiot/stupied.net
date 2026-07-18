@@ -1,7 +1,6 @@
 {% assign limit = include.limit | default: data.size %}
 {% assign DATA = include.data | where_exp: "item", "item.date <= site.time" %}
 
-
 <div class="post-feed newspaper">
     {%- for item in DATA limit:limit -%}
         {% assign art = false %}

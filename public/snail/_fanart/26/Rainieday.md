@@ -9,6 +9,6 @@ tags:
   - psyche
   - bloom
   - artfight
-featured: true
+pinned: true
 ---
 Artfight attack by [Rainieday](https://artfight.net/attack/14750764.psyche). I literally love everything about this piece!!!! From the clever use of pacman to the beautifully drawn gbasp. They have a [wesbite](https://rainieday.neocities.org/) as well, please check it :3

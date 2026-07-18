@@ -10,7 +10,7 @@ tags:
   - psych
   - artfight
   - jam
-featured: true
+pinned: true
 ---
 
 Artfight attack by [Dwinky]([https://artfight.net/attack/12621412](https://artfight.net/attack/16471644.mary-and-psyche)).

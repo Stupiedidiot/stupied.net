@@ -9,7 +9,7 @@ tags:
   - ashley
   - eighty-four
   - artfight
-featured: true
+pinned: true
 ---
 
 Artfight attack by [Izzy the Menace](https://artfight.net/attack/11978866). This goes unbelievably hard!!!

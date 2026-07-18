@@ -10,7 +10,7 @@ tags:
   - jay
   - psych
   - artfight
-featured: true
+pinned: true
 ---
 
 Artfight attack by [Daomecau77](https://artfight.net/attack/11473421).

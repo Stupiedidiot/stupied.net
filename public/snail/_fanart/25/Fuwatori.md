@@ -10,7 +10,7 @@ tags:
   - mary
   - psych
   - artfight
-featured: true
+pinned: true
 ---
 
 Artfight attack by [Fuwatori](https://artfight.net/attack/12621412). This one is so so so cute wahhh---

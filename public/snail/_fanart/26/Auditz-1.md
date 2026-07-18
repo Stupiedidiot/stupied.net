@@ -15,5 +15,5 @@ tags:
   - sona
   - psych
   - artfight
-featured: true
+pinned: true
 ---

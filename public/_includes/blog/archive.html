@@ -1,10 +1,10 @@
-{% assign MAX = include.max | default: site.post.size %}
 {%- assign DATA = include.data | default: site.posts -%}
+{% assign MAX = include.max | default: DATA.size %}
 
 {%- if DATA.size > 0 -%}      
 <ul class="toc">
     {% for item in DATA limit: MAX %}
-        <li>
+        <li class="toc-blog-item {{ e.tags | join: ' ' }}">
             <a href="{{ item.url }}">
                 <span class="font-display">{{ item.title }}</span>
                 <span class="dash"></span>

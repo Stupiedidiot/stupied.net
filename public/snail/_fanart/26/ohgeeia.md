@@ -7,6 +7,6 @@ tags:
   - digital
   - sona
   - artfight
-featured: true
+pinned: true
 ---
 Artfight attack by [ohgeeia](https://artfight.net/attack/14276264.hi)

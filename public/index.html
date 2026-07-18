@@ -6,23 +6,33 @@ js:
 ---
 
 <header class="padded">
-    {% include splash.html %}
+    {%- include splash.html -%}
 </header>
 
+{%- assign limit = 4 -%}
+{%- assign FEED = site.art | concat: site.posts | sort: 'date' | reverse -%}
+{%- assign PINNED = FEED | where: 'pinned', true -%}
+
 <article class="padded">
-    <h1>Welcome Aboard!</h1>
+    <h1><span class="icon-grin"></span> Welcome Aboard!</h1>
     <blockquote>
         <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
     </blockquote>
-    <p>Currently undergoing a massive redesign! So things might look a bit janky.</p>
 </article>
 
 <div>
+    {% if PINNED.size > 0 %}
+        <div class="padded border-dashed-top">
+            <h2><span class="icon-pin"></span> Pinned!!</h2>
+            <div class="no-col">
+                {% include widget/post-feed.liquid data=PINNED %}
+            </div>
+        </div>
+    {% endif %}
+
     <div class="padded border-dashed-top">
-        <h2>Recently Uploaded</h2>
-        {% assign limit = 4 %}
-        {% assign DATA = site.art | concat: site.posts | sort: 'date' | reverse %}
-        {% include widget/post-feed.liquid data=DATA limit=limit %}
+        <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
+        {% include widget/post-feed.liquid data=FEED limit=limit %}
     </div>
     <ul class="sub border-dashed-top">
         <li>

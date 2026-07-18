@@ -523,10 +523,11 @@ figure.highlight {
 
 .post-feed {
     column-width: 340px;
-    // display: grid;
-    // grid-template-columns: 1fr;
-    // gap: 1rem;
     user-select: none;
+
+    .no-col & {
+        column-width: unset;
+    }
 
     &-item {
         width: 100%;

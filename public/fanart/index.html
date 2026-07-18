@@ -19,7 +19,7 @@ description: "Awesome artwork I’ve received from others through out the years!
 
     <div class="justified-gallery">
         {%- assign dir = 'snail/_img/fanart/img/' -%}
-        {% assign data = site.fanart |  where: 'featured', true  %}
+        {% assign data = site.fanart |  where: 'pinned', true  %}
         {% for item in data reversed %}
             {% assign path = item.path | getArtPath %}
             {% assign img = path | append: '.' | append: item.ext %}
