@@ -36,13 +36,6 @@ page_gen:
     filter: external
   # LIBRARY END
 
-  # MICROBLOG START
-  - data: 'site.data.blog.micro.years'
-    template: 'blog-micro'
-    name: "year"
-    dir:  "/blog/"
-  # MICROBLOG END
-
 timezone: Asia/Manila
 deploying: true
 

@@ -3,6 +3,9 @@ before: <img src="img/25/anbernic-cutout.png" style="max-width:230px;" class="fl
 thumbnail: /blog/img/25/anbernic-folders.gif
 featured: true
 description: Impulsively ordered an Anbernic.
+tags:
+  - gaming
+  - tech
 ---
 Last January I impulsive ordered an [Anbernic](https://anbernic.com/products/rg35xxsp), specifically the SP in the RG35XX family. I was initially very hesitant since I already emulate most of my games through my phone, but the charm of carrying around a clamshell was too tempting. I know that this thing is considered to be on the cheaper side of handhelds, but 2.8k pesos is a big commitment for me!! So I am glad to report that the lil guy arrived perfectly fine :3
 

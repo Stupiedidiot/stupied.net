@@ -1,11 +1,14 @@
 ---
 title:
-
+date: {{date:YYYY-MM-DDTHH:mm}}
 tags:
-- art
-- spaghetti
-- jekyll
-- javascript
+- tech
+- media
+- gaming
+- irl
+- ocs
+- wip
+- meta
 - questionnaires
 published: false
 ---

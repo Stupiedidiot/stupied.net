@@ -1,0 +1,34 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.folder.startsWith("_posts")
+    - '!file.folder.startsWith("_posts/_ignore")'
+    - '!file.folder.startsWith("_posts/_drafts")'
+formulas:
+  year: formula.date.year
+  thumbnail: image("/_img" + note.thumbnail)
+  date: |-
+    if (
+        note.date,
+        note.date,
+        date(file.name.split('-').slice(0, 3).join('-'))
+    )
+views:
+  - type: table
+    name: Table
+    groupBy:
+      property: formula.year
+      direction: DESC
+    order:
+      - file.name
+      - formula.thumbnail
+      - title
+      - description
+      - tags
+    sort:
+      - property: formula.date
+        direction: DESC
+    columnSize:
+      file.name: 88
+      formula.thumbnail: 151
+    rowHeight: tall

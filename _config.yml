@@ -99,7 +99,6 @@ collections:
   img:
     output: true
     permalink: /:path
-  
-  micro:
+
   posts:
     permalink: /blog/:name_raw

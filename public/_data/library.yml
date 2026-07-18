@@ -1,66 +1,19 @@
-- id: askal
-  title: askal
-  description: Autobiographical comics :3
+- id: meta
+  title: Meta
+  description: Going over how stuff in this website works.
 
-- id: psych
-  title: Psych!
-  description: Being a psychic sucks actually.
-  external: https://psych.stupied.net/
-  yap: |-
-    This is comic I initially thought up back in 2019-ish. It's a absurdist 'monster of the week' episodic comic series - it will make more sense once I actually get to making it lol. Right now, the comics featured here are just short one off jokes I made. Truthfully, I plan to create this comic along the way; Not having a exact number of issues planned nor a plot point to work towards. Think of the future comics here as like character studies hidden under multiple layers of irony.
+- id: story
+  title: Short Stories
+  description: Wowww writer ba nyarn??
 
-- id: pmd
-  title: 'PMD: Spirits of the Lake'
-  description: OC comics loosely based on the Pokemon Dungeon Games
-  external: https://pmd.stupied.net/
-  yap: |-
-    Currently working on writing all the issues from Volume 1 and 2. I will get this stupid ass comic done if it will be the death of me.
+- id: media
+  title: Media
+  description: Yapping about media I like
 
-- id: misc
-  title: Miscellaneous Comics
-  description: Dumping random comics n stuff that aren't for anything specific
-  yap:
+- id: webdev
+  title: Webdev Basics
+  description: You should make a website... Right now!!!
 
-- id: adrift
-  title: Adrift
-  description: It's clearance signing and Adrina has an essay to finish.
-
-- id: penny
-  title: Penny's Perfect Present
-  description: She wants to get her mom a gift for an upcoming event.
-
-- id: 'eighty-four'
-  title: '84'
-  description: Ashley Dobrik attempts to commit suicide but is prevented by getting stuck
-    in a time loop.
-
-- id: zombie
-  title: Zombie Comic??
-  description: OCs who I can remember the lore for aside from the fact they live in a post-apocalyptic world.
-
-- id: muse
-  title: muse ariadne
-  description: My entries for a writing club that posts new prompts weekly!! Not a comic, just too lazy to put it somewhere else.
-
-- id: puyo
-  title: Puyo Pop
-  description: Comics about the silly ball popping game.
-
-- id: hat
-  title: LiteralHat
-  description: Random LiteralHat related Comics
-
-- id: psych-old
-  title: Psych! » Archive
-  description: Old Psych Comics that do not fit current canon 
-  external: https://psych.stupied.net/
-  yap: |-
-    The characters have changed so much since I originally envision them so I figure it be best to put it in its own category lol.
-
-- id: aa
-  title: Ace Attorney
-  description: Got into Ace Attorney because of the Kubzscouts. This franchise has done permanent damage to my methodology of character creation.
-
-- id: howto
-  title: How To Not
-  description: A guide on how to do stuff by telling you how not to
+- id: food
+  title: Recipes
+  description: Recipes I likes

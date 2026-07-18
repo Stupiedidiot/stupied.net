@@ -51,7 +51,7 @@ The code below would output something like: `Blame It on the Samba (1948)`. We c
         <!-- Adds the year it was released in -->
         ({{ item.release }})
     {% endif %}
-{%- endcapture -%}{% endraw %}
+{% endraw %}
 ```
 
 Because I don't want to manually assign a thumbnail for each item, the image is just the slugify-ied title with a `.jpg` extension.

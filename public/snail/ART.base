@@ -4,10 +4,10 @@ filters:
     - file.ext == "md"
 formulas:
   year: date.year
-  thumbnail: image("/_img/" + (this.file.basename).lower() + "/img/" + file.path.replace('/bulk','').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext)
+  thumbnail: image("/_img/" + (this.file.basename).lower() + "/img/" + file.path.split('/').slice(1).join('/').split('.')[0] + '.' + note.ext)
   title: link(file,if(note.title != null, note.title, file.name.replace("-", " ")))
   cat: if(file.folder.split('/').length > 2, file.folder.split('/')[2], 0)
-  path: file.path.replace('/bulk','').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext
+  path: file.path.split('/').slice(1).join('/').split('.')[0] + '.' + note.ext
   tags: file.path.split('/').slice(2,-1) + file.tags
 views:
   - type: cards

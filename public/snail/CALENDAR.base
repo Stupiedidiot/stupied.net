@@ -8,10 +8,10 @@ formulas:
   thumbnail: |-
     if (
         note.thumbnail,
-        image("/_img" + note.thumbnail.replace('/blog/', '/blog/').replace('/art/', '/art/')),
+        image("/_img" + note.thumbnail),
         if (
             file.folder.contains('_art'),
-            image("/_img/art/img/" + file.path.replace('/bulk', '').split('/').slice(1).join('/').split('.')[0] + '.' + note.ext),
+            image("/_img/art/img/" + file.path.split('/').slice(1).join('/').split('.')[0] + '.' + note.ext),
             image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
         )
     )

@@ -34,6 +34,14 @@ layout: blog
     {{ title }}
   {%- endif -%}
   {{ date }}
+
+  {% if page.description %}
+    <div class="padded">
+      <div class="blockquote">
+        {{ page.description | markdownify }}
+      </div>
+    </div>
+  {% endif %}
   </header>
 
   <div id="blog_content" class="padded">
