@@ -1,7 +1,8 @@
-{%- assign list = site.data.outlinks -%}
-{% for item in list %}
-    {%- assign link = item.id | prepend: "https://" | append: '.neocities.org' -%}
-    <a href="{{ item.link | default: link }}" class="button-wall-item" target="_blank">
-        <img src="/outlinks/img/{{ item.id }}-button.{{ item.button | default: 'gif'}}" alt="{{ item.id }}">
+{% assign BUTTONS = site.outlinks | sort: 'index' | group_by: 'pinned' | reverse %}
+{% for group in BUTTONS %}
+    {% for item in group.items %}
+    <a href="{{ item.link }}" class="button-wall-item" target="_blank">
+        <img src="/outlinks/img/{{ item.slug }}-button.{{ item.ext }}" alt="{{ item.slug }}">
     </a>
+    {% endfor %}
 {% endfor %}

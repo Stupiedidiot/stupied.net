@@ -2,11 +2,6 @@
 title: Wesbites!! 
 ---
 ### Neocities / Nekoweb
-{% assign list = site.data.outlinks %}
-{% for item in list %}
-{%- assign link = item.id | prepend: "https://" | append: '.neocities.org' -%}
-- [{{ item.title | default: item.link | default: item.id | replace: 'https://', '' | replace: '/', '' }}]({{ item.link | default: link }})
-{% endfor -%}
 - [the rat's nest](https://justsnooze.neocities.org/)
 - [wolf & ghostling](https://wolf-and-ghostling.neocities.org/)
 - [C0D3CR34TUR3!!](https://codecreature.net/home/)
@@ -14,6 +9,8 @@ title: Wesbites!!
 - [outerweb](https://outerweb.org/)
 - [✦ 𝗍𝗁𝖾 𝗆𝖾𝗅𝗍 𝗓𝗈𝗇𝖾](https://meltknuckles.net/)
 - [heatherfranzen.com](https://www.heatherfranzen.com/)
+
+[View More »](/outlinks/#button-wall)
 
 ### Portfolios / Miscellaneous
 - [Louie Zong](https://www.louiezong.com/)

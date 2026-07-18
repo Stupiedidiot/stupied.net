@@ -4,41 +4,40 @@ title: Outlinks!
 include_path: _/index.html
 
 extra: 
-- id: literalhat
+- slug: literalhat
   title: LiteralHat
   link: https://literalhat.com/
   desc: Literal of the hat variety. Epic animations and music!!!
-  button: none
   
-- id: bovine
+- slug: bovine
   title: Bovine
   link: https://www.youtube.com/@Bovineas
   desc: "*Throws tomatoes at her*"
-  button: none
   
-- id: dwinky
+- slug: dwinky
   title: Dwinky
   link: https://en.wikipedia.org/wiki/The_Lego_Movie
   desc: Dimension Drifter of all time
-  button: none
 ---
-{%- assign list = site.data.outlinks -%}
-{%- assign stars = list | where_exp: "item", "item.desc" | concat: page.extra -%}
+
+{%- assign stars = site.outlinks | where: "pinned", true | concat: page.extra -%}
 <div id="view">
     {%- for item in stars -%}
-    <div id="{{item.id}}">
+    <div id="{{ item.slug }}">
         <div>
-            <img src="./img/{{item.id}}-thumb.png" alt="" class="view-thumb">
-            <h2>{{item.title}}</h2>
-            <p>{{item.desc}}</p>
+            <img src="./img/{{ item.slug }}-thumb.png" alt="" class="view-thumb">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+            
             {%- if item.iframe -%}
                 <iframe src="{{ item.link }}webgarden" height="250px" width="250px"scrolling="no"></iframe>
             {%- endif -%}
-            {%- unless item.button == 'none' -%}
-                <a href="{{ item.link }}" target="_blank"><img src="./img/{{ item.id }}-button.{{ item.button | default: 'gif'}}" alt="{{ item.title }}"></a>
+
+            {%- if item.ext -%}
+                <a href="{{ item.link }}" target="_blank"><img src="./img/{{ item.slug }}-button.{{ item.ext }}" alt="{{ item.title }}"></a>
             {%- else -%}
                 <a href="{{ item.link }}" target="_blank">View More »</a>
-            {%- endunless -%}
+            {%- endif -%}
         </div>
     </div>
     {%- endfor -%}
@@ -140,7 +139,7 @@ extra:
     <h2>Known Planets</h2>
     <ul id="planets">
         {% for item in stars %}
-        <li><a href="#{{item.id}}">{{item.title}}</a></li>
+        <li><a href="#{{ item.slug }}">{{item.title}}</a></li>
         {% endfor %}
     </ul>
 
@@ -171,7 +170,7 @@ extra:
             <div>
                 <img id="galaxy" src="./img/galaxy.png" alt="">
                 {% for item in stars %}
-                <a href="#{{item.id}}"><img src="./img/star.png" alt=""></a>
+                <a href="#{{item.slug}}"><img src="./img/star.png" alt=""></a>
                 {% endfor %}
             </div>
         </div>

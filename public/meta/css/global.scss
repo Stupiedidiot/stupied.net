@@ -465,69 +465,8 @@ body.default {
     padding-left: 0;
 }
 
-.micro-post {
-    border-radius: 8px;
-    border: 1px solid;
-    padding: 1rem;
-
-    h2 {
-        border-bottom: var(--border);
-        margin-bottom: 1rem;
-        span {
-            color: var(--color-accent);
-
-            &::before {
-                content: "»";
-                display: inline-block;
-                margin: 0 0.5rem;
-                color: var(--color-text);
-            }
-        }
-    }
-
-    details {
-        &[open] summary {
-            margin-bottom: 1rem;
-        }
-        summary {
-            font-family: var(--display-font);
-        }
-    }
-}
-
-.micro-tags {
-    border-top: var(--border);
-    padding-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    align-items: center;
-    justify-content: right;
-    margin-top: 1rem;
-    
-    button {
-        color: var(--color-accent-dker);
-        background-color: var(--color-accent-lter);
-        border: 1px solid;
-
-        font-size: #{$font-size-base * 0.8};
-        display: inline-block;
-        border-radius: 8px;
-        border: none;
-        &::before {
-            content: "#";
-        }
-    }
-}
-
-.tagged:has(input:checked) .micro-post,
 .tagged:has(input:checked) .timeline-item
  {display: none;}
-
-.tagged:has(#all:checked) .micro-post,
-{% for e in site.data.blog.micro.tags %}
-    .tagged:has(#{{ e }}:checked) .micro-post[class~="{{ e }}"],
-{% endfor %}
 
 .tagged:has(#all:checked) .timeline-item,
 {% for e in site.tags %}

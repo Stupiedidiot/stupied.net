@@ -1,0 +1,31 @@
+filters:
+  and:
+    - file.folder.startsWith("_outlinks")
+formulas:
+  button: image("_img/outlinks/img/" + file.basename + '-button.' + ext)
+  w_desc: if(description, "pinned")
+  pin: if(pinned, "PINNED")
+  thumbnail: image("_img/outlinks/img/" + file.basename + '-thumb.png')
+views:
+  - type: table
+    name: Table
+    groupBy:
+      property: formula.pin
+      direction: ASC
+    order:
+      - index
+      - formula.button
+      - file.name
+      - title
+      - description
+      - link
+      - formula.thumbnail
+      - pinned
+    sort:
+      - property: index
+        direction: ASC
+    columnSize:
+      note.index: 70
+      formula.button: 149
+      file.name: 141
+    rowHeight: medium
