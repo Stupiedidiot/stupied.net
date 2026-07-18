@@ -15,7 +15,7 @@ module Jekyll
       return idx
     end
 
-    def getArtNxtPrv(input, target)
+    def getNxtPrv(input, target)
       idx = nxt = prv = nil
       input.each_with_index do |e, i|
         if ( e.relative_path == target )

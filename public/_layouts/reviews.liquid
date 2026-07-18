@@ -4,16 +4,17 @@ layout: page
 
 <div id="review">
     {% assign col = site.reviews %}
-    {% assign info = col | getArtNxtPrv: page.path %}
+    {% assign info = col | where: 'category', 'completed' | getNxtPrv: page.path %}
     {% assign index = info[0] %}
-    {% assign prev = prev.previous %}
-    {% assign next = page.next %}
+    {% assign prev = info[1] %}
+    {% assign next = info[2] %}
     <ul class="sub">
-        {% if next %}
+
+        {% if prev %}
             <li>
-                <a id="nextprev-next" href="{{ next.url }}" title="View Next Page">
+                <a id="nextprev-prev" href="{{ prev.url }}" title="View Previous Page">
                     <span class="icon-arrow-thin-left"></span>
-                    <span>Next</span>
+                    <span>Prev</span>
                 </a>
             </li>
         {% endif %}
@@ -24,11 +25,11 @@ layout: page
                 <span>Archive</span>
             </a>
         </li>
-    
-        {% if prev %}
+
+        {% if next %}
             <li>
-                <a id="nextprev-prev" href="{{ prev.url }}" title="View Previous Page">
-                    <span>Prev</span>
+                <a id="nextprev-next" href="{{ next.url }}" title="View Next Page">
+                    <span>Next</span>
                     <span class="icon-arrow-thin-right"></span>
                 </a>
             </li>
@@ -43,7 +44,11 @@ layout: page
             <img src="{{ thumbnail }}" class="float-right review-thumbnail" data-pagefind-meta="image[src]">
         {%- endif -%}
     
-        <h1>{{ page.title | split: '(' | first }}{% if  page.release %} ({{ page.release }}){% endif %}</h1>
+        <h1>{{ page.title | split: '(' | first }}
+            {% if  page.release %}
+                (<span class="h2 clr-accent-lt">{{ page.release }}</span>)
+            {% endif %}
+        </h1>
     
         {% if page.link %}
             {% capture link %}
@@ -52,23 +57,15 @@ layout: page
         {% endif %}
     
         <div>
-            {% assign rating = page.rank |  append: ' Tier'  %}
-            <h3>{{  page.quote | default: rating }}</h3>
-            {%- if  page.path contains '/f/' -%}
-                {{  page.content | markdownify }}
-    
-                {{ link }}
-    
-                <hr class="clear">
-                <time datetime="{{ page.date | date_to_xmlschema }}">{{  page.date | date: "%B %-d, %Y" }}</time>
-            {%- else -%}
-                <p>Review is yet to be written!</p>
-    
-                {{ link }}
-    
-                <hr class="clear">
-                <time>To Be Reviewed..</time>
-            {%- endif -%}
+            {% assign rating = page.rank | append: ' Tier'  %}
+            <span class="h3 clr-accent">{{ page.quote | default: rating }}</span>
+
+            {{  page.content | markdownify }}
+
+            {{ link }}
+
+            <hr class="clear">
+            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
         </div>
     </article>
 </div>
