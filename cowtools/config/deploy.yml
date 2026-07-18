@@ -24,12 +24,12 @@ plugins:
 
 page_gen:
   # LIBRARY START
-  - data: 'site.data.library'
+  - data: 'site.data.comics'
     template: 'library'
     name_expr: "'index'"
     dir_expr:  "'lib/' + record['id']"
 
-  - data: 'site.data.library'
+  - data: 'site.data.comics'
     template: 'library-ext'
     name_expr: "'ext'"
     extension: json
