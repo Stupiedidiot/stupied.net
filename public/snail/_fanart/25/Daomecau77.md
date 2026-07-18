@@ -9,7 +9,6 @@ tags:
   - lily
   - psych
   - artfight
-featured: true
 ---
 
 Artfight attack by [Daomecau77](https://artfight.net/attack/10960431). Lowkey kinda screamed when I got this one.
