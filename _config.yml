@@ -34,6 +34,7 @@ defaults:
       layout: about
 
   # IMG GALLERIES ================
+  
   - scope:
       path: art/
     values:
@@ -53,7 +54,8 @@ defaults:
       type: mii
     values:
       layout: img-view
-  # ==============================
+  
+  # REVIEWS ======================
 
   - scope:
       type: reviews
@@ -65,11 +67,18 @@ defaults:
       path: "**/f/"
     values:
       category: completed
+  
+  # ==============================
 
   - scope:
       type: posts
     values:
-      layout: post
+      layout: blog-post
+
+  - scope:
+      type: garden
+    values:
+      layout: page
 
   - scope:
       path: comic/*/
@@ -99,6 +108,18 @@ collections:
   img:
     output: true
     permalink: /:path
+      
+  garden:
+    output: true
+    permalink: /lib/:category/:path
 
   posts:
     permalink: /blog/:name_raw
+
+page_gen:
+  # LIBRARY START
+  - data: 'site.data.library'
+    template: 'test'
+    name_expr: "'index'"
+    dir_expr:  "'lib/' + record['id']"
+  # LIBRARY END

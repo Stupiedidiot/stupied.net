@@ -10,7 +10,7 @@ js:
 </header>
 
 {%- assign limit = 4 -%}
-{%- assign FEED = site.art | concat: site.posts | sort: 'date' | reverse -%}
+{%- assign FEED = site.post | where: 'thumbnail', true | concat: site.art | sort: 'date' | reverse -%}
 {%- assign PINNED = FEED | where: 'pinned', true -%}
 
 <article class="padded">

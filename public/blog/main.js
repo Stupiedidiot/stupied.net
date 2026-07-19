@@ -31,6 +31,11 @@ function randomPost(){
     })
 }
 
+const PAGE = new URL(window.location.href);
+
+if (PAGE.searchParams.has('t'))
+  filterTag(PAGE.searchParams.get('t'));
+
 function filterTag(tag) { 
   document.querySelector("#micro_tags input:checked").checked = false;
   document.getElementById(tag).checked = true;

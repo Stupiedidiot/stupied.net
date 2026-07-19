@@ -6,6 +6,10 @@ module Jekyll
         @obj.basename.split('.md')[0]
       end
 
+      def category
+        @obj.data['category'] || ""
+      end
+
     end
   end
 end

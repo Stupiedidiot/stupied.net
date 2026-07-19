@@ -1,22 +1,10 @@
-@use "sass:map" as *;
+@use "sass:map";
 @use "sass:color" as *;
 
 // mixins ================================
 
 @function color($target) {
-  @return map-get($colors, $target);
-}
-
-// really should us an array...!
-@mixin res ($type: md){
-  $border_widtheak: 780px;
-  @if ($type != md){
-    $border_widtheak: 1080px;
-  }
-
-  @media only screen and (max-width: #{$border_widtheak}) {
-      @content;
-  }
+  @return map.get($colors, $target);
 }
 
 @mixin anim (){
@@ -81,20 +69,11 @@ $font-sizes: (
   6: $font-size-base
 );
 
-// grids =================================
+// breakpoints ===========================
 
-$border_widtheakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 992px
-);
-
-$grid-breakpoints: (
-  xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 1200px,
+$breakpoints: (
+  sm: 780px,
+  md: 1080px
 );
 
 $spacer: 1rem;
@@ -104,6 +83,12 @@ $spacers: (
     2: $spacer * 0.8,
     3: $spacer,
 );
+
+@mixin res ($type: md){
+  @media only screen and (max-width: #{map.get($breakpoints, $type)}) {
+      @content;
+  }
+}
 
 // borders ===============================
 

@@ -1,7 +1,7 @@
 ---
 before: <img src="img/25/anbernic-cutout.png" style="max-width:230px;" class="float-right">
 thumbnail: /blog/img/25/anbernic-folders.gif
-featured: true
+
 description: Impulsively ordered an Anbernic.
 tags:
   - gaming

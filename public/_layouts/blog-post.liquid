@@ -20,6 +20,7 @@ layout: blog
 
 <article>
   <header id="blog_header" data-nosnippet>
+  
   {%- if page.header -%}
     <div id="blog_header_img" style="--img:url({{ page.header }});"></div>
     <div class="outline has-header" style="--color: var(--color-body);"/>
@@ -36,8 +37,8 @@ layout: blog
   {{ date }}
 
   {% if page.description %}
-    <div class="padded">
-      <div class="blockquote">
+    <div id="blog_header_description" class="padded">
+      <div class="blockquote" style="margin-bottom: 0;">
         {{ page.description | markdownify }}
       </div>
     </div>

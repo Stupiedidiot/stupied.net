@@ -4,40 +4,35 @@ include_path: _/index.html
 title: Da Blog!
 ---
 <div class="padded">
-    <div id="hell-yeah">
-        <hr class="clear">
-        <div id="status">
-            <div id="status_content" title="status.cafe updates!">
+    <div id="blog_splash">
+        <div id="blog_status">
+            <div id="blog_status_content" title="status.cafe updates!">
                 <a href="https://status.cafe/users/stupied">
                     <div id="statuscafe"><div id="statuscafe-username"></div><div id="statuscafe-content"></div></div><script src="https://status.cafe/current-status.js?name=stupied" defer></script>
                 </a>
             </div>
             <a href="https://youtu.be/r9BaOU3qoBs" title="screaming into the abyss">
-                <div id="status_design">
+                <div id="blog_status_design">
                     <img src="./img/bruh.png" alt="" width="464" height="340">
                 </div>
             </a>
         </div>
     
-        <div style="flex:1;">
+        <div id="blog_splash_info">
             <h1>Da Blog!!</h1>
             <p>
                 There is very little of my real life I feel like sharing, so most of these posts is me going over the technical details of this website or my personal relationship with art.
             </p>
-
-            <hr>
-    
-            {%- assign FEATURED = site.posts | where: "featured", true -%}
-            <h2>Recent Blog Posts</h2>
-            {%- include blog/archive.html
-                data=FEATURED
-                max=3
-            -%}
         </div>
     </div>
 </div>
 
-<div class="padded">
+<div class="padded border-dashed-top">
+    <h2><span class="icon-news-paper"></span> Recent Blog Posts</h2>
+    {% include widget/grid-archive.liquid data=site.posts max=3%}
+</div>
+
+<div class="padded border-dashed-top">
     <img src="./img/summer-2025.png" alt="" class="float-right" style="max-width: 250px;">
     <h2>Other Stuff</h2>
     <ul id="other">
@@ -45,6 +40,7 @@ title: Da Blog!
         <li><a href="/micro">Microblog</a></li>
         <li><a href="https://ko-fi.com/stupied/posts">Ko-fi</a></li>
     </ul>
+
     <h3>Media Reviews</h3>
     <ul>
         {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
@@ -52,5 +48,6 @@ title: Da Blog!
             <li><a href="{{ e.link }}">{{ e.title }}</a></li>
         {%- endfor -%}
     </ul>
+    
     <hr class="clear">
 </div>

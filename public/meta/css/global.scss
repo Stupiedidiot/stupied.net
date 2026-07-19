@@ -14,6 +14,7 @@ body.default {
     display: grid;
     grid-template-columns: 1fr auto 3fr;
     grid-template-rows: auto 1fr;
+    min-width: 250px;
 
     background-color: var(--color-body);
 
@@ -383,6 +384,16 @@ body.default {
         padding: 0 $font-size-base;
     }
 
+    &_header {
+        &_description {
+            padding-top: 0;
+        }
+        
+        .blockquote {
+            margin-bottom: 0!important;
+        }
+    }
+
     &_header_img{
         background-image: var(--img);
         background-size: cover;
@@ -465,13 +476,13 @@ body.default {
     padding-left: 0;
 }
 
-.tagged:has(input:checked) .timeline-item
+.tagged:has(input:checked) .tag-filter
  {display: none;}
 
-.tagged:has(#all:checked) .timeline-item,
+.tagged:has(#all:checked) .tag-filter,
 {% for e in site.tags %}
     {% assign tag = e | first %}
-    .tagged:has(#{{ tag }}:checked) .timeline-item[class~="{{ tag }}"]
+    .tagged:has(#{{ tag }}:checked) .tag-filter[class~="{{ tag }}"]
     {%- unless forloop.last -%},{%- endunless -%}
 {% endfor %}
 {display: block;}

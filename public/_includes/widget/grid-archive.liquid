@@ -1,0 +1,37 @@
+{% assign DATA = include.data %}
+{% assign MAX = include.max | default: DATA.size %}
+<div class="grid-archive">
+    {% for item in DATA limit:MAX %}
+        <div class="grid-archive-item tag-filter {{ item.tags | join: ' ' }}">
+            <div class="grid-archive-content">
+                <a href="{{ item.url }}">
+                    <div class="grid-archive-title padded">
+                        <span class="h3">{{ item.title 2}}</span>
+                    </div>
+                    {% if item.thumbnail %}
+                        <div class="grid-archive-thumbnail">
+                            <img src="{{ item.thumbnail }}" alt="{{ item.alt }}">
+                        </div>
+                    {% endif %}
+                
+                    <div class="grid-archive-info padded">
+                        <div class="grid-archive-time">
+                            <time datetime="{{ item.date | date_to_xmlschema }}" itemprop="datePublished" class="h4 clr-accent">
+                                {{ item.date | date: "%B %-d, %Y" }}
+                            </time>
+                        </div>
+                
+                        {% if item.description %}
+                            {{ item.description | markdownify }}
+                        {% endif %}
+                    </div>
+                </a>
+                <div class="grid-archive-tags padded">
+                    {% for tag in item.tags %}
+                        <button onclick="filterTag('{{ tag }}')">{{ tag }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

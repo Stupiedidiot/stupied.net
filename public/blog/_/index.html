@@ -1,14 +1,19 @@
 
 <style>
 {% capture css %}
-#hell-yeah{
+#blog_splash {
     display: flex;
-    gap:10px;
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+
+    &_info {
+        flex: 1;
+        min-width: 280px;
+    }
 }
 
-
-#status {
+#blog_status {
     background:var(--color-accent);
     position: relative;
     overflow:hidden;
@@ -18,7 +23,7 @@
     color: black;
 
     &_design{
-       min-height:100px;
+        min-height:100px;
         height:100%;
 
         img{
@@ -26,14 +31,6 @@
             width:100%;
             height: auto;
             z-index:1;
-        }
-
-        h1{
-            position:absolute;
-            bottom:10px;
-            right:10px;
-            color:white;
-            z-index:2;
         }
     }
     &_content {
@@ -45,7 +42,6 @@
         border-top:0;
     }
 }
-
 
 #statuscafe {
     padding:2rem 1rem;

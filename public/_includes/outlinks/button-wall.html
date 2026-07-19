@@ -1,8 +1,10 @@
-{% assign BUTTONS = site.outlinks | sort: 'index' | group_by: 'pinned' | reverse %}
-{% for group in BUTTONS %}
-    {% for item in group.items %}
-    <a href="{{ item.link }}" class="button-wall-item" target="_blank">
-        <img src="/outlinks/img/{{ item.slug }}-button.{{ item.ext }}" alt="{{ item.slug }}">
-    </a>
+{% if site.outlinks %}
+    {% assign BUTTONS = site.outlinks | sort: 'index' | group_by: 'pinned' | reverse %}
+    {% for group in BUTTONS %}
+        {% for item in group.items %}
+        <a href="{{ item.link }}" class="button-wall-item" target="_blank">
+            <img src="/outlinks/img/{{ item.slug }}-button.{{ item.ext }}" alt="{{ item.slug }}">
+        </a>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
+{% endif %}

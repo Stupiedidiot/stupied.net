@@ -2,17 +2,29 @@
 layout: blog
 title: Blog Archive
 ---
-<article class="padded tagged" data-nosnippet>
-    {% include widget/search.html cat='blog' %}
-    <h1>[<span class="clr-accent">{{ site.posts.size }}</span>] Blog Archive</h1>
-    <div id="micro_tags">
-        <label><input type="radio" id="all" name="tag" checked>all</label>
-        {% for e in site.tags %}
-            <label><input type="radio" id="{{ e | first }}" name="tag" data-size="{{e | last | size}}">#{{ e | first }}</label>
-        {% endfor %}
-    </div>
+<article class="tagged" data-nosnippet>
     
-    <section id="blog_archive">
-        {%- include widget/timeline.html data=site.posts -%}
-    </section>
+    <div class="padded">
+        {% include widget/search.html cat='blog' %}
+        <h1>[<span class="clr-accent">{{ site.posts.size }}</span>] Blog Archive</h1>
+        
+        <div id="micro_tags">
+            <label><input type="radio" id="all" name="tag" checked>all</label>
+            {% for e in site.tags %}
+                <label><input type="radio" id="{{ e | first }}" name="tag" data-size="{{ e | last | size }}">#{{ e | first }}</label>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% if site.posts %}
+        {% assign DATA = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+        
+        {% for year in DATA %}
+            <div class="padded border-dashed-top">
+                <h2>{{ year.name }}</h2>
+                {% include widget/grid-archive.liquid data=year.items %}
+            </div>
+        {% endfor %}
+    {% endif %}
+
 </article>

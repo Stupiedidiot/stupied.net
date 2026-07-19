@@ -2,7 +2,7 @@
 title: Making an Art Archive
 thumbnail: /blog/img/25/Art-Archive.jpg
 header: /blog/img/25/Art-Archive.jpg
-featured: true
+
 tags:
   - spaghetti
   - jekyll
