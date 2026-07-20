@@ -30,14 +30,12 @@ async function start() {
   if (!MAX) MAX = DATA_T.length;
 
   DATA_T.forEach(el => {
-    let dime = el.dime.split('x');
-
     let res = document.createElement('div');
     res.dataset.tags = el.tags;
     res.className = 'art-archive-item hidden';
 
-    res.style.setProperty('--width', dime[0]);
-    res.style.setProperty('--height', dime[1]);
+    res.style.setProperty('--width', el.dime[0]);
+    res.style.setProperty('--height', el.dime[1]);
 
     let link = document.createElement('a');
     link.href = FOLDER_POST + el.img.split('.')[0];

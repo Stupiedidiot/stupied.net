@@ -4,7 +4,7 @@
 <img data-pagefind-meta="image[src]" src="./img/{{ DATA[0].img }}" alt="" id="pagefind_thumbnail">
 <div id="archive_content" class="art-archive first">
 {%- for item in DATA -%}
-    {%- assign img = item.path | getArtPath -%}
+    {%- assign img = item.thumbnail -%}
     <div class="art-archive-item hidden" data-tags="{{ tags | join: ' ' }}">
         <img src="#" data-image="./img/{{ img }}.{{ item.ext }}" alt="{{ item.alt | escape }}" loading="lazy">
         <div>
@@ -19,10 +19,9 @@
                 <div class="art-archive-title">{{ item.title }}</div>
             {%- endif -%}
 
-            {%- assign tags = item | getTags: true -%}
-            {%- if tags.size > 0 -%}
+            {%- if item.tags.size > 0 -%}
                 <div class="art-archive-tags">
-                    {%- for tag in tags -%}
+                    {%- for tag in item.tags -%}
                         <button onclick="getChecked('{{ tag }}')">{{ tag | downcase }}</button>
                     {%- endfor -%}
                 </div>

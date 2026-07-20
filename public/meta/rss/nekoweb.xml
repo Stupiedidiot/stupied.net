@@ -28,8 +28,7 @@ link: https://stupied.nekoweb.org
 
     <description>
         {% if item.collection == 'art' %}
-            {% assign test = item.content | strip %}
-            {%- if test != '' -%}
+            {%- if item.w_comment -%}
                 {{ item.content | strip_html | truncate: max, '...Read More' }}
             {% else %}
                 Added Art

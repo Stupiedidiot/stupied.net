@@ -15,8 +15,7 @@ description: RSS Feed for all my art
   <description>
       {% include rss/art.liquid item=item %}
   </description>
-  {%- assign tags = item | getTags: true -%}
-  {% if tags %}
+  {% if item.tags %}
       {% for tag in tags %}
         <category>{{ tag }}</category>
       {% endfor %}

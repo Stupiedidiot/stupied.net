@@ -21,11 +21,8 @@ description: "Awesome artwork I’ve received from others through out the years!
         {%- assign dir = 'snail/_img/fanart/img/' -%}
         {% assign data = site.fanart |  where: 'pinned', true  %}
         {% for item in data reversed %}
-            {% assign path = item.path | getArtPath %}
-            {% assign img = path | append: '.' | append: item.ext %}
-            {% assign dime = img | writeDime: dir | split: 'x' %}
-            <a href="/fanart/p/{{ path }}" style="--width: {{ dime[0] }}; --height: {{ dime[1] }};">
-                <img src="/fanart/img/{{ img }}" alt="{{ item.alt }}" loading="lazy">
+            <a href="/fanart/p/{{ item.thumbnail | split: '.' | first }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+                <img src="/fanart/img/{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy">
             </a>
         {% endfor %}
     </div>

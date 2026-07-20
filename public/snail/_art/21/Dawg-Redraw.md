@@ -7,4 +7,4 @@ tags:
   - back-to-school
 ---
 
-Redraw of [this piece](/art/p/19/Dawg). Massive downgrade ngl.
+Redraw of [this piece](_art/19/Dawg). Massive downgrade ngl.

@@ -93,9 +93,8 @@ if (POST_CURR_IDX !== undefined) {
         if (alt = e.alt)
           img.alt = alt;
 
-        let dims = e.dime.split('x');
-        img.width = dims[0];
-        img.height = dims[1];
+        img.width = e.dime[0];
+        img.height = e.dime[1];
         
         item.append(img);
         POST_RELATED.append(item);

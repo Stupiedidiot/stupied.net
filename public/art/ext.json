@@ -4,19 +4,18 @@ layout: none
 {% assign DATA = site.art | reverse %}
 [
     {%- assign dir = 'snail/_img/art/img/' -%}
-    {%- for e in DATA -%}
-        {%- assign img = e.path | getArtPath | append: '.' | append: e.ext -%}
+    {%- for item in DATA -%}
         {
-            "img": {{ img | jsonify }},
-            "dimension": {{ img | writeDime: dir | jsonify }}
+            "img": {{ item.thumbnail | jsonify }},
+            "dimension": {{ item.dime | jsonify }}
         }
 
-        {%- if e.extra -%}
-            {%- for i in e.extra -%}
+        {%- if item.extra -%}
+            {%- for i in item.extra -%}
             ,{
                 {% assign extra = i.img | default: i %}
                 "img": {{ extra | jsonify }},
-                "dimension": {{ extra | writeDime: dir | jsonify }}
+                "dimension": {{ extra | jsonify }}
             }
             {%- endfor -%}
         {%- endif -%}

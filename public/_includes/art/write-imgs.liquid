@@ -2,24 +2,19 @@
 {% assign collection = data.collection %}
 {% assign dime_path = 'snail/_img/' | append: collection | append: '/img/' %}
 
-{% assign path = data.path | getArtPath %}
-{% assign collection = data.collection %}
-
-{% assign img = path | append: '.' |  append: data.ext %}
-{% capture path_full %}
+{% assign img = data.thumbnail %}
+{% capture img_path %}
     /{{ collection }}/img/{{ img }}
 {% endcapture %}
 
-{% assign dime = img | getDime: dime_path %}
-
 {% capture img_el %}
-    <img src="{{- path_full -}}" alt="{{ data.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" data-pagefind-meta="image[src]">
+    <img src="{{- img_path -}}" alt="{{ data.alt | escape }}" width="{{ data.dime[0] }}" height="{{ data.dime[1] }}" data-pagefind-meta="image[src]">
 {% endcapture %}
 
 {% if include.no_link %}
     {{ img_el }}
 {% else %}
-    <a href="{{- path_full -}}" id="{{ img | slugify }}" title="Open {{ data.title }}">
+    <a href="{{- img_path -}}" id="{{ img | slugify }}" title="Open {{ data.title }}">
         {{ img_el }}
     </a>        
 {% endif %}
@@ -28,17 +23,15 @@
 {% unless include.no_extra %}
     {% for e in data.extra %}
         {% assign img = e.img | default: e %}
-        {% capture path_full %}
+        {% capture extra_path %}
             /{{ collection }}/img/{{ img }}
         {% endcapture %}
         
         {% assign dime = img | getDime: dime_path %}
         {% assign title = img | split: '/' | last | replace: '-', ' ' %}
         
-        
-
-        <a href="{{- path_full -}}" id="{{ img | slugify }}" title="Open {{ title }}">
-            <img src="{{- path_full -}}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" loading="lazy">
+        <a href="{{- extra_path -}}" id="{{ img | slugify }}" title="Open {{ title }}">
+            <img src="{{- extra_path -}}" alt="{{ e.alt | escape }}" width="{{ dime[0] }}" height="{{ dime[1] }}" loading="lazy">
         </a>
     {% endfor %}
 {% endunless %}

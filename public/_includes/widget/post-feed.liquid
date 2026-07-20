@@ -22,7 +22,7 @@
             {% assign thumbnail = nil %}
             {% if art %}
                 {% capture thumbnail %}
-                    {% include art/write-imgs.liquid data=item no_link=true no_extra=true %}
+                    <img src="/art/img/{{ item.thumbnail }}" alt="{{ item.alt }}" width="{{ item.dime[0] }}" height="{{ item.dime[1] }}">
                 {% endcapture %}
             {% elsif item.thumbnail %}
                 {% capture thumbnail %}
@@ -50,8 +50,7 @@
                     </div>
                 {% endif %}
 
-                {% assign test = item.content | strip %}
-                {% if test != '' %}
+                {% if item.w_comment %}
                     <p>
                         {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
                     </p>
@@ -62,13 +61,12 @@
 
             <div class="post-feed-tags padded">
                 {% if art %}
-                    {% assign tags = item | getTags: true %}
-                    {% for tag in tags %}
+                    {% for tag in item.tags %}
                         <a href="/art/archive?t={{ tag }}" class="button">{{ tag }}</a>
                     {% endfor %}
                 {% else %}
                     {% for tag in item.tags %}
-                        <a href="#" class="button">{{ tag }}</a>
+                        <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
                     {% endfor %}
                 {% endif %}
             </div>

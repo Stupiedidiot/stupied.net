@@ -1,13 +1,12 @@
 {% capture result %}
-    {%- assign img = include.item.path | getArtPath | append: '.' | append: include.item.ext %}
+    {%- assign img = include.item.thumbnail %}
     <img src="{{ site.url }}/art/img/{{ img }}" alt="{{ e.alt | escape }}"/>
 
     {%- for extra in e.extra -%}
         <img src="{{ site.url }}/art/img/{{ extra.img | default: extra }}" alt="{{ extra.alt | escape }}"/>
     {%- endfor -%}
 
-    {% assign test = include.item.content | strip %}
-    {%- if test != '' -%}
+    {%- if include.item.content -%}
         {{ include.item.content | markdownify }}
     {%- endif -%}
 {% endcapture %}

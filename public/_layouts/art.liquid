@@ -37,8 +37,7 @@ js:
                     </div>
                     <h3>Tags</h3>
                     <ul id="art_tags">
-                        {% assign tags = page | getTags %}
-                        {% for e in tags %}
+                        {% for e in page.tags %}
                             <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
                         {% endfor %}
                     </ul>

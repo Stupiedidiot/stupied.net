@@ -24,7 +24,7 @@ js:
     {% endif %}
     
     <li>
-        <a href="/art/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
+        <a href="/{{ page.collection }}/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
     </li>
 
     {% if page.next and page.next.date <= site.time %}
@@ -50,8 +50,7 @@ js:
                         <span>{{ page.date | date: "%B %-d, %Y" }}</span>
                     </time>
 
-                    {% assign test = content | strip %}
-                        {% if test != '' %}
+                    {% if page.w_comment %}
                         {{ content }}
                     {% endif %}
                 </div>
@@ -69,16 +68,15 @@ js:
         <div id="art_aside_content" class="split-aside-content">
             <section id="aside-content" data-nosnippet>
 
-                {% assign index = site[page.collection] | where_exp: "item", "item.date <= site.time" | getIndex: page.path %}
+                {% assign index = site[page.collection] | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path | first %}
                 <h2 class="h3">Related Artwork</h2>
                 <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ index }}">
                     
                 </div>
                 <h3>Tags</h3>
                 <ul id="art_tags">
-                    {% assign tags = page | getTags: true %}
-                    {% for e in tags %}
-                        <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
+                    {% for tag in page.tags %}
+                        <li><a href="/{{ page.collection }}/archive?t={{ tag }}">{{ tag }}</a></li>
                     {% endfor %}
                 </ul>
 

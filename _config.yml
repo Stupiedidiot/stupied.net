@@ -111,15 +111,12 @@ collections:
       
   garden:
     output: true
-    permalink: /lib/:category/:path
+    permalink: /lib/p/:name_raw
 
   posts:
     permalink: /blog/:name_raw
 
-page_gen:
-  # LIBRARY START
-  - data: 'site.data.library'
-    template: 'test'
-    name_expr: "'index'"
-    dir_expr:  "'lib/' + record['id']"
-  # LIBRARY END
+img_gallery:
+  - art
+  - fanart
+  - mii

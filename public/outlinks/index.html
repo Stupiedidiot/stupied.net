@@ -7,20 +7,23 @@ extra:
 - slug: literalhat
   title: LiteralHat
   link: https://literalhat.com/
-  desc: Literal of the hat variety. Epic animations and music!!!
+  description: Literal of the hat variety. Epic animations and music!!!
   
 - slug: bovine
   title: Bovine
   link: https://www.youtube.com/@Bovineas
-  desc: "*Throws tomatoes at her*"
+  description: "*Throws tomatoes at her*"
   
 - slug: dwinky
   title: Dwinky
   link: https://en.wikipedia.org/wiki/The_Lego_Movie
-  desc: Dimension Drifter of all time
+  description: Dimension Drifter of all time
 ---
 
-{%- assign stars = site.outlinks | where: "pinned", true | concat: page.extra -%}
+{% if site.outlinks %}
+    {%- assign stars = site.outlinks | where: "pinned", true | sort: 'index' | concat: page.extra -%}
+{% endif %}
+
 <div id="view">
     {%- for item in stars -%}
     <div id="{{ item.slug }}">

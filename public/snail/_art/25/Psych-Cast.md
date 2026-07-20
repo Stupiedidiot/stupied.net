@@ -18,4 +18,4 @@ tags:
   - psych
 ---
  
-Updated the Psych Cast lineup from [2024](/art/p/24/Psych-Cast). The Artfight grind is real
+Updated the Psych Cast lineup from [2024](_art/24/Psych-Cast). The Artfight grind is real

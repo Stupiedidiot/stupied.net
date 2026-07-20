@@ -6,27 +6,24 @@
 
 {% assign DATA = DATA | where_exp: "item", "item.date <= site.time" %}
 
-{%- assign dir = 'snail/_img/' | append: include.col | append: '/img/' -%}
 [
 {%- for item in DATA -%}
-    {%- assign img = item.path | getArtPath | append: '.' | append: item.ext-%}
     {
-        "img": {{ img | jsonify }}
+        "img": {{ item.thumbnail | jsonify }}
 
         {%- if item.date -%}
             ,"date": {{ item.date | default: '2007-08-04' | jsonify }}
         {%- endif -%}
         
         ,"title": {{ item.title | jsonify }}
-        ,"dime": {{ img | writeDime: dir | jsonify }}
+        ,"dime": {{ item.dime | jsonify }}
 
         {%- if item.alt -%}
             ,"alt": {{ item.alt | escape | jsonify }}
         {%- endif -%}
 
         {%- if include.w_desc -%}
-            {% assign test = item.content | strip %}
-            {% if test != "" %}
+            {% if item.w_comment %}
                 ,"desc": {{ item.content | markdownify | jsonify }}
             {% endif %}
         {%- endif -%}
@@ -44,9 +41,8 @@
             ]
         {%- endif -%}
 
-        {%- assign tags = item | getTags: true -%}
-        {%- if tags.size > 0 -%}
-            ,"tags": {{ tags | join: ' ' | downcase | jsonify }}
+        {%- if item.tags.size > 0 -%}
+            ,"tags": {{ item.tags | join: ' ' | downcase | jsonify }}
         {%- endif -%}
     }
     {%- unless forloop.last -%},{%- endunless -%}
