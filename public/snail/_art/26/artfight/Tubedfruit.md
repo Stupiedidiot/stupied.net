@@ -2,7 +2,7 @@
 ext: jpg
 date: 2026-07-17T14:29
 title: Out of the West!
-alt: Attack for Tubedfruit
+alt: Attack for Tubedfruit.
 tags:
   - digital
 ---

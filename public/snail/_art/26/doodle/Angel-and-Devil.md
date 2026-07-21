@@ -7,5 +7,5 @@ tags:
   - psych
   - evan
   - jay
-alt:
+alt: Evan Odd and Jay Swift dressed up as an angel and devil respectively.
 ---
