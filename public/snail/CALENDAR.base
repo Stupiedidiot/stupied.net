@@ -21,11 +21,13 @@ formulas:
         note.date,
         date(file.name.split('-').slice(0, 3).join('-'))
     )
+  title: if(note.title, note.title, file.basename.replace('-',' '))
 views:
   - type: calendar
     name: Calendar
     order:
-      - file.name
+      - formula.title
       - formula.thumbnail
     startDate: formula.date
     image: formula.thumbnail
+    weekStartDay: sunday

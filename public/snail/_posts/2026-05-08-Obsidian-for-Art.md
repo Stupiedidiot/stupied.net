@@ -9,6 +9,7 @@ tags:
   - obsidian
   - ruby
 ---
+> Many of the things mentioned here are outdated. If you want to read about how my gallery is set up, you may do so [here](/lib/meta/gallery). This blog remains up for archiving purposes.
 
 As mentioned in a previous [blog post](2025-10-11-Art-Archive), my art is stored in a yaml file. Which means whenever I want to add a new artwork, I'd have to manually type it to the top of the list then build my website to see whether it has been written down correctly. This process is slow, tedious, and an indent away from fucking over. It basically discourage me from adding too much info about a piece; Instead opting for shorter sentences. Which is a shame since I want my art posts to be more akin to [Ember's Art Log](https://sachersketchbook.neocities.org/) Where I could ramble more in depth about the rationale of some pieces. But the process of sifting through a 4800+ line text file is cumbersome... If only I could separate them into their own files... Hey, isn't that what Jekyll [Collections](https://jekyllrb.com/docs/collections/) are for??
 

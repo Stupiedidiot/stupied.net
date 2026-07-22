@@ -1,14 +1,14 @@
 ---
 title: Making an Art Archive
 thumbnail: /blog/img/25/Art-Archive.jpg
-header: /blog/img/25/Art-Archive.jpg
-
 tags:
   - spaghetti
   - jekyll
   - javascript
 description: Talking about how I went about my Art Archive and its' tag filtering system
 ---
+> Many of the things mentioned here are outdated. If you want to read about how my gallery is set up, you may do so [here](/lib/meta/gallery). This blog remains up for archiving purposes.
+
 My website is practically like it's own living breathing thing at this point. It's constantly updating to whatever new knowledge I obtain. I thought it be neat to also break down how stuff in my website works. Will not go through everything though because most of it is your typical CSS shenanigans. For this blog post, we'll be focusing on the [Art Archive](/art/archive). It serve as a catalogue for all my art with a simple tag filtering system to boot.
 
 ## Heads Up!
@@ -331,8 +331,6 @@ Using the index found, we can basically access all the other properties with the
 
 ![Screenshot of the Result](img/25/Art-Post.jpg)
 
----
-
 ## Using ruby!
 **2026/02/25 »** Future me to say that, a handful of things changed lol. Most of the logic is still the same! Just writing it in ruby instead of that god forsaken liquid tags... What the hell was wrong with me.
 ```ruby
@@ -374,8 +372,6 @@ def getTags(input, date = true, offset = nil)
 end
 ```
 Really crazy to think this blog post is already four months old... Time passes too quickly.
-
----
 
 ## Conclusion
 Welp, that's about all of it! As I've stated at the start, what I put here isn't an exact representation of my code. If you want to see what it looks like, feel free to snoop through my actual code. Though, I strongly advise not doing so, since it's quite a mess. I'd imagine there are more efficient ways off going about all of this, but as it stands this is the method I've chosen to go with and I'm pretty contented with it.

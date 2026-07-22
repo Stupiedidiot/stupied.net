@@ -2,8 +2,7 @@
 layout: none
 targets:
   - "header .header-thumb"
-  - "#blog_content img:not(.sign-off)"
-  - ".micro-post img"
+  - ".content img:not(.sign-off)"
   - ".post-feed-thumbnail img"
 ---
 

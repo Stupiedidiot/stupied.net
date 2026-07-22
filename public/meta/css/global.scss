@@ -366,76 +366,12 @@ body.default {
 }
 
 // blog =======================================
-// pls update everything </3
 #blog {
-    img {
-        width: 100%;
-    }
-
-    &_title {
-        position: relative;
-        padding: 0 $font-size-base;
-        margin-top: 0.5rem;
-        z-index: 1;
-        color: var(--color-text);
-    }
-
-    &_date {
-        padding: 0 $font-size-base;
-    }
-
-    &_header {
-        &_description {
-            padding-top: 0;
-        }
-        
-        .blockquote {
-            margin-bottom: 0!important;
-        }
-    }
-
-    &_header_img{
-        background-image: var(--img);
-        background-size: cover;
-        background-position: center;
-        aspect-ratio: 3/1;
-        position: relative;
-
-        &::after {
-            content: "";
-            display: block;
-            position: absolute;
-            height: 5%; width: 100%;
-            left: 0; bottom: 0;
-            background: linear-gradient(#00000000,var(--color-body));
-        }
-    }
-    
-
-    .has-header {
-        margin-top: -1.5rem;
-    }
-
-    .sign-off {max-width: 200px;}
-
-    header img,
-    .micro-feed img,
-    .justified-gallery img,
-    &_content img,
-    p > img {
-        border-radius:8px;
-    }
 }
 
-.micro-feed {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-    margin: 1rem auto;
-}
+.sign-off {max-width: 200px;}
 
-#micro_tags,
-#micro_nav {
+#micro_tags {
     user-select: none;
     font-family: var(--display-font);
     padding-bottom: 1rem;
@@ -444,8 +380,7 @@ body.default {
     gap: 0.3rem;
 }
 
-#micro_tags label,
-#micro_nav a {
+#micro_tags label {
     display: block;
     border-radius: 8px;
     color: color-mix(in srgb, var(--color-text), var(--color-body));
@@ -544,10 +479,11 @@ body.default {
 
 // reviews ====================================
 
-
 #review {
     p > img {
         width: 100%;
         border-radius: 8px;
     }
 }
+
+// garden =====================================

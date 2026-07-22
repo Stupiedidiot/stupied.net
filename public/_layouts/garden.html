@@ -1,0 +1,29 @@
+---
+layout: page
+---
+
+<div id="garden" class="padded">
+    <h1>{{ page.title }}</h1>
+    <div class="blockquote">
+        {{ page.description | markdownify }}
+    </div>
+
+    {% if page.yap %}
+        {{ page.yap | markdownify }}
+    {% endif %}
+
+    {% assign DATA = site.garden | where_exp: 'e', 'e.category == page.id' %}
+    {% if DATA %}
+        <ul class="toc">
+            {% for item in DATA %}
+                <li>
+                    <a href="{{ item.url }}">
+                        <span>{{ item.title }}</span>
+                        <span class="dash"></span>
+                        <span>{{ item.index }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>

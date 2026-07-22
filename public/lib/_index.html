@@ -89,7 +89,6 @@
 #comicContainer{
     column-width: 310px;
     box-sizing: border-box;
-    width: 98%;
     margin: auto;
 
     .item-container > div{
@@ -144,6 +143,13 @@
             transform: none;
         }
     }
+}
+
+.temp {
+    padding: 1rem;
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
 }
 {% endcapture %}
 {{ css | scssify }}

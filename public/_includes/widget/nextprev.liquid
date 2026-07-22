@@ -1,0 +1,31 @@
+{% if include.data %}
+    {% assign DATA = include.data | getNxtPrv: page.path %}
+    {% assign prev = DATA[1] %}
+    {% assign next = DATA[2] %}
+    <ul class="sub">
+        {% if prev %}
+            <li>
+                <a id="nextprev-prev" href="{{ prev.url }}" title="View Previous Page">
+                    <span class="icon-arrow-thin-left"></span>
+                    <span>Prev</span>
+                </a>
+            </li>
+        {% endif %}
+
+        <li>
+            <a href="{{ include.home | default: 'archive' }}">
+                <span class="icon-inbox-full"></span>
+                <span>Archive</span>
+            </a>
+        </li>
+
+        {% if next %}
+            <li>
+                <a id="nextprev-next" href="{{ next.url }}" title="View Next Page">
+                    <span>Next</span>
+                    <span class="icon-arrow-thin-right"></span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

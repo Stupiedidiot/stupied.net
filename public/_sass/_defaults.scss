@@ -20,6 +20,10 @@ body{
     color: var(--color-text);
 }
 
+main {
+    min-width: 0;
+}
+
 %heading {
     margin: 0;
     display: block;
@@ -45,13 +49,21 @@ a {
 
 p, ol, ul, blockquote {
   margin: 0;
-  margin-bottom: $font-after;
+  margin-bottom: $font-size-base;
+}
+
+ol li::marker {
+    color: var(--color-gray-lt);
 }
 
 p > a {
-    color: var(--color-accent);
+    color: var(--color-accent-dk);
     text-decoration: underline;
     font-weight: bold;
+}
+
+p:last-child {
+    margin-bottom: 0;
 }
 
 ul li {
@@ -98,8 +110,4 @@ blockquote,
     margin: 0;
     margin-bottom: 1rem;
     border-left: 3px solid var(--color-accent);
-    
-    p {
-        margin-top: $font-after;
-    }
 }

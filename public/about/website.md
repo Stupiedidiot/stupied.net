@@ -2,7 +2,7 @@
 
 title: About Website
 ---
-<img src="/chez/album/meirl/img/Wobble.gif" alt="" style="max-width:120px; width: 100%; filter: hue-rotate(-20deg);" class="float-right">
+
 # {{ page.title }}
 A culmination of everything in my being. There are certain pages titled as "Archive" but that word really applies to just about everything featured in this website. It is a digital record of my creations, fixations, and future. It is perpetually a work in progress with a hope that one day it will outlive me.
 
@@ -17,3 +17,8 @@ To elaborate further on my quote, I don't think algorithms are inherently bad. I
 
 ## Propaganda
 You should make a website, it's fun (lying).
+
+---
+
+## Learn More
+[Click Here »](/lib/meta/)

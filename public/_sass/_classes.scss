@@ -477,14 +477,26 @@ figure.highlight {
         }
     }
 
+    
+    &.right {
+        grid-template-columns: 1fr auto;
+     
+        .split-aside {
+            grid-area: 1 / 2 / 2 / 2;
+            border-right: none;
+            border-left: $border-dashed;
+        }
+    }
 
-    @include res(lg) {
-        grid-template-columns: 1fr;
+
+    @include res(md) {
+        grid-template-columns: 1fr !important;
 
         &-aside {
-            border-right: 0;
-            border-top: $border-dashed;
-            grid-area: unset;
+            border-left: 0 !important;
+            border-right: 0 !important;
+            border-top: $border-dashed !important;
+            grid-area: unset !important;
             max-width: unset;
             &-content {
                 position: static;
@@ -506,9 +518,41 @@ figure.highlight {
 
 .content {
     @extend %padded;
-    &:not(:last-of-type){
-        padding-bottom: 0;
+    overflow: hidden;
+    min-height: 100vh;
+    min-width: 0;
+
+    h2 {
+        border-bottom: 3px dotted var(--color-accent-lter);
+        margin-bottom: 1rem;
     }
+
+    h3 {
+        color: var(--color-accent-dkest);
+    }
+
+    h4 {
+        color: var(--color-accent-dker);
+    }
+
+    h5 {
+        color: var(--color-accent-dk);
+    }
+
+    img {
+        width: 100%;
+        border-radius:8px;
+    }
+}
+
+.header-thumb img {
+    width: 100%;
+    border-radius: none;
+}
+
+.toc-target {
+    margin-left: 0;
+    padding-left: $font-size-base;
 }
 
 .newspaper {
@@ -516,6 +560,10 @@ figure.highlight {
     > * {
         break-inside: avoid;
         margin-bottom: $font-size-base;
+    }
+
+    > li {
+        margin-bottom: 0;
     }
 }
 

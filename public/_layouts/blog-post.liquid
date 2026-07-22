@@ -2,81 +2,29 @@
 layout: blog
 ---
 
-{% capture title %}
-  <div id="blog_title">
-      <h1 itemprop="name headline">{{ page.title | escape }}</h1>
-  </div>
-{% endcapture %}
+<div class="split right">
+    <main>
+        {% include widget/header-text.liquid %}
 
-{% capture date %}
-  <div id="blog_date" class="h3 clr-accent">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {{ page.date | date: "%B %-d, %Y" }}
-      </time>
-  </div>
-{% endcapture %}
+        <article id="blog_content" class="content">
+            {{ content }}
+            <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
+        </article>
+    </main>
 
-<script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
-
-<article>
-  <header id="blog_header" data-nosnippet>
-  
-  {%- if page.header -%}
-    <div id="blog_header_img" style="--img:url({{ page.header }});"></div>
-    <div class="outline has-header" style="--color: var(--color-body);"/>
-      {{ title }}
+    <div class="split-aside toc-parent hidden">
+        <aside class="split-aside-content">
+            <span class="h4">Table of Contents</span>
+            <ul id="blog_toc" class="newspaper toc-target"></ul>
+        </aside>
     </div>
-  {%- else -%}
-    {%- if page.before -%}
-      {{ page.before | raw }}
-    {% else %}
-      <img class="header-thumb" src="{{ page.thumbnail }}" alt="">
-    {%- endif-%}
-    {{ title }}
-  {%- endif -%}
-  {{ date }}
+</div>
 
-  {% if page.description %}
-    <div id="blog_header_description" class="padded">
-      <div class="blockquote" style="margin-bottom: 0;">
-        {{ page.description | markdownify }}
-      </div>
-    </div>
-  {% endif %}
-  </header>
-
-  <div id="blog_content" class="padded">
-    {{ content }}
-    <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
-  </div>
-</article>
-
-  <ul id="art_nextprev"class="sub border-x">
-      {% if page.previous %}
-          <li>
-              <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
-                  <span class="icon-arrow-thin-left"></span>
-                  <span>Prev</span>
-              </a>
-          </li>
-      {% endif %}
-      
-      <li>
-          <a href="/blog/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
-      </li>
-
-      {% if page.next %}
-          <li>
-              <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
-                  <span>Next</span>
-                  <span class="icon-arrow-thin-right"></span>
-              </a>
-          </li>
-      {% endif %}
-  </ul>
+<nav class="border-x">
+  {% assign HOME = '/blog/archive' %}
+  {% include widget/nextprev.liquid data=site.posts home=HOME %}
+</nav>
 
 <div id="blog_comments" class="padded">
   {% include widget/giscus.html category="Blog" %}
 </div>
-
-<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

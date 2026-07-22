@@ -1,0 +1,22 @@
+<script type="text/javascript" src="/meta/js/lightbox.js" defer></script>
+<script type="text/javascript" src="/meta/js/toc.js" defer></script>
+
+<header class="border-bottom">
+    {%- if page.before -%}
+        {{ page.before | raw }}
+    {% elsif page.thumbnail %}
+        <div class="border-dashed-bottom">
+            <img class="header-thumb" src="{{ page.thumbnail }}" alt="">
+        </div>
+    {%- endif-%}
+
+    <div class="padded">
+        <h1>{{ page.title }}</h1>
+        <time class="h4 clr-accent-dk" datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%B %-d, %Y" }}
+        </time>
+        {% if page.description %}
+            {{ page.description | markdownify }}
+        {% endif %}
+    </div>
+</header>

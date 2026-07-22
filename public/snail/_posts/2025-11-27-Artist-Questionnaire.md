@@ -1,7 +1,6 @@
 ---
 title: 100 Questions for Artist
 thumbnail: /art/img/25/doodle/Earthquake-Drill.jpg
-header: /art/img/25/doodle/Earthquake-Drill.jpg
 include_path: _includes/2025-Questionnaire.html
 description: Created a questionnaire for the funsies!
 tags:

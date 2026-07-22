@@ -32,7 +32,10 @@ $themes: (
       accent-dkest: mix(color(blue), black, 30%, lab),
       accent-lt: mix(color(blue), white, 80%),
       accent-lter: mix(color(blue), white, 50%),
-      accent-ltest: mix(color(blue), white, 20%)
+      accent-ltest: mix(color(blue), white, 20%),
+
+      gray: gray,
+      gray-lt: rgb(167, 167, 167)
     )
   ),
   dark: (
@@ -84,7 +87,7 @@ $spacers: (
     3: $spacer,
 );
 
-@mixin res ($type: md){
+@mixin res ($type: sm){
   @media only screen and (max-width: #{map.get($breakpoints, $type)}) {
       @content;
   }

@@ -2,12 +2,11 @@
 {% assign item = include.item %}
 {% capture result %}
     {%- if item.thumbnail -%}
-        <img src="{{ item.thumbnail | prepend: site.url }}"/>
-    {%- else item.header -%}
-        <img src="{{ item.header | prepend: site.url }}"/>
+        <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.alt }}"/>
     {%- else item.before -%}
         {{ item.before }}
     {%- endif -%}
+
     {{ item.content | markdownify | replace: 'img src="img/', replace }}
 {% endcapture %}
 {{ result | escape }}

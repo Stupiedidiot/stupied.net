@@ -13,29 +13,14 @@ js:
     </div>
 </div>
 
-<ul id="art_nextprev"class="sub border-x">
-    {% if page.previous %}
-        <li>
-            <a href="{{ page.previous.url }}" id="nextprev-prev" title="Previous Artwork: {{ page.previous.title }}">
-                <span class="icon-arrow-thin-left"></span>
-                <span>Prev</span>
-            </a>
-        </li>
-    {% endif %}
+<nav id="art_nextprev" class="sub border-x">
+    {% capture HOME %}
+        /{{ page.collection }}/archive
+    {% endcapture %}
+    {% assign DATA = site.art | where_exp: "item", "item.date <= site.time" %}
     
-    <li>
-        <a href="/{{ page.collection }}/archive" id="nextprev-archive" title="View Art Archive"><span class="icon-inbox-full"></span> Archive</a>
-    </li>
-
-    {% if page.next and page.next.date <= site.time %}
-        <li>
-            <a href="{{ page.next.url }}" id="nextprev-next" title="Next Artwork: {{ page.next.title }}">
-                <span>Next</span>
-                <span class="icon-arrow-thin-right"></span>
-            </a>
-        </li>
-    {% endif %}
-</ul>
+    {% include widget/nextprev.liquid data=DATA home=HOME %}
+</nav>
 
 <div id="art_container" class="split">
   <div id="art_main">
@@ -58,7 +43,7 @@ js:
         </article>
 
         {% if page.collection == 'art' %}
-            <article id="art_comment" class="content" data-nosnippet>
+            <article id="art_comment" class="padded" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
             </article>
         {% endif %}

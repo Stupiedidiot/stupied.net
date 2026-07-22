@@ -1,7 +1,6 @@
 ---
 title: Automating My Tier Lists
 thumbnail: /blog/img/25/tier-list.jpg
-header: /blog/img/25/tier-list.jpg
 tags:
   - spaghetti
   - jekyll

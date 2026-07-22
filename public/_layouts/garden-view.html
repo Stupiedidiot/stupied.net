@@ -1,0 +1,39 @@
+---
+layout: page
+---
+
+{% capture nav %}
+    {% capture HOME %}
+        /lib/{{ page.category }}/
+    {% endcapture %}
+    {% assign DATA = site.garden | where: 'category', page.category %}
+    {% include widget/nextprev.liquid data=DATA home=HOME %}
+{% endcapture %}
+
+<div id="garden">
+    <nav class="border-bottom">
+        {{ nav }}
+    </nav>
+
+    <div class="split right">
+        <main>
+            {% include widget/header-text.liquid %}
+
+
+            <article id="garden_content" class="content">
+                {{ content }}
+            </article>
+        </main>
+
+        <div class="split-aside toc-parent hidden">
+            <aside class="split-aside-content">
+                <span class="h4">Table of Contents</span>
+                <ul id="garden_toc" class="newspaper toc-target"></ul>
+            </aside>
+        </div>
+    </div>
+    
+    <nav class="border-top">
+        {{ nav }}
+    </nav>
+</div>

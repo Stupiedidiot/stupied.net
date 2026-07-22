@@ -6,9 +6,11 @@ include_path: _index.html
 <article>
     <div class="padded">
         <h1>{{ page.title }}</h1>
-        <p>It is a medium I hold quite dearly in my heart. Hopefully one day I can create something that can actually do it justice. Until then have this assortment of comics I've made through out the years.</p>
+        <p>Sometimes I find the courage to write.</p>
     </div>
-    <div>
+    <div class="padded border-dashed-top">
+        <h2>Comics</h2>
+        <p>It is a medium I hold quite dearly in my heart. Hoping for the day to create something that can actually do that love justice. Until then have this assortment of comics I've made through out the years.</p>
         <section id="comicContainer">
             <div id="comicArchive">
                 {%- for e in site.data.comics -%}
@@ -17,7 +19,7 @@ include_path: _index.html
                             <div class="item-thumb"><img src="/lib/img/{{ e.id }}.png"></div>
                             <div class="item-side">
                                 <div>
-                                <div class="item-title"><h2>{{ e.title }}</h2></div>
+                                <div class="item-title"><h3>{{ e.title }}</h3p></div>
                                 <div class="item-desc">{{ e.description }}</div>
                                 <div class="item-link"><a href="./{{ e.id }}/">Click to Read</a></div>
                                 </div>
@@ -27,5 +29,30 @@ include_path: _index.html
                 {%- endfor -%}
             </div>
         </section>
+    </div>
+
+    <div class="padded border-dashed-top">
+        <h2>Garden</h2>
+        <p>Read this <a href="https://maggieappleton.com/garden-history">article</a> about webgardens and I figured it be a better way of yapping about stuff I like so yeah!! Will organize this better in the future!!</p>
+
+        {% for topic in site.data.garden %}
+            {% assign DATA = site.garden | where_exp: 'e', 'e.category == topic.id' %}
+            {% if DATA.size > 0 %}
+                <div class="temp">
+                    <h3><a href="/lib/{{ topic.id }}/">{{ topic.title }}</a></h3>
+                        <ul class="toc">
+                            {% for item in DATA %}
+                                <li>
+                                    <a href="{{ item.url }}">
+                                        <span>{{ item.title }}</span>
+                                        <span class="dash"></span>
+                                        <span>{{ item.index }}</span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                </div>
+            {% endif %}
+        {% endfor %}
     </div>
 </article>

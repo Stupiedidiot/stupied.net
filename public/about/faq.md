@@ -35,10 +35,7 @@ They're so awesome and stuff. Like seriously you guys.
 ---
 
 ## How'd You Do _?
-Usually with a lot of pain and suffering.
-
-{% assign RELATED = site.posts | where_exp: "item", "item.tags contains 'spaghetti'" %}
-{% include widget/timeline.html data=RELATED %}
+Usually with a lot of pain and suffering. You can learn more about the technical aspects of this webite [Click Here »](/lib/meta/)
 
 ---
 

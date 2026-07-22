@@ -1,5 +1,5 @@
 p > code, li > code {
-    background-color: color-mix(in srgb, white 85%, var(--color-accent));
+    background-color: var(--color-accent-ltest);
     font-weight: bolder;
     border-radius: 10px;
     outline: 1px solid var(--color-accent);
@@ -8,12 +8,15 @@ p > code, li > code {
 }
 
 li code ~ code {
-    background-color: white;
+    background-color: var(--color-bg);
 }
 
 pre {
     padding: 1rem;
-    border: 1px dashed var(--txt-color);
+    border: 1px dashed;
+    max-width: 100%;
+    overflow: auto;
+
     code { 
         display: block;
         overflow: auto;

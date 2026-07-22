@@ -78,7 +78,7 @@ defaults:
   - scope:
       type: garden
     values:
-      layout: page
+      layout: garden-view
 
   - scope:
       path: comic/*/
@@ -111,7 +111,8 @@ collections:
       
   garden:
     output: true
-    permalink: /lib/p/:name_raw
+    permalink: /lib/:category/:name
+    sort_by: index
 
   posts:
     permalink: /blog/:name_raw

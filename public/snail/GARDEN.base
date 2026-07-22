@@ -1,0 +1,25 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.folder.startsWith("_garden")
+views:
+  - type: table
+    name: Table
+    groupBy:
+      property: category
+      direction: ASC
+    order:
+      - index
+      - file.name
+      - title
+      - description
+      - tags
+    sort:
+      - property: index
+        direction: ASC
+      - property: file.name
+        direction: ASC
+    columnSize:
+      note.index: 14
+      note.description: 330
+    rowHeight: medium
