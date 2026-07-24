@@ -22,11 +22,11 @@
             {% assign thumbnail = nil %}
             {% if art %}
                 {% capture thumbnail %}
-                    <img src="/art/img/{{ item.thumbnail }}" alt="{{ item.alt }}" width="{{ item.dime[0] }}" height="{{ item.dime[1] }}">
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" width="{{ item.dime[0] }}" height="{{ item.dime[1] }}">
                 {% endcapture %}
             {% elsif item.thumbnail %}
                 {% capture thumbnail %}
-                    <img src="{{ item.thumbnail }}" alt="">
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}">
                 {% endcapture %}
             {% endif %}
 

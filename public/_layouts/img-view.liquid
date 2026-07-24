@@ -17,7 +17,7 @@ js:
     {% capture HOME %}
         /{{ page.collection }}/archive
     {% endcapture %}
-    {% assign DATA = site.art | where_exp: "item", "item.date <= site.time" %}
+    {% assign DATA = site[page.collection] | where_exp: "item", "item.date <= site.time" %}
     
     {% include widget/nextprev.liquid data=DATA home=HOME %}
 </nav>

@@ -8,7 +8,7 @@ include_path: _head.html
     <h1 class="outline">The Now!</h1>
     <div id="art" class="note">
         {%- assign item = site.art | where_exp: "item", "item.date <= site.time" | last -%}
-        <img src="/art/img/{{ item.thumbnail }}" alt="">
+        <img src="/{{ item.thumbnail }}" alt="">
     </div>
 
     <div id="blog" class="note">

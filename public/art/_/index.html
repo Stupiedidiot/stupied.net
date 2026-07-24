@@ -4,7 +4,7 @@
         {%- assign recent = site.art | reverse | where_exp: "item", "item.date <= site.time" | first -%}
         {% assign recent_path = recent.thumbnail %}
         <div style="bottom: 52%; left: 3%;">
-            <a href="./p/{{ recent_path | split: '.' | first }}" id="recent" class="stamp" style="--bg: url(/art/img/{{ recent_path }});">
+            <a href="{{ recent.url }}" id="recent" class="stamp" style="--bg: url(/{{ recent_path }});">
                 <span>Most Recent</span>
             </a>
         </div>

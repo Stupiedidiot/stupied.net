@@ -6,13 +6,14 @@ module Jekyll
             config = doc.site.config['img_gallery'] || []
             col = doc.collection.label
             next unless config.include?(col)
-            
+
             source = doc.site.source
             folder = File.join('snail/_img', col , 'img')
             folder_col = "_#{col}/"
 
             slug = "#{doc.path.split(folder_col)[1].sub('.md', '')}.#{doc.data['ext']}"
-            doc.data['thumbnail'] = slug
+            doc.data['thumbnail'] = "/#{col}/img/#{slug}"
+            doc.data['img'] = slug
 
             raw = File.join(source, folder, slug)
             if File.exist?(raw)
@@ -21,8 +22,9 @@ module Jekyll
                     doc.data['dime'] = dime
                 else
                     doc.data['dime'] = [0,0]
-                    puts "Cannot get dimensions of #{raw}"
                 end
+            else
+                doc.data['dime'] = [0,0]
             end
 
             doc.content = doc.content.gsub(/(?<=\]\(_)[^\/]+(?=\/)/) { |match| "#{match}/p" }

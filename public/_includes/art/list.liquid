@@ -8,8 +8,11 @@
 
 [
 {%- for item in DATA -%}
+    {% if item.dime[0] == 0 %}
+        {% continue %}
+    {% endif %}
     {
-        "img": {{ item.thumbnail | jsonify }}
+        "img": {{ item.img | jsonify }}
 
         {%- if item.date -%}
             ,"date": {{ item.date | default: '2007-08-04' | jsonify }}
