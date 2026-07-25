@@ -2,9 +2,8 @@
     <div id="header_doll"></div>
     <div id="header_stamps" class="bg-graphed">
         {%- assign recent = site.art | reverse | where_exp: "item", "item.date <= site.time" | first -%}
-        {% assign recent_path = recent.thumbnail %}
         <div style="bottom: 52%; left: 3%;">
-            <a href="{{ recent.url }}" id="recent" class="stamp" style="--bg: url(/{{ recent_path }});">
+            <a href="{{ recent.url }}" id="recent" class="stamp" style="--bg: url({{ recent.thumbnail }});">
                 <span>Most Recent</span>
             </a>
         </div>
