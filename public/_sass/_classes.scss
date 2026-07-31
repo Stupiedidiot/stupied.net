@@ -29,7 +29,8 @@
 
     background-image: linear-gradient(46deg, var(--clr) 25%, var(--bg) 25%, var(--bg) 50%, var(--clr) 50%, var(--clr) 75%, var(--bg) 75%, var(--bg) 100%);
     
-    animation: stripped 10s infinite linear;
+    animation: stripped 15s infinite linear;
+
     @include anim;
     @keyframes stripped {
         0% {
@@ -51,14 +52,18 @@
     $w: 45.25px;
     background-size: $w $w;
 
-    animation: checkered 10s infinite linear;
+    @include res(md) {
+        animation: checkered 30s infinite linear;
+    }
+    
+    @include anim;
     @keyframes checkered {
-        0% {
-            background-position: 0 #{$w};
-        }
-        100% {
-            background-position: #{$w} 0;
-        }
+            0% {
+                background-position: 0 #{$w};
+            }
+            100% {
+                background-position: #{$w} 0;
+            }
     }
 }
 
@@ -874,7 +879,7 @@ ul.arrow-hover {
         bottom: 0.2rem;
         left: 0.2rem;
         position: absolute;
-        font-family: var(--display-font);
+        font-family: var(--font-display);
         color: white;
         text-shadow: 0 0 5px white;
     }

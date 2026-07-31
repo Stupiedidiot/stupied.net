@@ -50,6 +50,10 @@ a {
 p, ol, ul, blockquote {
   margin: 0;
   margin-bottom: $font-size-base;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
 }
 
 ol li::marker {
@@ -60,10 +64,6 @@ p > a {
     color: var(--color-accent-dk);
     text-decoration: underline;
     font-weight: bold;
-}
-
-p:last-child {
-    margin-bottom: 0;
 }
 
 ul li {
@@ -106,7 +106,7 @@ option {
 blockquote,
 .blockquote {
     background: var(--color-accent-ltest);
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     margin: 0;
     margin-bottom: 1rem;
     border-left: 3px solid var(--color-accent);

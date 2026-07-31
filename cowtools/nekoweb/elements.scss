@@ -11,7 +11,7 @@ layout: none
 	}
 
 	.sitefeature {
-		background-image: url({{ img.path | getArtPath | append: '.' | append: img.ext | prepend: "https://stupied.nekoweb.org/stupied.nekoweb.org/art/img/"}});
+		background-image: url({{ img.thumbnail | prepend: "https://stupied.nekoweb.org/stupied.nekoweb.org/"}});
 		background-size: cover;
 		overflow: hidden;
 		border: none;
