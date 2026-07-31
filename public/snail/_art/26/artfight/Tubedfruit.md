@@ -6,4 +6,4 @@ alt: Attack for Tubedfruit.
 tags:
   - digital
 ---
-Attack for [Tubedfruit](https://artfight.net/attack/16729729.out-of-the-west)
+Attack for [Tubedfruit](https://artfight.net/attack/16729729.out-of-the-west).

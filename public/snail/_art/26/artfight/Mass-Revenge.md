@@ -1,6 +1,7 @@
 ---
 ext: jpg
 date: 2026-07-16T09:29
+alt:
 tags:
   - digital
 ---
