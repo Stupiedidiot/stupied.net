@@ -1,0 +1,28 @@
+---
+layout: art
+title: Art Stats
+---
+
+<article class="padded border-bottom" style="width: 100%;">
+    <h1>{{ page.title }}</h1>
+    <p>Me when the numbers go up! Thought it be neat to see how frequently I drew and for what. The tags featured are just for OC projects and fanart. It's interesting to see where my intrest in an oc project peaks and when I drew more art for others. The percentage is based on the amount of art I made on that year.</p>
+
+    <p>Someone please remind me to make a histograp, thank you.</p>
+</article>
+
+{% assign DATA = site.art | group_by_exp: "e", "e.date | date: '%Y'" | reverse %}
+{% assign OTHER = "sona artfight fanart" |  split: " " %}
+{% assign CAT = site.data.art.tags.universes |  concat: OTHER %}
+
+{% for year in DATA %}
+    <article class="padded border-dashed-bottom">
+        <h2>{{ year.name }}</h2>
+        <span class="h6 clr-accent-dk">Total Made »</span> {{ year.items.size }}
+        {% include art/stats.liquid data=year tags=CAT %}
+    </article>
+{% endfor %}
+
+<article class="padded">
+    <h2>Conclusion</h2>
+    <p>[ INSERT CONCLUSION ]</p>
+</article>

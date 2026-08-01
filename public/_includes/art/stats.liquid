@@ -1,0 +1,26 @@
+<div class="table-wrapper">
+    <table>
+        <thead>
+            <tr>
+                <th>Tag</th>
+                <th>No. Times Drawn</th>
+                <th>%</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cat in include.tags %}
+                {% assign cat_down = cat | downcase %}
+                {% assign cat_items = include.data.items | where_exp: 'e', 'e.tags contains cat_down' %}
+                {% if cat_items.size == 0 %}
+                    {% continue %}
+                {% endif %}
+
+                <tr>
+                    <td><a href="/art/archive?t={{ include.data.name }}%2B{{ cat_down }}" target="_blank" class="code">#{{ cat_down }}</a></td>
+                    <td>{{ cat_items.size }}</td>
+                    <td>{{ cat_items.size | times: 100.0 | divided_by: include.data.items.size | round: 1 }}%</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

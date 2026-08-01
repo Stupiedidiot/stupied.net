@@ -14,38 +14,42 @@ js:
   {% include_relative _/{{selected}}.html %}
 {% endif %}
 
-<div id="art_container" class="split">
-  <div id="art_main">
+{% assign aside = page.name | prepend: '_/aside/' %}
+{% assign aside_check = aside | prepend: 'art/' | check_file %}
+
+{% if aside_check or layout.view %}
+    {% assign split = "split" %}
+{% endif %}
+
+<div id="art_container" class="{{ split }}">
+    <div id="art_main">
     {% if content contains 'justified-gallery' %}
         {{ content | justifyImages: 'snail/_img/art/' }}
     {% else %}
         {{ content}}
     {% endif %}
-  </div>
-
-  {% assign aside = page.name | prepend: '_/aside/' %}
-  {% assign aside_check = aside | prepend: 'art/' | check_file %}
-
-  {% if aside_check or layout.view %}
-    <aside id="art_aside" class="split-aside">
-        <div id="art_aside_content" class="split-aside-content">
-            {% if layout.view %}
-                <section id="aside-content" data-nosnippet>
-                    <h2 class="h3">Related Artwork</h2>
-                    <div id="art_related">
-                        
-                    </div>
-                    <h3>Tags</h3>
-                    <ul id="art_tags">
-                        {% for e in page.tags %}
-                            <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </section>
-            {% else %}
-                {% include_relative {{ aside }} %} 
-            {% endif %}
-        </div>
-    </aside>
-  {% endif %}
+    </div>
+    
+    {% if split %}
+        <aside id="art_aside" class="split-aside">
+            <div id="art_aside_content" class="split-aside-content">
+                {% if layout.view %}
+                    <section id="aside-content" data-nosnippet>
+                        <h2 class="h3">Related Artwork</h2>
+                        <div id="art_related">
+                            
+                        </div>
+                        <h3>Tags</h3>
+                        <ul id="art_tags">
+                            {% for e in page.tags %}
+                                <li><a href="/art/archive?t={{ e }}">{{ e }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                {% else %}
+                    {% include_relative {{ aside }} %} 
+                {% endif %}
+            </div>
+        </aside>
+    {% endif %}
 </div>
