@@ -17,9 +17,13 @@ GEM
     execjs (2.10.0)
     fastimage (2.4.0)
     ffi (1.17.2-x64-mingw-ucrt)
+    ffi (1.17.2-x86_64-linux-gnu)
     fiddle (1.1.8)
     forwardable-extended (2.6.0)
     google-protobuf (4.32.0-x64-mingw-ucrt)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-gnu)
       bigdecimal
       rake (>= 13)
     htmlcompressor (0.4.0)
@@ -87,6 +91,8 @@ GEM
     safe_yaml (1.0.5)
     sass-embedded (1.91.0-x64-mingw-ucrt)
       google-protobuf (~> 4.31)
+    sass-embedded (1.91.0-x86_64-linux-gnu)
+      google-protobuf (~> 4.31)
     terminal-table (3.0.2)
       unicode-display_width (>= 1.1.1, < 3)
     terser (1.2.6)
@@ -101,6 +107,7 @@ GEM
 
 PLATFORMS
   x64-mingw-ucrt
+  x86_64-linux-gnu
 
 DEPENDENCIES
   addressable (>= 2.9.0)
