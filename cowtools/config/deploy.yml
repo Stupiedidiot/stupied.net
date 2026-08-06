@@ -1,4 +1,8 @@
 collections:
+  commission:
+    output: true
+    permalink: /commission/p/:path
+    sort_by: date
   fanart:
     output: true
     permalink: /fanart/p/:path

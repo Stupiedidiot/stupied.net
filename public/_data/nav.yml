@@ -57,6 +57,19 @@ art:
     icon: shuffle
     func: randomArt('art')
 
+commission:
+  - title: Home
+    icon: home
+    link: /commission/
+
+  - title: Archive 
+    icon: inbox-full
+    link: /commission/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('commission')
+
 fanart:
   - title: Home
     icon: home

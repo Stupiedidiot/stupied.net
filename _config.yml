@@ -54,6 +54,11 @@ defaults:
       type: mii
     values:
       layout: img-view
+
+  - scope:
+      type: commission
+    values:
+      layout: img-view
   
   # REVIEWS ======================
 
@@ -117,7 +122,9 @@ collections:
   posts:
     permalink: /blog/:name_raw
 
+# remind me to make a better system, ty
 img_gallery:
   - art
+  - commission
   - fanart
   - mii
