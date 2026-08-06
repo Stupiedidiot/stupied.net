@@ -593,7 +593,7 @@ figure.highlight {
 
 
 %archive_thumb {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid var(--color-text);
     overflow: hidden;
 
     img {
@@ -610,7 +610,7 @@ figure.highlight {
 %archive_tags {
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px dashed;
+    border-top: 1px dashed var(--color-text);
     gap: 0.5rem;
     justify-content: right;
     align-items: center;
@@ -638,7 +638,7 @@ figure.highlight {
 
     &-pfp {
         img {
-            border: 1px solid;
+            border: 1px solid var(--color-text);
             aspect-ratio: 1/1;
             border-radius: 50%;
             width: 2rem;

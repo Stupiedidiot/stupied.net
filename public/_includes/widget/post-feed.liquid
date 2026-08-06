@@ -3,9 +3,9 @@
 
 <div class="post-feed newspaper">
     {%- for item in DATA limit:limit -%}
-        {% assign art = false %}
-        {% if item.collection == 'art' %}
-            {% assign art = true %}
+        {% assign blog = false %}
+        {% if item.collection == 'posts' %}
+            {% assign blog = true %}
         {% endif %}
 
         <div class="post-feed-item" id="{{ forloop.index }}">
@@ -19,20 +19,13 @@
                 </div>
             </a>
 
-            {% assign thumbnail = nil %}
-            {% if art %}
-                {% capture thumbnail %}
-                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" width="{{ item.dime[0] }}" height="{{ item.dime[1] }}">
-                {% endcapture %}
-            {% elsif item.thumbnail %}
-                {% capture thumbnail %}
-                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}">
-                {% endcapture %}
-            {% endif %}
-
-            {% if thumbnail %}
+            {% if item.thumbnail %}
                 <div class="post-feed-thumbnail" data-link="{{ item.url }}">
-                    {{ thumbnail }}    
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}"
+                        {%- if item.dime -%}
+                            width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"
+                        {% endif %}
+                    >
                 </div>    
             {% endif %}
             
@@ -60,13 +53,13 @@
             </div>
 
             <div class="post-feed-tags padded">
-                {% if art %}
+                {% if blog %}
                     {% for tag in item.tags %}
-                        <a href="/art/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                        <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
                     {% endfor %}
                 {% else %}
                     {% for tag in item.tags %}
-                        <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                        <a href="/{{ item.collection }}/archive?t={{ tag }}" class="button">{{ tag }}</a>
                     {% endfor %}
                 {% endif %}
             </div>
