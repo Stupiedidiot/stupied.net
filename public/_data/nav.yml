@@ -36,6 +36,10 @@ footer:
     icon: envelope
     link: /guestbook
 
+  - title: Outlinks
+    icon: globe
+    link: /outlinks/
+
   - title: Map
     icon: map
     link: /map/

@@ -17,7 +17,7 @@
             </div>
 
             <div>
-                <span class="h5">Most Used Tags</span>
+                <span class="h5">Blog Tags</span>
                 <ul class="toc">
                     {% assign TAGS = site.tags | sort_tags %}
                     {% for item in TAGS limit: site.data.nav.footer.size %}
@@ -26,6 +26,25 @@
                                 <span>{{ item | first }}</span>
                                 <span class="dash"></span>
                                 <span>{{ item | last | size }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div>
+                <span class="h5">OC Tags</span>
+                <ul class="toc">
+                    {% assign TAGS = site.data.art.tags.universes %}
+                    {% for item in TAGS limit: site.data.nav.footer.size %}
+                        <li>
+                            {% assign tag = item | downcase %}
+                            {% assign max = site.art |  where_exp: 'e', 'e.tags contains tag' | size %}
+
+                            <a href="/art/archive?t={{ tag }}">
+                                <span>{{ tag }}</span>
+                                <span class="dash"></span>
+                                <span>{{ max }}</span>
                             </a>
                         </li>
                     {% endfor %}
