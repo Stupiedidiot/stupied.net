@@ -1,6 +1,6 @@
 {% assign OLD = site.data.meta.comments | where_exp: 'e', 'page.url == e.Page' | reverse %}
 {% if OLD.size > 0 %}
-    <details id="c_widget" data-pagefind-ignore>
+    <details id="c_widget" class="c-widget" data-pagefind-ignore>
         <summary>View Old Comments</summary>
         {% for e in OLD %}
             {% if e.Reply %}
