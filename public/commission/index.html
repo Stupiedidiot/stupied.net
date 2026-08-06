@@ -1,0 +1,165 @@
+---
+layout: page
+title: Commission Me!!
+
+js:
+- "/meta/js/lightbox.js"
+
+css:
+- "/commission/main.css"
+
+# status: Open
+status: Close
+
+prices:
+  - type: Head 
+    price: 10
+    pos: 70%
+
+  - type: Half Body
+    price: 15
+    pos: 40%
+
+  - type: Full Body
+    price: 20
+    pos: 5%
+
+abstract: 30
+full: 50
+
+dos:
+- Humans / Feral / Anthro
+- Cheezy Blood Splatters
+- Props and weapons
+
+donts:
+- NSFW / Gore
+- Politics
+- Mecha
+
+process:
+- title: Prerequisite
+  text: |
+    What I should know beforehand:
+    <br>★ Who I'm drawing - reference sheets appreciated!
+    <br>✮ What they're doing and overall vibe of drawing
+    <br>★ Why you want this drawing
+    
+- title: Payment
+  text: Payments done on [Paypal](https://paypal.me/stupiedidiot). First half payed after sketch and the rest once completed. Alternatively, you could pay in full.
+- title: Updates
+  text: |
+    Will provide updates during the following stage:
+    <br>★ thumbnails / initial sketch
+    <br>✮ sketch (w/ rough color)
+    <br>★ final - for last minute changes
+
+---
+
+{% include_cached layout/subnav.liquid data=site.data.nav.commission %}
+
+<article class="padded">
+    <h1><span class="icon-grin"></span> {{ page.title }}!!! <span class="clr-accent-dk">({{ page.status }})</span></h1>
+    
+    <hr>
+
+    <div class="newspaper" style="column-width: 400px;">
+      <div>
+        <h2><span class="icon-tag"></span> Pricing</h2>
+        <h3 class="clr-accent-dk">Without Background</h3>
+        <div class="comm bg-graphed">
+            <img src="./doll.png" alt="" class="comm-doll outline">
+            {% for item in page.prices %}
+              <div class="comm-part" style="bottom: {{ item.pos }}; left: 0;">
+                <h4>
+                  <span>(${{ item.price }})</span>
+                  <span class="clr-accent-dker">{{ item.type }}</span>
+                </h4>
+              </div>
+            {% endfor %}
+        </div>
+
+        <h3 class="clr-accent-dk">With Background</h3>
+        
+        <fieldset>
+          <legend>
+            <h4>
+              <span>(${{ page.abstract }})</span>
+              <span class="clr-accent-dker">Abstract</span>
+            </h4>
+          </legend>
+          <div class="comm-grid lightbox-targets">
+            <img src="/art/img/26/artfight/dwinky.jpg" alt="">
+            <img src="/art/img/26/artfight/falsedawn.jpg" alt="">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h4>
+              <span>(${{ page.full }})</span>
+              <span class="clr-accent-dker">Full Ilustration</span>
+            </h4>
+          </legend>
+
+          <div class="comm-grid lightbox-targets">
+            <img src="/art/img/26/Jay-Walking.jpg" alt="">
+            <img src="/art/img/26/Research.jpg" alt="">
+          </div>
+        </fieldset>
+      </div>
+
+      <div>
+        <fieldset>
+          <legend>
+            <h2><span class="icon-travel-walk"></span> Process</h2>
+          </legend>
+          <div>
+            {% for item in page.process %}
+              <h3>[<span class="clr-accent-dk">{{ forloop.index }}</span>] {{ item.title }}</h3>
+              {{ item.text | markdownify }}
+            {% endfor %}
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            <h2><span class="icon-check-outline"></span> Can Draw</h2>
+          </legend>
+          <div>
+            <ul>
+              {% for item in page.dos %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </fieldset>
+
+        
+        <fieldset>
+          <legend>
+            <h2><span class="icon-close-outline"></span> Will NOT Draw</h2>
+          </legend>
+          <div>
+            <ul>
+              {% for item in page.donts %}
+                <li>{{ item }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </fieldset>
+
+        <h2><span class="icon-document"></span> Terms of Service</h2>
+        <p>Only for personal use. Otherwise, please specify!</p>
+      </div>
+    </div>
+
+    {% comment %}
+    <hr>
+    <h2><span class="icon-photo"></span> More Examples!!</h2>
+    {% endcomment %}
+
+    <hr>
+    <h2><span class="icon-envelope"></span> Contact</h2>
+    <p>Hmm........... I have an email, I pinky promise... Will set this up properly in the future!!!!</p>
+</article>

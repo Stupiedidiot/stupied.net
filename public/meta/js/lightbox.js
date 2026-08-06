@@ -1,6 +1,7 @@
 ---
 layout: none
 targets:
+  - ".lightbox-targets img"
   - "header .header-thumb"
   - ".content img:not(.sign-off)"
   - ".post-feed-thumbnail img"
