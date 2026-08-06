@@ -7,4 +7,4 @@ tags:
   - digital
 ---
 
-Attack for [Zzzleepywulff](https://artfight.net/attack/18335702).
+Attack for [Zzzleepywulff](https://artfight.net/attack/18335702). Okay, it *really* doesn't read well but this is supposed to be an attempt at Mary Balir's style.
