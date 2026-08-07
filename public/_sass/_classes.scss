@@ -614,6 +614,10 @@ figure.highlight {
     gap: 0.5rem;
     justify-content: right;
     align-items: center;
+
+    a:hover {
+        background-color: var(--color-body);
+    }
 }
 
 
