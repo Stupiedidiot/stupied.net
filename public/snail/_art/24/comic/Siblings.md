@@ -10,3 +10,5 @@ tags:
   - digital
 category: pmd
 ---
+
+Never got around finishing this one, but the purpose of this comic was to show their postal system.
