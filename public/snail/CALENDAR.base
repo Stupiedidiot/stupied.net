@@ -1,20 +1,15 @@
 filters:
-  or:
-    - file.folder.startsWith("_art")
-    - file.folder == "_micro"
-    - file.folder == "_posts"
-    - file.folder.startsWith("_reviews/disney")
+  and:
+    - '!file.folder.contains("_ignore")'
+    - file.ext == "md"
+    - or:
+        - file.folder.startsWith("_art")
+        - file.folder == "_posts"
+        - file.folder.startsWith("_reviews/disney")
+        - file.folder.startsWith("_commission")
 formulas:
-  thumbnail: |-
-    if (
-        note.thumbnail,
-        image("/_img" + note.thumbnail),
-        if (
-            file.folder.contains('_art'),
-            image("/_img/art/img/" + file.path.split('/').slice(1).join('/').split('.')[0] + '.' + note.ext),
-            image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
-        )
-    )
+  thumbnail: |
+    if(file.folder.startsWith('_posts'), image(thumbnail.replace('/blog/', '_img/blog/')), image(file.path.replace('.md','').replace(/^_([^\/]+)/,"_img/$1/img") + "." + ext))
   date: |-
     if (
         note.date,
