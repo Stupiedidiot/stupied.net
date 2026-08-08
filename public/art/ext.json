@@ -6,16 +6,16 @@ layout: none
     {%- assign dir = 'snail/_img/art/img/' -%}
     {%- for item in DATA -%}
         {
-            "img": {{ item.thumbnail | jsonify }},
+            "img": {{ item.img | jsonify }},
             "dimension": {{ item.dime | jsonify }}
         }
 
         {%- if item.extra -%}
-            {%- for i in item.extra -%}
+            {%- for extra in item.extra -%}
             ,{
-                {% assign extra = i.img | default: i %}
-                "img": {{ extra | jsonify }},
-                "dimension": {{ extra | jsonify }}
+                {% assign extra_img = extra.img | default: extra %}
+                "img": {{ extra_img | jsonify }},
+                "dimension": {{ extra_img | getDime: dir | jsonify }}
             }
             {%- endfor -%}
         {%- endif -%}
