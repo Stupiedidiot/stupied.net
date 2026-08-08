@@ -14,6 +14,19 @@ document.head.append(prefetched)
 
 <style>
 {% capture css %}
+@use "vars" as *;
+@use "sass:list";
+@use "sass:map";
+
+@each $name, $value in $themes {
+    $filter: map.get($value, 'shift');
+    @if $filter {
+        [data-stupied-theme="#{$name}"] #meirl {
+            filter: #{$filter};
+        }
+    }
+}
+
 #meirl {
     border: 3px solid black;
     background: url(/meta/img/sunburst.svg);

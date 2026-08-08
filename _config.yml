@@ -5,9 +5,14 @@ keywords: [stupied,art,comics,blog,ocs]
 
 themes:
 - id: light
-  title: Tres...?
+  title: Light
 - id: dark
+  title: Dark
+  
+- id: die
   title: Stu-DYING!
+- id: mii
+  title: That's Mii
 
 # Build settings
 source: public
