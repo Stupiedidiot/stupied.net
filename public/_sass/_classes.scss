@@ -170,26 +170,30 @@
     }
 }
 
-%float {
-  display:block;
-  margin-bottom:1rem;
-  
-  @media only screen and (max-width: 450px) {
-    float:none;
-    margin:1rem auto;
-  }
-}
-
 .float-right{
-  float:right;
-  margin-left:1rem;
+  float: right;
+  margin-left: 0.8rem;
   @extend %float;
 }
 
 .float-left{
-  float:left;
-  margin-right:1rem;
+  float: left;
+  margin-right: 0.8rem;
   @extend %float;
+}
+
+%float {
+  display: block;
+  margin-bottom: 0.8rem;
+  
+  @media only screen and (max-width: 450px) {
+    float: none!important;
+    margin: 1rem auto;
+
+    &:first-child {
+        margin-top: 0;
+    }
+  }
 }
 
 hr.clear {

@@ -42,6 +42,50 @@ js:
             </div>
         </article>
 
+        {% if site.data.ocs %}
+            {% assign OCS = '' | split: '' %}
+            {% for tag in page.tags %}
+                {% if site.data.ocs[tag] %}
+                    {% assign OCS = OCS | push: site.data.ocs[tag] %}
+                {% endif %}
+            {% endfor %}
+
+            {% if OCS.size > 0 %}
+                <div class="padded">
+                    <fieldset data-nosnippet data-pagefind-ignore>
+                        <legend>
+                            <h2>OCs Featured</h2>
+                        </legend>
+
+                        <div id="art_characters" class="newspaper">
+                            {% for item in OCS %}
+                                <div class="character">
+                                    <div class="character-info padded">
+                                        <div class="character-thumbnail float-left">
+                                            <img src="{{ item.thumbnail }}" alt="Thumbnail of {{ item.title }}">
+                                        </div>
+
+                                        <div class="h4">{{ item.title }}</div>
+                                        
+                                        <div>
+                                            {{ item.description | markdownify }}
+                                        </div>
+
+                                        <hr class="clear">
+                                    </div>
+
+                                    <div class="post-feed-tags padded">
+                                        <a href="{{ item.url }}" class="button"><span class="icon-information-outline"></span> Learn More</a>
+                                        <a href="/art/archive?t={{ item.slug }}" class="button">More Art »</a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </fieldset>    
+                </div>
+            {% endif %}
+        {% endif %}
+
         {% if page.collection == 'art' %}
             <article id="art_comment" class="padded" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
