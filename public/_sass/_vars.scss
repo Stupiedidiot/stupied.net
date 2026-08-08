@@ -13,11 +13,14 @@
   }
 }
 
-// colors ================================
+// theme =================================
 
+$font-display: "Grandstander";
+$font-body: "Chiron GoRound TC, Arial, Helvetica, sans-serif";
 
 $colors: (
   blue: #16a2c2,
+  yellow: #cd8c13,
   red: #b5473d
 );
 
@@ -26,39 +29,66 @@ $themes: (
     colors: (
       text: black,
       body: white,
+      accent-ltest: mix(color(blue), white, 20%),
+      accent-lter: mix(color(blue), white, 50%),
+      accent-lt: mix(color(blue), white, 80%),
       accent: color(blue),
       accent-dk: mix(color(blue), black, 90%, lab),
       accent-dker: mix(color(blue), black, 60%, lab),
       accent-dkest: mix(color(blue), black, 30%, lab),
-      accent-lt: mix(color(blue), white, 80%),
-      accent-lter: mix(color(blue), white, 50%),
-      accent-ltest: mix(color(blue), white, 20%),
 
       gray: gray,
       gray-lt: rgb(167, 167, 167)
+    ),
+    font: (
+      display: $font-display,
+      body: $font-body
     )
   ),
   dark: (
     colors: (
       text: white,
       body: #0f0f0e,
-      accent: color(red),
-      accent-dk: mix(color(red), white, 90%, lab),
-      accent-dker: mix(color(red), white, 60%, lab),
-      accent-dkest: mix(color(red), white, 30%, lab),
-      accent-lt: mix(color(red), black, 90%),
-      accent-lter: mix(color(red), black, 60%),
-      accent-ltest: mix(color(red), black, 30%)
+      accent-ltest: mix(color(blue), black, 30%),
+      accent-lter: mix(color(blue), black, 40%),
+      accent-lt: mix(color(blue), black, 80%),
+      accent: mix(color(blue), black, 90%),
+      accent-dk: mix(color(blue), white, 90%, lab),
+      accent-dker: mix(color(blue), white, 50%, lab),
+      accent-dkest: mix(color(blue), white, 20%, lab)
     ),
-    shift: hue-rotate(170deg)
+    shift: brightness(90%)
+  ),
+  die: (
+    colors: (
+      text: white,
+      body: #0f0f0e,
+      accent-ltest: mix(color(red), black, 30%),
+      accent-lter: mix(color(red), black, 60%),
+      accent-lt: mix(color(red), black, 90%),
+      accent: color(red),
+      accent-dk: mix(color(red), white, 80%, lab),
+      accent-dker: mix(color(red), white, 60%, lab),
+      accent-dkest: mix(color(red), white, 30%, lab)
+    ),
+    shift: hue-rotate(170deg) brightness(90%)
+  ),
+  mii: (
+    colors: (
+      accent-ltest: mix(color(yellow), white, 20%),
+      accent-lter: mix(color(yellow), white, 40%),
+      accent-lt: mix(color(yellow), white, 80%),
+      accent: color(yellow),
+      accent-dk: mix(color(yellow), black, 90%, lab),
+      accent-dker: mix(color(yellow), black, 60%, lab),
+      accent-dkest: mix(color(yellow), black, 30%, lab),
+    ),
+    shift: hue-rotate(200deg)
   )
 );
 
 
-// fonts =================================
-
-$font-display: "Grandstander";
-$font-body: "Chiron GoRound TC, Arial, Helvetica, sans-serif";
+// font sizes =============================
 
 $font-size-base: 1.1rem;
 $font-after: $font-size-base * 0.5;

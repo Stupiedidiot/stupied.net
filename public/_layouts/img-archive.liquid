@@ -13,7 +13,7 @@ js:
             {% if page.collection == "art" %}
                 {% include widget/search.html cat='art' %}
             {% endif %}
-            <h1>Art Archive (<span id="archive_counter">0</span>/<span id="archive_max">{{ site[page.collection] | size }}</span>)</h1>
+            <h1>Art Archive (<span id="archive_counter" class="clr-accent-dk">0</span>/<span id="archive_max">{{ site[page.collection] | size }}</span>)</h1>
             <div id="archive_filter" class="art-archive-filter hidden" style="margin-bottom: 1rem;">
                 <div>Filtering Tags:</div>
             </div>

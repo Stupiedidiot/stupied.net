@@ -16,7 +16,7 @@ title: Art Stats
 
 {% for year in DATA %}
     <article class="padded border-dashed-bottom">
-        <h2>{{ year.name }}</h2>
+        <h2><a href="/art/archive?t={{ year.name }}">{{ year.name }}</a></h2>
         <span class="h6 clr-accent-dk">Total Made »</span> {{ year.items.size }}
         {% include art/stats.liquid data=year tags=CAT %}
     </article>

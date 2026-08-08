@@ -206,6 +206,29 @@ body.default {
         margin-left: 0;
         padding-left: 0;
     }
+
+    &_characters .character {
+        border: 1px solid;
+        border-radius: 4px;
+        margin-bottom: 0.5rem;
+        
+        &-thumbnail {
+            img {
+                width: 4rem;
+                background-color: var(--color-accent-ltest);
+                display: block;
+                margin: 0;
+
+                border: 1px solid;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                object-position: top;
+            }
+        }
+
+        &-actions {
+        }
+    }
 }
 
 .art-archive-options {

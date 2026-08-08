@@ -18,26 +18,34 @@
   }
 }
 
+@mixin bg($name){
+  --img: url(/meta/img/bg/#{$name}.jpg);
+}
+
 $first_name: nth(map.keys($themes), 1);
-$first_theme: map.get(nth(map.values($themes), 1), 'colors');
-$first_props: map.keys($first_theme);
+
+$first_values: nth(map.values($themes), 1);
+$first_colors: map.get($first_values, 'colors');
+$first_font: map.get($first_values, 'font');
+
+$first_props: map.keys($first_colors);
 
 :root, [data-stupied-theme="#{$first_name}"] {
-  --font-size: #{$font-size-base};
-  --font-display: #{$font-display};
-  --font-body: #{$font-body};
-  
-  --img: url(/meta/img/#{$first_name}.jpg);
   @include loopValues("color-", $colors);
-  @include loopValues("color-", $first_theme);
+  --font-size: #{$font-size-base};
+  
+  @include bg($first_name);
+  @include loopValues("color-", $first_colors);
+  @include loopValues("font-", $first_font);
 }
 
 $index: 1;
 @each $name, $value in $themes {
   @if $index > 1 {
     [data-stupied-theme="#{$name}"] {
-      --img: url(/meta/img/#{$name}.jpg);
+      @include bg($name);
       @include loopValues("color-", map.get($value, 'colors'));
+      @include loopValues("font-", map.get($value, 'font'));
     }
   } @else {
     $index: $index + 1;
