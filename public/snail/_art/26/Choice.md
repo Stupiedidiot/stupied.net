@@ -6,8 +6,8 @@ tags:
   - digital
   - ocs
   - psych
-  - psyche
   - evan
+  - psyche
   - jay
 ---
-Thought it be funny if Psyche's internal monologue were the two of them. Especially love the implication of Psyche being fully aware of Evan's moral ambiguity but still chooses to follow along with him. Rare sight of Psyche wearing her blue hoodie!! Also yes, her 3Ds is cracked becuase she too much of an *ebic* ***gaymer***!!!!!!!!!!
+Thought it be funny if Psyche's internal monologue were the two of them. Especially love the implication of Psyche being fully aware of how fucked Evan's morals but still chooses to follow along with him. Rare sight of Psyche wearing her blue hoodie!! Also yes, her 3Ds is cracked becuase she too much of an *ebic* ***gaymer***!!!!!!!!!!

@@ -51,13 +51,17 @@ js:
             {% endfor %}
 
             {% if OCS.size > 0 %}
-                <div class="padded">
+                <div class="padded border-dashed-top">
                     <fieldset data-nosnippet data-pagefind-ignore>
                         <legend>
                             <h2>OCs Featured</h2>
                         </legend>
 
-                        <div id="art_characters" class="newspaper">
+                        <div id="art_characters"
+                            {%- if OCS.size > 1 -%}
+                                {{  ' class="newspaper"' }}
+                            {%- endif -%}
+                        >
                             {% for item in OCS %}
                                 <div class="character">
                                     <div class="character-info padded">
@@ -76,7 +80,7 @@ js:
 
                                     <div class="post-feed-tags padded">
                                         <a href="{{ item.url }}" class="button"><span class="icon-information-outline"></span> Learn More</a>
-                                        <a href="/art/archive?t={{ item.slug }}" class="button">More Art »</a>
+                                        <a href="/art/archive?t={{ item.slug }}" class="button"><span class="icon-photo"></span> More Art »</a>
                                     </div>
                                 </div>
                             {% endfor %}
@@ -87,7 +91,7 @@ js:
         {% endif %}
 
         {% if page.collection == 'art' %}
-            <article id="art_comment" class="padded" data-nosnippet>
+            <article id="art_comment" class="padded border-dashed-top" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
             </article>
         {% endif %}

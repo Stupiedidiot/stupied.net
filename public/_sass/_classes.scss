@@ -172,19 +172,18 @@
 
 .float-right{
   float: right;
-  margin-left: 0.8rem;
+  margin-left: 0.5rem;
   @extend %float;
 }
 
 .float-left{
   float: left;
-  margin-right: 0.8rem;
+  margin-right: 0.5rem;
   @extend %float;
 }
 
 %float {
   display: block;
-  margin-bottom: 0.8rem;
   
   @media only screen and (max-width: 450px) {
     float: none!important;
@@ -591,7 +590,7 @@ figure.highlight {
 %archive_header {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid var(--color-text);
     gap: 0.8rem;
 }
 

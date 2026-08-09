@@ -1,12 +1,12 @@
-{% assign limit = include.limit | default: data.size %}
-{% assign DATA = include.data | where_exp: "item", "item.date <= site.time" %}
+{%- assign DATA = include.data | where_exp: "item", "item.date <= site.time" -%}
+{%- assign limit = include.limit | default: DATA.size -%}
 
 <div class="post-feed newspaper">
     {%- for item in DATA limit:limit -%}
-        {% assign blog = false %}
-        {% if item.collection == 'posts' %}
-            {% assign blog = true %}
-        {% endif %}
+        {%- assign blog = false -%}
+        {%- if item.collection == 'posts' -%}
+            {%- assign blog = true -%}
+        {%- endif -%}
 
         <div class="post-feed-item" id="{{ forloop.index }}">
             <a href="{{ item.url }}" class="post-feed-header padded">
@@ -19,49 +19,47 @@
                 </div>
             </a>
 
-            {% if item.thumbnail %}
+            {%- if item.thumbnail -%}
                 <div class="post-feed-thumbnail" data-link="{{ item.url }}">
-                    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}"
-                        {%- if item.dime -%}
-                            width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"
-                        {% endif %}
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt | escape }}"
+                        {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
                     >
                 </div>    
-            {% endif %}
+            {%- endif -%}
             
 
             <div class="post-feed-desc padded">
                 <div class="post-feed-time">
-                    <time datetime="{{ item.date | date_to_xmlschema }}" itemprop="datePublished" class="h3">
+                    <time datetime="{{ item.date | date_to_xmlschema }}" class="h3">
                         {{ item.date | date: "%B %-d, %Y" }}
                     </time>
                 </div>
 
-                {% if item.description %}
+                {%- if item.description -%}
                     <div class="blockquote">
                         {{ item.description | markdownify }}
                     </div>
-                {% endif %}
+                {%- endif -%}
 
-                {% if item.w_comment %}
+                {%- if item.w_comment or blog -%}
                     <p>
                         {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
                     </p>
-                {% endif %}
+                {%- endif -%}
                 
                 <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
             </div>
 
             <div class="post-feed-tags padded">
-                {% if blog %}
-                    {% for tag in item.tags %}
+                {%- if blog -%}
+                    {%- for tag in item.tags -%}
                         <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
-                    {% endfor %}
-                {% else %}
-                    {% for tag in item.tags %}
+                    {%- endfor -%}
+                {%- else -%}
+                    {%- for tag in item.tags -%}
                         <a href="/{{ item.collection }}/archive?t={{ tag }}" class="button">{{ tag }}</a>
-                    {% endfor %}
-                {% endif %}
+                    {%- endfor -%}
+                {%- endif -%}
             </div>
         </div>
     {%- endfor -%}

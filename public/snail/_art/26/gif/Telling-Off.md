@@ -5,7 +5,7 @@ tags:
   - digital
   - ocs
   - psych
-  - jay
   - august
+  - jay
 alt: Animated looping gif of Jay Swift nagging at August July, who's tail is wagging happily.
 ---
