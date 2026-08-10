@@ -7,5 +7,4 @@ tags:
 - ink
 - ocs
 ---
-
 Funnily past me felt the need to cover this drawing up with a sticky note

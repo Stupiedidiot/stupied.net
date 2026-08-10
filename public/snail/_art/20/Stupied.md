@@ -8,3 +8,4 @@ tags:
 - sona
 ---
 
+If memory serves me right, the drawings on the top was for Inktober prompts.

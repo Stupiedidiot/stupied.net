@@ -8,3 +8,4 @@ tags:
   - edwina
 alt: Painting of Edwina Tor.
 ---
+This was another piece that was originally an acrylic painting. Didn't like how the colors looks (don't have any warm blues) so I scanned it and continued painting on Krita.

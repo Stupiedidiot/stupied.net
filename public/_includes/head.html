@@ -15,6 +15,10 @@
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <meta property="og:title" content="{{ page.title | default: site.title }}">
+{%- if page.thumbnail -%}
+<meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
+{%- endif -%}
+
 
 {%- unless layout.nojs or page.nojs -%}
     <script src="/meta/js/global.js"></script>

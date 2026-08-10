@@ -8,4 +8,3 @@ tags:
   - puyo
 alt: Acrylic landscape portrait of Ms. Accord from Puyo Pop.
 ---
-
