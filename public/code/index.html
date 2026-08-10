@@ -9,14 +9,13 @@ description: A page to share code I've made
         <div class="split-aside-content">
             <h1>Codez!!</h1>
             <p>I am very fond of DIY-ing stuff in javascript.</p>
-            <section>
-                <h2>Utility n Snippets</h2>
-                <ul class="arrow-hover">
-                    {%- for item in site.data.code.list -%}
-                    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
-                    {%- endfor -%}
-                </ul>
-            </section>
+            <h2>Utility n Snippets</h2>
+            <ul>
+                {%- for item in site.data.code.list -%}
+                <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+                {%- endfor -%}
+            </ul>
+            
             <p>
                 Feel free to use codes. Credit is optional.<br>
                 <span class="clr-accent-lter">In fact, you should claim you made it!!</span>

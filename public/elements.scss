@@ -1,7 +1,7 @@
 ---
 layout: none
 ---
-{% assign img = site.art | last %}
+{% assign img = site.art | where_exp: "item", "item.date <= site.time" | last %}
 
 .site-box {
 	background-image: none;

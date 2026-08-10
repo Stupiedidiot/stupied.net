@@ -1,0 +1,50 @@
+---
+layout: none
+---
+.af {
+    &-item {
+        border: 2px solid;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 1rem 0;
+    }
+
+    &-team {
+        background-color: var(--color-accent-dkest);
+        padding: 0.5rem;
+        color: var(--color-accent-ltest);
+        margin-bottom: 1px;
+    }
+
+    &-stats {
+        display: grid;
+        gap: 1px;
+
+            > div {
+                display: grid;
+                grid-template-columns: 120px 1fr;
+                gap: 1px;
+            }
+    }
+
+    &-label {
+        width: 100%;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        background-color: var(--color-accent-ltest);
+        text-align: right;
+
+        &::after {
+            content: ": ";
+        }
+    }
+    
+    &-value {
+        padding: 0.5rem;
+    }
+
+    &-stats-ratio .af-value {
+        background-color: var(--color-accent);
+        width: var(--w);
+    }
+}

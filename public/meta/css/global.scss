@@ -3,8 +3,6 @@ layout: none
 ---
 @use "vars" as *;
 @use "defaults";
-@use "comments";
-@use "splash";
 
 body.default {
     @extend %checkered;
