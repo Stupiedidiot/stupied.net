@@ -109,6 +109,10 @@ option {
     font-family: var(--font-body);
 }
 
+fieldset {
+    margin-bottom: 1rem;
+}
+
 blockquote,
 .blockquote {
     background: var(--color-accent-ltest);

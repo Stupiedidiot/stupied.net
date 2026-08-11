@@ -42,14 +42,8 @@ js:
             </div>
         </article>
 
-        {% if site.data.ocs %}
-            {% assign OCS = '' | split: '' %}
-            {% for tag in page.tags %}
-                {% if site.data.ocs[tag] %}
-                    {% assign OCS = OCS | push: site.data.ocs[tag] %}
-                {% endif %}
-            {% endfor %}
-
+        {% if site.data.ocs and page.tags contains "ocs" %}
+            {% assign OCS = page.tags | get_ocs %}
             {% if OCS.size > 0 %}
                 <div class="padded border-dashed-top">
                     <fieldset data-nosnippet data-pagefind-ignore>
@@ -62,30 +56,9 @@ js:
                                 {{  ' class="newspaper"' }}
                             {%- endif -%}
                         >
-                            {% for item in OCS %}
-                                <div class="character">
-                                    <div class="character-info padded">
-                                        <div class="character-thumbnail float-left">
-                                            <img src="{{ item.thumbnail }}" alt="Thumbnail of {{ item.title }}">
-                                        </div>
-
-                                        <div class="h4">{{ item.title }}</div>
-                                        
-                                        <div>
-                                            {{ item.description | markdownify }}
-                                        </div>
-
-                                        <hr class="clear">
-                                    </div>
-
-                                    <div class="post-feed-tags padded">
-                                        <a href="{{ item.url }}" class="button"><span class="icon-information-outline"></span> Learn More</a>
-                                        <a href="/art/archive?t={{ item.slug }}" class="button"><span class="icon-photo"></span> More Art »</a>
-                                    </div>
-                                </div>
-                            {% endfor %}
+                            {% include ocs.liquid data=OCS %}
                         </div>
-                    </fieldset>    
+                    </fieldset>
                 </div>
             {% endif %}
         {% endif %}

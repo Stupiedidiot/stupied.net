@@ -3,7 +3,7 @@
 title: About Website
 ---
 
-# {{ page.title }}
+# <span class="icon-network"></span> {{ page.title }}
 A culmination of everything in my being. There are certain pages titled as "Archive" but that word really applies to just about everything featured in this website. It is a digital record of my creations, fixations, and future. It is perpetually a work in progress with a hope that one day it will outlive me.
 
 ---

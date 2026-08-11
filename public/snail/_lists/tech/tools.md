@@ -14,9 +14,8 @@ tags:
 - [Obsidian](https://obsidian.md/)
 - [Snycthing](https://syncthing.net/)
 - [Windows Powertools](https://learn.microsoft.com/en-us/windows/powertoys/)
-<!-- - Mihon -->
 
 ### Coding Stuff
-- [VS Code](https://code.visualstudio.com/)
+- [VS Codium](https://vscodium.com/)
 - [Jekyll](https://jekyllrb.com/)
 - [Turbo Warp](https://turbowarp.org/)

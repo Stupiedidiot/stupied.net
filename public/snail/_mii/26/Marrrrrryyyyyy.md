@@ -3,7 +3,8 @@ ext: jpg
 date: 2026-01-01
 extra:
 tags:
-- mary
+  - mary
+  - ocs
 ---
 
 I just really liked her outfit here. I love you mii Mary!!

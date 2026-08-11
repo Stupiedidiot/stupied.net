@@ -1,0 +1,103 @@
+---
+title: About My Art
+
+universes:
+- title: Psych!
+  ocs:
+    - psyche
+    - evan
+    - jay
+
+- title: PMD
+  ocs:
+    - cheeze
+    - maudie
+    - yasmayne
+
+- title: Dissent
+  ocs:
+    - mopsy
+    - pepper
+
+dos:
+- For profile pictures, collages, or school projects (if you're cringe enough)
+- Reposting without credit; Telling your grandma you made them.
+- Printing into physical items for non-commercial use
+- Literally just don't sell my art
+
+donts:
+- Selling digital copies of my art
+- Selling physical copies of my art
+- Yeah, that's literally it
+---
+
+<article class="padded">
+    <h1><span class="icon-camera"></span> {{ page.title }}</h1>
+    <p>I have making art since forever. Honestly cannot recall a time I was never not drawing and writing stories. Art has always played an important role in my life. It has help me compartmentalized my experiences. Genuinely don't know what I'd be doing without it. </p>
+    
+    <hr>
+    
+    <h2>My Philosophy</h2>
+    <div class="blockquote">
+        Something is better than nothing
+    </div>
+    
+    <p>Generally, people idolize the tortured artist who spend their waking moment <em>perfecting</em> that <em><strong>one</strong></em> thing. Unfortunately, my career path isn't related to art and committing such a role is simply not an option. Every day spent not drawing is another wasted opportunity that's never coming back. I just want to get something down - regardless of it's quality. What's important is I can put down some physical evidence of the worlds that plague my mind. If I'm not having fun working on something I finish it as quickly as possible to move on to the next thing.</p>
+    
+    <hr>
+
+    <h2>My Muses</h2>
+    <p>I make no exaggeration when I say I would of killed myself if it weren't for my OCs. If you ever been unfortunate enough to meet me in real life, I am very likely to be staring blanky into the distance - daydreaming. I find it difficult to experience life as it is and need to disassociate to let the little guys in my head relive my present. They are the subject of the majority of my art and you really ought to get familiar with them!</p>
+    
+    <div class="newspaper" style="margin-bottom: 1rem;">
+        {% for universe in page.universes %}
+            <fieldset>
+                <legend>
+                    <h2>{{ universe.title }}</h2>
+                </legend>
+                <div>
+                    {% assign OCS = universe.ocs | get_ocs %}
+                    {% include ocs.liquid data=OCS %}
+                </div>
+            </fieldset>
+        {% endfor %}
+    </div>
+
+    <h3>But Wait, There's more!</h3>
+    <p><a href="https://wiki.stupied.net">Click Here »</a></p>
+
+
+    <hr>
+    
+    <h2>Usage</h2>
+    <p>Truthfully, I do not care what people do with my work. Claim it as your own or vandalize it with profanities. Just remember to keep it free and for everyone <span style="display: inline-block;">(❁´◡`❁)</span></p>
+    
+    <h3>Allowed</h3>
+    <div class="blockquote">
+        <ul>
+            {% for item in page.dos %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <h3>Not Allowed</h3>
+    <div class="blockquote">
+        <ul>
+            {% for item in page.dos %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <h3>Making and Selling Fanart of Your Characters?</h3>
+    <p>Probably the only exception. Mainly because I find the thought of someone putting the time and effort to draw and sell out my characters really amusing. I've also had my fair share of selling fanart of IPs I don't own.</p>
+    
+    <h3>What If I don't Adhere to that</h3>
+    <p>I will be very sad...</p>
+    
+    <hr>
+    
+    <h2>Do You Do Art Request?</h2>
+    <p>I only make art for people who make me happy and those who give me money. Head over <a href="/commission/">here</a> if you want to commission me. If you are neither of those, then alams na ka :)</p>
+</article>
