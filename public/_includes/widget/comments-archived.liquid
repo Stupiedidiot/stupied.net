@@ -11,7 +11,9 @@
 
             <div id="{{ e.Name }} |--|{{ e.date | date: "%D/%M/%Y %H:%M:%S" }}" class="c-comment">
                 {% if e.Image %}
-                    <img class="c-img" src="{{ e.Image }}">
+                    <a href="{{ e.Image }}">
+                        <img class="c-img" src="{{ e.Image }}">
+                    </a>
                 {% endif %}
             
                 <h3 class="c-name">{{ e.Name }} </h3>
@@ -50,7 +52,7 @@
             </div>
 
         {% endfor %}
-        <span id="giscus_temp">Hello, had to change comment system to avoid spam..! You can comment on my <a href="https://neocities.org/site/stupied">Neocities Profile</a> instead.</span>
+        <p id="giscus_temp">Hello, had to change comment system to avoid spam..! You can comment on my <a href="https://neocities.org/site/stupied">Neocities Profile</a> instead.</p>
 
     </details>
 {% endif %}

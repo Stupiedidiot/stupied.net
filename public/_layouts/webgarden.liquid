@@ -7,7 +7,7 @@ nocss: true
 <html lang="en-US">
   
 <head>
-  {%- include head.html -%}
+  {%- include head.liquid -%}
   <link rel="stylesheet" href="/{{ page.path | split: '/' | pop | push: 'main.css' | join: '/' }}">
   <style>
         .plant {

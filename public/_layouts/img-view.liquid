@@ -7,7 +7,7 @@ js:
 {% assign data = site.data.nav[page.collection] %}
 {% include_cached layout/subnav.liquid data=data %}
 
-<div id="art_viewer">
+<div id="art_viewer" style="--selected: url({{ page.thumbnail }})">
     <div id="image">
         {% include art/write-imgs.liquid data=page %}
     </div>
