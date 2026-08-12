@@ -1,14 +1,17 @@
 collections:
   commission:
     output: true
+    gallery: true
     permalink: /commission/p/:path
     sort_by: date
   fanart:
     output: true
+    gallery: true
     permalink: /fanart/p/:path
     sort_by: date
   mii:
     output: true
+    gallery: true
     permalink: /mii/p/:path
     sort_by: date
 

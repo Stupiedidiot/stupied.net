@@ -7,6 +7,8 @@ module Jekyll
 
         def get_ocs(input)
             data = @context.registers[:site].data['ocs']
+            return unless data
+            
             input.map { |tag| data[tag] }.compact
         end
 

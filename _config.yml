@@ -113,6 +113,7 @@ collections_dir: snail
 collections:
   art:
     output: true
+    gallery: true
     permalink: /art/p/:path
     sort_by: date
   img:
