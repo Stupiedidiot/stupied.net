@@ -98,6 +98,7 @@ defaults:
 # Paginate  
 pagination:
   enabled: true
+  title: "(:num/:max)"
 
 # Pagefind Settings
 pagefind:

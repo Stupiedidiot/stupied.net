@@ -4,49 +4,48 @@ module Jekyll
     module ImageHook
         Jekyll::Hooks.register :site, :post_read do |site|
             site.collections.each do |label, col|
-                if (col.metadata['gallery'])
-                    folder = File.join('snail/_img', label , 'img')
-                    folder_col = "_#{label}/"
-                    
-                    col.docs.each do |doc|
-                        slug = "#{doc.path.split(folder_col)[1].sub('.md', '')}.#{doc.data['ext']}"
-                        doc.data['thumbnail'] = "/#{label}/img/#{slug}"
-                        doc.data['img'] = slug
+                next unless col.metadata['gallery']
+                folder = File.join('snail/_img', label , 'img')
+                folder_col = "_#{label}/"
+                
+                col.docs.each do |doc|
+                    slug = "#{doc.path.split(folder_col)[1].sub('.md', '')}.#{doc.data['ext']}"
+                    doc.data['thumbnail'] = "/#{label}/img/#{slug}"
+                    doc.data['img'] = slug
 
-                        raw = File.join(site.source, folder, slug)
-                        if File.exist?(raw)
-                            dime = FastImage.size(raw)
-                            if dime
-                                doc.data['dime'] = dime
-                            else
-                                doc.data['dime'] = [0,0]
-                            end
+                    raw = File.join(site.source, folder, slug)
+                    if File.exist?(raw)
+                        dime = FastImage.size(raw)
+                        if dime
+                            doc.data['dime'] = dime
                         else
                             doc.data['dime'] = [0,0]
                         end
-
-                        if (doc.content.strip != '')
-                            doc.data['w_comment'] = true
-                        end
-
-                        tags = []
-                        year = doc.data['date']
-                        tags << year.to_s.split("-")[0] if (year)
-
-                        split = slug.split("/")
-                        split.pop
-                        if (split.length > 1)
-                            split.shift(1)
-                            tags.concat(split)
-                        end
-                        
-                        tags.concat(doc.data['tags']) if ( doc.data['tags'] )
-
-                        tags << "multi" if ( doc.data['extra'] )
-                        tags << "with-commentary" if ( doc.data['w_comment'] )
-
-                        doc.data['tags'] = tags
+                    else
+                        doc.data['dime'] = [0,0]
                     end
+
+                    if (doc.content.strip != '')
+                        doc.data['w_comment'] = true
+                    end
+
+                    tags = []
+                    year = doc.data['date']
+                    tags << year.to_s.split("-")[0] if (year)
+
+                    split = slug.split("/")
+                    split.pop
+                    if (split.length > 1)
+                        split.shift(1)
+                        tags.concat(split)
+                    end
+                    
+                    tags.concat(doc.data['tags']) if ( doc.data['tags'] )
+
+                    tags << "multi" if ( doc.data['extra'] )
+                    tags << "with-commentary" if ( doc.data['w_comment'] )
+
+                    doc.data['tags'] = tags
                 end
             end
         end

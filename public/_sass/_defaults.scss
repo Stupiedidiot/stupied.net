@@ -122,6 +122,10 @@ blockquote,
     border-left: 3px solid var(--color-accent);
 }
 
+code {
+    font-size: $font-size-base;
+}
+
 .table-wrapper {
   width: 100%;
   overflow-x: auto;

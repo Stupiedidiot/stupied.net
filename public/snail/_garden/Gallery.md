@@ -1,5 +1,5 @@
 ---
-index: 1
+index: 2
 date: 2026-07-21T19:49
 title: Art Gallery
 description: Going over how my gallery works.
@@ -67,18 +67,64 @@ defaults:
 ```
 
 #### Hooks
-This can be achieved with Jekyll [Hooks](https://jekyllrb.com/docs/plugins/hooks/). I loop through the collection files before the content gets rendered and add in additional information
+This can be achieved with Jekyll [Hooks](https://jekyllrb.com/docs/plugins/hooks/), specifically the `post_read` for `:site`. From there we can loop through the collection files to add in automatically input additional information. The `label` is a string of the current collection, while the `col` is the hash for that collection. The `metadata` is the stuff you set in the `_config.yml` file 
 
 ```ruby
-module ImageHook
-	Jekyll::Hooks.register :documents, :pre_render do |doc|
-		# Only target specified collection
-		config = doc.site.config['img_gallery'] || []
-		col = doc.collection.label
-		next unless config.include?(col)
-		
-		# manipulate the collection files here!
-	end
+Jekyll::Hooks.register :site, :post_read do |site|
+    site.collections.each do |label, col|
+        next unless col.metadata['gallery']
+		# Skip colle
+    end
+end
+```
+
+```ruby
+Jekyll::Hooks.register :site, :post_read do |site|
+    site.collections.each do |label, col|
+        next unless col.metadata['gallery']
+        folder = File.join('snail/_img', label , 'img')
+        folder_col = "_#{label}/"
+        
+        col.docs.each do |doc|
+            slug = "#{doc.path.split(folder_col)[1].sub('.md', '')}.#{doc.data['ext']}"
+            doc.data['thumbnail'] = "/#{label}/img/#{slug}"
+            doc.data['img'] = slug
+
+            raw = File.join(site.source, folder, slug)
+            if File.exist?(raw)
+                dime = FastImage.size(raw)
+                if dime
+                    doc.data['dime'] = dime
+                else
+                    doc.data['dime'] = [0,0]
+                end
+            else
+                doc.data['dime'] = [0,0]
+            end
+
+            if (doc.content.strip != '')
+                doc.data['w_comment'] = true
+            end
+
+            tags = []
+            year = doc.data['date']
+            tags << year.to_s.split("-")[0] if (year)
+
+            split = slug.split("/")
+            split.pop
+            if (split.length > 1)
+                split.shift(1)
+                tags.concat(split)
+            end
+            
+            tags.concat(doc.data['tags']) if ( doc.data['tags'] )
+
+            tags << "multi" if ( doc.data['extra'] )
+            tags << "with-commentary" if ( doc.data['w_comment'] )
+
+            doc.data['tags'] = tags
+        end
+    end
 end
 ```
 ##### Dimensions
@@ -198,4 +244,4 @@ Unfortunately, I cannot bring myself to care enough to address this issues.
 4. When filtering, make sure to remove is done by remove "general" tags first.
 
 ## Conclusion
-Dear artists, don't become a programmer. Thank you. /j
+Honestly. Lowkey thinking about learning sql to update this system. Idk only the future can tell. Dear artists, don't become a programmer. Thank you. /j
