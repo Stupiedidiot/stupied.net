@@ -52,7 +52,7 @@
     $w: 45.25px;
     background-size: $w $w;
 
-    @include res(md) {
+    @include max(md) {
         animation: checkered 30s infinite linear;
     }
     
@@ -394,7 +394,7 @@ hr.clear {
         }
     }
 
-    @include res {
+    @include max {
         flex-wrap: wrap;
     }
 
@@ -480,7 +480,7 @@ hr.clear {
     }
 
 
-    @include res(md) {
+    @include max(md) {
         grid-template-columns: 1fr !important;
 
         &-aside {

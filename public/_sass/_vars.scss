@@ -117,8 +117,14 @@ $spacers: (
     3: $spacer,
 );
 
-@mixin res ($type: sm){
+@mixin max ($type: sm){
   @media only screen and (max-width: #{map.get($breakpoints, $type)}) {
+      @content;
+  }
+}
+
+@mixin min ($type: sm){
+  @media only screen and (min-width: #{map.get($breakpoints, $type)}) {
       @content;
   }
 }
