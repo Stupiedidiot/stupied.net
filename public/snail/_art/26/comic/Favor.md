@@ -12,7 +12,7 @@ tags:
   - daphne
   - august
   - jay
-  - ict
+  - issac
   - juan
 category: psych
 ---

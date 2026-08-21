@@ -8,7 +8,7 @@ tags:
 - ocs
 - psych
 - juan
-- ict
+- issac
 ---
 
 Doodles made in MS Paint with the Computers for our programming class.

@@ -7,8 +7,8 @@ tags:
   - digital
   - ocs
   - psych
-  - ict
-  - ict-daughter
+  - issac
+  - kooky
   - evan
   - jay
 category: psych
