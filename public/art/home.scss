@@ -1,5 +1,5 @@
-<style>
-{% capture css %}
+---
+---
 @use "vars" as *;
 
 #header {
@@ -14,7 +14,7 @@
 
     &_doll {
         flex: 2;
-        background: url(/art/img/25/drawin/10.jpg);
+        background-image: url(/art/img/26/Jay-Walking.jpg);
         background-size: cover;
         background-color: var(--color-accent);
     }
@@ -132,6 +132,3 @@
         }
     }
 }
-{% endcapture %}
-{{ css | scssify }}
-</style>
