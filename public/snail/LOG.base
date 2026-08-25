@@ -1,0 +1,19 @@
+filters:
+  and:
+    - file.folder.startsWith("_log")
+formulas:
+  crafted: if(drawing || crochet, image("green.png"))
+  Untitled: if(code || komics|| notes, image("yellow.png"))
+  played: if(piano || piu, image("red.png"))
+properties:
+  formula.Untitled:
+    displayName: wrote
+views:
+  - type: calendar
+    name: Table
+    order:
+      - file.name
+      - formula.crafted
+      - formula.Untitled
+      - formula.played
+    startDate: note.date

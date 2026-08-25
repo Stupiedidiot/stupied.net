@@ -4,7 +4,7 @@ filters:
     - file.ext == "md"
 formulas:
   thumbnail: image("/_img/chez/reviews/img/" + file.name.lower() + ".jpg")
-  Status: if(file.path.contains('/f/'), image("_img/_obsidian/done.png"), image("_img/_obsidian/todo.png"))
+  Status: if(file.path.contains('/f/'), image("green.png"), image("red.png"))
   title: if(note.title != null, note.title, file.name.replace("-", " "))
   ranking: if(note.rank == "S", 0, note.rank)
 properties:
