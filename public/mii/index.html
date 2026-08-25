@@ -1,15 +1,27 @@
 ---
-layout: img-archive
+layout: page
 title: Mii Gallery
-collection: mii
-
-filters:
-  - title: Year
-    tag: mii_year
-
-  - title: Characters
-    tag: mii
-
-  - title: Meta
-    tag: meta
+description:
 ---
+
+{% assign data = site.data.nav.mii %}
+{% include_cached layout/subnav.liquid data=data %}
+
+<div class="padded">    
+    <article>
+        <h1>{{ page.title }}</h1>
+        <p>Screenshots for THE blorbo game of all time. I am normal about them, I promise.</p>
+    </article>
+
+    <hr>
+
+    <div class="justified-gallery">
+        {%- assign dir = 'snail/_img/mii/img/' -%}
+        {% assign data = site.mii |  where: 'pinned', true  %}
+        {% for item in data reversed %}
+            <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+                <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy">
+            </a>
+        {% endfor %}
+    </div>
+</div>

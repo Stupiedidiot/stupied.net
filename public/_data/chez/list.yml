@@ -10,6 +10,16 @@
 
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
 
+- label: Photo Albums
+  items: 
+  - title: Fanart Gallery
+    link: /fanart/
+    
+  - title: Mii Gallery
+    link: /mii/
+
+# ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
+
 - label: Reviews
   items: 
   - title: Disney Films
@@ -112,7 +122,4 @@
   - title: Scratch Experiments
     link: https://scratch.stupied.net/
   
-  - title: Photo Albums
-    link: https://album.stupied.net/
-
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
