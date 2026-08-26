@@ -44,6 +44,7 @@ module Jekyll
 
                     tags << "multi" if ( doc.data['extra'] )
                     tags << "with-commentary" if ( doc.data['w_comment'] )
+                    tags << "with-video" if ( doc.data['yt'] )
 
                     doc.data['tags'] = tags
                 end

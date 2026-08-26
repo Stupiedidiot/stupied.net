@@ -14,9 +14,10 @@
 
     &_doll {
         flex: 2;
-        background-image: url(/art/img/26/Jay-Walking.jpg);
-        background-size: cover;
+        background-image: url(/art/img/24/Introspection.jpg);
         background-color: var(--color-accent);
+        background-size: cover;
+        background-position: center;
     }
 
     &_stamps {
@@ -124,7 +125,8 @@
 
     #header {
         &_doll {
-            aspect-ratio: 3/4;
+            aspect-ratio: 3/2;
+            background-position: 60%;
         }
 
         &_stamps {

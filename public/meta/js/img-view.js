@@ -48,7 +48,8 @@ const TAGS_FILTER_OUT = [
   'multi',
   'doodle',
   'comic',
-  'with-commentary'
+  'with-commentary',
+  'with-video'
 ];
 
 if (POST_CURR_IDX !== undefined) { 
