@@ -8,9 +8,8 @@ group :jekyll_plugins do
     gem 'fastimage', '~> 2.4'
 end
 
-
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 platforms :windows do
-  gem 'wdm', '>= 0.1.0'
   gem 'tzinfo', '>= 2.0.6'
   gem 'tzinfo-data'
 end
