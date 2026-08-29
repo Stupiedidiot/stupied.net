@@ -507,6 +507,14 @@ hr.clear {
     @extend %padded;
 }
 
+.padded-md {
+    padding: 0.5rem;
+}
+
+.padded-sm {
+    padding: 0.3rem;
+}
+
 .content {
     @extend %padded;
     overflow: hidden;
@@ -596,7 +604,6 @@ hr.clear {
 %archive_tags {
     display: flex;
     flex-wrap: wrap;
-    border-top: 1px dashed var(--color-text);
     gap: 0.5rem;
     justify-content: right;
     align-items: center;
@@ -856,25 +863,57 @@ hr.clear {
 // borders ============================================
 
 %border {
-    border-color: $border_color;
-    border-style: solid;
+    border: #{$border_width} solid; 
+    &-dashed {
+        @extend %border_dashed;
+    }
+}
+
+%border_dashed {
+    border-style: dashed !important;
 }
 
 .border {
     @extend %border;
-    border-width: #{$border_width};
+}
+
+details.border {
+    border-radius: 4px;
+    margin-bottom: 0.3rem;
+    padding: 0.5rem;
+
+    &[open] summary {
+        margin-bottom: 0.5rem
+    }
+}
+
+.border-dashed {
+    @extend %border;
+    @extend %border_dashed;
+    border-color: var(--color-text);
+}
+
+.border-gray {
+    @extend %border;
+    border-color: lightgray;
+}
+
+.border-accent {
+    @extend %border;
+    border-color: $border_color;
+    
 }
 
 @each $name, $value in $borders {
     .border-#{$name} {
         @extend %border;
-        border-width: #{$value};
+        border-width: #{$value}!important;
     }
 
     .border-dashed-#{$name} {
         @extend %border;
-        border-width: #{$value};
-        border-style: dashed;
+        @extend %border_dashed;
+        border-width: #{$value}!important;
     }
 }
 

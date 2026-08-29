@@ -20,7 +20,7 @@ title: Blog Archive
         {% assign DATA = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
         
         {% for year in DATA %}
-            <div class="padded border-dashed-top">
+            <div class="padded border-accent border-dashed-top">
                 <h2>{{ year.name }}</h2>
                 {% include widget/grid-archive.liquid data=year.items %}
             </div>

@@ -4,7 +4,7 @@ layout: page
 
 {% assign DATA = site.art | where_exp: 'e', 'e.category == page.id' %}
 
-<header class="padded border-dashed-bottom">
+<header class="padded border-accent border-dashed-bottom">
     <h1>{{ page.title }}</h1>
     <div class="blockquote">
         {{ page.description | markdownify }}
@@ -41,7 +41,7 @@ layout: page
 <div id="comic">
     {% for item in DATA %}
         <article id="{{ item.name | slugify }}">
-            <div class="padded border-top">
+            <div class="padded border-accent border-top">
                 <h2>{{ item.title }}</h2>
                 <time class="h4 clr-accent" datetime="{{ item.date | date_to_xmlschema }}">
                     <span>{{ item.date | date: "%B %-d, %Y" }}</span>
@@ -53,14 +53,14 @@ layout: page
             </div>
 
             {% if item.w_comment %}
-                <section id="comic_note" class="padded border-top">
+                <section id="comic_note" class="padded border-accent border-top">
                     <h3>Author's Note</h3>
                     {{ item.content }}
                 </section>
             {% endif %}
             
             <div>
-                <ul class="sub border-dashed-top">
+                <ul class="sub border-accent border-dashed-top">
                     <li>
                         <a href="{{ item.url }}#art_comment" title="Comment on {{ item.title }}">
                             <span class="icon-chat"></span>

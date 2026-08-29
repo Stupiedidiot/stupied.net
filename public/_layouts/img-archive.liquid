@@ -26,7 +26,7 @@ js:
             <div id="archive_target" class="art-archive justified-gallery" data-col="{{ page.collection }}"></div>
         </article>
 
-        <ul id="archive_buttons" class="sub border-top">
+        <ul id="archive_buttons" class="sub border-accent border-top">
             <li class="white">
                 <button title="Toggle View" onclick="toggleView()">
                     <span>Toggle View</span>
@@ -52,14 +52,14 @@ js:
             <div class="archive">
                 <h2>Filter by</h2>
                 {% for e in page.filters %}
-                    <details>
+                    <details class="border">
                         <summary><h3 class="h6">{{ e.title }}</h3></summary>
                         {% assign tag = e.tag | default: e.title |  downcase %}
                         {%- include art/write-tags.html selected = tag -%}
                         
                         {% if e.extra %}
                             {% for j in e.extra %}
-                            <details>
+                            <details class="border">
                                 <summary><h4 class="h6">{{ j.title }}</h4></summary>
                                 {% assign tag = j.tag | default: j.title |  downcase %}
                                 {%- include art/write-tags.html selected = tag -%}

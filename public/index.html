@@ -34,9 +34,10 @@ css:
     </fieldset>
 </article>
 
+
 <div>
     {% if PINNED.size > 0 %}
-        <div class="padded border-dashed-top">
+        <div class="padded border-accent border-dashed-top">
             <h2><span class="icon-pin"></span> Pinned!!</h2>
             <div class="no-col">
                 {% include widget/post-feed.liquid data=PINNED %}
@@ -44,11 +45,11 @@ css:
         </div>
     {% endif %}
 
-    <div class="padded border-dashed-top">
+    <div class="padded border-accent border-dashed-top">
         <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
         {% include widget/post-feed.liquid data=FEED limit=limit %}
     </div>
-    <ul class="sub border-dashed-top">
+    <ul class="sub border-accent border-dashed-top">
         <li>
             <a href="/home/" title="View More of Feed">
                 <span>View More</span>

@@ -19,7 +19,7 @@ js:
     </div>
 </div>
 
-<nav id="art_nextprev" class="sub border-x">
+<nav id="art_nextprev" class="sub border-accent border-x">
     {% capture HOME %}
         /{{ page.collection }}/archive
     {% endcapture %}
@@ -51,7 +51,7 @@ js:
         {% if site.data.ocs and page.tags contains "ocs" %}
             {% assign OCS = page.tags | get_ocs %}
             {% if OCS.size > 0 %}
-                <div class="padded border-dashed-top">
+                <div class="padded border-accent border-dashed-top">
                     <fieldset data-nosnippet data-pagefind-ignore>
                         <legend>
                             <h2>OCs Featured</h2>
@@ -70,7 +70,7 @@ js:
         {% endif %}
 
         {% if page.collection == 'art' %}
-            <article id="art_comment" class="padded border-dashed-top" data-nosnippet>
+            <article id="art_comment" class="padded border-accent border-dashed-top" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
             </article>
         {% endif %}

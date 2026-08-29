@@ -11,7 +11,7 @@ description: A page for all my miscellaneous projects
     </div>
     
     {%- for category in site.data.chez.list -%}
-        <section class="padded border-dashed-top">
+        <section class="padded border-accent border-dashed-top">
             <h2>{{ category.label }}</h2>
             {%- assign selected = category | downcase -%}
             <ul>

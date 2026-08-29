@@ -50,7 +50,7 @@
                 <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
             </div>
 
-            <div class="post-feed-tags padded">
+            <div class="post-feed-tags border-dashed-top padded">
                 {%- if blog -%}
                     {%- for tag in item.tags -%}
                         <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>

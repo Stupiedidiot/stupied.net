@@ -26,7 +26,7 @@
                         {% endif %}
                     </div>
                 </a>
-                <div class="grid-archive-tags padded">
+                <div class="grid-archive-tags border-dashed-top padded">
                     {% for tag in item.tags %}
                         <button onclick="filterTag('{{ tag }}')">{{ tag }}</button>
                     {% endfor %}
