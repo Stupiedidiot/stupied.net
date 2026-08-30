@@ -114,7 +114,7 @@ body.default {
 }
 
 #subnav {
-    border-bottom: 2px solid var(--color-accent-dk);
+    border-bottom: $border_width solid var(--color-accent-dk);
 }
 
 #footer {

@@ -120,12 +120,6 @@ collections:
   img:
     output: true
     permalink: /:path
-      
-  garden:
-    output: true
-    permalink: /lib/:category/:name
-    sort_by: index
-
   posts:
     permalink: /blog/:name_raw
 

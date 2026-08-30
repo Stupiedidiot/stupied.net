@@ -67,6 +67,9 @@
 
 - label: Assorted
   items: 
+  - title: Habit Tracker
+    link: /logs/
+
   - title: Calculator
     link: /chez/calc/
 

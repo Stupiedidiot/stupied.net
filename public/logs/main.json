@@ -1,0 +1,44 @@
+---
+layout: none
+---
+{
+    {% if site.log %}
+        {% assign DATA = site.log | group_by_exp: "e", "e.date | date: '%Y'" %}
+
+        {% for year in DATA %}
+            "{{ year.name }}": {
+                {% assign months = year.items | group_by_exp: "e", "e.date | date: '%-m'" %}
+                {% for month in months %}
+                    "{{ month.name }}": [
+                        {% for day in month.items %}
+                            {
+                                "date": {{ day.date | date: '%B %-d, %Y' | jsonify }},
+                                "day": {{ day.date | date: '%-d' | jsonify }},
+                                "url": {{ day.url | jsonify }}
+                                {% if day.drawing or day.crochet %}
+                                    ,"crafted": true
+                                {% endif %}
+
+                                {% if day.code or day.text or day.notes %}
+                                    ,"wrote": true
+                                {% endif %}
+
+                                {% if day.piano or day.piu  %}
+                                    ,"played": true
+                                {% endif %}
+
+                                {% assign test = day.content | strip %}
+                                {% if test != ""  %}
+                                    ,"text": {{ day.content | jsonify }}
+                                {% endif %}
+                            }
+                            {%- unless forloop.last -%},{%- endunless -%}
+                        {% endfor %}
+                    ]
+                    {%- unless forloop.last -%},{%- endunless -%}
+                {% endfor %}
+            }
+            {%- unless forloop.last -%},{%- endunless -%}
+        {% endfor %}
+    {% endif %}
+}

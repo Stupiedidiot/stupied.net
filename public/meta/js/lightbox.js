@@ -79,14 +79,15 @@ function openImg(i) {
 
   lb_e.querySelector("img").src = images[i].src
 
-    if (images[i - 1]) { prev = i - 1; } else { prev = images.length - 1; }
-    if (images[i + 1]) { next = i + 1; } else { next = 0; }
-    document.getElementById("lightbox-prev").setAttribute("onclick", 'openImg(' + prev + ')');
-    document.getElementById("lightbox-next").setAttribute("onclick", 'openImg(' + next + ')');
+  prev = (i - 1 + images.length) % images.length;
+  next = (i + 1) % images.length;
 
-    lb_item = document.querySelectorAll("button.lb-item")[i];
+  document.getElementById("lightbox-prev").setAttribute("onclick", 'openImg(' + prev + ')');
+  document.getElementById("lightbox-next").setAttribute("onclick", 'openImg(' + next + ')');
 
-    lb_i.querySelector("a").href = lb_item.dataset.link;
+  lb_item = document.querySelectorAll("button.lb-item")[i];
+
+  lb_i.querySelector("a").href = lb_item.dataset.link;
 }
 
 // NAVIGATION START

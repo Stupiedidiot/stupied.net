@@ -3,10 +3,10 @@ document.onkeydown = function(event) {
   if( document.activeElement === document.querySelector("body") ){
     switch (event.keyCode) {
         case 37:
-			    if(e=document.getElementById("nextprev-next")){e.click()}
+			    if(e=document.getElementById("nextprev_next")){e.click()}
         break;
         case 39:
-			    if(e=document.getElementById("nextprev-prev")){e.click()}
+			    if(e=document.getElementById("nextprev_prev")){e.click()}
         break;
         case 27:
 			    document.getElementById("nextprev-archive").click()

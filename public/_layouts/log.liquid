@@ -1,0 +1,23 @@
+---
+layout: page
+
+css:
+- /logs/main.css
+
+nav:
+  - title: Home
+    icon: home
+    link: /logs/
+
+  - title: About
+    icon: information-outline
+    link: /logs/about
+  
+  - title: Archive 
+    icon: inbox-full
+    link: /logs/archive
+---
+
+{% include_cached layout/subnav.liquid %}
+
+{{ content }}

@@ -15,6 +15,12 @@ collections:
     permalink: /mii/p/:path
     sort_by: date
 
+  log:
+  garden:
+    output: true
+    permalink: /lib/:category/:name
+    sort_by: index
+
   outlinks:
   lists:
   reviews:

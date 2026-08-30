@@ -1,0 +1,58 @@
+---
+layout: log
+title: About Habit Tracker
+
+yay:
+- title: Crafted
+  text: Anything related to visual art.
+  icon: photo
+  items:
+    - title: drawing 
+      text: Pretty self-explanatory. This includes sketching illustrations, doodling comics, or animating gifs.
+    - title: crochet
+      text: "*(Looks away from pile of unfinished projects)*. For some reason, I'm far more motivated to finished them when I'm making stuff for other people."
+
+- title: Wrote
+  text: Writing and typing.
+  icon: compose
+  items:
+    - title: code
+      text: Could be working on this website, doing practice problems, or making games.
+    - title: story
+      text: Anything that involves writing my ocs. This could be adding stuff to the [wiki](https://wiki.stupied.net/) or drafting out a comic.
+    - title: notes
+      text: Learn something, make sure to write it down. Because I know damn well my ass will *not* remember it.
+
+- title: Played
+  text: For miscellaneous things...!
+  icon: travel-walk
+  items:
+    - title: piano 
+      text: Raughhh,,, one day I'll be really cool and play the paino well. I will be like Hazel Scott!!! Okay, well maybe not as skilled. Or charming. Or outspoken. Or....
+    - title: piu
+      text: The very few physical activities I bother to do consistently lol.
+---
+
+<article class="padded">
+  <h1>About</h1>
+  <p>I absolutely adore the concept of habit trackers but always struggled with maintaining them one. I started off with highlighting the days a paper print out calendar but kept forgetting what each color colerated to. Most digital habit trackers are far more rigid and the ui are filled with prompts asking you to pay premium. Which is why this page exists! Also, because of how many hobbies I have, it be unrealistic to force myself to do each one everyday. So instead each habit is catergorized into more broader topics!</p>
+
+  <h1>Categories</h1>
+  <div class="newspaper" style="user-select: none;">
+    {% for cat in page.yay %}
+      <div class="border padded">
+        <img src="./img/{{ cat.title | downcase }}.png" alt="" class="yayy">
+        <h2><span class="icon-{{ cat.icon }}"></span> {{ cat.title }}</h2>
+        {{ cat.text | markdownify }}
+
+        {% for item in cat.items %}
+          <details class="border border-gray padded-sm margin-sm" close>
+            <summary>{{ item.title }}</summary>
+            <div>{{ item.text | markdownify }}</div>
+          </details>
+        {% endfor %}
+
+        </div>
+    {% endfor %}
+  </div>
+</article>
