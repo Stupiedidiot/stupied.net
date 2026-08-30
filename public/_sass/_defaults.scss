@@ -1,11 +1,4 @@
 @use "vars" as *;
-@use "root";
-@use "classes";
-@use "lightbox";
-@use "codeblocks";
-@use "comments";
-@use "fonts";
-@use "icons";
 
 *,
 *::before,
@@ -75,7 +68,7 @@ p > a {
 ul li {
     list-style-type:"★ ";
 
-    li:nth-child(2n){
+    &:nth-child(2n){
         list-style-type:"✮ ";
     }
 }

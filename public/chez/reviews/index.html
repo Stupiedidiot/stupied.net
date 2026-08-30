@@ -2,35 +2,39 @@
 layout: page
 title: Media Reviews
 ---
+<style>
+.review-item {
 
-<div class="padded">
-    <h1>{{ page.title }}</span></h1>
-    <p>Rambling about the media I've seen.</p>
+}
 
-    {% comment %} Really ought to update the styling for this :P {% endcomment %}
-    <div class="timeline">
-        {% assign DATA = site.reviews | where: 'category', 'completed' %}
-        {%- for item in DATA -%}
-            <a href="{{ item.url }}" class="border-dashed-top timeline-item {{ item.tags | join: ' ' }}">
-                <div class="timeline-content">
-                    {% assign thumbnail = item.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
-                    {% assign test = thumbnail |  prepend: '/snail/_img' | check_file %}
+.review-thumbnail {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.2rem;
+}
+</style>
+<div data-nosnippet>
+    <div class="border-dashed-bottom border-acccent padded">
+        <h1>{{ page.title }}</h1>
+        <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously.</p>
+    </div>
 
-                    {%- if test -%}
-                        <div class="timeline-thumb" style="--bg:url({{ thumbnail }});"></div>
-                    {%- endif -%}
-                    
-                    <div class="timeline-info">
-                        <div class="timeline-text">
-                            <span class="timeline-title">{{ item.title }}</span>
-                            <div class="timeline-desc">
-                                {{  item.content | strip_html | markdownify| strip_html | truncatewords: 25, "..." }}
-                            </div>
-                            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %-d, %Y" }}</time>
-                        </div>
+    <div class="padded">
+        <div class="newspaper hover-color" style="user-select: none; column-width: 200px;">
+            {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
+            {%- for item in DATA -%}
+                <a href="{{ item.url }}" class="review-item border-gray padded-md {{ item.tags | join: ' ' }}">
+                    <div class="review">
+                        {%- if item.thumbnail -%}
+                            <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail">
+                        {%- endif -%}
+                        <span>{{ item.title }}</span>
                     </div>
-                </div>
-            </a>
-        {%- endfor -%}
+                </a>
+            {%- endfor -%}
+        </div>
     </div>
 </div>

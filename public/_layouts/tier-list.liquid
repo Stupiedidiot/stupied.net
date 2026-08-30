@@ -1,53 +1,56 @@
 ---
-layout: default
+layout: page
 css:
 - /chez/reviews/main.css
+
+tiers:
+- S
+- A
+- B
+- C
+- D
+- E
+- F
 ---
-<div id="container">
-  <header data-nosnippet>
+<div id="container" data-nosnippet>
+
+  <header class="padded">
     <h1>{{ page.title | default: "Tier List"}}</h1>
   </header>
-  <main>
-    {% if site.reviews %}
-      {% assign REVIEWS = site.reviews | where_exp: "item", "item.path contains page.selected" | sort: "release" %}
-      {%- assign TIERS = include.tiers | default: "S,A,B,C,D,E,F" | split: "," -%}
-      
-      <article class="tier_list">
-        {%- for tier in TIERS -%}
-          <section class="{{ tier }} tier">
-              {%- assign selected = REVIEWS | where: "rank", tier -%}
-              <div class="tier-label"><span>{{ tier }}</span></div>
-              <div class="tier-items">
-              {%- include chez/reviews/tier-item.html selected = selected -%}
-              </div>
-          </section>
-        {%- endfor -%}
-      </article>
+  
+  {% if site.reviews %}
+    {% assign REVIEWS = site.reviews | where_exp: "item", "item.path contains page.selected" | sort: "release" %}
+    {%- assign TIERS = page.tiers | default: layout.tiers -%}
+    
+    <article class="tier-list padded-md">
+      {%- for tier in TIERS -%}
+        <div class="{{ tier }} tier">
+            {%- assign selected = REVIEWS | where: "rank", tier -%}
+            <div class="tier-label"><span>{{ tier }}</span></div>
 
+            <div class="tier-items justified-gallery w-space">
+              {%- for item in selected -%}
+                  {% if item.done %}
+                    {% assign link = item.url %}
+                  {% else %}
+                    {% assign link = "#" %}
+                  {% endif %}
+                  
+                  <a href="{{ link }}" title="{{ item.title }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" class="tier-thumb">
+                    <img src="{{ item.thumbnail }}" alt="thumbnail for {{ item.title }}" loading="lazy">
+                  </a>
+              {%- endfor -%}
+            </div>
 
-      <div class="tier-info">
-
-        <div class="tier-about">
-          <h2>About Teir List</h2>
-          {{ content | markdownify }}
         </div>
+      {%- endfor -%}
+    </article>
+  {% endif %}
 
-        {%- assign REVIEWS = REVIEWS | where_exp: 'e', 'e.path contains "/f/"' | sort: "date" | reverse -%}
-        {%- if REVIEWS.size > 0 -%}
-            <nav class="tier-feed">
-                <h2>Recently Upload Reviews:</h2>
-                <ul>
-                {%- for item in REVIEWS limit:5 -%}
-                    <li>
-                        <a href="{{ item.url  }}" title="Reviewed on {{ item.date | date: '%Y/%m/%d' }}">{{ item.title }}</a>
-                    </li>
-                {%- endfor -%}
-                </ul>
-            </nav>
-
-          </div>
-        {%- endif -%}
-
-    {% endif %}
-  </main>
+  <div class="padded">
+    <div class="padded border-dashed border-gray">
+      <h2>About Teir List</h2>
+      {{ content | markdownify }}
+    </div>
+  </div>
 </div>

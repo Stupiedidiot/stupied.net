@@ -22,5 +22,3 @@ if (TOC_CONTENT) {
         TOC_PARENT.classList.remove('hidden');
     }
 }
-
-console.log("YYYYYYYYYAy")

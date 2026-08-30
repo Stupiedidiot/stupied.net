@@ -4,12 +4,11 @@ layout: page
 
 <div id="review">
     {% assign col = site.reviews %}
-    {% assign info = col | where: 'category', 'completed' | getNxtPrv: page.path %}
+    {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
     {% assign index = info[0] %}
     {% assign prev = info[1] %}
     {% assign next = info[2] %}
     <ul class="sub">
-
         {% if prev %}
             <li>
                 <a id="nextprev_prev" href="{{ prev.url }}" title="View Previous Page">
@@ -37,18 +36,34 @@ layout: page
     </ul>
     
     <article id="{{ page.slug | downcase }}" class="padded">
-        {% assign thumbnail = page.name | split: '.' | first | downcase |  prepend: '/chez/reviews/img/' |  append: '.jpg' %}
-        {% assign test = thumbnail |  prepend: '/snail/_img' | check_file %}
-    
-        {%- if test -%}
-            <img src="{{ thumbnail }}" class="float-right review-thumbnail" data-pagefind-meta="image[src]">
-        {%- endif -%}
-    
-        <h1>{{ page.title | split: '(' | first }}
-            {% if  page.release %}
-                (<span class="h2 clr-accent-lt">{{ page.release }}</span>)
-            {% endif %}
-        </h1>
+        <fieldset>
+            <legend>
+                {%- if page.thumbnail -%}
+                    <img src="{{ page.thumbnail }}" class="review-thumbnail" data-pagefind-meta="image[src]">
+                {%- endif -%}
+            </legend>
+
+            <div>
+                <h1>{{ page.title | split: '(' | first }}
+                    {% if  page.release %}
+                        (<span class="h2 clr-accent-dker">{{ page.release }}</span>)
+                    {% endif %}
+                </h1>
+                {% assign rating = page.rank | append: ' Tier'  %}
+                <span class="h3 clr-accent-dk">{{ page.quote | default: rating }}</span>
+
+                {% if page.category == "completed" %}
+                    {{  page.content | markdownify }}
+                {% else %}
+                    Still writing my review...
+                {% endif %}
+
+                {{ link }}
+
+                <hr class="clear">
+                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+            </div>
+        </fieldset>
     
         {% if page.link %}
             {% capture link %}
@@ -56,18 +71,6 @@ layout: page
             {% endcapture %}
         {% endif %}
     
-        <div>
-            {% assign rating = page.rank | append: ' Tier'  %}
-            <span class="h3 clr-accent">{{ page.quote | default: rating }}</span>
-
-            {% if page.category == "completed" %}
-                {{  page.content | markdownify }}
-            {% endif %}
-
-            {{ link }}
-
-            <hr class="clear">
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
-        </div>
+        
     </article>
 </div>
