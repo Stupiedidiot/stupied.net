@@ -40,17 +40,11 @@ if (QUERY.search){
     month = DATE_CURRENT.getMonth();
 }
 
-// console.log(year)
-// console.log(month)
-
 const DATE_SELECTED = new Date(year, month , 0);
 document.querySelector('h1').textContent = months[month] + " " + year; 
 TARGET_NEXT.href = "./?y=" + ((month == 11)? (year + 1) : year) + "&m=" + ((month + 1) % 12);
 TARGET_PREV.href = "./?y=" + ((month == 0)? (year - 1) : year) + "&m=" + ((month == 0)? 11 : (month - 1));
 TARGET_CURR.href = "./?y=" + DATE_CURRENT.getFullYear() + "&m=" +  DATE_CURRENT.getMonth();
-
-console.log(TARGET_NEXT.href)
-console.log(TARGET_PREV.href)
 
 
 // BUILD CALENDAR START
@@ -106,7 +100,6 @@ fetch("main.json")
             }
         }
         micro = TARGET.querySelectorAll("[data-text]");
-        console.log(micro);
     }
 )
 
@@ -133,11 +126,6 @@ function viewDay(i) {
     let prev = ((i - 1 + micro.length)) % micro.length;
     TARGET_NEXT_SUB.setAttribute('onclick', 'viewDay(' + next + ')');
     TARGET_PREV_SUB.setAttribute('onclick', 'viewDay(' + prev + ')');
-
-    console.log("=========================");
-    console.log(self);
-    console.log(TARGET_NEXT_SUB.hasAttribute(onclick));
-    console.log(TARGET_NEXT_SUB.hasAttribute(onclick));
 }
 
 function toggleModal(){

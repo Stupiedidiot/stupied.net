@@ -4,7 +4,7 @@ filters:
 formulas:
   crafted: if(drawing || crochet, image("green.png"))
   Untitled: if(code || komics|| notes, image("yellow.png"))
-  played: if(piano || piu, image("red.png"))
+  played: if(piano || exe, image("red.png"))
 properties:
   formula.Untitled:
     displayName: wrote

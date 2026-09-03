@@ -6,5 +6,5 @@ code: false
 text:  false
 notes: false
 piano: false
-piu: false
+exe: false
 ---

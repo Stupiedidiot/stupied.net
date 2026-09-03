@@ -23,7 +23,7 @@ layout: none
                                     ,"wrote": true
                                 {% endif %}
 
-                                {% if day.piano or day.piu  %}
+                                {% if day.piano or day.exe  %}
                                     ,"played": true
                                 {% endif %}
 
