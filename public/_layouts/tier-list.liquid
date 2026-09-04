@@ -19,7 +19,7 @@ tiers:
   </header>
   
   {% if site.reviews %}
-    {% assign REVIEWS = site.reviews | where_exp: "item", "item.path contains page.selected" | sort: "release" %}
+    {% assign REVIEWS = site.reviews | where_exp: "item", "item.tags contains page.selected" | sort: "release" %}
     {%- assign TIERS = page.tiers | default: layout.tiers -%}
     
     <article class="tier-list padded-md">
@@ -30,13 +30,7 @@ tiers:
 
             <div class="tier-items justified-gallery w-space">
               {%- for item in selected -%}
-                  {% if item.done %}
-                    {% assign link = item.url %}
-                  {% else %}
-                    {% assign link = "#" %}
-                  {% endif %}
-                  
-                  <a href="{{ link }}" title="{{ item.title }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" class="tier-thumb">
+                  <a href="{{ item.url }}" title="{{ item.title }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" class="tier-thumb {%- if item.done -%}{{ " w-review" }}{%- endif -%}">
                     <img src="{{ item.thumbnail }}" alt="thumbnail for {{ item.title }}" loading="lazy">
                   </a>
               {%- endfor -%}

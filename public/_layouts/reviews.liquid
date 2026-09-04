@@ -52,16 +52,24 @@ layout: page
                 {% assign rating = page.rank | append: ' Tier'  %}
                 <span class="h3 clr-accent-dk">{{ page.quote | default: rating }}</span>
 
-                {% if page.category == "completed" %}
+                {% if page.done %}
                     {{  page.content | markdownify }}
+                    {% if page.link %}
+                        <a href="{{ link }}" class="h6">
+                            Watch Now »
+                        </a>                    
+                    {% endif %}
+
+                    <hr class="clear">
+                    <div style="text-align: right;">
+                        <hr>
+                        <time datetime="{{ page.date | date_to_xmlschema }}" class="h6">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    </div>
                 {% else %}
-                    Still writing my review...
+                    <p>
+                        Still writing my review...  
+                    </p>
                 {% endif %}
-
-                {{ link }}
-
-                <hr class="clear">
-                <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
             </div>
         </fieldset>
     

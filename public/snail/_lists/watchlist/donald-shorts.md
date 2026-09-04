@@ -76,7 +76,7 @@ List based on [this](https://mickey-and-friends.fandom.com/wiki/Donald_Duck/Shor
 #### 1943
 - [ ] Der Fuehrer's Face
 - [ ] The Spirit of '43 (public service short)
-- [ ] Donald's Tire Trouble
+- [x] Donald's Tire Trouble
 - [ ] The Flying Jalopy
 - [ ] Fall Out - Fall In
 - [ ] The Old Army Game

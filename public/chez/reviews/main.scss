@@ -46,7 +46,7 @@ header {
   &-thumb {
     transition: 0.2s;
    
-    &:not([href="#"]):hover {
+    &.w-review:hover {
       position: relative;
       outline: 3px solid white;
       border-radius: 3px;

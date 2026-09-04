@@ -662,12 +662,12 @@ hr.clear {
             transform: scale(105%);
         }
     }
-
-    &-tags {
-        @extend %archive_tags;
-    }
 }
 
+
+.item-tags {
+    @extend %archive_tags;
+}
 
 .grid-archive {
     display: flex;
@@ -708,10 +708,6 @@ hr.clear {
             max-height: unset;
             aspect-ratio: 2/1;
         }
-    }
-
-    &-tags {
-        @extend %archive_tags;
     }
 }
 
