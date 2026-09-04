@@ -1,0 +1,34 @@
+---
+layout: review
+title: Media Reviews
+---
+<div class="padded">
+    <h1>{{ page.title }}</h1>
+    <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously. Mostly yap about Disney films and Donald Duck Shorts. Will make everything prettier in the future pinky promise!</p>
+
+    <hr>
+    
+    <h2>Recently Reviewed</h2>
+    <div class="newspaper hover-color" style="user-select: none; column-width: 200px;">
+        {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
+        {%- for item in DATA limit:4 -%}
+            <a href="{{ item.url }}" class="review-item border-gray padded-md {{ item.tags | join: ' ' }}">
+                <div class="review">
+                    {%- if item.thumbnail -%}
+                        <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail-feed">
+                    {%- endif -%}
+                    <span>{{ item.title }}</span>
+                </div>
+            </a>
+        {%- endfor -%}
+    </div>
+    
+    <h2>Tier Lists</h2>
+    <ul>
+        {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
+        {%- assign lim = site.data.chez.list.size | minus: 1 -%}
+        {%- for e in REVIEWS.items limit:lim -%}
+            <li><a href="{{ e.link }}">{{ e.title }}</a></li>
+        {%- endfor -%}
+    </ul>
+</div>

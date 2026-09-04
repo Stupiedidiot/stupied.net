@@ -1,5 +1,5 @@
 ---
-layout: tier-list
+layout: review-tier
 title: Donald Duck Tier List
 description: Ranking Donald Duck Shorts and Movies in a Tier List
 selected: donald

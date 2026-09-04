@@ -70,14 +70,8 @@ defaults:
   - scope:
       type: reviews
     values:
-      layout: reviews
-
-  - scope:
-      type: reviews
-      path: "**/f/"
-    values:
-      category: completed
-  
+      layout: review-post
+      
   # ==============================
 
   - scope:

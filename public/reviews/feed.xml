@@ -5,26 +5,20 @@ description: Updates of the reviews written by Stupied
 ---
 {% if site.reviews %}
     {%- assign REVIEWS = site.reviews
-        | where_exp: 'e', 'e.path contains "/f/"'
-        | sort: "reviewed"
+        | where: 'done', 'true'
+        | sort: "date"
         | reverse
     -%}
 
     {%- for item in REVIEWS limit: 15 -%}
-        {%- capture title -%}
-            {{ item.title | default: item.filename }}{% if item.release %} ({{ item.release }}){% endif %}
-        {%- endcapture -%}
-        {%- assign slug = item.slug | downcase -%}
-        <item>
+    <item>
         <title>{{ item.title | escape }}</title>
         <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
         <link>{{ item.url | prepend: site.url }}</link>
-        <guid isPermaLink="false">{{ slug }}-{{ item.date | date: "%Y-%m-%d" }}</guid>
+        <guid isPermaLink="false">{{ item.slug }}-{{ item.date | date: "%Y-%m-%d" }}</guid>
         <description>
             {%- capture description -%}
-                {%- if item.url contains 'disney/' -%}
-                    <img src="/chez/reviews/img/{{ slug }}.jpg" style="max-width:100%;"/>
-                {%- endif -%}
+                <img src="{{ item.thumbnail | prepend: site.url }}"/>
                 {{ item.content | markdownify }}
             {%- endcapture -%}
             {{ description | escape }}

@@ -27,5 +27,5 @@
 #   desc: For new images uploaded to my albums!
 
 - title: Reviews Feed
-  link: /chez/reviews/feed.xml
+  link: /reviews/feed.xml
   desc: For recently uploaded movie reviews

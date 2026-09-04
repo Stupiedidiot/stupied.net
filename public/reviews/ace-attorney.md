@@ -1,5 +1,5 @@
 ---
-layout: tier-list
+layout: review-tier
 title: Ace Attorney Games
 description: Ranking Ace Attorney Games
 selected: ace-attorney

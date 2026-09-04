@@ -23,19 +23,19 @@
 - label: Reviews
   items: 
   - title: Disney Films
-    link: /chez/reviews/disney
+    link: /reviews/disney
 
   - title: Donald Duck!
-    link: /chez/reviews/donald
+    link: /reviews/donald
 
   - title: Ace Attorney Games
-    link: /chez/reviews/ace-attorney
+    link: /reviews/ace-attorney
 
   - title: Turbo FAST Episodes
-    link: /chez/reviews/turbo
+    link: /reviews/turbo
 
   - title: All Reviews
-    link: /chez/reviews/
+    link: /reviews/
 
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
 

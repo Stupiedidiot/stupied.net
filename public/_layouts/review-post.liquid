@@ -1,40 +1,8 @@
 ---
-layout: page
+layout: review
 ---
 
 <div id="review">
-    {% assign col = site.reviews %}
-    {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
-    {% assign index = info[0] %}
-    {% assign prev = info[1] %}
-    {% assign next = info[2] %}
-    <ul class="sub">
-        {% if prev %}
-            <li>
-                <a id="nextprev_prev" href="{{ prev.url }}" title="View Previous Page">
-                    <span class="icon-arrow-thin-left"></span>
-                    <span>Prev</span>
-                </a>
-            </li>
-        {% endif %}
-    
-        <li>
-            <a href="/chez/reviews/">
-                <span class="icon-inbox-full"></span>
-                <span>Archive</span>
-            </a>
-        </li>
-
-        {% if next %}
-            <li>
-                <a id="nextprev_next" href="{{ next.url }}" title="View Next Page">
-                    <span>Next</span>
-                    <span class="icon-arrow-thin-right"></span>
-                </a>
-            </li>
-        {% endif %}
-    </ul>
-    
     <article id="{{ page.slug | downcase }}" class="padded">
         <fieldset>
             <legend>
@@ -81,4 +49,31 @@ layout: page
     
         
     </article>
+
+    {% assign col = site.reviews %}
+    {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
+    {% assign index = info[0] %}
+    {% assign prev = info[1] %}
+    {% assign next = info[2] %}
+    {% if prev or next %}
+        <ul class="sub border-accent border-dashed-top">
+            {% if prev %}
+                <li>
+                    <a id="nextprev_prev" href="{{ prev.url }}" title="View Previous Page">
+                        <span class="icon-arrow-thin-left"></span>
+                        <span>Prev</span>
+                    </a>
+                </li>
+            {% endif %}
+        
+            {% if next %}
+                <li>
+                    <a id="nextprev_next" href="{{ next.url }}" title="View Next Page">
+                        <span>Next</span>
+                        <span class="icon-arrow-thin-right"></span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
 </div>

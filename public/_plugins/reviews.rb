@@ -1,6 +1,6 @@
 Jekyll::Hooks.register :site, :post_read do |site|
     docs = site.collections['reviews']
-    folder = "/chez/reviews/img/"
+    folder = "/reviews/img/"
     if docs
         docs.each do |doc|
             slug = "#{doc.basename.sub('.md', '')}.jpg"

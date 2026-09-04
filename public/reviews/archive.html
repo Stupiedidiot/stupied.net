@@ -1,35 +1,18 @@
 ---
-layout: page
-title: Media Reviews
+layout: review
+title: Media Reviews Archive
 ---
-<style>
-.review-item {
-
-}
-
-.review-thumbnail {
-    display: block;
-    width: 100%;
-    aspect-ratio: 3/2;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 0.2rem;
-}
-</style>
 <div data-nosnippet>
-    <div class="border-dashed-bottom border-acccent padded">
-        <h1>{{ page.title }}</h1>
-        <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously.</p>
-    </div>
-
     <div class="padded">
+        <h1>{{ page.title }}</h1>
+        <p>I will add a sorting thing eventually...!</p>
         <div class="newspaper hover-color" style="user-select: none; column-width: 200px;">
             {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
             {%- for item in DATA -%}
                 <a href="{{ item.url }}" class="review-item border-gray padded-md {{ item.tags | join: ' ' }}">
                     <div class="review">
                         {%- if item.thumbnail -%}
-                            <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail">
+                            <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail-feed">
                         {%- endif -%}
                         <span>{{ item.title }}</span>
                     </div>

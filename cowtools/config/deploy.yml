@@ -25,7 +25,7 @@ collections:
   lists:
   reviews:
     output: true
-    permalink: /chez/reviews/p/:name_raw
+    permalink: /reviews/p/:name_raw
     sort_by: date
 
 exclude:

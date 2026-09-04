@@ -1,0 +1,12 @@
+---
+layout: none
+---
+{% assign DATA = site.reviews | where: 'done', 'true' %}
+[
+    {% for item in DATA %}
+        {
+            "img": "{{ item.slug }}"
+        }
+        {%- unless forloop.last -%},{%- endunless -%}    
+    {% endfor %}
+]

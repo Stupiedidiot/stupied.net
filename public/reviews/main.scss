@@ -62,3 +62,13 @@ header {
     }
   }
 }
+
+// delete in the future!
+.review-thumbnail-feed {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.2rem;
+}
