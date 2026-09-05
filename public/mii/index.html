@@ -2,6 +2,8 @@
 layout: page
 title: Mii Gallery
 description:
+js:
+- /meta/js/lightbox.js
 ---
 
 {% assign data = site.data.nav.mii %}
@@ -15,13 +17,10 @@ description:
 
     <hr>
 
-    <div class="justified-gallery">
-        {%- assign dir = 'snail/_img/mii/img/' -%}
+    <div class="justified-gallery lightbox-targets">
         {% assign data = site.mii |  where: 'pinned', true  %}
         {% for item in data reversed %}
-            <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
-                <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy">
-            </a>
+            <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy" data-link="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
         {% endfor %}
     </div>
 </div>

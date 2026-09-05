@@ -2,6 +2,8 @@
 layout: page
 title: Fanart
 description: "Awesome artwork I’ve received from others through out the years! :D"
+js:
+- /meta/js/lightbox.js
 ---
 
 {% assign data = site.data.nav.fanart %}
@@ -17,13 +19,10 @@ description: "Awesome artwork I’ve received from others through out the years!
 
     <hr>
 
-    <div class="justified-gallery">
-        {%- assign dir = 'snail/_img/fanart/img/' -%}
+    <div class="justified-gallery lightbox-targets">
         {% assign data = site.fanart |  where: 'pinned', true  %}
         {% for item in data reversed %}
-            <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
-                <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy">
-            </a>
+            <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy" data-link="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
         {% endfor %}
     </div>
 </div>

@@ -104,7 +104,6 @@ fetch("main.json")
 )
 
 // FUNCTIONS
-
 function add_spacing(n){
     for (let i = 0; i < n; i++) {
         let el = document.createElement('li');
@@ -128,7 +127,24 @@ function viewDay(i) {
     TARGET_PREV_SUB.setAttribute('onclick', 'viewDay(' + prev + ')');
 }
 
+const MODAL = document.querySelector('.modal');
 function toggleModal(){
-    let e = document.querySelector('.modal');
-    e.classList.toggle('close');
+    MODAL.classList.toggle('close');
+}
+
+// NAVIGATION
+document.onkeydown = function (event) {
+  if (!MODAL.classList.contains('close')) {
+    switch (event.keyCode) {
+      case 37:
+        TARGET_PREV_SUB.click()
+        break;
+      case 39:
+        TARGET_NEXT_SUB.click()
+        break;
+      case 27:
+        toggleModal()
+        break;
+    }
+  }
 }

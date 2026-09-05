@@ -15,6 +15,47 @@ pagination:
     permalink: '/:num/'
 ---
 
+{% capture nextprev %}  
+    {% if paginator.previous_page %}
+        <li>
+            <a id="nextprev_prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
+                <span class="icon-arrow-thin-left"></span>
+                <span>Prev</span>
+            </a>
+        </li>
+    {% endif %}
+
+    {% if paginator.page_trail %}
+        {% for trail in paginator.page_trail offset:1 %}
+            {% if paginator.page == trail.num or forloop.last %}
+                {% continue %}
+            {% endif %}
+            <li class="white">
+                <a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}"
+                    {% if paginator.page == trail.num %}
+                        class="nextprev-current"
+                    {% endif %}
+                ><span>{{ trail.num }}</span></a>
+            </li>
+        {% endfor %}
+    {% endif %}
+
+    {% if paginator.next_page %}
+        <li>
+            <a id="nextprev_next" href="{{ paginator.next_page_path | prepend: site.baseurl }}" title="View Next Page">
+                <span>Next</span>
+                <span class="icon-arrow-thin-right"></span>
+            </a>
+        </li>
+    {% endif %}
+{% endcapture %}
+
+{% if paginator.total_pages > 1 %}
+    <ul class="sub border-accent border-dashed-bottom">
+        {{ nextprev }}
+    </ul>
+{% endif %}
+
 <div class="padded border-accent border-dashed-bottom">
     <h1><span class="icon-news-paper"></span> {{ site.title }} <span>(<span class="clr-accent">{{ paginator.page }}</span>/{{ paginator.total_pages }})</span></h1>
     <p>A linear feed of all the art and blog post I've made!</p>
@@ -26,37 +67,6 @@ pagination:
 
 {% if paginator.total_pages > 1 %}
     <ul class="sub border-accent border-dashed-top">
-        {% if paginator.previous_page %}
-            <li>
-                <a id="nextprev_prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
-                    <span class="icon-arrow-thin-left"></span>
-                    <span>Prev</span>
-                </a>
-            </li>
-        {% endif %}
-
-        {% if paginator.page_trail %}
-            {% for trail in paginator.page_trail offset:1 %}
-                {% if paginator.page == trail.num or forloop.last %}
-                    {% continue %}
-                {% endif %}
-                <li class="white">
-                    <a href="{{ trail.path | prepend: site.baseurl }}" title="{{ trail.title }}"
-                        {% if paginator.page == trail.num %}
-                            class="nextprev-current"
-                        {% endif %}
-                    ><span>{{ trail.num }}</span></a>
-                </li>
-            {% endfor %}
-        {% endif %}
-
-        {% if paginator.next_page %}
-            <li>
-                <a id="nextprev_next" href="{{ paginator.next_page_path | prepend: site.baseurl }}" title="View Next Page">
-                    <span>Next</span>
-                    <span class="icon-arrow-thin-right"></span>
-                </a>
-            </li>
-        {% endif %}
+        {{ nextprev }}
     </ul>
 {% endif %}

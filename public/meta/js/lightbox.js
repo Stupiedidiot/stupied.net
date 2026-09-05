@@ -40,8 +40,8 @@ for (let i = 0; i < images.length; i++) {
   }
   result.classList.add("lb-item");
 
-  if (images[i].parentElement.dataset.link)
-    result.dataset.link = images[i].parentElement.dataset.link;
+  if (images[i].dataset.link)
+    result.dataset.link = images[i].dataset.link;
   else
     result.dataset.link = images[i].src;
 
