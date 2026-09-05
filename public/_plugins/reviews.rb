@@ -3,7 +3,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
     folder = "/reviews/img/"
     if docs
         docs.each do |doc|
-            slug = "#{doc.basename.sub('.md', '')}.jpg"
+            slug = "#{doc.basename.sub('.md', '').downcase}.jpg"
             
             raw = File.join(site.source, "/snail/_img", folder, slug)
             if File.exist?(raw)
