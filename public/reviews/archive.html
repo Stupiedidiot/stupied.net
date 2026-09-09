@@ -1,23 +1,20 @@
 ---
-layout: review
-title: Media Reviews Archive
+layout: img-archive
+title: Reviews Archive
+description:
+collection: reviews
+w_search: true
+
+filters:
+  - title: By Type
+    tag: reviews
+  
+  - title: By Tier
+    tag: reviews_tier
+
+  - title: Studio
+    tag: reviews_studio
+    extra:
+      - title: Franchise
+        tag: reviews_franchise
 ---
-<div data-nosnippet>
-    <div class="padded">
-        <h1>{{ page.title }}</h1>
-        <p>I will add a sorting thing eventually...!</p>
-        <div class="newspaper hover-color" style="user-select: none; column-width: 200px;">
-            {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
-            {%- for item in DATA -%}
-                <a href="{{ item.url }}" class="review-item border-gray padded-md {{ item.tags | join: ' ' }}">
-                    <div class="review">
-                        {%- if item.thumbnail -%}
-                            <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail-feed">
-                        {%- endif -%}
-                        <span>{{ item.title }}</span>
-                    </div>
-                </a>
-            {%- endfor -%}
-        </div>
-    </div>
-</div>

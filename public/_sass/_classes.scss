@@ -833,7 +833,7 @@ details.border {
     margin-bottom: 0.3rem;
     padding: 0.5rem;
 
-    &[open] summary {
+    &[open] > summary {
         margin-bottom: 0.5rem
     }
 }

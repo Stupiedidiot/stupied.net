@@ -99,3 +99,16 @@ mii:
   - title: Random
     icon: shuffle
     func: randomArt('mii')
+
+reviews:
+  - title: Home
+    icon: home
+    link: /reviews/
+    
+  - title: Archive
+    icon: inbox-full
+    link: /reviews/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('reviews')

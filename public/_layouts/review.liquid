@@ -3,20 +3,7 @@ layout: page
 
 css:
 - /reviews/main.css
-
-nav:
-  - title: Home
-    icon: home
-    link: /reviews/
-    
-  - title: Archive
-    icon: inbox-full
-    link: /reviews/archive
-
-  - title: Random
-    icon: shuffle
-    func: randomArt('reviews')
 ---
 
-{% include_cached layout/subnav.liquid v="review" %}
+{% include_cached layout/subnav.liquid data=site.data.nav.reviews %}
 {{ content }}

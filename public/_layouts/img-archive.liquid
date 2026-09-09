@@ -10,10 +10,10 @@ js:
 <div id="art_container" class="split">
     <div id="art_main">
         <article class="padded" style="min-height: 100vh;" data-nosnippet data-pagefind-ignore>
-            {% if page.collection == "art" %}
-                {% include widget/search.html cat='art' %}
+            {% if page.w_search %}
+                {% include widget/search.html cat=page.collection %}
             {% endif %}
-            <h1>Art Archive (<span id="archive_counter" class="clr-accent-dk">0</span>/<span id="archive_max">{{ site[page.collection] | where_exp: "item", "item.date <= site.time" | size }}</span>)</h1>
+            <h1>Art Archive (<span id="archive_counter" class="clr-accent-dk">0</span>/<span id="archive_max"></span>)</h1>
             <div id="archive_filter" class="art-archive-filter hidden" style="margin-bottom: 1rem;">
                 <div>Filtering Tags:</div>
             </div>
@@ -23,7 +23,7 @@ js:
                 <p>Hello, this archive requires Javascript to work!</p>
             </noscript>
 
-            <div id="archive_target" class="art-archive justified-gallery" data-col="{{ page.collection }}"></div>
+            <div id="archive_target" class="art-archive justified-gallery w-space" data-col="{{ page.collection }}"></div>
         </article>
 
         <ul id="archive_buttons" class="sub border-accent border-top">
@@ -52,7 +52,7 @@ js:
             <div class="archive">
                 <h2>Filter by</h2>
                 {% for e in page.filters %}
-                    <details class="border">
+                    <details class="border" open>
                         <summary><h3 class="h6">{{ e.title }}</h3></summary>
                         {% assign tag = e.tag | default: e.title |  downcase %}
                         {%- include art/write-tags.html selected = tag -%}

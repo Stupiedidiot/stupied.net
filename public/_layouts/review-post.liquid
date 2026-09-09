@@ -1,5 +1,6 @@
 ---
 layout: review
+category: reviews
 ---
 
 <div id="review">
@@ -21,34 +22,36 @@ layout: review
                 <span class="h3 clr-accent-dk">{{ page.quote | default: rating }}</span>
 
                 {% if page.done %}
+                    <div>
+                        <hr>
+                        <time datetime="{{ page.date | date_to_xmlschema }}" class="h6">{{ page.date | date: "%B %-d, %Y" }}</time>
+                    </div>
+
                     {{  page.content | markdownify }}
                     {% if page.link %}
                         <a href="{{ link }}" class="h6">
                             Watch Now »
                         </a>                    
                     {% endif %}
-
-                    <hr class="clear">
-                    <div style="text-align: right;">
-                        <hr>
-                        <time datetime="{{ page.date | date_to_xmlschema }}" class="h6">{{ page.date | date: "%B %-d, %Y" }}</time>
-                    </div>
                 {% else %}
                     <p>
                         Still writing my review...  
                     </p>
                 {% endif %}
             </div>
+
+            {% if page.tags %}
+                <hr>
+                <div class="item-tags">
+                    {%- for tag in page.tags -%}
+                        <a href="/reviews/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                    {%- endfor -%}
+                </div>    
+            {% endif %}
         </fieldset>
-    
-        {% if page.link %}
-            {% capture link %}
-                <p><a href="{{ page.link }}" class="review-link">Watch Now!</a></p>
-            {% endcapture %}
-        {% endif %}
-    
-        
     </article>
+
+    
 
     {% assign col = site.reviews %}
     {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
@@ -56,7 +59,7 @@ layout: review
     {% assign prev = info[1] %}
     {% assign next = info[2] %}
     {% if prev or next %}
-        <ul class="sub border-accent border-dashed-top">
+        <ul class="sub border-accent border-top">
             {% if prev %}
                 <li>
                     <a id="nextprev_prev" href="{{ prev.url }}" title="View Previous Page">

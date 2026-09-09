@@ -5,6 +5,7 @@ const TARGET = document.getElementById("archive_target");
 const TARGET_COUNTER = document.getElementById("archive_counter"); 
 const TARGET_FILTER = document.getElementById("archive_filter"); 
 const TARGET_INFO = "/" + TARGET.dataset.col;
+const TARGET_MAX = document.getElementById('archive_max');
 var START = 16; // the amount shown when first loaded in
 
 const FOLDER_IMG = TARGET_INFO + "/img/"; // make sure it always end with a backslash!
@@ -74,6 +75,7 @@ async function start() {
   });
 
   DATA = TARGET.querySelectorAll('.art-archive-item');
+  TARGET_MAX.textContent = DATA.length;
 
   if (query) sortEm(); 
   else showEm(START);
@@ -188,7 +190,7 @@ function sortEm() {
     
   MAX = counter;
   DATA = TARGET.querySelectorAll('& > *');
-  document.getElementById('archive_max').textContent = counter;
+  TARGET_MAX.textContent = counter;
   showEm(START);
 }
 
