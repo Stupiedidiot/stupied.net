@@ -9,7 +9,6 @@ const TARGET_MAX = document.getElementById('archive_max');
 var START = 16; // the amount shown when first loaded in
 
 const FOLDER_IMG = TARGET_INFO + "/img/"; // make sure it always end with a backslash!
-const FOLDER_POST = TARGET_INFO + "/p/"
 const JSON_FILE = TARGET_INFO + "/main.json";
 
 const MODE_HTML = document.getElementById('archive_mode');
@@ -39,7 +38,7 @@ async function start() {
     res.style.setProperty('--height', el.dime[1]);
 
     let link = document.createElement('a');
-    link.href = FOLDER_POST + el.img.split('.')[0];
+    link.href = el.url;
     link.title = el.title;
 
     let img = document.createElement('img');

@@ -12,7 +12,8 @@
         {% continue %}
     {% endif %}
     {
-        "img": {{ item.img | jsonify }}
+        "img": {{ item.img | jsonify }},
+        "url": {{ item.url | jsonify }}
 
         {%- if item.date -%}
             ,"date": {{ item.date | default: '2007-08-04' | jsonify }}

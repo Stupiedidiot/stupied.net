@@ -86,6 +86,6 @@ function randomArt(folder) {
     .then((response) => response.json())
     .then((art) => {
       randomNum = Math.floor(Math.random() * art.length);
-      window.location.href = "/" + folder + "/p/" + art[randomNum].img.split('.')[0];
+      window.location.href = art[randomNum].url;
     })
 }
