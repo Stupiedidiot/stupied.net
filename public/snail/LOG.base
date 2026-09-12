@@ -3,7 +3,7 @@ filters:
     - file.folder.startsWith("_log")
 formulas:
   crafted: if(drawing || crochet, image("green.png"))
-  Untitled: if(code || komics|| notes, image("yellow.png"))
+  Untitled: if(code || text || notes, image("yellow.png"))
   played: if(piano || exe || read, image("red.png"))
 properties:
   formula.Untitled:
