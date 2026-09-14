@@ -1,6 +1,6 @@
 ---
 release: 1998
-rank: F
+rank: D
 tags:
   - disney
   - film

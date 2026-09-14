@@ -1,7 +1,17 @@
+require 'time'
+
+default_date = Time.parse("2007-04-07")
+Jekyll::Hooks.register :reviews, :post_init do |doc|
+    unless doc.relative_path.include?("/f/")
+        doc.data['date'] = default_date
+    end
+end
+
 Jekyll::Hooks.register :site, :post_read do |site|
     docs = site.collections['reviews']
     folder = "/reviews/img/"
     placeholder = "placeholder.png"
+
     if docs
         docs.each do |doc|
             slug = "#{doc.basename.sub('.md', '').downcase}.jpg"
@@ -18,6 +28,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
                     doc.data['dime'] = [0,0]
                 end
             else
+                doc.data['img'] = placeholder
                 doc.data['thumbnail'] = File.join(folder, placeholder)
                 doc.data['dime'] = [4,3]
             end
@@ -26,8 +37,13 @@ Jekyll::Hooks.register :site, :post_read do |site|
                 doc.data['tags'] << doc.data['rank'].downcase + "-tier"
             end
 
+            if (doc.data['link'])
+                doc.data['tags'] << "with-video"
+            end
+
             if doc.relative_path.include?("/f/")
                 doc.data['done'] = true
+                doc.data['tags'] << "with-commentary"
             end
         end
     end

@@ -1,6 +1,6 @@
 ---
 layout: none
 ---
-{% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
+{% assign DATA = site.reviews | reverse %}
 
 {% include art/list.liquid data=DATA %}

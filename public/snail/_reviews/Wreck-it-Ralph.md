@@ -1,6 +1,6 @@
 ---
 release: 2004
-rank: S
+rank: A
 tags:
   - disney
   - film

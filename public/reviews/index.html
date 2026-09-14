@@ -1,34 +1,84 @@
 ---
 layout: review
 title: Media Reviews
+
+yapping:
+- tier: S
+  text: The media of all times! Millions must check it out!
+
+- tier: A
+  text: Has a lot of endearing qualities.
+
+- tier: B
+  text: Had a good time. Nothing spectacular, just dumb fun.
+
+- tier: C
+  text: Mid. Not bad, but not good either. I feel incredibly indifferent to them.
+
+- tier: D
+  text: Has a few minor issues.
+
+- tier: E
+  text: Okay, getting a bit annoyed now.
+
+- tier: F
+  text: Booo!!!!!
 ---
 <div class="padded">
     <h1>{{ page.title }}</h1>
-    <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously. Mostly yap about Disney films and Donald Duck Shorts. Will make everything prettier in the future pinky promise!</p>
-
+    <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously. This only exists to encourage myself to process my thoughts before moving on to the next thing. Mostly yap about Disney films and Donald Duck Shorts.</p>
     <hr>
     
-    <h2>Recently Reviewed</h2>
-    <div class="newspaper hover-color" style="user-select: none; column-width: 200px;">
-        {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
-        {%- for item in DATA limit:4 -%}
-            <a href="{{ item.url }}" class="review-item border-gray padded-md {{ item.tags | join: ' ' }}">
-                <div class="review">
-                    {%- if item.thumbnail -%}
-                        <img src="{{ item.thumbnail }}" alt="" class="review-thumbnail-feed">
-                    {%- endif -%}
-                    <span>{{ item.title }}</span>
+    <div class="newspaper" style="column-width: 400px;">
+        <div>
+            <h2>Recently Reviewed</h2>
+            <div class="justified-gallery">
+                {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
+                {%- for item in DATA limit:5 -%}
+                    <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+                        <img src="{{ item.thumbnail }}" alt="">
+                    </a>
+                {%- endfor -%}
+            </div>
+        </div>
+        
+        <div>
+            <fieldset>
+                <legend>
+                    <h2>How I rank</h2>
+                </legend>
+
+                <div>
+                    <ul>
+                        {% for item in page.yapping %}
+                            <li>
+                                <p>
+                                    <strong>{{ item.tier }} »</strong> {{ item.text }}
+                                </p>
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-            </a>
-        {%- endfor -%}
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <h2>Tier Lists</h2>
+                </legend>
+
+                <div>
+                    <ul>
+                        {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
+                        {%- assign lim = site.data.chez.list.size | minus: 1 -%}
+                        {%- for e in REVIEWS.items limit:lim -%}
+                            <li><a href="{{ e.link }}">{{ e.title }}</a></li>
+                        {%- endfor -%}
+                    </ul>
+                </div>
+            </fieldset>
+
+            <h2>Bookbug</h2>
+            <p><a href="https://bookbug.neocities.org/">Bookbug</a>, is a digitak Book Club hosted in Neocities. You can read my reviews for them over <a href="/bookbug/">here</a>.</p>
+        </div>
     </div>
-    
-    <h2>Tier Lists</h2>
-    <ul>
-        {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
-        {%- assign lim = site.data.chez.list.size | minus: 1 -%}
-        {%- for e in REVIEWS.items limit:lim -%}
-            <li><a href="{{ e.link }}">{{ e.title }}</a></li>
-        {%- endfor -%}
-    </ul>
 </div>
