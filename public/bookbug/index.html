@@ -1,0 +1,26 @@
+---
+layout: page
+title: Book Bug
+description:
+---
+
+<div class="padded">
+    <div>
+        <div>
+            <h1>{{ page.title }}</h1>
+            <p>My reviews for the books picked out for <a href="https://bookbug.neocities.org/">Bookbug</a>.</p>
+            <hr>
+        </div>
+        
+        <div>
+            <div class="justified-gallery w-space">
+                {% assign DATA = site.reviews | where_exp: 'e', 'e.tags contains "bookbug"' |  reverse %}
+                {%- for item in DATA -%}
+                    <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+                        <img src="{{ item.thumbnail }}" alt="">
+                    </a>
+                {%- endfor -%}
+            </div>
+        </div>
+    </div>
+</div>
