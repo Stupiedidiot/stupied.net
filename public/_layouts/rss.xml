@@ -9,6 +9,58 @@ layout: none
     <link>{{ page.link | default: site.url }}</link>
     <description>{{ page.description | default: "Updates in Stupied's website" }}</description>
     <ttl>60</ttl>
-    {{- content -}}
+
+    {{ content }}
+
+    {% unless FEED %}
+      {% assign FEED = "" | split: "" %}
+
+      {% for e in page.selected %}
+        {% if site[e] %}
+          {% assign FEED = FEED | concat: site[e] %}
+        {% endif %}
+      {% endfor %}
+
+      {% if FEED %}
+        {% assign FEED = FEED | where_exp: "item", "item.date <= site.time" | sort: 'date' | reverse %}
+      {% endif %}
+    {% endunless %}
+
+    {%- for item in FEED limit:15 -%}
+    <item>
+      <title>{{ item.title | escape }}</title>
+      <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+      <link>{{ item.url | prepend: site.url }}</link>
+      <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
+
+      <description>
+        {% capture result %}
+            {% if item.thumbnail %}
+              <img src="{{ item.thumbnail | preppend: site.url }}" alt="{{ item.alt | escape }}"/>
+            {% endif %}
+
+            {% if item.description %}
+              <blockquote>{{ item.description }}</blockquote>
+            {% endif %}
+
+            {% assign test = item.content | strip %}
+            {% if test == "" %}
+              Added {{ item.collection }}.
+            {% else %}
+              {{ item.content | markdownify }}
+            {% endif %}
+        {% endcapture %}
+        {{ result | escape }}
+      </description>
+      
+      <category>{{ item.collection }}</category>
+      
+      {% if item.tags %}
+          {% for tag in tags %}
+            <category>{{ tag }}</category>
+          {% endfor %}
+      {% endif %}
+    </item>
+    {%- endfor -%}
   </channel>
 </rss>

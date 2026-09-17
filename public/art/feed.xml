@@ -2,23 +2,7 @@
 layout: rss
 title: Stupied's Art
 description: RSS Feed for all my art
----
 
-{% assign FEED = site.art | where_exp: "item", "item.date <= site.time" | reverse %}
-{%- for item in FEED limit: 15 -%}
-<item>
-  <title>{{ item.title | escape }}</title>
-  <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-  <link>{{ item.url | prepend: site.url }}</link>
-  
-  <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
-  <description>
-      {% include rss/art.liquid item=item %}
-  </description>
-  {% if item.tags %}
-      {% for tag in tags %}
-        <category>{{ tag }}</category>
-      {% endfor %}
-  {% endif %}
-</item>
-{%- endfor -%}
+selected:
+- art
+---

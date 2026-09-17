@@ -2,27 +2,7 @@
 layout: rss
 title: Stupied Reviews RSS Feed
 description: Updates of the reviews written by Stupied
----
-{% if site.reviews %}
-    {%- assign REVIEWS = site.reviews
-        | where: 'done', 'true'
-        | sort: "date"
-        | reverse
-    -%}
 
-    {%- for item in REVIEWS limit: 15 -%}
-    <item>
-        <title>{{ item.title | escape }}</title>
-        <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-        <link>{{ item.url | prepend: site.url }}</link>
-        <guid isPermaLink="false">{{ item.slug }}-{{ item.date | date: "%Y-%m-%d" }}</guid>
-        <description>
-            {%- capture description -%}
-                <img src="{{ item.thumbnail | prepend: site.url }}"/>
-                {{ item.content | markdownify }}
-            {%- endcapture -%}
-            {{ description | escape }}
-        </description>
-    </item>
-    {%- endfor -%}
-{% endif %}
+selected:
+- reviews
+---

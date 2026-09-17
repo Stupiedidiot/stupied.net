@@ -1,10 +1,6 @@
 - title: Main Feed
   link: /feed.xml
-  desc: For art, blog, and micoblog
-
-- title: Nekoweb Feed
-  link: /meta/rss/nekoweb.xml
-  desc: For my <a href="stupied.nekoweb.org">Nekoweb Mirror</a>
+  desc: For art and blog
 
 - title: Art Feed
   link: /art/feed.xml
@@ -14,18 +10,10 @@
   link: /blog/feed.xml
   desc: For all my blog posts
 
-- title: Microblog Feed
-  link: /blog/micro-feed.xml
-  desc: For my mini ramblings
-
-# - title: Library Feed
-#   link: /lib/rss
-#   desc: For all comics hosted on this website
-
-# - title: Albums Feed
-#   link: /meta/rss/albums
-#   desc: For new images uploaded to my albums!
-
 - title: Reviews Feed
   link: /reviews/feed.xml
   desc: For recently uploaded movie reviews
+
+- title: Mii Gallery
+  link: /mii/feed.xml
+  desc: The little guys...

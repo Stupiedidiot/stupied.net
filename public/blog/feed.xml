@@ -2,21 +2,7 @@
 layout: rss
 title: Stupied Blog RSS Feed
 description: RSS feed for all of my blog posts
----
-{% for item in site.posts limit: 15 %}
-  <item>
-      <title>{{ item.title | escape }}</title>
-      <link>{{ item.url | relative_url | prepend: site.url }}</link>
-      <pubDate>{{ item.date | date_to_rfc822 }}</pubDate>
-      <guid isPermaLink="false">{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
-      <description>
-        {% include rss/blog.liquid item=item %}
-      </description>
-      {% if item.tags %}
-      {% for tag in item.tags %}
-          <category>{{ tag }}</category>
-        {% endfor %}
-      {% endif %}
-  </item>
-{% endfor %}
+selected:
+- posts
+---

@@ -1,42 +1,7 @@
 ---
 layout: rss
+
+selected:
+- art
+- posts
 ---
-
-{% assign COL = "art posts micro" | split: " " %}
-{% assign FEED = "" | split: "" %}
-
-{% for e in COL %}
-  {% if site[e] %}
-    {% assign FEED = FEED | concat: site[e] %}
-  {% endif %}
-{% endfor %}
-
-{% if FEED %}
-  {% assign FEED = FEED | where_exp: "item", "item.date <= site.time" | sort: 'date' | reverse %}
-{% endif %}
-
-{%- for item in FEED limit:15 -%}
-<item>
-  <title>{{ item.title | escape }}</title>
-  <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-
-  {% if item.collection == 'micro' %}
-    <link>{{ site.url }}/blog/micro/</link>
-  {% else %}
-    <link>{{ item.url | prepend: site.url }}</link>
-  {% endif %}
-  
-  <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
-
-  <description>
-    {% if item.collection == 'art' %}
-      {% include rss/art.liquid item=item %}
-    {% elsif item.collection == 'posts' %}
-      {% include rss/blog.liquid item=item %}
-    {% else %}
-      {% include rss/micro.liquid item=item %}
-    {% endif %}
-  </description>
-  <category>{{ item.collection }}</category>
-</item>
-{%- endfor -%}
