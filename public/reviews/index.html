@@ -68,8 +68,8 @@ yapping:
 
                 <div>
                     <ul>
-                        {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
-                        {%- assign lim = site.data.chez.list.size | minus: 1 -%}
+                        {%- assign REVIEWS = site.data.chez | where: 'label', 'Reviews' | first -%}
+                        {%- assign lim = site.data.chez.size | minus: 1 -%}
                         {%- for e in REVIEWS.items limit:lim -%}
                             <li><a href="{{ e.link }}">{{ e.title }}</a></li>
                         {%- endfor -%}

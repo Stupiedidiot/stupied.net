@@ -10,7 +10,7 @@ description: A page for all my miscellaneous projects
         <p>For all my miscellaneous projects. Generally they are janky and all over the place.</p>
     </div>
     
-    {%- for category in site.data.chez.list -%}
+    {%- for category in site.data.chez -%}
         <section class="padded border-accent border-dashed-top">
             <h2>{{ category.label }}</h2>
             {%- assign selected = category | downcase -%}

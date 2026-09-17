@@ -48,7 +48,7 @@ title: Da Blog!
 
     <h3>Media Reviews</h3>
     <ul>
-        {%- assign REVIEWS = site.data.chez.list | where: 'label', 'Reviews' | first -%}
+        {%- assign REVIEWS = site.data.chez | where: 'label', 'Reviews' | first -%}
         {%- for e in REVIEWS.items -%}
             <li><a href="{{ e.link }}">{{ e.title }}</a></li>
         {%- endfor -%}

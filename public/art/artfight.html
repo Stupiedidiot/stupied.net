@@ -7,8 +7,8 @@ css:
 - /meta/css/artfight.css
 ---
 
-{% assign total = site.data.chez.artfight | afTotal %}
-{% assign DATA = total | concat: site.data.chez.artfight %}
+{% assign total = site.data.artfight | afTotal %}
+{% assign DATA = total | concat: site.data.artfight %}
 <article id="af_stats" class="padded">
   <h1>Artfight Attacks</h1>
   {% for e in DATA %}

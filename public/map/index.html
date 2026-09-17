@@ -58,7 +58,7 @@ include_path: _/index.html
         <div id="chez">
             <a href="/chez/">Chez <span class="note">(To Do)</span></a>
     
-            {%- for category in site.data.chez.list -%}
+            {%- for category in site.data.chez -%}
                 <a href="/chez/">{{ category.label }}</a>
                 {%- assign selected = category | downcase -%}
                 <ul>

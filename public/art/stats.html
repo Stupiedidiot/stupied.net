@@ -12,7 +12,7 @@ title: Art Stats
 
 {% assign DATA = site.art | group_by_exp: "e", "e.date | date: '%Y'" | reverse %}
 {% assign OTHER = "sona artfight fanart" |  split: " " %}
-{% assign CAT = site.data.art.tags.universes |  concat: OTHER %}
+{% assign CAT = site.data.tags.universes |  concat: OTHER %}
 
 {% for year in DATA %}
     <article class="padded border-accent border-dashed-bottom">

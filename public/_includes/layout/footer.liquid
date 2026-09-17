@@ -35,7 +35,7 @@
             <div>
                 <span class="h5">OC Tags</span>
                 <ul class="toc">
-                    {% assign TAGS = site.data.art.tags.universes %}
+                    {% assign TAGS = site.data.tags.universes %}
                     {% for item in TAGS limit: site.data.nav.footer.size %}
                         <li>
                             {% assign tag = item | downcase %}

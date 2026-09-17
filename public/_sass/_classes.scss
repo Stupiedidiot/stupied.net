@@ -515,6 +515,10 @@ hr.clear {
     padding: 0.3rem;
 }
 
+.h-100 {
+    min-height: 100vh;
+}
+
 .content {
     @extend %padded;
     overflow: hidden;

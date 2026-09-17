@@ -31,7 +31,7 @@ const POST_FOLDER = POST_RELATED.dataset.col;
 const POST_CURR_IDX = parseInt(POST_RELATED.dataset.idx);
 
 const TAGS_FILTER_OUT = [
-  {%- for item in site.data.art.tags.year %}
+  {%- for item in site.data.tags.year %}
   {{ item | jsonify }},
   {%- endfor %}
   'ocs',

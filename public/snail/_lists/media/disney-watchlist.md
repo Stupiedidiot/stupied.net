@@ -4,7 +4,7 @@ title: Disney Watchlist
 
 - [X] Snow White and the Seven Dwarfs
 - [X] Pinocchio
-- [ ] Fantasia
+- [x] Fantasia
 - [ ] The Reluctant Dragon
 - [x] Dumbo
 - [X] Bambi
@@ -34,7 +34,7 @@ title: Disney Watchlist
 - [X] DuckTales the Movie: Treasure of the Lost Lamp
 - [ ] The Rescuers Down Under
 - [ ] Beauty and the Beast
-- [ ] Aladdin
+- [x] Aladdin
 - [ ] The Nightmare Before Christmas
 - [X] The Lion King
 - [X] A Goofy Movie

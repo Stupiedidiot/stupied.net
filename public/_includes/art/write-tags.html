@@ -6,7 +6,7 @@
 {%- if include.selected.first -%}
     {%- assign selected = include.selected -%}
 {%- else -%}
-    {%- assign selected = site.data.art.tags.[include.selected] -%}
+    {%- assign selected = site.data.tags.[include.selected] -%}
 {%- endif -%}
 <div class="art-archive-options">
     {%- for item in selected -%}
