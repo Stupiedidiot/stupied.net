@@ -16,7 +16,7 @@ description:
             <div class="justified-gallery w-space">
                 {% assign DATA = site.reviews | where_exp: 'e', 'e.tags contains "bookbug"' |  reverse %}
                 {%- for item in DATA -%}
-                    <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+                    <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" title="{{ item.title }}">
                         <img src="{{ item.thumbnail }}" alt="">
                     </a>
                 {%- endfor -%}

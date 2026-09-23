@@ -2,7 +2,7 @@
 index: 1
 date: 2026-08-13T12:35
 title:
-description:
+description: Strange ways my Jekyll is set up.
 category: meta
 tags:
 ---

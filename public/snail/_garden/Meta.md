@@ -42,7 +42,7 @@ I try to minimize my usage of Javascript. You may still navigate my website with
 ## Usage
 You are free to steal snippets from this website and it's source code. Like seriously. To put it bluntly, I do not care what others do with my work*. We've all at one point been inspired by something and, whether intentionally or not, model ourselves accordingly to it. Originality is relative. So please, feel free to nab ideas from my website. Credit absolutely not required! Everything is just pointless static in the grand scheme of things.
 
-> **/*Exeptions »** Okay I kinda *do* care about how my work is used. You're allowed to do whatever with my work just as long you keep it ***free***!!! Keep it free from profit. Keep it free from maliciousness. I pour my heart out in my work for the simple joy of making it. So if you make a mirror of my website and pretend to be me, please make it accessible for everyone!
+> **Exeptions »** Okay I kinda *do* care about how my work is used. You're allowed to do whatever with my work just as long you keep it ***free***!!! Keep it free from profit. Keep it free from maliciousness. I pour my heart out in my work for the simple joy of making it. So if you make a mirror of my website and pretend to be me, please make it accessible for everyone!
 
 ## Conclusion
 There is a lot of love put into this website and hopefully these writings will show that.

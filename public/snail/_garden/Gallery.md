@@ -73,7 +73,6 @@ This can be achieved with Jekyll [Hooks](https://jekyllrb.com/docs/plugins/hooks
 Jekyll::Hooks.register :site, :post_read do |site|
     site.collections.each do |label, col|
         next unless col.metadata['gallery']
-		# Skip colle
     end
 end
 ```
@@ -128,7 +127,7 @@ Jekyll::Hooks.register :site, :post_read do |site|
 end
 ```
 ##### Dimensions
-I use [FastImage](https://rubygems.org/gems/fastimage) to get the dimension of images.s
+I use [FastImage](https://rubygems.org/gems/fastimage) to get the dimension of images.
 ##### Additional Tags
 I am lazy and don't like repeating myself.
 

@@ -23,21 +23,16 @@ var micro;
 const DATE_CURRENT = new Date();
 const QUERY = new URL(window.location.href);
 
-if (QUERY.search){
-    if (QUERY.searchParams.has('y')){
-        year = parseInt(QUERY.searchParams.get('y'));
-    } else {
-        year = DATE_CURRENT.getFullYear();
-    }
-
-    if (QUERY.searchParams.has('m')){
-        month = parseInt(QUERY.searchParams.get('m'));
-    } else {
-        month = 0;
-    }
+if (QUERY.searchParams.has('y')){
+    year = parseInt(QUERY.searchParams.get('y'));
 } else {
     year = DATE_CURRENT.getFullYear();
-    month = DATE_CURRENT.getMonth();
+}
+
+if (QUERY.searchParams.has('m')){
+    month = parseInt(QUERY.searchParams.get('m'));
+} else {
+    month = DATE_CURRENT.getMonth();;
 }
 
 const DATE_SELECTED = new Date(year, month , 0);

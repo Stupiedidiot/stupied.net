@@ -2,9 +2,9 @@ filters:
   and:
     - file.folder.startsWith("_log")
 formulas:
-  crafted: if(drawing || crochet, image("green.png"))
-  Untitled: if(code || text || notes, image("yellow.png"))
-  played: if(piano || exe || read, image("red.png"))
+  crafted: if(drawing || crochet, image("blue.png"), image("white.png"))
+  Untitled: if(code || text || notes, image("yellow.png"), image("white.png"))
+  played: if(piano || exe || read, image("red.png"), image("white.png"))
 properties:
   formula.Untitled:
     displayName: wrote

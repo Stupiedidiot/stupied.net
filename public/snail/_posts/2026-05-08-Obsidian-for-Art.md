@@ -118,13 +118,6 @@ Letting my OCs wear outfits I've long outgrown. Also was listening to this wonde
 ### Building Website
 So with everything in place, we just have to generate each file, move the output to my actual website, and rename the text files. I anticipated the need to do this a few more times, such as when archiving a bunch of older art, so I decided to make a batch file for it.
 
-```
-call bundle exec jekyll clean
-call bundle exec jekyll build
-for /R "%~dp0draft" %%x in (*.txt) do ren "%%x" "%%~nx.md"
-pause
-```
-
 After cleaning and building the website. It recursively goes through the `draft` folder, which is destination of my output. It renames all the text files into markdown files that I can move to be used for my collection!
 
 ## Obsidian Vault
