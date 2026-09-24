@@ -129,21 +129,21 @@ function sortEm() {
     if (e = document.getElementById(tag)) { 
       e.closest('details').open = true;
       e.checked = true;
-
-      let span = document.createElement("span");
-      span.className = 'icon-close-outline';
-
-      let name = document.createElement("span");
-      name.textContent = tag;
-      
-      let btn = document.createElement("button");
-      btn.setAttribute('onclick', `rmChecked("${tag}")`)
-      btn.prepend(tag)
-      btn.prepend(span)
-      
-      TARGET_FILTER.append(btn)
-      TARGET_FILTER.classList.remove('hidden');
     }
+
+    let span = document.createElement("span");
+    span.className = 'icon-close-outline';
+
+    let name = document.createElement("span");
+    name.textContent = tag;
+    
+    let btn = document.createElement("button");
+    btn.setAttribute('onclick', `rmChecked("${tag}")`)
+    btn.prepend(tag)
+    btn.prepend(span)
+    
+    TARGET_FILTER.append(btn)
+    TARGET_FILTER.classList.remove('hidden');
   });
 
   if (mode == 'not') {
