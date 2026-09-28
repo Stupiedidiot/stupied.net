@@ -20,9 +20,10 @@ layout: blog
     </div>
 </div>
 
-<nav class="border-x">
+<nav class="border-x border-accent">
   {% assign HOME = '/blog/archive' %}
-  {% include widget/nextprev.liquid data=site.posts home=HOME %}
+  {% assign DATA = site.posts | reverse %}
+  {% include widget/nextprev.liquid data=DATA home=HOME %}
 </nav>
 
 <div id="blog_comments" class="padded">

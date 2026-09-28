@@ -853,12 +853,6 @@ details.border {
     border-color: lightgray;
 }
 
-.border-accent {
-    @extend %border;
-    border-color: $border_color;
-    
-}
-
 @each $name, $value in $borders {
     .border-#{$name} {
         @extend %border;
@@ -870,6 +864,11 @@ details.border {
         @extend %border_dashed;
         border-width: #{$value}!important;
     }
+}
+
+.border-accent {
+    @extend %border;
+    border-color: $border_color;
 }
 
 .character {
