@@ -236,23 +236,23 @@ commission_year:
 - '2023'
 - '2022'
 
-reviews:
+media:
   - film
   - show
   - short
   - comic
   - game
 
-reviews_studio:
+media_studio:
   - dreamworks
   - disney
   - pixar
 
-reviews_franchise:
+media_franchise:
   - donald
   - ace-attorney
 
-reviews_tier:
+media_tier:
   - S-Tier
   - A-Tier
   - B-Tier
@@ -261,6 +261,6 @@ reviews_tier:
   - E-Tier
   - F-Tier
 
-reviews_meta:
+media_meta:
   - With-Commentary
   - With-Video

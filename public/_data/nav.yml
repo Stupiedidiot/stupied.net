@@ -100,7 +100,7 @@ mii:
     icon: shuffle
     func: randomArt('mii')
 
-reviews:
+media:
   - title: Home
     icon: home
     link: /media/

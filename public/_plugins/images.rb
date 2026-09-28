@@ -27,6 +27,7 @@ module Jekyll
 
                     if (doc.content.strip != '')
                         doc.data['w_comment'] = true
+                        doc.content = doc.content.gsub(/\]\(_#{label}\//, "](/#{label}/p/")
                     end
 
                     tags = []

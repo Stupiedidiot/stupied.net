@@ -23,7 +23,7 @@ collections:
 
   outlinks:
   lists:
-  reviews:
+  media:
     output: true
     permalink: /media/p/:name_raw
     sort_by: date

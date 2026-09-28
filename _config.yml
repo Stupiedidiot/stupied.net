@@ -68,9 +68,9 @@ defaults:
   # REVIEWS ======================
 
   - scope:
-      type: reviews
+      type: media
     values:
-      layout: review-post
+      layout: media-post
       
   # ==============================
 

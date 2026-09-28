@@ -1,14 +1,14 @@
 require 'time'
 
 default_date = Time.parse("2007-04-07")
-Jekyll::Hooks.register :reviews, :post_init do |doc|
+Jekyll::Hooks.register :media, :post_init do |doc|
     unless doc.relative_path.include?("/f/")
         doc.data['date'] = default_date
     end
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
-    docs = site.collections['reviews']
+    docs = site.collections['media']
     folder = "/media/img/"
     placeholder = "placeholder.png"
 
