@@ -8,7 +8,6 @@ if (THEME) {
   themeToggle(THEME);
 }
 
-
 if (
   WARNED != "true" &&
   window.location.pathname != "/meta/warning"
@@ -35,9 +34,28 @@ if (
 }
 
 function themeToggle(theme) {
+  let s = theme.split("+");
   let e = document.querySelector('html')
-  e.dataset.stupiedTheme = theme;
-  localStorage.setItem("theme", theme);
+  e.dataset.stupiedTheme = s[0];
+
+  localStorage.setItem("theme", s[0]);
+  setGiscusTheme(s[1]);
+}
+
+function setGiscusTheme(theme) {
+  const iframe = document.querySelector('iframe.giscus-frame');
+  if (!iframe) return;
+
+  iframe.contentWindow.postMessage(
+    {
+      giscus: {
+        setConfig: {
+          theme: theme
+        }
+      }
+    },
+    'https://giscus.app'
+  );
 }
 
 var STICKY_CLIKED;

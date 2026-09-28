@@ -10,8 +10,10 @@ themes:
   title: Dark
   
 - id: die
+  type: dark
   title: Stu-DYING!
 - id: mii
+  type: light
   title: That's Mii
 
 # Build settings
