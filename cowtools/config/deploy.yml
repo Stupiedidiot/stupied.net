@@ -25,7 +25,7 @@ collections:
   lists:
   reviews:
     output: true
-    permalink: /reviews/p/:name_raw
+    permalink: /media/p/:name_raw
     sort_by: date
 
 exclude:

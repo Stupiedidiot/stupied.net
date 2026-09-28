@@ -103,12 +103,12 @@ mii:
 reviews:
   - title: Home
     icon: home
-    link: /reviews/
+    link: /media/
     
   - title: Archive
     icon: inbox-full
-    link: /reviews/archive
+    link: /media/archive
 
   - title: Random
     icon: shuffle
-    func: randomArt('reviews')
+    func: randomArt('media')

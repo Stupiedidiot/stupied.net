@@ -9,7 +9,7 @@ end
 
 Jekyll::Hooks.register :site, :post_read do |site|
     docs = site.collections['reviews']
-    folder = "/reviews/img/"
+    folder = "/media/img/"
     placeholder = "placeholder.png"
 
     if docs

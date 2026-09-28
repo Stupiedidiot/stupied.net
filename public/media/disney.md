@@ -1,5 +1,5 @@
 ---
-layout: review-tier
+layout: media-tier
 title: Disney Movies n Shorts
 description: Ranking Animated Disney Movies and shorts in a Tier List
 selected: disney

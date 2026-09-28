@@ -20,31 +20,31 @@
 
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
 
-- label: Reviews
+- label: Media
   items: 
   - title: Disney Films
-    link: /reviews/disney
+    link: /media/disney
 
   - title: Donald Duck!
-    link: /reviews/donald
+    link: /media/donald
 
   - title: Silly Symphonies
-    link: /reviews/silly
+    link: /media/silly
 
   - title: Ace Attorney Games
-    link: /reviews/ace-attorney
+    link: /media/ace-attorney
 
   - title: Turbo FAST Episodes
-    link: /reviews/turbo
+    link: /media/turbo
 
   - title: Musicals
-    link: /reviews/musicals
+    link: /media/musicals
 
   - title: Bookbug
     link: /bookbug/
 
-  - title: All Reviews
-    link: /reviews/
+  - title: Media Log
+    link: /media/
 
 # ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡ ｡･:*:･ﾟ★,｡･:*:･ﾟ☆｡
 

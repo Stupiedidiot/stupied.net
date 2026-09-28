@@ -1,5 +1,5 @@
 ---
-layout: review
+layout: media
 category: reviews
 ---
 
@@ -49,7 +49,7 @@ category: reviews
                 <hr>
                 <div class="item-tags">
                     {%- for tag in page.tags -%}
-                        <a href="/reviews/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                        <a href="/media/archive?t={{ tag }}" class="button">{{ tag }}</a>
                     {%- endfor -%}
                 </div>    
             {% endif %}
@@ -58,7 +58,7 @@ category: reviews
 
     
 
-    {% assign col = site.reviews %}
+    {% assign col = site.media %}
     {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
     {% assign index = info[0] %}
     {% assign prev = info[1] %}

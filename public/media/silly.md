@@ -1,5 +1,5 @@
 ---
-layout: review-tier
+layout: media-tier
 title: Silly Symphonies
 description: Ranking of Disney's Silly Symphonies Shorts
 selected: silly-symphonies

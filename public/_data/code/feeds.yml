@@ -11,7 +11,7 @@
   desc: For all my blog posts
 
 - title: Reviews Feed
-  link: /reviews/feed.xml
+  link: /media/feed.xml
   desc: For recently uploaded movie reviews
 
 - title: Mii Gallery

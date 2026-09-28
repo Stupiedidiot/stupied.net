@@ -22,11 +22,11 @@ title: Da Blog!
             <h1>Da Blog!!</h1>
             <div class="blockquote">
                 <p>
-                    The way this blog is set up makes it feel more serious than it's suppose to. So this will just be used for announcements and whatever. If you wanna hear spontaneous yapping, consider heading to my <a href="/logs/">habit tracker</a> instead.
+                    There is very little of my real life I feel like sharing, so don't expect frequent updates.
                 </p>
             </div>
             <p>
-                There is very little of my real life I feel like sharing, so don't expect frequent updates.
+                The way this blog is set up makes it feel more serious than it's suppose to. So this will just be used for announcements and whatever. If you wanna hear spontaneous yapping go to my <a href="/logs/">habit tracker</a> or my <a href="/media/">media log</a> instead.
             </p>
         </div>
     </div>
@@ -48,7 +48,7 @@ title: Da Blog!
 
     <h3>Media Reviews</h3>
     <ul>
-        {%- assign REVIEWS = site.data.chez | where: 'label', 'Reviews' | first -%}
+        {%- assign REVIEWS = site.data.chez | where: 'label', 'Media' | first -%}
         {%- for e in REVIEWS.items -%}
             <li><a href="{{ e.link }}">{{ e.title }}</a></li>
         {%- endfor -%}

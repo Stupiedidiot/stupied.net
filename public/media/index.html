@@ -1,6 +1,6 @@
 ---
-layout: review
-title: Media Reviews
+layout: media
+title: Media Log
 
 yapping:
 - tier: S
@@ -26,14 +26,14 @@ yapping:
 ---
 <div class="padded">
     <h1>{{ page.title }}</h1>
-    <p>Rambling about the media I've seen. I do this for fun. Please don't take my reviews seriously. This only exists to encourage myself to process my thoughts before moving on to the next thing. Mostly yap about Disney films and Donald Duck Shorts.</p>
+    <p>Rambling about the media I've seen. This was originally called "reviews" but that makes it seem like I've got some authority to decided what's good enough. This is just for fun and only exists to encourage myself to process my thoughts before moving on to the next thing. Mostly yap about Disney films and Donald Duck Shorts.</p>
     <hr>
     
     <div class="newspaper" style="column-width: 400px;">
         <div>
-            <h2>Recently Reviewed</h2>
+            <h2>Recently Logged </h2>
             <div class="justified-gallery">
-                {% assign DATA = site.reviews | where: 'done', 'true' | reverse %}
+                {% assign DATA = site.media | where: 'done', 'true' | reverse %}
                 {%- for item in DATA limit:5 -%}
                     <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
                         <img src="{{ item.thumbnail }}" alt="">
@@ -68,8 +68,8 @@ yapping:
 
                 <div>
                     <ul>
-                        {%- assign REVIEWS = site.data.chez | where: 'label', 'Reviews' | first -%}
-                        {%- assign lim = REVIEWS.items.size | minus: 2 -%}
+                        {%- assign REVIEWS = site.data.chez | where: 'label', 'Media' | first -%}
+                        {%- assign lim = REVIEWS.items.size | minus: 1 -%}
                         {%- for e in REVIEWS.items limit:lim -%}
                             <li><a href="{{ e.link }}">{{ e.title }}</a></li>
                         {%- endfor -%}

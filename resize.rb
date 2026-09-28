@@ -2,7 +2,7 @@ require 'fileutils'
 
 folders = [
     [
-        "public/snail/_img/reviews/img/",
+        "public/snail/_img/media/img/",
         "x200"
     ]
 ]

@@ -1,5 +1,5 @@
 ---
-layout: review
+layout: media
 
 tiers:
 - S
@@ -16,8 +16,8 @@ tiers:
     <h1>{{ page.title | default: "Tier List"}}</h1>
   </header>
   
-  {% if site.reviews %}
-    {% assign REVIEWS = site.reviews | where_exp: "item", "item.tags contains page.selected" | sort: "release" %}
+  {% if site.media %}
+    {% assign REVIEWS = site.media | where_exp: "item", "item.tags contains page.selected" | sort: "release" %}
     {%- assign TIERS = page.tiers | default: layout.tiers -%}
     
     <article class="tier-list padded-md">

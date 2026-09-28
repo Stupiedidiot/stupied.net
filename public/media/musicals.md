@@ -1,5 +1,5 @@
 ---
-layout: review-tier
+layout: media-tier
 title: Musicals
 description: Ranking of Musicals
 selected: musical

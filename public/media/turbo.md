@@ -1,5 +1,5 @@
 ---
-layout: review-tier
+layout: media-tier
 title: Turbo FAST Episodes
 description: Ranking Animated Turbo FAST Episodes
 selected: turbo

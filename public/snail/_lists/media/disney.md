@@ -2,7 +2,7 @@
 title: Disney Stuff
 ---
 
-{% assign LINKS = site.reviews %}
+{% assign LINKS = site.media %}
 {% if LINKS %}
 <ul>
 	{% assign LINKS = LINKS | where_exp: "e", "e.path contains 'disney/'" | where: "link", true | sort: 'release' %}
