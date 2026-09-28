@@ -1,6 +1,8 @@
 ---
 date: 2025-02-09
+release: 2019
 quote: Me when the Sommar is Mid
+rank: F
 tags:
   - film
 ---

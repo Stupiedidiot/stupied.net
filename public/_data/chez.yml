@@ -28,11 +28,20 @@
   - title: Donald Duck!
     link: /reviews/donald
 
+  - title: Silly Symphonies
+    link: /reviews/silly
+
   - title: Ace Attorney Games
     link: /reviews/ace-attorney
 
   - title: Turbo FAST Episodes
     link: /reviews/turbo
+
+  - title: Musicals
+    link: /reviews/musicals
+
+  - title: Bookbug
+    link: /bookbug/
 
   - title: All Reviews
     link: /reviews/

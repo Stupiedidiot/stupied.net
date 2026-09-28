@@ -28,7 +28,7 @@ title: Disney Watchlist
 - [X] The Rescuers
 - [ ] The Fox and the Hound
 - [ ] The Black Cauldron
-- [ ] The Great Mouse Detective
+- [x] The Great Mouse Detective
 - [ ] Oliver And Company
 - [X] The Little Mermaid
 - [X] DuckTales the Movie: Treasure of the Lost Lamp

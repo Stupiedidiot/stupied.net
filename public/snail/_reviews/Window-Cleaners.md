@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/IeymF6DwICI
 release: 1940
-rank:
+rank: B
 tags:
   - donald
   - disney

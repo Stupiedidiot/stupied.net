@@ -1,0 +1,28 @@
+filters:
+  and:
+    - file.folder.startsWith("_reviews")
+    - file.ext == "md"
+formulas:
+  thumbnail: image("reviews/img/" + file.name.lower() + ".jpg")
+  Status: if(file.path.contains('/f/'), image("green.png"), image("red.png"))
+  title: if(note.title != null, note.title, file.name.replace("-", " "))
+  ranking: if(note.rank == "S", 0, note.rank)
+properties:
+  formula.Status:
+    displayName: status
+views:
+  - type: cards
+    name: Everything
+    groupBy:
+      property: formula.ranking
+      direction: ASC
+    order:
+      - formula.title
+      - formula.Status
+      - tags
+    sort:
+      - property: release
+        direction: ASC
+    cardSize: 160
+    imageAspectRatio: 1.35
+    image: formula.thumbnail

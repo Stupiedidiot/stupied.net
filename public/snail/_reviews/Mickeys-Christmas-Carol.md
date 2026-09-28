@@ -1,6 +1,6 @@
 ---
 release: 2005
-rank:
+rank: C
 tags:
   - disney
   - film

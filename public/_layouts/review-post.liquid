@@ -18,14 +18,19 @@ category: reviews
                         (<span class="h2 clr-accent-dker">{{ page.release }}</span>)
                     {% endif %}
                 </h1>
-                {% assign rating = page.rank | append: ' Tier'  %}
-                <span class="h3 clr-accent-dk">{{ page.quote | default: rating }}</span>
+                <span class="h3 clr-accent-dk">{{ page.rank | append: ' Tier' }}</span>
 
                 {% if page.done %}
                     <div>
                         <hr>
                         <time datetime="{{ page.date | date_to_xmlschema }}" class="h6">{{ page.date | date: "%B %-d, %Y" }}</time>
                     </div>
+
+                    {% if page.quote %}
+                        <div class="blockquote">
+                            {{ page.quote }}
+                        </div>
+                    {% endif %}
 
                     {{  page.content | markdownify }}
                     {% if page.link %}

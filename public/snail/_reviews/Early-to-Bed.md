@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/yNMnKN3PUqw
 release: 1941
-rank: A
+rank: B
 tags:
   - donald
   - disney

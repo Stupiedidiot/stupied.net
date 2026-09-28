@@ -1,6 +1,6 @@
 ---
 release: 1942
-rank: C
+rank: B
 tags:
   - disney
   - film

@@ -5,6 +5,7 @@ quote: Go Snail Go!! :DD
 tags:
   - dreamworks
   - film
+rank: S
 ---
 Turbo is a Dreamworks feature film about a snail that wants to participate in an automobile race. I hold this film very closely to my heart and it never fails to cheer me up during re-watches. I just love how silly it is, from it's absurd premise down to it's exaggerated character designs. With a runtime of 90 minuets, the film does not overstay it's welcome and is a treat all through out.
 

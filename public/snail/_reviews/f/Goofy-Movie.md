@@ -1,4 +1,5 @@
 ---
+link: https://archive.org/details/goofy-movie_202509/GOOFY_MOVIE.iso
 title: A Goofy Movie
 date: 2025-11-25
 release: 1995

@@ -6,6 +6,7 @@ rank: S
 tags:
   - disney
   - short
+  - silly-symphonies
 ---
 
 This Silly Symphony short has a very special place in my heart.
