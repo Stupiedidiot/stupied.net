@@ -13,7 +13,7 @@ category: reviews
             </legend>
 
             <div>
-                <h1>{{ page.title | split: '(' | first }}
+                <h1>{{ page.title }}
                     {% if  page.release %}
                         (<span class="h2 clr-accent-dker">{{ page.release }}</span>)
                     {% endif %}
@@ -34,7 +34,7 @@ category: reviews
 
                     {{  page.content | markdownify }}
                     {% if page.link %}
-                        <a href="{{ link }}" class="h6">
+                        <a href="{{ page.link }}" class="h6">
                             Watch Now »
                         </a>                    
                     {% endif %}

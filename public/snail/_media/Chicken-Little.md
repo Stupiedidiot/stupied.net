@@ -1,5 +1,5 @@
 ---
-title: Chicken Little (2025)
+title: Chicken Little
 release: 2005
 rank: F
 tags:
