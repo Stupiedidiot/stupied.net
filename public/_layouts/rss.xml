@@ -53,13 +53,16 @@ layout: none
         {{ result | escape }}
       </description>
       
-      <category>{{ item.collection }}</category>
-      
-      {% if item.tags %}
-          {% for tag in tags %}
-            <category>{{ tag }}</category>
-          {% endfor %}
+      {% if page.selected.size == 1 %}
+        {% if item.tags %}
+            {% for tag in item.tags %}
+              <category>{{ tag }}</category>
+            {% endfor %}
+        {% endif %}
+      {% else %}
+        <category>{{ item.collection }}</category>
       {% endif %}
+      
     </item>
     {%- endfor -%}
   </channel>
