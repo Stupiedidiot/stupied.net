@@ -2,13 +2,14 @@
 layout: none
 ---
 const WARNED = localStorage.getItem("warned");
-const THEME = localStorage.getItem("theme");
+const THEME_VER = "theme_v2";
+const THEME = localStorage.getItem(THEME_VER);
 
 if (THEME) {
   themeToggle(THEME);
 }
 
-if (
+if (  
   WARNED != "true" &&
   window.location.pathname != "/meta/warning"
 ) {
@@ -33,16 +34,23 @@ if (
   }
 }
 
+// light+light
 function themeToggle(theme) {
-  let s = theme.split("+");
-  let e = document.querySelector('html')
-  e.dataset.stupiedTheme = s[0];
-
-  localStorage.setItem("theme", s[0]);
-  setGiscusTheme(s[1]);
+  let s = themeSplit(theme); 
+  localStorage.setItem(THEME_VER, theme);
+  themeSet(s[0]);
+  themeSetGiscus(s[1]);
 }
 
-function setGiscusTheme(theme) {
+function themeSplit(str){
+  return str.split("+");  
+}
+
+function themeSet(theme) {
+  document.querySelector('html').dataset.stupiedTheme = theme;
+}
+
+function themeSetGiscus(theme) {
   const iframe = document.querySelector('iframe.giscus-frame');
   if (!iframe) return;
 
@@ -50,7 +58,7 @@ function setGiscusTheme(theme) {
     {
       giscus: {
         setConfig: {
-          theme: theme
+          theme: theme ? theme : "preferred_color_scheme"
         }
       }
     },

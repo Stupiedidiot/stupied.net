@@ -4,10 +4,6 @@
 </noscript>
 
 {% if site.deploying %}
-    {%- if site.url contains 'nekoweb.org'-%}
-        <script>window.location.replace('https://stupied.net' +  window.location.pathname + window.location.search);</script>
-    {%- endif-%}
-
     <script src="https://giscus.app/client.js"
             data-repo="Stupiedidiot/stupied.net"
             data-repo-id="R_kgDOSe1atQ"
@@ -55,9 +51,13 @@
             data-input-position="top"
             data-theme="light"
             data-lang="en"
+            data-loading="lazy"
             crossorigin="anonymous"
             async>
     </script>
 {% endif %}
+<script>
+    document.querySelector('script[src="https://giscus.app/client.js"]')?.setAttribute('data-theme', themeSplit(THEME)[1]);
+</script>
 
 {% include widget/comments-archived.liquid %}

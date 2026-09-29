@@ -1,9 +1,9 @@
 filters:
   and:
-    - file.folder.startsWith("_reviews")
+    - file.folder.startsWith("_media")
     - file.ext == "md"
 formulas:
-  thumbnail: image("reviews/img/" + file.name.lower() + ".jpg")
+  thumbnail: image("media/img/" + file.name.lower() + ".jpg")
   Status: if(file.path.contains('/f/'), image("green.png"), image("red.png"))
   title: if(note.title != null, note.title, file.name.replace("-", " "))
   ranking: if(note.rank == "S", 0, note.rank)
