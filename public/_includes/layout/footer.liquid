@@ -1,5 +1,9 @@
 <footer id="footer" data-nosnippet>
     <nav id="footer_nav">
+        <a href="https://ko-fi.com/stupied" target="_blank" title="Support My Work!" class="float-right doll color-shift">
+            <img src="/meta/img/kofi.webp" alt="">
+        </a>
+
         <div class="newspaper">
             <div>
                 <span class="h5">Hell Yeah</span>
@@ -10,22 +14,6 @@
                                 <span>{{ item.title }}</span>
                                 <span class="dash"></span>
                                 <span class="icon-{{ item.icon }}"></span>
-                            </a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-            <div>
-                <span class="h5">Blog Tags</span>
-                <ul class="toc">
-                    {% assign TAGS = site.tags | sort_tags %}
-                    {% for item in TAGS limit: site.data.nav.footer.size %}
-                        <li>
-                            <a href="/blog/archive?t={{ item | first }}">
-                                <span>{{ item | first }}</span>
-                                <span class="dash"></span>
-                                <span>{{ item | last | size }}</span>
                             </a>
                         </li>
                     {% endfor %}
@@ -53,6 +41,7 @@
         </div>
 
         <hr>
+
         <div id="theme_switcher">
             <label for="themeToggler" class="h6">Theme:</label>
             <select name="themeToggler" id="themeToggler" onchange="themeToggle(this.value)">

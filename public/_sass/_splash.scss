@@ -2,22 +2,6 @@
 @use "sass:list";
 @use "sass:map";
 
-%tooltip {
-    .tooltip > span {
-        display: none!important;
-    }
-}
-
-@each $name, $value in $themes {
-    $filter: map.get($value, 'shift');
-    @if $filter {
-        [data-stupied-theme="#{$name}"] #index_splash {
-            filter: #{$filter};
-            @extend %tooltip;
-        }
-    }
-}
-
 #index_splash {
     #meirl {grid-area: meirl; } 
     #blog { grid-area: blog; } 

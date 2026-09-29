@@ -1,4 +1,6 @@
 @use "vars" as *;
+@use "sass:list";
+@use "sass:map";
 
 // placeholders =======================================
 
@@ -570,6 +572,21 @@ hr.clear {
     > li {
         display: list-item;
         margin-bottom: 0;
+    }
+}
+
+// colors ============================================
+
+:not([data-stupied-theme="light"]) .tooltip > span {
+    display: none!important;
+}
+
+@each $name, $value in $themes {
+    $filter: map.get($value, 'shift');
+    @if $filter {
+        [data-stupied-theme="#{$name}"] .color-shift {
+            filter: #{$filter};
+        }
     }
 }
 
