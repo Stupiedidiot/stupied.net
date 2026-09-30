@@ -7,6 +7,12 @@ universes:
     - psyche
     - evan
     - jay
+    - mary
+    - lily
+    - august
+    - issac
+    - kooky
+    - juan
 
 - title: PMD
   ocs:
@@ -18,6 +24,9 @@ universes:
   ocs:
     - mopsy
     - pepper
+    - kid
+    - judge
+    - pinguin
 
 dos:
 - For profile pictures, collages, or school projects (if you're cringe enough)
@@ -47,15 +56,15 @@ donts:
     <hr>
 
     <h2>My Muses</h2>
-    <p>I make no exaggeration when I say I would of killed myself if it weren't for my OCs. If you ever been unfortunate enough to meet me in real life, I am very likely to be staring blanky into the distance - daydreaming. I find it difficult to experience life as it is and need to disassociate to let the little guys in my head relive my present. They are the subject of the majority of my art and you really ought to get familiar with them!</p>
+    <p>I make no exaggeration when I say I would of killed myself if it weren't for my OCs. If you ever been unfortunate enough to meet me in real life, I am very likely to be staring blanky into the distance - daydreaming. I find it difficult to experience life as it is and need to disassociate to let the little guys in my head relive my present. They are the subject of the majority of my art and you really ought to get familiar with them! Here's a quick rundown of the OCs I draw frequently and/or love very much.</p>
     
-    <div class="newspaper" style="margin-bottom: 1rem;">
+    <div style="margin-bottom: 1rem;">
         {% for universe in page.universes %}
             <fieldset>
                 <legend>
                     <h2>{{ universe.title }}</h2>
                 </legend>
-                <div>
+                <div class="newspaper">
                     {% assign OCS = universe.ocs | get_ocs %}
                     {% include ocs.liquid data=OCS %}
                 </div>
@@ -65,7 +74,6 @@ donts:
 
     <h3>But Wait, There's more!</h3>
     <p><a href="https://wiki.stupied.net">Click Here »</a></p>
-
 
     <hr>
     
