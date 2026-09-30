@@ -1,8 +1,9 @@
 {%- assign DATA = include.data | where_exp: "item", "item.date <= site.time" -%}
 {%- assign limit = include.limit | default: DATA.size -%}
+{%- assign offset = include.offset | default: 0 -%}
 
 <div class="post-feed newspaper">
-    {%- for item in DATA limit:limit -%}
+    {%- for item in DATA offset:offset limit:limit -%}
         {%- assign blog = false -%}
         {%- if item.collection == 'posts' -%}
             {%- assign blog = true -%}
