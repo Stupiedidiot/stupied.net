@@ -34,7 +34,7 @@ module Jekyll
                     if(doc.data['date'])
                         date = doc.data['date'].to_s.split("-")
                         tags << date[0]
-                        tags << Date::MONTHNAMES[date[1].to_i].downcase    
+                        tags << Date::ABBR_MONTHNAMES[date[1].to_i].downcase    
                     end
 
                     split = slug.split("/")
