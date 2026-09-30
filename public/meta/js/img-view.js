@@ -31,8 +31,9 @@ const POST_FOLDER = POST_RELATED.dataset.col;
 const POST_CURR_IDX = parseInt(POST_RELATED.dataset.idx);
 
 const TAGS_FILTER_OUT = [
-  {%- for item in site.data.tags.year %}
-  {{ item | jsonify }},
+  {%- assign DATA = site.data.tags.year | concat: site.data.tags.month -%}
+  {%- for item in DATA %}
+  {{ item | downcase | jsonify }},
   {%- endfor %}
   'ocs',
   'fanart-by-others',

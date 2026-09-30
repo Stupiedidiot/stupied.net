@@ -31,8 +31,11 @@ module Jekyll
                     end
 
                     tags = []
-                    year = doc.data['date']
-                    tags << year.to_s.split("-")[0] if (year)
+                    if(doc.data['date'])
+                        date = doc.data['date'].to_s.split("-")
+                        tags << date[0]
+                        tags << Date::MONTHNAMES[date[1].to_i].downcase    
+                    end
 
                     split = slug.split("/")
                     split.pop
