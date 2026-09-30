@@ -47,7 +47,7 @@
             <select name="themeToggler" id="themeToggler" onchange="themeToggle(this.value)">
                 <option disabled selected>Select theme!</option>
                 {% for item in site.themes %}
-                    <option value="{{ item.id }}+{{ item.type | default: item.id }}">{{ item.id }}</option>
+                    <option value="{{ item.id }}+{{ item.type | default: item.id }}">{{ item.title }}</option>
                 {% endfor %}
             </select>
         </div>
