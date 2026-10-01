@@ -1,6 +1,6 @@
 ---
 layout: media-tier
-title: Musicals
+title: Musicals Tier List
 description: Ranking of Musicals
 selected: musical
 ---

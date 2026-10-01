@@ -1,6 +1,6 @@
 ---
 layout: media-tier
-title: Silly Symphonies
+title: Silly Symphonies Tier List
 description: Ranking of Disney's Silly Symphonies Shorts
 selected: silly-symphonies
 ---

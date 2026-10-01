@@ -43,7 +43,7 @@ yay:
   <div class="newspaper" style="user-select: none;">
     {% for cat in page.yay %}
       <div class="border padded">
-        <img src="./img/{{ cat.title | downcase }}.png" alt="" class="yayy">
+        <img src="./img/{{ cat.title | downcase }}.png" alt="" class="yayy outline">
         <h2><span class="icon-{{ cat.icon }}"></span> {{ cat.title }}</h2>
         {{ cat.text | markdownify }}
 

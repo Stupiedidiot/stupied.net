@@ -577,7 +577,7 @@ hr.clear {
 
 // colors ============================================
 
-:not([data-stupied-theme="light"]) .tooltip > span {
+html:not([data-stupied-theme="light"]) .color-shift .tooltip > span {
     display: none!important;
 }
 
@@ -897,7 +897,7 @@ details.border {
     &-thumbnail {
         img {
             width: 4rem;
-            background-color: var(--color-accent-ltest);
+            background-color: white;
             display: block;
             margin: 0;
 

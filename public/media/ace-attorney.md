@@ -1,6 +1,6 @@
 ---
 layout: media-tier
-title: Ace Attorney Games
+title: Ace Attorney Games Tier List
 description: Ranking Ace Attorney Games
 selected: ace-attorney
 ---
