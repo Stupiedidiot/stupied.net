@@ -46,7 +46,7 @@ TARGET_CURR.href = "./?y=" + DATE_CURRENT.getFullYear() + "&m=" +  DATE_CURRENT.
  
 add_spacing(DATE_SELECTED.getDay());
 
-for (let i = 1; i <= DATE_SELECTED.getDate(); i++) {
+for (let i = 1; i < DATE_SELECTED.getDate(); i++) {
     let el = document.createElement('li');
     el.id = "day-" + i;
 
