@@ -6,6 +6,7 @@ tags:
   - jekyll
   - javascript
 description: Talking about how I went about my Art Archive and its' tag filtering system
+published: false
 ---
 > Many of the things mentioned here are outdated. If you want to read about how my gallery is set up, you may do so [here](/lib/meta/gallery). This blog remains up for archiving purposes.
 

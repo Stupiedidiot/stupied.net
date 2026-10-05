@@ -45,8 +45,27 @@ advice:
     <hr>
 
     <img src="/logs/img/wrote.png" alt="" class="outline">
-    
-    {% include lists/item.html where='tools' %}
+
+{% capture tools %}
+## What Do You Use?
+- Huawei - Matebook D15
+- [Huion - Kamvas 13 (Gen 3)](https://www.huion.com/products/kamvas-13-gen-3)
+- [Huion - Inspoiry RTS 300](https://www.huion.com/products/inspiroy-rts-300)
+
+### Programs
+- [Krita](https://krita.org/en/)
+- [Firefox](https://www.firefox.com/en-US/)
+- [Obsidian](https://obsidian.md/)
+- [Snycthing](https://syncthing.net/)
+- [Windows Powertools](https://learn.microsoft.com/en-us/windows/powertoys/)
+
+### Coding Stuff
+- [VS Codium](https://vscodium.com/)
+- [Jekyll](https://jekyllrb.com/)
+- [Turbo Warp](https://turbowarp.org/)
+{% endcapture %}
+
+    {{ tools | markdownify }}
 
     <hr>
     

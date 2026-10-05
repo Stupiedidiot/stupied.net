@@ -16,13 +16,8 @@ collections:
     sort_by: date
 
   log:
-  garden:
-    output: true
-    permalink: /lib/:category/:name
-    sort_by: index
 
   outlinks:
-  lists:
   media:
     output: true
     permalink: /media/p/:name_raw
@@ -48,11 +43,6 @@ page_gen:
     extension: json
     dir_expr:  "'lib/' + record['id']"
     filter: external
-
-  - data: 'site.data.garden'
-    template: 'garden'
-    name_expr: "'index'"
-    dir_expr:  "'lib/' + record['id']"
   # LIBRARY END
 
 timezone: Asia/Manila

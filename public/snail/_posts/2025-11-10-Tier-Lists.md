@@ -6,6 +6,7 @@ tags:
   - jekyll
   - obsidian
 description: Wanting to watch every single animated Disney media, I figured it be a good idea to make a tier list for them.
+published: false
 ---
 
 It all began in when youtube started recommending me the channel [West of Neverland](https://www.youtube.com/@WestofNeverland/). The videos led me to remember the existence of Ducktales (2017). After re-watching the show I began developing a fascination of Donald Duck. On thing led to another which eventually snowballed into me wanting to watch every single Animated Disney Film and Short. It felt wrong immediately consuming one media after another so I thought it be neat to write my feelings of each piece - maybe even research and learn some obscure Disney history.

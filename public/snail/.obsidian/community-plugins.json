@@ -4,5 +4,7 @@
   "quickadd",
   "nested-frontmatter",
   "calendar-bases",
-  "obsidian-paste-image-rename"
+  "obsidian-paste-image-rename",
+  "hot-reload",
+  "stupied"
 ]

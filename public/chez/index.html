@@ -4,21 +4,22 @@ title: Chez
 description: A page for all my miscellaneous projects
 ---
 
-<article>
-    <div class="padded">
-        <h1>Chez</h1>
-        <p>For all my miscellaneous projects. Generally they are janky and all over the place.</p>
-    </div>
+<article class="padded">
+    <h1>Chez</h1>
+    <p>For all my miscellaneous projects. Generally they are janky and all over the place.</p>
     
-    {%- for category in site.data.chez -%}
-        <section class="padded border-accent border-dashed-top">
-            <h2>{{ category.label }}</h2>
-            {%- assign selected = category | downcase -%}
-            <ul>
-            {%- for item in category.items -%}
-                <li><a href="{{ item.link }}" class="hover-color">{{ item.title }}</a></li>
-            {%- endfor -%}
-            </ul>
-        </section>
-    {%- endfor -%}
+    <div class="newspaper">
+        {%- for category in site.data.chez -%}
+            <fieldset>
+                <legend>
+                    <h2>{{ category.label }}</h2>
+                </legend>
+                <ul>
+                {%- for item in category.items -%}
+                    <li><a href="{{ item.link }}" class="hover-color">{{ item.title }}</a></li>
+                {%- endfor -%}
+                </ul>
+            </fieldset>
+        {%- endfor -%}
+    </div>
 </article>

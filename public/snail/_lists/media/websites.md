@@ -9,7 +9,6 @@ title: Wesbites!!
 - [outerweb](https://outerweb.org/)
 - [✦ 𝗍𝗁𝖾 𝗆𝖾𝗅𝗍 𝗓𝗈𝗇𝖾](https://meltknuckles.net/)
 - [heatherfranzen.com](https://www.heatherfranzen.com/)
-
 [View More »](/outlinks/#button-wall)
 
 ### Portfolios / Miscellaneous

@@ -1,9 +1,7 @@
 ---
 ext: jpg
 date: 2026-09-17T15:06
-title:
 alt:
-extra:
 tags:
   - digital
   - ocs

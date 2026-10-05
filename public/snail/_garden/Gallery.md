@@ -22,7 +22,7 @@ Each art piece is stored in a [markdown](https://en.wikipedia.org/wiki/Markdown)
 - `extra` - additional files to attached to post. 
 - `tags` - used for sorting topics.
 
-Not all of these properties are manually added in; As you will see in a while.
+Not all of these properties are manually added in; Instead I have a scripts that will add in the properties manually. As you will see in a while.
 
 ### Obsidian
 > yap about how I use Quick Add Plugins
