@@ -36,7 +36,7 @@ layout: none
       <description>
         {% capture result %}
             {% if item.thumbnail %}
-              <img src="{{ item.thumbnail | preppend: site.url }}" alt="{{ item.alt | escape }}"/>
+              <img src="{{ item.thumbnail | prepend: site.url }}" alt="{{ item.alt | escape }}"/>
             {% endif %}
 
             {% if item.description %}
