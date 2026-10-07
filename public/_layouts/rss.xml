@@ -39,6 +39,16 @@ layout: none
               <img src="{{ item.thumbnail | prepend: site.url }}" alt="{{ item.alt | escape }}"/>
             {% endif %}
 
+            {% if item.collection == "art" %}
+              {% if item.extra %}
+                {% for extra in item.extra %}
+                  {% assign img = extra.img | default: extra %}
+                  {% assign alt = extra.alt | default: extra %}
+                  <img src="{{ img | prepend: "/art/img/" | prepend: site.url }}" alt="{{ alt | escape }}"/>
+                {% endfor %}
+              {% endif %}
+            {% endif %}
+
             {% if item.description %}
               <blockquote>{{ item.description }}</blockquote>
             {% endif %}
