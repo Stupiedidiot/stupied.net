@@ -33,15 +33,17 @@ category: reviews
                     {% endif %}
 
                     {{  page.content | markdownify }}
-                    {% if page.link %}
-                        <a href="{{ page.link }}" class="h6">
-                            Watch Now »
-                        </a>                    
-                    {% endif %}
+                    
                 {% else %}
                     <p>
                         Still writing my review...  
                     </p>
+                {% endif %}
+
+                {% if page.link %}
+                    <a href="{{ page.link }}" class="h6">
+                        View Now »
+                    </a>                    
                 {% endif %}
             </div>
 
@@ -59,7 +61,7 @@ category: reviews
     
 
     {% assign col = site.media %}
-    {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
+    {% assign info = col | where: 'done', 'true' | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path %}
     {% assign index = info[0] %}
     {% assign prev = info[1] %}
     {% assign next = info[2] %}

@@ -26,3 +26,20 @@ views:
     cardSize: 160
     imageAspectRatio: 1.35
     image: formula.thumbnail
+  - type: calendar
+    name: Calendar
+    groupBy:
+      property: formula.ranking
+      direction: ASC
+    order:
+      - formula.thumbnail
+      - formula.Status
+      - formula.title
+      - tags
+    sort:
+      - property: release
+        direction: ASC
+    cardSize: 160
+    imageAspectRatio: 1.35
+    image: formula.thumbnail
+    startDate: note.date

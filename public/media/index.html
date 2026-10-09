@@ -33,7 +33,7 @@ yapping:
         <div>
             <h2>Recently Logged </h2>
             <div class="justified-gallery">
-                {% assign DATA = site.media | where: 'done', 'true' | reverse %}
+                {% assign DATA = site.media | where: 'done', 'true' | where_exp: "item", "item.date <= site.time" | reverse %}
                 {%- for item in DATA limit:5 -%}
                     <a href="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
                         <img src="{{ item.thumbnail }}" alt="">

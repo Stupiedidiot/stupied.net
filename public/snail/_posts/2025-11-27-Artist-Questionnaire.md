@@ -750,3 +750,4 @@ If you ever get around to answering it, please drop your website below! Honestly
 - [asleepingsunflower.neocities.org](https://asleepingsunflower.neocities.org/art-qna/art-qna)
 - [ordainedmotion.neocities.org](https://ordainedmotion.neocities.org/dir/inner/posts/2026-07-06-Artist-100-Questionaire)
 - [jadeeverstone.com](https://jadeeverstone.com/everlog/posts/2026/100-questions-for-artists)
+- [spearsdracona.com](https://www.spearsdracona.com/blog/2026-04-06-100-questions-for-artists/)

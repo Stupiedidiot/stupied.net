@@ -28,7 +28,12 @@ tiers:
 
             <div class="tier-items justified-gallery w-space">
               {%- for item in selected -%}
-                  <a href="{{ item.url }}" title="{{ item.title }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" class="tier-thumb {%- if item.done -%}{{ " w-review" }}{%- endif -%}">
+                  {% if item.done %}
+                    {% assign url = item.url %}
+                  {% else %}
+                    {% assign url = "#" %}
+                  {% endif %}
+                  <a href="{{ url }}" title="{{ item.title }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};" class="tier-thumb">
                     <img src="{{ item.thumbnail }}" alt="thumbnail for {{ item.title }}" loading="lazy">
                   </a>
               {%- endfor -%}

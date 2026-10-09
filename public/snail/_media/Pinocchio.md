@@ -5,5 +5,6 @@ tags:
   - disney
   - film
 ---
-[ Insert My Review ]
-<!-- Just a kooky old guy and his jackass of a son. -->
+Just a kooky old guy and his jackass of a son.
+
+I love how well animated the waves are. Really fun segment.
