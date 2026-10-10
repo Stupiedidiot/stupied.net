@@ -61,7 +61,7 @@ category: reviews
     
 
     {% assign col = site.media %}
-    {% assign info = col | where: 'done', 'true' | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path %}
+    {% assign info = col | where: 'done', 'true' | getNxtPrv: page.path %}
     {% assign index = info[0] %}
     {% assign prev = info[1] %}
     {% assign next = info[2] %}

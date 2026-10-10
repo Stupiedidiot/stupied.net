@@ -38,10 +38,10 @@ Jekyll::Hooks.register :site, :post_read do |site|
             end
 
             if (doc.data['link'])
-                doc.data['tags'] << "with-video"
+                doc.data['tags'] << "with-link"
             end
 
-            if doc.relative_path.include?("/f/")
+            if doc.relative_path.include?("/f/") and (doc.data['date'] < Time.now)
                 doc.data['done'] = true
                 doc.data['tags'] << "with-commentary"
             end

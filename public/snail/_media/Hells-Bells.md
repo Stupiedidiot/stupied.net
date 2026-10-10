@@ -1,5 +1,5 @@
 ---
-link:
+link: https://youtu.be/vNMxnK8dM9U
 title: Hell's Bells
 release: 1929
 rank: C

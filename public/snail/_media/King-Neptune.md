@@ -1,6 +1,5 @@
 ---
-link:
-title:
+link: https://youtu.be/DyNd1pBAj4M
 release: 1932
 rank: D
 tags:

@@ -1,6 +1,5 @@
 ---
-link:
-title:
+link: https://youtu.be/k59-RnBvxsQ
 release: 1929
 rank: C
 tags:
