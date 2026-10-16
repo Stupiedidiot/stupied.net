@@ -8,7 +8,7 @@
             <div>
                 <span class="h5">Hell Yeah</span>
                 <ul class="toc">
-                    {% for item in site.data.nav.footer %}
+                    {%- for item in site.data.nav.footer -%}
                         <li>
                             <a href="{{ item.link }}">
                                 <span>{{ item.title }}</span>
@@ -16,18 +16,18 @@
                                 <span class="icon-{{ item.icon }}"></span>
                             </a>
                         </li>
-                    {% endfor %}
+                    {%- endfor -%}
                 </ul>
             </div>
 
             <div>
                 <span class="h5">OC Tags</span>
                 <ul class="toc">
-                    {% assign TAGS = site.data.tags.universes %}
-                    {% for item in TAGS limit: site.data.nav.footer.size %}
+                    {%- assign TAGS = site.data.tags.universes -%}
+                    {%- for item in TAGS limit: site.data.nav.footer.size -%}
                         <li>
-                            {% assign tag = item | downcase %}
-                            {% assign max = site.art |  where_exp: 'e', 'e.tags contains tag' | size %}
+                            {%- assign tag = item | downcase -%}
+                            {%- assign max = site.art |  where_exp: 'e', 'e.tags contains tag' | size -%}
 
                             <a href="/art/archive?t={{ tag }}">
                                 <span>{{ tag }}</span>
@@ -35,7 +35,7 @@
                                 <span>{{ max }}</span>
                             </a>
                         </li>
-                    {% endfor %}
+                    {%- endfor -%}
                 </ul>
             </div>
         </div>
@@ -46,9 +46,9 @@
             <label for="themeToggler" class="h6">Theme:</label>
             <select name="themeToggler" id="themeToggler" onchange="themeToggle(this.value)">
                 <option disabled selected>Select theme!</option>
-                {% for item in site.themes %}
+                {%- for item in site.themes -%}
                     <option value="{{ item.id }}+{{ item.type | default: item.id }}">{{ item.title }}</option>
-                {% endfor %}
+                {%- endfor -%}
             </select>
         </div>
     </nav>

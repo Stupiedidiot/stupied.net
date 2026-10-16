@@ -5,20 +5,29 @@
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
 {%- if page.title-%}
-<title>{{ page.title }} » {{ site.title }}</title>
+    <title>{{ page.title }} » {{ site.title }}</title>
 {%- else-%}
-<title>{{ site.title }}</title>
+    <title>{{ site.title }}</title>
 {%- endif -%}
 
-<meta name="description" content="{{ page.description | default: page.desc | default: layout.description | default: site.description | strip_html }}">
+<meta name="description" content="{{ page.description | default: page.desc | default: layout.description | default: site.description | strip_html | escape_once }}">
 
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-<meta property="og:url" content="{{ page.url | absolute_url }}">
-<meta property="og:title" content="{{ page.title | default: site.title }}">
+<link rel="canonical" href="{{ page.url | absolute_url | escape_once }}">
+<meta property="og:url" content="{{ page.url | absolute_url | escape_once }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape_once }}">
+
 {%- if page.thumbnail -%}
-<meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
-{%- endif -%}
+    <meta property="og:image" content="{{ page.thumbnail | absolute_url }}">
 
+    {%- if page.dime -%}
+        <meta property="og:image:width" content="{{ page.dime[0] | escape_once }}" />
+        <meta property="og:image:height" content="{{ page.dime[1] | escape_once }}" />
+    {% endif %}
+
+    {% if page.alt %}
+        <meta property="og:image:alt" content="{{ page.alt | escape_once }}" />
+    {% endif %}
+{%- endif -%}
 
 {%- unless layout.nojs or page.nojs -%}
     <script src="/meta/js/global.js"></script>
@@ -67,10 +76,10 @@
 <meta name="keywords" content="{{ tags | join: ',' }}">
 
 {%- if page.previous.url -%}
-    <link rel="prev" href="{{ page.previous.url | prepend: site.url }}" />
+    <link rel="prev" href="{{ page.previous.url | absolute_url | escape_once }}" />
 {%- endif -%}
 {%- if  page.next.url -%}
-    <link rel="next" href="{{ page.next.url | prepend: site.url }}" />
+    <link rel="next" href="{{ page.next.url | absolute_url | escape_once }}" />
 {%- endif -%}
 
 {%- if layout.category -%}

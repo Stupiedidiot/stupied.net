@@ -1,15 +1,15 @@
 {%- assign DATA = include.data | default: layout.nav -%}
 
-{% if DATA %}
+{%- if DATA -%}
     <ul id="subnav" class="sub">
         {%- for item in DATA offset: include.offset -%}
             <li class="sub-title-{{ item.title | downcase }}">
-                <a 
-                    {% if item.func %} onclick="{{ item.func }}" role="button"
-                    {% else %} href="{{ item.link }}"
-                    {% endif %}
-
-                    title="{{ item.title | downcase }}"
+                <a title="{{ item.title | downcase }}" {{ " " }}
+                    {%- if item.func -%}
+                        onclick="{{ item.func }}" role="button"
+                    {%- else -%}
+                        href="{{ item.link }}"
+                    {%- endif -%}
                 >
                     <span class="icon-{{ item.icon }}"></span>
                     <span class="sub-title">{{ item.title }}</span>
@@ -17,4 +17,4 @@
             </li>
         {%- endfor -%}
     </ul>
-{% endif %}
+{%- endif -%}

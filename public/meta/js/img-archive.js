@@ -43,6 +43,7 @@ async function start() {
 
     let img = document.createElement('img');
     img.dataset.src = FOLDER_IMG + el.img;
+    img.loading = 'lazy';
     img.src = "#";
     link.append(img);
 
