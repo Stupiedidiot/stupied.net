@@ -8,4 +8,4 @@ tags:
   - disney
   - silly-symphonies
 ---
-This short is incredibly uneventful. It's essentially just a bunch of walk cycles. The music is cute though.
+This short is incredibly uneventful. It's essentially just a bunch of walk cycles. The music is cute and the segment where they get drunk is really fun.

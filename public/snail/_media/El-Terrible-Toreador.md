@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/k59-RnBvxsQ
 release: 1929
-rank: C
+rank: D
 tags:
   - short
   - disney

@@ -1,14 +1,10 @@
 ---
 link:
 title:
-release: 19
+release:
 rank:
 tags:
-  - film
-  - show
   - short
-  - comic
-  - book
   - disney
-  - donald
+  - silly-symphonies
 ---

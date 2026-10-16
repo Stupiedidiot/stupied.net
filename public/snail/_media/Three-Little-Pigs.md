@@ -1,7 +1,7 @@
 ---
 link: https://youtu.be/BfNktIhigts
 release: 1933
-rank: B
+rank: A
 tags:
   - disney
   - short

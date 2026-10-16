@@ -6,6 +6,7 @@ tags:
   - digital
   - fanart
   - puyo
+alt: A digital illustration of Raffina and Lidelle from Puyo Pop happily walking together.
 ---
 
 They're so in love and stuff.

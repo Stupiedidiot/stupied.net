@@ -5,5 +5,5 @@ tags:
   - disney
   - short
   - silly-symphonies
-rank: A
+rank: S
 ---

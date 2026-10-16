@@ -1,7 +1,7 @@
 ---
 ext: jpg
 date: 2026-08-20T18:58
-alt:
+alt: A digital doodle of Charmaine winking at the viewer and throwing a peace sign.
 tags:
   - digital
   - ocs
