@@ -197,6 +197,15 @@
   }
 }
 
+.ratio-1-1 {
+    aspect-ratio: 1/1;
+    @extend %object_fit;
+}
+
+%object_fit {
+    object-fit: cover;
+}
+
 hr.clear {
     border: none;
     margin: 0;

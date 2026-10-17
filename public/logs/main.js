@@ -44,7 +44,7 @@ TARGET_CURR.href = "./?y=" + DATE_CURRENT.getFullYear() + "&m=" +  DATE_CURRENT.
 
 // BUILD CALENDAR START
  
-add_spacing(DATE_SELECTED.getDay());
+add_spacing(DATE_SELECTED.getDay() + 1);
 
 for (let i = 1; i < DATE_SELECTED.getDate(); i++) {
     let el = document.createElement('li');

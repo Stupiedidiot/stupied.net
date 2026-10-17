@@ -374,6 +374,27 @@ body.default {
 
 // blog =======================================
 #blog {
+    &_content {
+        p > img, .lb-item {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &_header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+
+        &_img {
+            display: block;
+            width: 100%;
+            max-width: 8rem;
+        }
+        &_info {
+            flex: 2;
+        }
+    }
 }
 
 .sign-off {max-width: 200px;}
