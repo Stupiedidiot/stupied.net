@@ -21,7 +21,6 @@ views:
       direction: DESC
     order:
       - file.name
-      - formula.thumbnail
       - title
       - description
       - tags

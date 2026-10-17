@@ -1,8 +1,8 @@
 ---
-thumbnail: /blog/img/23/pakkapets-1.jpg
 tags:
   - gaming
 ---
+![](/blog/img/23/pakkapets-1.jpg)
 
 Today I remembered Pakka Pets exsisted. I made so much progress I made before my phone died. To lazy to download it again but I do have images from before.
 
