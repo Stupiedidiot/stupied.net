@@ -2,23 +2,14 @@
 layout: blog
 ---
 
-<div class="split right">
-    <main>
-        {% include widget/header-text.liquid %}
+<main>
+    {% include widget/header-text.liquid %}
 
-        <article id="blog_content" class="content">
-            {{ content }}
-            <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
-        </article>
-    </main>
-
-    <div class="split-aside toc-parent hidden">
-        <aside class="split-aside-content">
-            <span class="h4">Table of Contents</span>
-            <ul id="blog_toc" class="newspaper toc-target"></ul>
-        </aside>
-    </div>
-</div>
+    <article id="blog_content" class="content">
+        {{ content }}
+        <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
+    </article>
+</main>
 
 <nav class="border-x border-accent">
   {% assign HOME = '/blog/archive' %}

@@ -361,6 +361,23 @@ hr.clear {
     }
 }
 
+// update this lol
+.toc {
+    &-child {
+        list-style-type: none!important;
+    }
+    &-parent li > ul {
+        padding-left: 1rem;
+    }
+
+    &-target > ul {
+        padding-left: 0;
+        > li {
+            list-style-type: none!important;
+        }
+    }
+}
+
 .sub {
     @extend %nav;
     @extend %graphed;
