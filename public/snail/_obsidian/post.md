@@ -5,13 +5,12 @@ description:
 thumbnail:
 alt:
 tags:
+- micro
 - tech
 - media
 - gaming
 - irl
 - ocs
-- wip
-- meta
-- questionnaires
+- questionnaire
 published: false
 ---

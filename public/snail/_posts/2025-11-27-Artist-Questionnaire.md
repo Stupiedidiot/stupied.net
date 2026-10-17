@@ -1,13 +1,12 @@
 ---
 title: 100 Questions for Artist
 include_path: _includes/2025-Questionnaire.html
+thumbnail: /art/img/25/doodle/Earthquake-Drill.jpg
 description: Created a questionnaire for the funsies!
 tags:
 - questionnaire
 - art
 ---
-![](/art/img/25/doodle/Earthquake-Drill.jpg)
-
 Created a questionnaire for the funsies, you can get the blank [here](/chez/txt/artist.txt). I tried my best to keep the questions art related and not drawing related, if you catch my drift.
 
 <dl>
