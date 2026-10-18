@@ -9,7 +9,7 @@
 {% if include.no_link %}
     {{ img_el }}
 {% else %}
-    <a href="{{ data.thumbnail }}" id="{{ img | slugify }}" title="Open {{ data.title }}">
+    <a href="{{ data.thumbnail }}" id="{{ page.name | slugify }}" title="Open {{ data.title }}">
         {{ img_el }}
     </a>        
 {% endif %}
