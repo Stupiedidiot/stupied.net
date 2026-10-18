@@ -1,57 +1,54 @@
 {% assign OLD = site.data.meta.comments | where_exp: 'e', 'page.url == e.Page' | reverse %}
 {% if OLD.size > 0 %}
-    <details id="c_widget" class="c-widget" data-pagefind-ignore>
+    <details id="c_widget" class="c-widget padded border border-gray" data-pagefind-ignore>
         <summary>View Old Comments</summary>
-        {% for e in OLD %}
-            {% if e.Reply %}
-                {% continue %}
-            {% else %}
-                {% assign replies = OLD | where_exp: 'i', 'i.Reply contains e.Name' | reverse %}
-            {% endif %}
-
-            <div id="{{ e.Name }} |--|{{ e.date | date: "%D/%M/%Y %H:%M:%S" }}" class="c-comment">
-                {% if e.Image %}
-                    <a href="{{ e.Image }}">
-                        <img class="c-img" src="{{ e.Image }}">
-                    </a>
+        <div>
+            {% for e in OLD %}
+                {% if e.Reply %}
+                    {% continue %}
+                {% else %}
+                    {% assign replies = OLD | where_exp: 'i', 'i.Reply contains e.Name' | reverse %}
                 {% endif %}
+                <div id="{{ e.Name }} |--|{{ e.date | date: "%D/%M/%Y %H:%M:%S" }}" class="c-comment">
+                    {% if e.Image %}
+                        <a href="{{ e.Image }}">
+                            <img class="c-img" src="{{ e.Image }}">
+                        </a>
+                    {% endif %}
             
-                <h3 class="c-name">{{ e.Name }} </h3>
-                <span class="c-timestamp">{{ e.date | date: "%D/%M/%Y" }}</span>
-                {% if e.Website %}
-                    <a target="_blank" href="{{ e.Website }}" class="c-site">⇗</a>
-                {% endif %}
-                
-                <div class="c-text">
-                    {{ e.Text | markdownify }}
-                </div>
-
-                {% if replies.size > 0 %}
-                    <details>
-                        <summary>Replies ({{ replies.size }})</summary>
-                        {% for rply in replies %}
-                            <div id="{{ rply.Name }} |--|{{ e.date | date: "%D/%M/%Y %H:%M:%S" }}" class="c-reply">
-                                {% if rply.Image %}
-                                    <img class="c-img" src="{{ rply.Image }}">
-                                {% endif %}
-
-                                <h3 class="c-name">{{ rply.Name }}</h3>
-                                <span class="c-timestamp">{{ rply.date | date: "%d/%m/%Y" }}</span>
-
-                                {% if rply.Website %}
-                                    <a target="_blank" href="{{ rply.Website }}" class="c-site">⇗</a>
-                                {% endif %}
-                                <div class="c-text">
-                                    {{ rply.Text | markdownify }}
+                    <h3 class="c-name">{{ e.Name }} </h3>
+                    <span class="c-timestamp">{{ e.date | date: "%D/%M/%Y" }}</span>
+                    {% if e.Website %}
+                        <a target="_blank" href="{{ e.Website }}" class="c-site">⇗</a>
+                    {% endif %}
+            
+                    <div class="c-text">
+                        {{ e.Text | markdownify }}
+                    </div>
+                    {% if replies.size > 0 %}
+                        <details>
+                            <summary>Replies ({{ replies.size }})</summary>
+                            {% for rply in replies %}
+                                <div id="{{ rply.Name }} |--|{{ e.date | date: "%D/%M/%Y %H:%M:%S" }}" class="c-reply">
+                                    {% if rply.Image %}
+                                        <img class="c-img" src="{{ rply.Image }}">
+                                    {% endif %}
+                                    <h3 class="c-name">{{ rply.Name }}</h3>
+                                    <span class="c-timestamp">{{ rply.date | date: "%d/%m/%Y" }}</span>
+                                    {% if rply.Website %}
+                                        <a target="_blank" href="{{ rply.Website }}" class="c-site">⇗</a>
+                                    {% endif %}
+                                    <div class="c-text">
+                                        {{ rply.Text | markdownify }}
+                                    </div>
                                 </div>
-                            </div>
-                        {% endfor %}
-                    </details>    
-                {% endif %}
-                
-            </div>
-
-        {% endfor %}
+                            {% endfor %}
+                        </details>
+                    {% endif %}
+            
+                </div>
+            {% endfor %}
+        </div>
         <p id="giscus_temp">Hello, had to change comment system to avoid spam..! You can comment on my <a href="https://neocities.org/site/stupied">Neocities Profile</a> instead.</p>
 
     </details>

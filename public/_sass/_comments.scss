@@ -15,10 +15,11 @@
   overflow: hidden;
   font-family: var(--font-body);
   color: var(--color-text);
+  margin-top: 1rem;
 }
 
-#c_widget details[open] summary {
-  margin-bottom: 0.5rem;
+#c_widget details[open] > summary {
+  margin-bottom: 1.5rem!important;
 }
 
 #c_widget button,

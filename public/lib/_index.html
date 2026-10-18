@@ -3,7 +3,6 @@
 {% capture css %}
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@100..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barriecito&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
 #comicContainer .item-container {
     .psych {
@@ -22,51 +21,6 @@
         }
         .item-desc{margin-left:0.5rem;}
         .item-link{margin-left:1rem;}
-    }
-
-    .muse {
-        --yellow:#efe4b0;
-        --light-pink:#edb18b;
-        --pink:#ed4d46;
-        color: black;
-        background-color: var(--yellow);
-        background-size: 20px 20px;
-        background-image: 
-        repeating-linear-gradient(0deg, var(--light-pink), var(--light-pink) 2px, var(--yellow) 2px, var(--yellow));
-
-        .item-thumb{
-            flex:0;
-            position: relative;
-            img {
-                position: absolute;
-                max-width: unset;
-                width:5rem;
-                height: auto;
-                z-index:1;
-                transform: scale(130%) rotate(-15deg) translateX(-10%);
-                filter: drop-shadow(1px 0 0 var(--yellow)) drop-shadow(-1px 0 0 var(--yellow)) drop-shadow(0 1px 0 var(--yellow)) drop-shadow(0 -1px 0 var(--yellow));
-            }
-        }
-
-        .item-side > div {
-            padding:0.5rem;
-        }
-
-        .item-title > * {
-            color:white;
-            background-color:var(--pink);
-            padding:8px;
-            margin-bottom:0.5rem;
-            padding-left:5rem;
-        }
-        .item-desc{
-            margin-left:5rem;
-            margin-right:0.5rem;
-        }
-        .item-link{
-            margin-left:5.5rem;
-            color:var(--pink);
-        }
     }
 
     .askal {

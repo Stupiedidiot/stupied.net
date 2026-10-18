@@ -22,7 +22,7 @@
 
             {%- if item.thumbnail -%}
                 <div class="post-feed-thumbnail">
-                    <img src="{{ item.thumbnail }}" alt="{{ item.alt | escape }}" data-link="{{ item.url }}"
+                    <img src="{{ item.thumbnail }}" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
                         {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
                     >
                 </div>    

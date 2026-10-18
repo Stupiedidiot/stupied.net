@@ -7,7 +7,7 @@ layout: blog
 
     <article id="blog_content" class="content">
         {{ content }}
-        <img src="img/sign-off.png" alt="Stupied was Here" class="sign-off">
+        <hr class="clear">
     </article>
 </main>
 
@@ -19,4 +19,10 @@ layout: blog
 
 <div id="blog_comments" class="padded">
   {% include widget/giscus.html category="Blog" %}
+</div>
+
+<div class="item-tags border-gray border-dashed-top padded">
+    {%- for tag in page.tags -%}
+        <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
+    {%- endfor -%}
 </div>

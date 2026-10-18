@@ -1,0 +1,21 @@
+---
+layout: page
+title: muse ariadne
+---
+
+<article class="padded">
+    <h1>{{ page.title }}</h1>
+    <p>My enrties for a <a href="https://museariadne.neocities.org/">digital writing club</a>.Uhhhh will make this prettier, pinky promise..!</p>
+    
+    {% assign DATA = site.posts | where_exp: 'e', 'e.tags contains "muse-ariadne"' | sort_by: "name" | reverse %}
+
+    <ul>
+        {% for item in DATA %}
+        <li>
+            <a href="{{ item.url }}" title="Read {{ item.title }}">
+                <span class="h6">{{ item.name | slice: 0, 10 }} »</span>
+                {{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</article>
