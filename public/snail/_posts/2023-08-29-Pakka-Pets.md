@@ -14,7 +14,7 @@ Today I remembered Pakka Pets exsisted. I made so much progress I made before my
 
 She was my favorite one. What a silly guy.
 
-![](img/23/pakkapets-5.jpg)
+![](/blog/img/23/pakkapets-5.jpg)
 
 Kids playing in a park (gone wrong)
 
@@ -36,19 +36,19 @@ Bullying people in annymous gossip forms, are we? Naughty-naughty clown!
 
 Wassup man, check out these neat flowers I found! What's that? You're allergic to these? Oh no! Get out! WHat are you doing???? D:
 
-![](img/23/pakkapets-12.jpg)
+![](/blog/img/23/pakkapets-12.jpg)
 
 My honest reaction to that information
 
-![](img/23/pakkapets-13.jpg)
+![](/blog/img/23/pakkapets-13.jpg)
 
 Is-- is that a duplicant!!?!??!
 
-![](img/23/pakkapets-14.jpg)
+![](/blog/img/23/pakkapets-14.jpg)
 
 Yipppeee New friend :D
 
-![](img/23/pakkapets-15.jpg)
+![](/blog/img/23/pakkapets-15.jpg)
 
 uuhhmm...
 
