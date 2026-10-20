@@ -1,3 +1,4 @@
+timezone: Asia/Manila
 url: "https://stupied.net"
 title: "stupied stuff!"
 description: "Website for Stupied's stupid stuff"
@@ -15,6 +16,9 @@ themes:
 - id: mii
   type: light
   title: That's Mii
+- id: gray
+  type: light
+  title: So Sad, So Lovely
 
 # Build settings
 source: public

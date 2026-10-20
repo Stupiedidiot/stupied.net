@@ -20,9 +20,13 @@
                     </div>    
                 {%- endif -%}
 
+                {%- capture link -%}
+                    href="{{ item.url }}" title="View {{ item.title }}"
+                {%- endcapture -%}
+
                 <div class="post-feed-info">
                     <h1>
-                        <a href="{{ item.url }}">
+                        <a {{ link }}>
                             {{ item.title }}    
                         </a>
                     </h1>
@@ -44,7 +48,7 @@
                         </p>
                     {%- endif -%}
                     
-                    <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
+                    <a {{ link }} class="h5 clr-accent-lt" ><span class="icon-star"></span> View Full »</a>
                 </div>
             </div>
 

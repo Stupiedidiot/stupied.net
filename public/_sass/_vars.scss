@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "sass:color" as *;
+@use "sass:color";
 
 // mixins ================================
 
@@ -29,13 +29,13 @@ $themes: (
     colors: (
       text: black,
       body: white,
-      accent-ltest: mix(color(blue), white, 20%),
-      accent-lter: mix(color(blue), white, 50%),
-      accent-lt: mix(color(blue), white, 80%),
+      accent-ltest: color.mix(color(blue), white, 20%),
+      accent-lter: color.mix(color(blue), white, 50%),
+      accent-lt: color.mix(color(blue), white, 80%),
       accent: color(blue),
-      accent-dk: mix(color(blue), black, 90%, lab),
-      accent-dker: mix(color(blue), black, 60%, lab),
-      accent-dkest: mix(color(blue), black, 30%, lab),
+      accent-dk: color.mix(color(blue), black, 90%, lab),
+      accent-dker: color.mix(color(blue), black, 60%, lab),
+      accent-dkest: color.mix(color(blue), black, 30%, lab),
 
       gray: gray,
       gray-lt: rgb(167, 167, 167)
@@ -49,13 +49,13 @@ $themes: (
     colors: (
       text: white,
       body: #0f0f0e,
-      accent-ltest: mix(color(blue), black, 30%),
-      accent-lter: mix(color(blue), black, 40%),
-      accent-lt: mix(color(blue), black, 80%),
-      accent: mix(color(blue), black, 90%),
-      accent-dk: mix(color(blue), white, 90%, lab),
-      accent-dker: mix(color(blue), white, 50%, lab),
-      accent-dkest: mix(color(blue), white, 20%, lab)
+      accent-ltest: color.mix(color(blue), black, 30%),
+      accent-lter: color.mix(color(blue), black, 40%),
+      accent-lt: color.mix(color(blue), black, 80%),
+      accent: color.mix(color(blue), black, 90%),
+      accent-dk: color.mix(color(blue), white, 90%, lab),
+      accent-dker: color.mix(color(blue), white, 50%, lab),
+      accent-dkest: color.mix(color(blue), white, 20%, lab)
     ),
     shift: brightness(90%)
   ),
@@ -63,30 +63,41 @@ $themes: (
     colors: (
       text: white,
       body: #0f0f0e,
-      accent-ltest: mix(color(red), black, 30%),
-      accent-lter: mix(color(red), black, 60%),
-      accent-lt: mix(color(red), black, 90%),
+      accent-ltest: color.mix(color(red), black, 30%),
+      accent-lter: color.mix(color(red), black, 60%),
+      accent-lt: color.mix(color(red), black, 90%),
       accent: color(red),
-      accent-dk: mix(color(red), white, 80%, lab),
-      accent-dker: mix(color(red), white, 60%, lab),
-      accent-dkest: mix(color(red), white, 30%, lab)
+      accent-dk: color.mix(color(red), white, 80%, lab),
+      accent-dker: color.mix(color(red), white, 60%, lab),
+      accent-dkest: color.mix(color(red), white, 30%, lab)
     ),
     shift: hue-rotate(170deg) brightness(90%)
   ),
   mii: (
     colors: (
-      accent-ltest: mix(color(yellow), white, 20%),
-      accent-lter: mix(color(yellow), white, 40%),
-      accent-lt: mix(color(yellow), white, 80%),
+      accent-ltest: color.mix(color(yellow), white, 20%),
+      accent-lter: color.mix(color(yellow), white, 40%),
+      accent-lt: color.mix(color(yellow), white, 80%),
       accent: color(yellow),
-      accent-dk: mix(color(yellow), black, 90%, lab),
-      accent-dker: mix(color(yellow), black, 60%, lab),
-      accent-dkest: mix(color(yellow), black, 30%, lab),
+      accent-dk: color.mix(color(yellow), black, 90%, lab),
+      accent-dker: color.mix(color(yellow), black, 60%, lab),
+      accent-dkest: color.mix(color(yellow), black, 30%, lab),
     ),
     shift: hue-rotate(200deg)
+  ),
+  gray: (
+    colors: (
+      accent-ltest: color.mix(gray, white, 20%),
+      accent-lter: color.mix(gray, white, 40%),
+      accent-lt: color.mix(gray, white, 80%),
+      accent: gray,
+      accent-dk: color.mix(gray, black, 90%, lab),
+      accent-dker: color.mix(gray, black, 60%, lab),
+      accent-dkest: color.mix(gray, black, 30%, lab),
+    ),
+    shift: saturate(0)
   )
 );
-
 
 // font sizes =============================
 
