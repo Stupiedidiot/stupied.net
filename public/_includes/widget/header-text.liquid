@@ -4,11 +4,13 @@
 <header class="padded">
         
     <div class="border border-gray">
-        <div id="blog_header" class="padded">
-            {% if page.thumbnail %}
-                <img src="{{ page.thumbnail }}" alt="{{ page.alt }}" id="blog_header_img" class="border ratio-1-1">
-            {% endif %}
-            <div id="blog_header_info">
+        <div class="post-feed-flex padded">
+            <div class="post-feed-thumbnail">
+                {% if page.thumbnail %}
+                    <img src="{{ page.thumbnail }}" alt="{{ page.alt }}" class="border ratio-1-1">
+                {% endif %}
+            </div>
+            <div class="post-feed-info">
                 <h1>{{ page.title }}</h1>
                 <time class="h4 clr-accent-dk" datetime="{{ page.date | date_to_xmlschema }}">
                     {{ page.date | date: "%B %-d, %Y" }}

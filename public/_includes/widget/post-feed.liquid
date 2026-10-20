@@ -2,56 +2,53 @@
 {%- assign limit = include.limit | default: DATA.size -%}
 {%- assign offset = include.offset | default: 0 -%}
 
-<div class="post-feed newspaper">
+<script src="/meta/js/lightbox.js" defer></script>
+<div class="post-feed">
     {%- for item in DATA offset:offset limit:limit -%}
         {%- assign blog = false -%}
         {%- if item.collection == 'posts' -%}
             {%- assign blog = true -%}
         {%- endif -%}
 
-        <div class="post-feed-item" id="{{ forloop.index }}">
-            <a href="{{ item.url }}" class="post-feed-header padded">
-                <div class="post-feed-pfp">
-                    <img src="/home/img/{{ item.collection }}.jpg" alt="">
-                </div>
+        <div class="post-feed-item border border-gray tag-filter {{ item.tags | join: " " }}" id="{{ forloop.index }}">
+            <div class="post-feed-flex padded">
+                {%- if item.thumbnail -%}
+                    <div class="post-feed-thumbnail">
+                        <img src="{{ item.thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
+                            {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
+                        >
+                    </div>    
+                {%- endif -%}
 
-                <div class="post-feed-title">
-                    <span class="h2">{{ item.title }}</span>
-                </div>
-            </a>
-
-            {%- if item.thumbnail -%}
-                <div class="post-feed-thumbnail">
-                    <img src="{{ item.thumbnail }}" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
-                        {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
-                    >
-                </div>    
-            {%- endif -%}
-            
-
-            <div class="post-feed-desc padded">
-                <div class="post-feed-time">
-                    <time datetime="{{ item.date | date_to_xmlschema }}" class="h3">
-                        {{ item.date | date: "%B %-d, %Y" }}
-                    </time>
-                </div>
-
-                {%- if item.description -%}
-                    <div class="blockquote">
-                        {{ item.description | markdownify }}
+                <div class="post-feed-info">
+                    <h1>
+                        <a href="{{ item.url }}">
+                            {{ item.title }}    
+                        </a>
+                    </h1>
+                    <div class="post-feed-time">
+                        <time datetime="{{ item.date | date_to_xmlschema }}" class="h6 clr-gray">
+                            {{ item.date | date: "%B %-d, %Y" }}
+                        </time>
                     </div>
-                {%- endif -%}
 
-                {%- if item.w_comment or blog -%}
-                    <p>
-                        {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
-                    </p>
-                {%- endif -%}
-                
-                <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
+                    {%- if item.description -%}
+                        <div class="blockquote">
+                            {{ item.description | markdownify }}
+                        </div>
+                    {%- endif -%}
+
+                    {%- if item.w_comment or blog -%}
+                        <p>
+                            {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
+                        </p>
+                    {%- endif -%}
+                    
+                    <a href="{{ item.url }}" class="h5 clr-accent-lt">View Full »</a>
+                </div>
             </div>
 
-            <div class="item-tags border-dashed-top padded">
+            <div class="item-tags border-dashed-top border-gray padded">
                 {%- if blog -%}
                     {%- for tag in item.tags -%}
                         <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>

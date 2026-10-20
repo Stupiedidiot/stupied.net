@@ -34,10 +34,6 @@ for (let i = 0; i < images.length; i++) {
   result.style.setProperty("--height", images[i].style.getPropertyValue("--height"));
   result.setAttribute("onclick", 'openImg(' + i + ')');
 
-  if (e = images[i].className) { 
-    result.className = e;
-    images[i].className = '';
-  }
   result.classList.add("lb-item");
 
   if (images[i].dataset.link)

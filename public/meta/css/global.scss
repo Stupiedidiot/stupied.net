@@ -7,7 +7,6 @@ layout: none
 @use "classes";
 @use "lightbox";
 @use "codeblocks";
-@use "comments";
 @use "fonts";
 @use "icons";
 
@@ -379,24 +378,6 @@ body.default {
             margin-bottom: 1rem;
         }
     }
-
-    &_header {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem;
-
-        &_img {
-            display: block;
-            width: 100%;
-            max-width: 8rem;
-            border-radius: 4px;
-        }
-        &_info {
-            flex: 2;
-            min-width: 75%;
-        }
-    }
 }
 
 .sign-off {max-width: 200px;}
@@ -500,11 +481,6 @@ body.default {
 // comic ======================================
 
 #comic {
-    img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
 }
 
 // reviews ====================================

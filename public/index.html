@@ -1,9 +1,5 @@
 ---
 layout: page
-
-js:
-- /meta/js/lightbox.js
-
 css:
 - /meta/css/index.css
 ---
@@ -12,7 +8,7 @@ css:
     {%- include splash.html -%}
 </header>
 
-{%- assign limit = 4 -%}
+{%- assign limit = 3 -%}
 {%- assign FEED = site.post | where: 'thumbnail', true | concat: site.art | sort: 'date' | reverse -%}
 {%- assign PINNED = FEED | where: 'pinned', true -%}
 
@@ -47,7 +43,6 @@ css:
 
     <div class="padded border-accent border-dashed-top">
         <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
-        <!-- remember to remove this lol -->
         {% include widget/post-feed.liquid data=FEED limit=limit %}
     </div>
     <ul class="sub border-accent border-dashed-top">

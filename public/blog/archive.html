@@ -22,9 +22,10 @@ title: Blog Archive
         {% for year in DATA %}
             <div class="padded border-accent border-dashed-top">
                 <h2>{{ year.name }}</h2>
-                {% include widget/grid-archive.liquid data=year.items %}
+                {% include widget/post-feed.liquid data=year.items %}
             </div>
         {% endfor %}
+        
     {% endif %}
 
 </article>

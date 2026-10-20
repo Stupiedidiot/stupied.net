@@ -618,38 +618,6 @@ html:not([data-stupied-theme="light"]) .color-shift .tooltip > span {
 
 // post feed =========================================
 
-%archive {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 2px solid;
-    background-color: var(--color-body);
-    color: var(--color-text);
-    user-select: none;
-}
-
-%archive_header {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--color-text);
-    gap: 0.8rem;
-}
-
-
-%archive_thumb {
-    border-bottom: 1px solid var(--color-text);
-    overflow: hidden;
-
-    img {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 70vh;
-        object-fit: cover;
-        object-position: center;
-        transition: 0.2s;
-    }
-}
 
 %archive_tags {
     display: flex;
@@ -665,98 +633,47 @@ html:not([data-stupied-theme="light"]) .color-shift .tooltip > span {
 
 
 .post-feed {
-    column-width: 340px;
-
-    .no-col & {
-        column-width: unset;
-    }
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
 
     &-item {
-        @extend %archive;
+        border-radius: 4px;
     }
 
-    &-header {
-        @extend %archive_header;
-
-        &:hover {
-            color: var(--color-accent);
-        }
-    }
-
-    &-pfp {
-        img {
-            border: 1px solid var(--color-text);
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            width: 2rem;
-        }
-    }
-
-    &-title {
-        flex: 1;
-        display: block;
-        &, h2 {
-            min-width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+    &-flex {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        @include max(){
+            flex-wrap: wrap;
         }
     }
 
     &-thumbnail {
-        @extend %archive_thumb; 
-
-        &:hover img {
-            transform: scale(105%);
-        }
-    }
-}
-
-
-.item-tags {
-    @extend %archive_tags;
-}
-
-.grid-archive {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-
-    &-item {
-        @extend %archive;
-        transition: 0.2s;
-        min-width: 280px;
-        flex: 45%;
-
-        a {
+        flex: 0 0 8rem;
+        img {
+            width: 100%;
             display: block;
+            height: auto;
+            border-radius: 4px;
         }
 
         &:hover {
+            img {
                 outline: 3px solid var(--color-accent);
-                img {
-                    transform: scale(105%);
             }
         }
     }
 
-    &-content {
-        display: grid;
-        grid-template-rows: 1fr auto;
-        height: 100%;
+    &-info {
+        flex: 1;
+        min-width: 75%
     }
+}
 
-    &-title {
-        @extend %archive_header;
-    }
-
-    &-thumbnail {
-        @extend %archive_thumb; 
-        img {
-            max-height: unset;
-            aspect-ratio: 2/1;
-        }
-    }
+.item-tags {
+    @extend %archive_tags;
 }
 
 // delete in future ===================================
