@@ -8,8 +8,7 @@ css:
     {%- include splash.html -%}
 </header>
 
-{%- assign limit = 3 -%}
-{%- assign FEED = site.post | where: 'thumbnail', true | concat: site.art | sort: 'date' | reverse -%}
+{%- assign FEED = site.post | where_exp: 'e', 'e.thumbnail' | concat: site.art | sort: "date" | reverse -%}
 {%- assign PINNED = FEED | where: 'pinned', true -%}
 
 <article class="padded">
@@ -43,7 +42,7 @@ css:
 
     <div class="padded border-accent border-dashed-top">
         <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
-        {% include widget/post-feed.liquid data=FEED limit=limit %}
+        {% include widget/post-feed.liquid data=FEED limit=3 %}
     </div>
     <ul class="sub border-accent border-dashed-top">
         <li>

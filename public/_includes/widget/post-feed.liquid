@@ -52,17 +52,19 @@
                 </div>
             </div>
 
-            <div class="item-tags border-dashed-top border-gray padded">
-                {%- if blog -%}
-                    {%- for tag in item.tags -%}
-                        <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
-                    {%- endfor -%}
-                {%- else -%}
-                    {%- for tag in item.tags -%}
-                        <a href="/{{ item.collection }}/archive?t={{ tag }}" class="button">{{ tag }}</a>
-                    {%- endfor -%}
-                {%- endif -%}
-            </div>
+            {% if item.tags.size != 0 %}
+                <div class="item-tags border-dashed-top border-gray padded">
+                    {%- if blog -%}
+                        {%- for tag in item.tags -%}
+                            <a href="/blog/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                        {%- endfor -%}
+                    {%- else -%}
+                        {%- for tag in item.tags -%}
+                            <a href="/{{ item.collection }}/archive?t={{ tag }}" class="button">{{ tag }}</a>
+                        {%- endfor -%}
+                    {%- endif -%}
+                </div>    
+            {% endif %}
         </div>
     {%- endfor -%}
 </div>

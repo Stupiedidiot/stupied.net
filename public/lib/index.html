@@ -6,17 +6,15 @@ title: Library
 <article>
     <div class="padded">
         <h1>{{ page.title }}</h1>
-        <p>Sometimes I find the courage to write. Comics is a medium I hold quite dearly in my heart. Hoping for the day to create something that can actually do that love justice. Until then have this assortment of comics I've made through out the years.</p>
-    </div>
-
-    <div class="padded">
-        <p>[ Insert featured comics and what not ]</p>
+        <p>Okayy like, still in the process of polishing this section so it will look weird and stuff</p>
     </div>
 
     <div class="padded border-accent border-dashed-top">
         <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
-        {%- assign stories = site.posts | where: 'e', 'e.tags contains ' -%}
-        {%- assign FEED = site.art | where: 'cat', true | concat: stories |  sort_by: date |reverse -%}
-        {% include widget/post-feed.liquid data=FEED limit=5 %}
+        {%- assign stories = site.posts | where_exp: 'e', 'e.tags contains "short-story"' -%}
+
+        {%- assign FEED = site.art | where_exp: 'e', 'e.category' | concat: stories | sort: "date" | reverse -%}
+
+        {% include widget/post-feed.liquid data=FEED limit=10 %}
     </div>
 </article>

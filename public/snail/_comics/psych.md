@@ -1,5 +1,6 @@
 ---
 title: Psych!
+date: 2024-09-13
 description: Being a psychic sucks actually.
 extenal: https://psych.stupied.net/
 ---

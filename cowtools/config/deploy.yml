@@ -15,6 +15,11 @@ collections:
     permalink: /mii/p/:path
     sort_by: date
 
+  comics:
+    output: true
+    permalink: /lib/:slug/index
+    sort_by: date
+
   log:
 
   outlinks:

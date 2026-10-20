@@ -119,13 +119,13 @@ lib:
     link: /lib/
     
   - title: Comics
-    icon: photo 
+    icon: book-reference 
     link: /lib/comics
 
   - title: Writings
-    icon: book-reference
-    func: /lib/comics
+    icon: compose
+    link: /lib/writings
 
   - title: Random
     icon: shuffle
-    func: randomArt('media')
+    func: randomArt('lib')

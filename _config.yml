@@ -71,6 +71,18 @@ defaults:
     values:
       layout: img-view
   
+  # LIBRARY ======================
+
+  - scope:
+      path: lib/
+    values:
+      layout: library
+  
+  - scope:
+      type: comics
+    values:
+      layout: library-view
+  
   # REVIEWS ======================
 
   - scope:

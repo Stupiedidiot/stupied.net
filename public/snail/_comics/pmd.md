@@ -1,5 +1,6 @@
 ---
 title: "PMD: Spirits of the Lake"
+date: 2024-07-26
 description: OC comics loosely based on the Pokemon Dungeon Games
 extenal: https://psych.stupied.net/
 ---

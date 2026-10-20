@@ -1,0 +1,119 @@
+---
+layout: library
+
+nav:
+  - title: Home
+    icon: home
+    link: "./"
+    
+  - title: Archive
+    icon: inbox-full
+    link: "./archive"
+
+  - title: Library
+    icon: inbox-full
+    link: /lib/
+        
+---
+
+<script src="/meta/js/comics.js" data-src="/lib/{{ page.id }}/main.json" defer></script>
+
+{% capture nextprev %}
+    <li>
+      <a id="nextprev_prev" href="#" title="View Previous Month">
+          <span class="icon-arrow-thin-left"></span>
+          <span>Prev</span>
+      </a>
+    </li>
+
+    <li>
+      <a id="nextprev_prev" href="#" title="View Previous Month">
+          <span class="icon-chat"></span>    
+          <span>Comment</span>
+      </a>
+    </li>
+
+    <li>
+      <a id="nextprev_next" href="#" title="View Next Month">
+          <span>Next</span>
+          <span class="icon-arrow-thin-right"></span>
+      </a>
+    </li>
+{% endcapture %}
+
+{% capture info %}
+    {% if page.description %}
+        <div class="blockquote">
+            {{ page.description | markdownify }}
+        </div>
+
+        {{ page.content | markdownify }}
+
+        {% if page.external %}
+            <p>
+                <a href="{{ page.external }}">External Website »</a>
+            </p>
+        {% endif %}
+    {% endif %}
+{% endcapture %}
+
+{% include widget/header-text.liquid content=info %}
+
+{% assign DATA = site.art | where: 'category', page.slug %}
+
+{% if DATA.size > 1 %}
+<nav class="padded">
+    <h2>Table of Contents</h2>
+    <ul class="toc">
+        {% for item in DATA %}
+            <li>
+                <a href="#{{ item.name | slugify }}">
+                    <span class="font-display">{{ item.title }}</span>
+                    <span class="dash"></span>
+                    <span>{{ item.date | date: "%Y-%m-%d" }}</span>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+
+<div id="comic">
+    {% for item in DATA %}
+        <article id="{{ item.name | slugify }}">
+            <div class="padded border-accent border-top">
+                <h2>{{ item.title }}</h2>
+                <time class="h4 clr-accent" datetime="{{ item.date | date_to_xmlschema }}">
+                    <span>{{ item.date | date: "%B %-d, %Y" }}</span>
+                </time>
+            </div>
+
+            <div class="border-dashed-top">
+                {% include art/write-imgs.liquid data=item %}
+            </div>
+
+            {% if item.w_comment %}
+                <section id="comic_note" class="padded border-accent border-top">
+                    <h3>Author's Note</h3>
+                    {{ item.content }}
+                </section>
+            {% endif %}
+            
+            <div>
+                <ul class="sub border-accent border-dashed-top">
+                    <li>
+                        <a href="{{ item.url }}#art_comment" title="Comment on {{ item.title }}">
+                            <span class="icon-chat"></span>
+                            <span>Comment</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </article>    
+    {% endfor %}
+</div>
+
+{% comment %} <ul class="sub border-top border-accent">
+  {{ nextprev }}
+</ul> {% endcomment %}
