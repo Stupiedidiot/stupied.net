@@ -30,21 +30,6 @@ exclude:
 plugins:
   - jekyll-minifier
 
-page_gen:
-  # LIBRARY START
-  - data: 'site.data.comics'
-    template: 'library'
-    name_expr: "'index'"
-    dir_expr:  "'lib/' + record['id']"
-
-  - data: 'site.data.comics'
-    template: 'library-ext'
-    name_expr: "'ext'"
-    extension: json
-    dir_expr:  "'lib/' + record['id']"
-    filter: external
-  # LIBRARY END
-
 timezone: Asia/Manila
 deploying: true
 

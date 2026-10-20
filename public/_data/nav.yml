@@ -112,3 +112,20 @@ media:
   - title: Random
     icon: shuffle
     func: randomArt('media')
+
+lib:
+  - title: Home
+    icon: home
+    link: /lib/
+    
+  - title: Comics
+    icon: photo 
+    link: /lib/comics
+
+  - title: Writings
+    icon: book-reference
+    func: /lib/comics
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('media')
