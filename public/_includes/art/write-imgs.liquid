@@ -2,9 +2,9 @@
 {% assign collection = data.collection %}
 {% assign dime_path = 'snail/_img/' | append: collection | append: '/img/' %}
 
-{% capture img_el %}
+{%- capture img_el -%}
     <img src="{{ data.thumbnail }}" alt="{{ data.alt | escape }}" width="{{ data.dime[0] }}" height="{{ data.dime[1] }}" data-pagefind-meta="image[src]">
-{% endcapture %}
+{%- endcapture -%}
 
 {% if include.no_link %}
     {{ img_el }}
@@ -17,9 +17,9 @@
 {% unless include.no_extra %}
     {% for e in data.extra %}
         {% assign img = e.img | default: e %}
-        {% capture extra_path %}
+        {%- capture extra_path -%}
             /{{ collection }}/img/{{ img }}
-        {% endcapture %}
+        {%- endcapture -%}
         
         {% assign dime = img | getDime: dime_path %}
         {% assign title = img | split: '/' | last | replace: '-', ' ' %}

@@ -18,7 +18,7 @@ nav:
 
 <script src="/meta/js/comics.js" data-src="/lib/{{ page.id }}/main.json" defer></script>
 
-{% capture nextprev %}
+{%- capture nextprev -%}
     <li>
       <a id="nextprev_prev" href="#" title="View Previous Month">
           <span class="icon-arrow-thin-left"></span>
@@ -39,10 +39,18 @@ nav:
           <span class="icon-arrow-thin-right"></span>
       </a>
     </li>
-{% endcapture %}
+{%- endcapture -%}
 
-{% capture info %}
+{%- capture thumbnail -%}
+    <img src="{{ page.thumbnail }}" alt="Thumbnail for {{ page.title }}" class="border ratio-1-1">
+{%- endcapture -%}
+
+{%- capture info -%}
     {% if page.description %}
+        <h1>
+            {{ page.title }}
+        </h1>
+        
         <div class="blockquote">
             {{ page.description | markdownify }}
         </div>
@@ -55,9 +63,14 @@ nav:
             </p>
         {% endif %}
     {% endif %}
-{% endcapture %}
+{%- endcapture -%}
 
-{% include widget/header-text.liquid content=info %}
+<header class="padded">
+    {% include widget/box.liquid
+        thumbnail = thumbnail
+        info = info
+    %}
+</header>
 
 {% assign DATA = site.art | where: 'category', page.slug %}
 

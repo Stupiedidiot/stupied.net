@@ -2,17 +2,8 @@
 layout: blog
 ---
 
-{% capture info %}
-<time class="h4 clr-accent-dk" datetime="{{ page.date | date_to_xmlschema }}">
-    {{ page.date | date: "%B %-d, %Y" }}
-</time>
-{% if page.description %}
-    {{ page.description | markdownify }}
-{% endif %}
-{% endcapture %}
-
 <main>
-    {% include widget/header-text.liquid content=info%}
+    {% include blog/header.liquid %}
 
     <article id="blog_content" class="content">
         {{ content }}

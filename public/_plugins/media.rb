@@ -8,7 +8,7 @@ Jekyll::Hooks.register :media, :post_init do |doc|
 end
 
 Jekyll::Hooks.register :site, :post_read do |site|
-    docs = site.collections['media']
+    docs = site.collections['media'].docs
     folder = "/media/img/"
     placeholder = "placeholder.png"
 

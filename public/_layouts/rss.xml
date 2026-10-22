@@ -34,7 +34,7 @@ layout: none
       <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
       <description>
-        {% capture result %}
+        {%- capture result -%}
             {% if item.thumbnail %}
               <img src="{{ item.thumbnail | prepend: site.url }}" alt="{{ item.alt | escape }}"/>
             {% endif %}
@@ -59,7 +59,7 @@ layout: none
             {% else %}
               {{ item.content | markdownify }}
             {% endif %}
-        {% endcapture %}
+        {%- endcapture -%}
         {{ result | escape }}
       </description>
       

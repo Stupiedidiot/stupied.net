@@ -13,7 +13,7 @@ document.head.append(prefetched)
 </script>
 
 <style>
-{% capture css %}
+{%- capture css -%}
 @use "vars" as *;
 
 #meirl {
@@ -68,7 +68,7 @@ document.head.append(prefetched)
         transform: translateY(-1rem);
     }
 }
-{% endcapture %}
+{%- endcapture -%}
 
 {{ css | scssify }}
 </style>

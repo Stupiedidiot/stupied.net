@@ -10,48 +10,46 @@
             {%- assign blog = true -%}
         {%- endif -%}
 
-        <div class="post-feed-item border border-gray tag-filter {{ item.tags | join: " " }}" id="{{ forloop.index }}">
-            <div class="post-feed-flex padded">
-                {%- if item.thumbnail -%}
-                    <div class="post-feed-thumbnail">
-                        <img src="{{ item.thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
-                            {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
-                        >
-                    </div>    
-                {%- endif -%}
+        {%- capture link -%}
+            href="{{ item.url }}" title="View {{ item.title }}"
+        {%- endcapture -%}
 
-                {%- capture link -%}
-                    href="{{ item.url }}" title="View {{ item.title }}"
-                {%- endcapture -%}
+        {%- capture thumbnail %}
+            {%- if item.thumbnail -%}
+                <img src="{{ item.thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
+                    {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
+                >    
+            {%- endif -%}
+        {%- endcapture -%}
 
-                <div class="post-feed-info">
-                    <h1>
-                        <a {{ link }}>
-                            {{ item.title }}    
-                        </a>
-                    </h1>
-                    <div class="post-feed-time">
-                        <time datetime="{{ item.date | date_to_xmlschema }}" class="h6 clr-gray">
-                            {{ item.date | date: "%B %-d, %Y" }}
-                        </time>
-                    </div>
+        {%- capture info -%}
+            <h2>
+                <a {{ link }}>{{ item.title }}</a>
+            </h2>
 
-                    {%- if item.description -%}
-                        <div class="blockquote">
-                            {{ item.description | markdownify }}
-                        </div>
-                    {%- endif -%}
-
-                    {%- if item.w_comment or blog -%}
-                        <p>
-                            {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
-                        </p>
-                    {%- endif -%}
-                    
-                    <a {{ link }} class="h5 clr-accent-lt" ><span class="icon-star"></span> View Full »</a>
-                </div>
+            <div class="post-feed-time">
+                <time datetime="{{ item.date | date_to_xmlschema }}" class="h6 clr-gray">
+                    {{ item.date | date: "%B %-d, %Y" }}
+                </time>
             </div>
+            
 
+            {%- if item.description -%}
+                <div class="blockquote">
+                    {{ item.description | markdownify }}
+                </div>
+            {%- endif -%}
+
+            {%- if item.w_comment or blog -%}
+                <p>
+                    {{ item.content | markdownify | strip_html | truncatewords: 50, '...' }}
+                </p>
+            {%- endif -%}
+            
+            <a {{ link }} class="h5 clr-accent-lt" ><span class="icon-star"></span> View Full »</a>
+        {%- endcapture -%}
+
+        {%- capture after -%}
             {% if item.tags.size != 0 %}
                 <div class="item-tags border-dashed-top border-gray padded">
                     {%- if blog -%}
@@ -65,6 +63,12 @@
                     {%- endif -%}
                 </div>    
             {% endif %}
-        </div>
+        {%- endcapture -%}
+
+        {% include widget/box.liquid
+            thumbnail = thumbnail 
+            info = info
+            after = after
+        %}
     {%- endfor -%}
 </div>

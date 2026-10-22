@@ -1,5 +1,5 @@
 <style>
-{% capture scss %}
+{%- capture scss -%}
 :root {
     --yellow: #ffcb67;
     --orange: #ec7239;
@@ -114,6 +114,6 @@ aside {
     > div { margin-bottom: 2rem; }
 }
 
-{% endcapture %}
+{%- endcapture -%}
 {{ scss | scssify }}
 </style>

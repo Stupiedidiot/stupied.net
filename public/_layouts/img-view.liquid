@@ -20,9 +20,9 @@ js:
 </div>
 
 <nav id="art_nextprev" class="border-accent border-x">
-    {% capture HOME %}
+    {%- capture HOME -%}
         /{{ page.collection }}/archive
-    {% endcapture %}
+    {%- endcapture -%}
     {% assign DATA = site[page.collection] | where_exp: "item", "item.date <= site.time" %}
     
     {% include widget/nextprev.liquid data=DATA home=HOME %}

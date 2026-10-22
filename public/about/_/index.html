@@ -1,5 +1,5 @@
 <style>
-{% capture css %}
+{%- capture css -%}
 :root {
     --dark-brown: #1d1515;
     --brown: #615651;
@@ -89,6 +89,6 @@
 #list a:hover {
     font-weight: bold;
 }
-{% endcapture %}
+{%- endcapture -%}
 {{ css | scssify }}
 </style>

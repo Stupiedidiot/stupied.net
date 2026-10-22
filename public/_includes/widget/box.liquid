@@ -1,0 +1,23 @@
+<div class="border border-gray
+    {%- if include.tags -%}
+        {{  " tag-filter " }} {{ include.tags | join: " " }}
+    {%- endif -%}    
+">
+
+    <div class="post-feed-flex padded">
+        {% assign thumbnail = include.thumbnail | strip %}    
+        {% if thumbnail != "" %}
+            <div class="post-feed-thumbnail">
+                {{ include.thumbnail }}
+            </div>
+        {% endif %}
+
+        <div class="post-feed-info">
+            {{ include.info }}                
+        </div>
+    </div>
+
+    {% if include.after %}
+        {{ include.after }}
+    {% endif %}
+</div>

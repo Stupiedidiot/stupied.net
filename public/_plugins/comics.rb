@@ -3,7 +3,6 @@ Jekyll::Hooks.register :site, :post_read do |site|
     art = site.collections['art'].docs.reverse_each
     folder = "/lib/img/"
     
-    puts site.time
     if docs
         docs.each do |doc|
             doc.data['thumbnail'] = folder + doc['slug'] + ".png"

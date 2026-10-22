@@ -1,0 +1,41 @@
+{%- assign DATA = include.data -%}
+{%- assign limit = include.limit | default: DATA.size -%}
+{%- assign offset = include.offset | default: 0 -%}
+
+<div class="post-feed">
+    {%- for item in DATA offset:offset limit:limit -%}
+        {%- capture link -%}
+            href="{{ item.url }}" title="View {{ item.title }}"
+        {%- endcapture -%}
+
+        {%- capture thumbnail -%}
+            <img src="{{ item.thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" loading="lazy">
+        {%- endcapture -%}
+
+        {%- capture info -%}
+            <h2>
+                <a {{ link }}>{{ item.title }}</a>
+            </h2>
+
+            {%- if item.description -%}
+                {{ item.description | markdownify }}
+            {%- endif -%}
+            
+            <a {{ link }} class="h5 clr-accent-lt" ><span class="icon-star"></span> Read Now »</a>
+        {%- endcapture -%}
+
+        {%- capture after -%}
+            <div class="padded border-dashed-top border-gray">
+                <time datetime="{{ item.date | date_to_xmlschema }}" class="clr-gray">
+                    <span class="h6">Last Update » </span> {{ item.date | date: "%B %-d, %Y" }}
+                </time>
+            </div>
+        {%- endcapture -%}
+
+        {% include widget/box.liquid
+            thumbnail = thumbnail 
+            info = info
+            after = after
+        %}
+    {%- endfor -%}
+</div>

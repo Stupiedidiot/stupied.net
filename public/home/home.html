@@ -1,7 +1,5 @@
 ---
 layout: page
-js:
-- /meta/js/lightbox.js
 
 pagination: 
     enabled: true
@@ -15,7 +13,7 @@ pagination:
     permalink: '/:num/'
 ---
 
-{% capture nextprev %}  
+{%- capture nextprev -%}  
     {% if paginator.previous_page %}
         <li>
             <a id="nextprev_prev" href="{{ paginator.previous_page_path | prepend: site.baseurl }}" title="View Previous Page">
@@ -48,7 +46,7 @@ pagination:
             </a>
         </li>
     {% endif %}
-{% endcapture %}
+{%- endcapture -%}
 
 {% if paginator.total_pages > 1 %}
     <ul class="sub border-accent border-dashed-bottom">
