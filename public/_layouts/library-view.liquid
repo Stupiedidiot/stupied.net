@@ -16,25 +16,24 @@ nav:
         
 ---
 
-<script src="/meta/js/comics.js" data-src="/lib/{{ page.id }}/main.json" defer></script>
-
+<script src="/meta/js/comics.js" data-src="{{ page.json }}" defer></script>
 {%- capture nextprev -%}
     <li>
-      <a id="nextprev_prev" href="#" title="View Previous Month">
+      <a id="nextprev_prev" href="#" title="View Previous Comic">
           <span class="icon-arrow-thin-left"></span>
           <span>Prev</span>
       </a>
     </li>
 
     <li>
-      <a id="nextprev_prev" href="#" title="View Previous Month">
+      <a id="nextprev_comment" href="#" title="Comment on comic">
           <span class="icon-chat"></span>    
           <span>Comment</span>
       </a>
     </li>
 
     <li>
-      <a id="nextprev_next" href="#" title="View Next Month">
+      <a id="nextprev_next" href="#" title="View Next Comic">
           <span>Next</span>
           <span class="icon-arrow-thin-right"></span>
       </a>
@@ -65,68 +64,39 @@ nav:
     {% endif %}
 {%- endcapture -%}
 
+{%- capture toc -%}
+<nav id="nextprev_archive" class="border-dashed-top border-gray padded hidden">
+    <details close>
+        <summary><span class="h6">Archive</span></summary>
+        <div>
+            <ul></ul>
+        </div>
+    </details>
+</nav>
+{%- endcapture -%}
+
+
+
 <header class="padded">
     {% include widget/box.liquid
         thumbnail = thumbnail
         info = info
+        after = toc 
     %}
 </header>
 
-{% assign DATA = site.art | where: 'category', page.slug %}
-
-{% if DATA.size > 1 %}
-<nav class="padded">
-    <h2>Table of Contents</h2>
-    <ul class="toc">
-        {% for item in DATA %}
-            <li>
-                <a href="#{{ item.name | slugify }}">
-                    <span class="font-display">{{ item.title }}</span>
-                    <span class="dash"></span>
-                    <span>{{ item.date | date: "%Y-%m-%d" }}</span>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
-{% endif %}
-
-<div id="comic">
-    {% for item in DATA %}
-        <article id="{{ item.name | slugify }}">
-            <div class="padded border-accent border-top">
-                <h2>{{ item.title }}</h2>
-                <time class="h4 clr-accent" datetime="{{ item.date | date_to_xmlschema }}">
-                    <span>{{ item.date | date: "%B %-d, %Y" }}</span>
-                </time>
-            </div>
-
-            <div class="border-dashed-top">
-                {% include art/write-imgs.liquid data=item %}
-            </div>
-
-            {% if item.w_comment %}
-                <section id="comic_note" class="padded border-accent border-top">
-                    <h3>Author's Note</h3>
-                    {{ item.content }}
-                </section>
-            {% endif %}
-            
-            <div>
-                <ul class="sub border-accent border-dashed-top">
-                    <li>
-                        <a href="{{ item.url }}#art_comment" title="Comment on {{ item.title }}">
-                            <span class="icon-chat"></span>
-                            <span>Comment</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-        </article>    
-    {% endfor %}
+<div class="padded border-top border-gray" style="margin-top: 1rem;">
+    <h2 id="comic_title"></h2>
+    {% comment %} insert comic date here. {% endcomment %}
 </div>
 
-{% comment %} <ul class="sub border-top border-accent">
+<div id="comic" class="border-dashed-top border-gray"></div>
+
+<div class="padded hidden border-dashed-top border-gray">
+    <h3>Author's Notes</h3>
+    <div id="comic_notes"></div>
+</div>
+
+<ul class="sub border-top border-accent">
   {{ nextprev }}
-</ul> {% endcomment %}
+</ul>
