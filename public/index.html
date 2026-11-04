@@ -8,7 +8,7 @@ css:
     {%- include splash.html -%}
 </header>
 
-{%- assign FEED = site.post | where_exp: 'e', 'e.thumbnail' | concat: site.art | sort: "date" | reverse -%}
+{%- assign FEED = site.posts | concat: site.art | sort: 'date' | reverse -%}
 {%- assign PINNED = FEED | where: 'pinned', true -%}
 
 <article class="padded">
