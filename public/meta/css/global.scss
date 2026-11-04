@@ -433,51 +433,6 @@ body.default {
 {% endfor %}
 {display: block;}
 
-.tagged-list {
-    h2 {
-        display: inline-block;
-        span {
-            color: white;
-        }
-    }
-    
-    details {
-        border: 1px solid;
-        margin-bottom: 0.5rem;
-
-        > summary {
-            background-color: var(--color-accent);
-            padding: 0.3rem;
-        }
-
-        &[open] {
-            > summary {
-                border-bottom: 1px solid;
-            }
-            
-            > div {
-                padding: 0.8rem;
-            }
-        }
-
-        ul {
-            padding-left: 0;
-            margin-left: 0;
-            list-style-position: inside;
-
-            span {
-                font-weight: bold;
-                color: gray;
-                background-color: rgb(235, 235, 235);
-                margin-bottom: 0.5rem;
-                border-radius: 1rem;
-                border: 0;
-            }
-        }
-    }
-}
-
-
 // comic ======================================
 
 // temp pls remove in future...!

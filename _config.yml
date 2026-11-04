@@ -102,11 +102,6 @@ defaults:
     values:
       layout: garden-view
 
-  - scope:
-      path: comic/*/
-    values:
-      layout: comic
-
 # Paginate  
 pagination:
   enabled: true

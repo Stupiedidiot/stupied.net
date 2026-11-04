@@ -6,6 +6,9 @@
 
 {% assign DATA = DATA | where_exp: "item", "item.date <= site.time" %}
 
+
+{% if include.hash %}
+{% else %}
 [
 {%- for item in DATA -%}
     {% if item.dime[0] == 0 %}
@@ -52,3 +55,4 @@
     {%- unless forloop.last -%},{%- endunless -%}
 {%- endfor -%}
 ]
+{% endif %}
