@@ -1,7 +1,7 @@
 var categories = [
-    "crafted",
-    "wrote",
-    "played"
+    "c", // crafted
+    "w", // wrote
+    "p" // played
 ]
 
 const TARGET = document.getElementById("log_target");
@@ -35,7 +35,7 @@ if (QUERY.searchParams.has('m')){
     month = DATE_CURRENT.getMonth();;
 }
 
-const DATE_SELECTED = new Date(year, month , 0);
+const DATE_SELECTED = new Date(year, month + 1, 0);
 document.querySelector('h1').textContent = months[month] + " " + year; 
 TARGET_NEXT.href = "./?y=" + ((month == 11)? (year + 1) : year) + "&m=" + ((month + 1) % 12);
 TARGET_PREV.href = "./?y=" + ((month == 0)? (year - 1) : year) + "&m=" + ((month == 0)? 11 : (month - 1));
@@ -43,10 +43,11 @@ TARGET_CURR.href = "./?y=" + DATE_CURRENT.getFullYear() + "&m=" +  DATE_CURRENT.
 
 
 // BUILD CALENDAR START
- 
-add_spacing(DATE_SELECTED.getDay() + 1);
+if(DATE_SELECTED.getDay() != 6){
+    add_spacing(DATE_SELECTED.getDay() + 1);
+}
 
-for (let i = 1; i < DATE_SELECTED.getDate(); i++) {
+for (let i = 1; i <= DATE_SELECTED.getDate(); i++) {
     let el = document.createElement('li');
     el.id = "day-" + i;
 
@@ -65,22 +66,23 @@ if (ctr % 7 !== 0){
 fetch("main.json")
     .then((response) => response.json())
     .then((data) => {
+
         var link = document.createElement('button');
         link.className = 'calendar-link';
         link.role = 'button';
 
         let idx = 0;
 
-        if (data[year] && data[year][month + 1]){
-            days = data[year][month + 1];
+        if (data[year] && data[year][month]){
+            days = data[year][month];
             for(const day of days){
                 let tar = document.getElementById("day-" + day.day);
                 
-                if(day.text){
+                if(day.txt){
                     let el = link.cloneNode(true);
                     el.setAttribute('onclick', 'viewDay(' + (idx++) + '); toggleModal();');
-                    el.dataset.text = day.text;
-                    el.dataset.day = day.date;
+                    el.dataset.txt = day.txt;
+                    el.dataset.day = months[month] + " " + day.day + ", "+ year;
                     tar.append(el);
                 }
 
@@ -94,7 +96,7 @@ fetch("main.json")
                 }
             }
         }
-        micro = TARGET.querySelectorAll("[data-text]");
+        micro = TARGET.querySelectorAll("[data-txt]");
     }
 )
 
@@ -114,7 +116,7 @@ function add_to_cal(el){
 function viewDay(i) {
     let self = micro[i];
     TARGET_HEAD.textContent = self.dataset.day;
-    TARGET_TEXT.innerHTML = self.dataset.text;
+    TARGET_TEXT.innerHTML = self.dataset.txt;
 
     let next = (i + 1) % micro.length;
     let prev = ((i - 1 + micro.length)) % micro.length;

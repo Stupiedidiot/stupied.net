@@ -9,27 +9,25 @@ layout: none
             "{{ year.name }}": {
                 {% assign months = year.items | group_by_exp: "e", "e.date | date: '%-m'" %}
                 {% for month in months %}
-                    "{{ month.name }}": [
+                    "{{ month.name | minus: 1 }}": [
                         {% for day in month.items %}
                             {
-                                "date": {{ day.date | date: '%B %-d, %Y' | jsonify }},
-                                "day": {{ day.date | date: '%-d' | jsonify }},
-                                "url": {{ day.url | jsonify }}
+                                "day": {{ day.date | date: '%-d' | jsonify }}
                                 {% if day.drawing or day.crochet %}
-                                    ,"crafted": true
+                                    ,"c": true
                                 {% endif %}
 
                                 {% if day.code or day.text or day.notes %}
-                                    ,"wrote": true
+                                    ,"w": true
                                 {% endif %}
 
                                 {% if day.read or day.piano or day.exe %}
-                                    ,"played": true
+                                    ,"p": true
                                 {% endif %}
 
                                 {% assign test = day.content | strip %}
                                 {% if test != ""  %}
-                                    ,"text": {{ day.content | jsonify }}
+                                    ,"txt": {{ day.content | jsonify }}
                                 {% endif %}
                             }
                             {%- unless forloop.last -%},{%- endunless -%}
