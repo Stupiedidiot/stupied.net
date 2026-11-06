@@ -1,14 +1,14 @@
 module StupiedComics
     Jekyll::Hooks.register :site, :post_read do |site|
-        docs = site.collections['comics'].docs
-        art = site.collections['art'].docs
+        docs = site.collections['comics']
+        art = site.collections['art']
         folder = "/lib/img/"
         json = 'main.json'
         
-        if docs
-            docs.each do |doc|
+        if docs && art
+            docs.docs.each do |doc|
                 doc.data['thumbnail'] = folder + doc['slug'] + ".png"
-                docs_rel = art.select { |e| e.data['category'] == doc['slug'] && e.data['date'] < site.time }
+                docs_rel = art.docs.select { |e| e.data['category'] == doc['slug'] && e.data['date'] < site.time }
 
                 if(docs_rel[-1])
                     doc.data['date'] = docs_rel[-1].data['date']
@@ -23,8 +23,9 @@ module StupiedComics
 
                 doc.data['json'] = page.url
             end
+            
+            docs.sort_by! { |doc| doc.date }
         end
 
-        docs.sort_by! { |doc| doc.date }
     end
 end

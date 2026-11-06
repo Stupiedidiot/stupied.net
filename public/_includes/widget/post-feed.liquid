@@ -3,7 +3,7 @@
 {%- assign offset = include.offset | default: 0 -%}
 
 <script src="/meta/js/lightbox.js" defer></script>
-<div class="post-feed">
+<div class="post-feed" data-nosnippet>
     {%- for item in DATA offset:offset limit:limit -%}
         {%- assign blog = false -%}
         {%- if item.collection == 'posts' -%}

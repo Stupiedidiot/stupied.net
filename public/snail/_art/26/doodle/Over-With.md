@@ -9,5 +9,6 @@ tags:
   - issac
   - psych
   - sona
+  - mspaint
 ---
 MS Paint doodle made during our class to introduce ourselves.
