@@ -1,0 +1,11 @@
+---
+release: 2026
+date: 2026-11-05T16:43
+rank: F
+tags:
+  - film
+  - dreamworks
+---
+The trailers sparked very little confidence. Was really worried about the characters having a quirky chungus personalities which is why I planned to ignore this film. But people in r/FilmClubPH subreddit kept insisting it was good and so I went into it with an open heart. Unfortunately my initial predictions of the films was correct. This movie leaves very little room to breathe and is incredibly overstimulating. It has such a bloated cast with very little time to get acquainted with them. So many of the jokes didn't land. Pretty sure the only time the theatre genuinely laughed out loud was when the Lola was yelling at her neighbour. Every other joke was met with very awkward chuckles. For a film that's supposedly catering to Pinoys, it did not do a good job at nailing our humor. Hell, the way it depicts our culture in general isn't any better. It is incredibly heavy handed and shallow with characters randomly name dropping foods. Like loook guysss lechon!! you know *lechon*???? and ***karaoke***!!! Hey, did know this film is based in the ***Philippines***??? Did you? ***Did you???*** 
+
+It's a shame especially since the concept of this film is wonderful. Jo and Raissa's fallout feels natural and I appreciate it's message of moving forward in life. But it does not excuse having such a hyperactive and mind numbing execution. Strangely the intro of the film made me feel nostalgic. The dialogue was so clunky that it reminded me of the comics I'd write back in Junior High. Additionally, the tiny little chibis that would pop in and out is really reminiscent to the stuff I'd doodle a kid. For that reason, I feel a bit of a cringe induced endearment to this film. Raughhh,,,, I wanted to like this film but it just sucks so much ass. Can't believe a feature length film about the Philippines has to have a faggot furry bait as one of the main characters. Mark my words, I will get stupidly rich from AI and fund an animation studio here in Cebu!!!!!!!!!! I refuse to let this shit ass film be the staple of animated Pinoy media.
