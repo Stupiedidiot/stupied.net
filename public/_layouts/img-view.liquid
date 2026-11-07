@@ -23,9 +23,11 @@ js:
     {%- capture HOME -%}
         /{{ page.collection }}/archive
     {%- endcapture -%}
-    {% assign DATA = site[page.collection] | where_exp: "item", "item.date <= site.time" %}
-    
-    {% include widget/nextprev.liquid data=DATA home=HOME %}
+    {% assign DATA = site[page.collection] | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path %}
+    {% assign prev = DATA[1] %}
+    {% assign next = DATA[2] %}
+
+    {% include widget/nextprev.liquid prev=prev next=next home=HOME %}
 </nav>
 
 <div id="art_container" class="split">
