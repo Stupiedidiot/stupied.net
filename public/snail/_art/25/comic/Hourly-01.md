@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date: 2025-01-01
+date: 2025-02-01
 title: Hourly Comic 2025
 extra:
   - img: 25/comic/Hourly-00.jpg

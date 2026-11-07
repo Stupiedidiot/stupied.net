@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date: 2025-01-01
+date: 2025-04-25
 tags:
 - digital
 - ocs

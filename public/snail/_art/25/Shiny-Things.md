@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date: 2025-06-05
+date: 2025-06-07
 tags:
 - digital
 - fanart

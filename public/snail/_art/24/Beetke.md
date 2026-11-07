@@ -1,6 +1,6 @@
 ---
 ext: jpg
-date: 2024-01-01
+date: 2024-06-09
 title: Beetke's Windmill
 
 tags:
