@@ -129,3 +129,16 @@ lib:
   - title: Random
     icon: shuffle
     func: randomArt('lib')
+
+wrap:
+  - title: Home
+    icon: home
+    link: /wrap/
+
+  - title: Archive
+    icon: inbox-full
+    link: /wrap/archive
+
+  - title: Random
+    icon: shuffle
+    func: randomArt('wrap')

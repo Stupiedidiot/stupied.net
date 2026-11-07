@@ -78,6 +78,9 @@
   items: 
   - title: Habit Tracker
     link: /logs/
+  
+  - title: Monthly Wrapped
+    link: /wrap/
 
   - title: Calculator
     link: /chez/calc/

@@ -1,0 +1,50 @@
+---
+layout: wrap
+
+js:
+- /meta/js/lightbox.js
+---
+
+<article>
+    <div class="padded">
+        <h1>{{ page.title }}</h1>
+        {{ page.content | markdownify }}
+    </div>
+
+    <div data-nosnippet data-pagefind-ignore>
+        {% if page.data.art %}
+            <div class="padded border-dashed-top border-gray">
+                <h2><span class="icon-camera"></span> Art Added</h2>
+                {% assign data = page.data.art %}
+                <div class="justified-gallery w-space lightbox-targets">
+                    {% include widget/justified-gallery.liquid data=data %}
+                </div>
+            </div>    
+        {% endif %}
+        
+
+        {% if page.data.posts %}
+            <div class="padded border-dashed-top border-gray">
+                <h2><span class="icon-chat"></span> Posts Written </h2>
+                {% include widget/post-feed.liquid data=page.data.posts %}
+            </div>    
+        {% endif %}
+        
+        {% if page.data.media %}
+            <div class="padded border-dashed-top border-gray">
+                <h2><span class="icon-film"></span> Media Logged</h2>
+                {% include widget/post-feed.liquid data=page.data.media %}
+            </div>
+        {% endif %}
+
+        {% assign next = page.index | plus: 1 %}
+        {% assign next = site.data.wrap[next] %}
+        
+        {% if page.index != 0 %}
+            {% assign prev = page.index | minus: 1 %}
+            {% assign prev = site.data.wrap[prev] %}
+        {% endif %}
+
+        {% include widget/nextprev.liquid next=next prev=prev %}
+    </div>
+</article>

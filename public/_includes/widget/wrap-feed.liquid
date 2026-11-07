@@ -1,0 +1,48 @@
+{% if site.data.wrap %}
+    <div class="post-feed hover-color" data-nosnippet data-pagefind-ignore>
+    {% assign limit = include.limit | default: site.data.wrap.size %}
+    {% assign data = site.data.wrap | reverse %}
+
+    {% for item in data limit:limit %}
+        {%- capture link -%}
+            href="{{ item.url }}" title="View {{ item.title }}"
+        {%- endcapture -%}
+
+        {% capture thumbnail %}
+            <img src="{{ item.data.art[0].thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
+                {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
+            >
+        {% endcapture %}
+
+        {% capture info %}
+            <a {{ link }} class="hover">
+                <h2>
+                    {{ item.title }}
+                </h2>
+
+                <ul class="clr-gray">
+                    {% if item.data.art %}
+                        <li>
+                            {{ item.data.art.size }} art added
+                        </li>    
+                    {% endif %}
+
+                    {% if item.data.posts %}
+                        <li>
+                            {{ item.data.posts.size }} posts written
+                        </li>    
+                    {% endif %}
+
+                    {% if item.data.media %}
+                        <li>
+                            {{ item.data.media.size }} media logged
+                        </li>
+                    {% endif %}
+                </ul>
+            </a>
+        {% endcapture %}
+
+        {% include widget/box.liquid thumbnail=thumbnail info=info %}
+    {% endfor %}
+    </div>
+{% endif %}

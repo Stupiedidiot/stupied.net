@@ -2,7 +2,6 @@
 {%- assign limit = include.limit | default: DATA.size -%}
 {%- assign offset = include.offset | default: 0 -%}
 
-<script src="/meta/js/lightbox.js" defer></script>
 <div class="post-feed" data-nosnippet data-pagefind-ignore>
     {%- for item in DATA offset:offset limit:limit -%}
         {%- assign blog = false -%}
@@ -18,7 +17,7 @@
             {%- if item.thumbnail -%}
                 <img src="{{ item.thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
                     {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
-                >    
+                >
             {%- endif -%}
         {%- endcapture -%}
 

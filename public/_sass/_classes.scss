@@ -212,6 +212,10 @@ hr.clear {
     clear: both;
 }
 
+hr.hide {
+    opacity: 0;
+}
+
 .hidden {
     display: none!important;
 }

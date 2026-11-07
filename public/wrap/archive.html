@@ -1,0 +1,29 @@
+---
+layout: wrap
+title: Monthly Wrapped Archive
+---
+
+<div class="padded" data-nosnippet data-pagefind-ignore>
+    <h1>{{ page.title }}</h1>
+
+    {% if site.data.wrap %}
+        <div class="newspaper">
+          {% assign DATA = site.data.wrap | group_by_exp: "e", "e.date | date: '%Y'" | reverse %}
+          
+          {% for year in DATA %}
+            <fieldset>
+              <legend>
+                <h2>{{ year.name }}</h2>
+              </legend>
+              <div>
+                <ul>
+                  {% for month in year.items %}
+                      <li><a href="{{ month.url }}">{{ month.date | date: '%B' }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </fieldset>
+          {% endfor %}
+        </div>
+    {% endif %}
+</div>

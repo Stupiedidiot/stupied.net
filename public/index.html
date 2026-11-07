@@ -2,6 +2,9 @@
 layout: page
 css:
 - /meta/css/index.css
+
+js:
+- /meta/js/lightbox.js
 ---
 
 <header class="padded">
@@ -13,26 +16,16 @@ css:
 
 <article class="padded">
     <h1><span class="icon-grin"></span> Welcome Aboard!</h1>
-    <blockquote>
-        <p>This website serves as an archive of all my art and writings! I love it to absolute bits and will forever be in a work in progress :]</p>
-    </blockquote>
-
-    <fieldset>
-        <legend>
-            <h2>On Hiatus?</h2>
-        </legend>
-        <div>
-            <p>
-                <strong class="clr-accent-dk">2026/08/16 » </strong> Trying to focus on school! But if you see me update, it's because my impulsivity won. Just expect slower responses and the possibility of me disappearing suddenly lol. Sorry if all the art being uploading is really lame. It's all I can muster up right now {{ "</3" | escape }}
-            </p>
-        </div>
-    </fieldset>
+    <div class="blockquote">
+        <p>This website serves as an archive of all my art and writings! It is the first place to get updated with my work. I love it to absolute bits and it will forever be in a work in progress <span class="display: inline-block">(❁´◡`❁)</span></p>
+    </div>
+    {% include widget/wrap-feed.liquid limit=1 %}
 </article>
 
 
 <div>
     {% if PINNED.size > 0 %}
-        <div class="padded border-accent border-dashed-top">
+        <div class="padded border-accent border-dashed-top border-gray">
             <h2><span class="icon-pin"></span> Pinned!!</h2>
             <div class="no-col">
                 {% include widget/post-feed.liquid data=PINNED %}

@@ -2,6 +2,9 @@
 layout: blog
 include_path: _/index.html
 title: Da Blog!
+
+js:
+- /meta/js/lightbox.js
 ---
 <div class="padded">
     <div id="blog_splash">
@@ -35,13 +38,14 @@ title: Da Blog!
 <div class="padded border-accent border-dashed-top">
     <h2><span class="icon-news-paper"></span> Recent Blog Posts</h2>
     {% include widget/post-feed.liquid data=site.posts limit=3 %}
-</div>
 
-<div class="padded border-accent border-dashed-top">
+    <hr class="hide">
+
     <img src="./img/summer-2025.png" alt="" class="float-right" style="max-width: 250px;">
     <h2>Other Stuff</h2>
     <ul id="other">
         <li><a href="/logs/">Habit Tracker</a></li>
+        <li><a href="/wrap/">Monthly Wrapped</a></li>
         <li><a href="https://ko-fi.com/stupied/posts">Ko-fi</a></li>
     </ul>
 

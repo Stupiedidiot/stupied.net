@@ -24,7 +24,7 @@ module StupiedComics
                 doc.data['json'] = page.url
             end
             
-            docs.sort_by! { |doc| doc.date }
+            docs.docs.sort_by! { |doc| doc.date }
         end
 
     end
