@@ -1,0 +1,4 @@
+{% assign data = include.data %}
+{% for item in data %}
+    <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy" data-link="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
+{% endfor %}

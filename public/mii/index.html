@@ -17,10 +17,8 @@ js:
 
     <hr>
 
+    {% assign data = site.mii |  where: 'pinned', true | reversed %}
     <div class="justified-gallery lightbox-targets">
-        {% assign data = site.mii |  where: 'pinned', true  %}
-        {% for item in data reversed %}
-            <img src="{{ item.thumbnail }}" alt="{{ item.alt }}" loading="lazy" data-link="{{ item.url }}" style="--width: {{ item.dime[0] }}; --height: {{ item.dime[1] }};">
-        {% endfor %}
+        {% include widget/justified-gallery.liquid data=data %}
     </div>
 </div>
