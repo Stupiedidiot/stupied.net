@@ -29,35 +29,37 @@
     {% endif %}
 {%- endif -%}
 
+{%- assign buster = site.time | date: "%Y-%m-%d" | prepend: "?v=" -%}
+
 {%- unless layout.nojs or page.nojs -%}
-    <script src="/meta/js/global.js"></script>
+    <script src="/meta/js/global.js{{ buster }}"></script>
 {%- endunless -%}
 
 {%- if layout.js -%}
     {%- for item in layout.js -%}
-        <script src="{{ item }}" defer></script>
+        <script src="{{ item }}{{ buster }}" defer></script>
     {%- endfor -%}    
 {%- endif -%}
 
 {%- if page.js -%}
     {%- for item in page.js -%}
-        <script src="{{ item }}" defer></script>
+        <script src="{{ item }}{{ buster }}" defer></script>
     {%- endfor -%}    
 {%- endif -%}
 
 {%- unless layout.nocss or page.nocss -%}
-    <link rel="stylesheet" href="/meta/css/global.css">
+    <link rel="stylesheet" href="/meta/css/global.css{{ buster }}">
 {%- endunless -%}
 
 {%- if layout.css -%}
     {%- for item in layout.css -%}
-        <link rel="stylesheet" href="{{ item }}">
+        <link rel="stylesheet" href="{{ item }}{{ buster }}">
     {%- endfor -%}    
 {%- endif -%}
 
 {%- if page.css -%}
     {%- for item in page.css -%}
-        <link rel="stylesheet" href="{{ item }}">
+        <link rel="stylesheet" href="{{ item }}{{ buster }}">
     {%- endfor -%}    
 {%- endif -%}
 
