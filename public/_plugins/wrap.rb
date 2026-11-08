@@ -17,20 +17,15 @@ module StupiedMedia
         months = []
         curr = date_start
         folder = "wrap"
-        c_prev = nil
 
         while curr < date_end
-            c_next = curr >> 1
-
             data = {}
             categories.each do | cat |
                 next unless cat
 
                 cat_data = cat.docs.select do |e|
                     yay = e.data['date']
-                    
-                    yay.year == curr.year    
-                    && yay.month == curr.month
+                    (yay.year == curr.year && yay.month == curr.month)
                 end
 
                 unless cat_data.size == 0
@@ -61,7 +56,7 @@ module StupiedMedia
                 site.pages << page
             end
 
-            curr = c_next
+            curr = curr >> 1
         end
 
         site.data["wrap"] = months

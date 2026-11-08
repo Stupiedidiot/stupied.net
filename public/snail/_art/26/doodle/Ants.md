@@ -1,7 +1,6 @@
 ---
 ext: jpg
 date: 2026-11-03T21:06
-title:
 alt:
 extra:
   - 26/doodle/Bombs.jpg

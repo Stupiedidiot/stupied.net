@@ -17,7 +17,7 @@ js:
 
     <hr>
 
-    {% assign data = site.mii |  where: 'pinned', true | reversed %}
+    {% assign data = site.mii |  where: 'pinned', true | reverse %}
     <div class="justified-gallery lightbox-targets">
         {% include widget/justified-gallery.liquid data=data %}
     </div>
