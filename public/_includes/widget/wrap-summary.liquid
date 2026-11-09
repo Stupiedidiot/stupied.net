@@ -1,0 +1,20 @@
+{% assign item = include.item %}
+<ul class="clr-gray">
+    {% if item.data.art %}
+        <li>
+            {{ item.data.art.size }} art added
+        </li>    
+    {% endif %}
+
+    {% if item.data.posts %}
+        <li>
+            {{ item.data.posts.size }} posts written
+        </li>    
+    {% endif %}
+
+    {% if item.data.media %}
+        <li>
+            {{ item.data.media.size }} media logged
+        </li>
+    {% endif %}
+</ul>

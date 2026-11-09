@@ -3,27 +3,31 @@ layout: wrap
 title: Monthly Wrapped Archive
 ---
 
-<div class="padded" data-nosnippet data-pagefind-ignore>
-    <h1>{{ page.title }}</h1>
-
+<div data-nosnippet data-pagefind-ignore>
     {% if site.data.wrap %}
-        <div class="newspaper">
-          {% assign DATA = site.data.wrap | group_by_exp: "e", "e.date | date: '%Y'" | reverse %}
-          
-          {% for year in DATA %}
-            <fieldset>
-              <legend>
-                <h2>{{ year.name }}</h2>
-              </legend>
-              <div>
-                <ul>
-                  {% for month in year.items %}
-                      <li><a href="{{ month.url }}">{{ month.date | date: '%B' }}</a></li>
-                  {% endfor %}
-                </ul>
+      {% assign DATA = site.data.wrap | group_by_exp: "e", "e.date | date: '%Y'" | reverse %}
+    {% endif %}    
+
+    <div class="padded">
+      <h1>{{ page.title }}</h1>
+    </div>
+
+    {% for year in DATA %}
+      <div class="padded border-dashed-top border-gray">
+        <h2 id="#{{ year.name }}">{{ year.name }}</h2>
+        <div class="newspaper hover-color">
+          {% for month in year.items %}
+            <a href="{{ month.url }}">
+              <div class="border border-gray">
+                <img src="{{ month.data.art[0].thumbnail }}" alt="{{ month.data.art[0].alt }}" loading="lazy" class="border-bottom border-gray">
+                <div class="padded">
+                  <h3>{{ month.date | date: "%B" }}</h3>
+                  {% include widget/wrap-summary.liquid item=month %}
+                </div>
               </div>
-            </fieldset>
+            </a>
           {% endfor %}
         </div>
-    {% endif %}
+      </div>
+    {% endfor %}
 </div>

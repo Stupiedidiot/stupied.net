@@ -22,10 +22,9 @@ js:
     {% include widget/wrap-feed.liquid limit=1 %}
 </article>
 
-
 <div>
     {% if PINNED.size > 0 %}
-        <div class="padded border-accent border-dashed-top border-gray">
+        <div class="padded border-dashed-top border-gray">
             <h2><span class="icon-pin"></span> Pinned!!</h2>
             <div class="no-col">
                 {% include widget/post-feed.liquid data=PINNED %}
@@ -33,7 +32,7 @@ js:
         </div>
     {% endif %}
 
-    <div class="padded border-accent border-dashed-top">
+    <div class="padded border-dashed-top border-gray">
         <h2><span class="icon-news-paper"></span> Recently Uploaded</h2>
         {% include widget/post-feed.liquid data=FEED limit=3 %}
     </div>

@@ -1,4 +1,5 @@
-{% if site.data.wrap %}
+{% assign data = include.data | default: site.data.wrap %}
+{% if data %}
     <div class="post-feed hover-color" data-nosnippet data-pagefind-ignore>
     {% assign limit = include.limit | default: site.data.wrap.size %}
     {% assign data = site.data.wrap | reverse %}
@@ -9,36 +10,18 @@
         {%- endcapture -%}
 
         {% capture thumbnail %}
-            <img src="{{ item.data.art[0].thumbnail }}" class="ratio-1-1 border" alt="{{ item.alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
+            <img src="{{ item.data.art[0].thumbnail }}" class="ratio-1-1 border" alt="{{ item.data.art[0].alt | escape }}" data-link="{{ item.url }}" loading="lazy" {{ " " }}
                 {%- if item.dime -%} width="{{ item.dime[0] }}" height="{{ item.dime[1] }}"  {%- endif -%}
             >
         {% endcapture %}
 
         {% capture info %}
-            <a {{ link }} class="hover">
-                <h2>
+            <a {{ link }}>
+                <div class="h2">
                     {{ item.title }}
-                </h2>
+                </div>
 
-                <ul class="clr-gray">
-                    {% if item.data.art %}
-                        <li>
-                            {{ item.data.art.size }} art added
-                        </li>    
-                    {% endif %}
-
-                    {% if item.data.posts %}
-                        <li>
-                            {{ item.data.posts.size }} posts written
-                        </li>    
-                    {% endif %}
-
-                    {% if item.data.media %}
-                        <li>
-                            {{ item.data.media.size }} media logged
-                        </li>
-                    {% endif %}
-                </ul>
+                {% include widget/wrap-summary.liquid item=item %}
             </a>
         {% endcapture %}
 
