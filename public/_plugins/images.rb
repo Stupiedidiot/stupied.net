@@ -1,18 +1,23 @@
 require 'fastimage'
+require 'time'
 
 module Jekyll
     module ImageHook
         Jekyll::Hooks.register :site, :post_read do |site|
+            curr_time = Time.now
             site.collections.each do |label, col|
                 next unless col.metadata['gallery']
                 folder = File.join('snail/_img', label , 'img')
                 folder_col = "_#{label}/"
                 
-                col.docs.each do |doc|
-                    slug = "#{doc.path.split(folder_col)[1].sub('.md', '')}.#{doc.data['ext']}"
+                docs = col.docs.select {|e| e.data['date'] <= curr_time }
+                docs_size = docs.size
+                docs.each_with_index do |doc, i|
+                    doc.data['index'] = docs_size - 1 - i
+
+                    slug = doc.path.split(folder_col)[1].sub('.md', "." + doc.data['ext'])
                     doc.data['thumbnail'] = "/#{label}/img/#{slug}"
                     doc.data['img'] = slug
-
                     raw = File.join(site.source, folder, slug)
                     if File.exist?(raw)
                         dime = FastImage.size(raw)
@@ -57,19 +62,6 @@ module Jekyll
     end
 
     module ImageFilters
-        def getNxtPrv(input, target)
-            idx = nxt = prv = nil
-            input.each_with_index do |e, i|
-                if ( e.relative_path == target )
-                prv = input[i - 1] if (i > 0)
-                nxt = input[i + 1] 
-                idx = input.size - i - 1
-                break
-                end
-            end
-            return [idx, prv, nxt]
-        end
-
         # Returns array of dimension
         def getDime(input, dir = nil)
             source = @context.registers[:site].source

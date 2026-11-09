@@ -23,11 +23,8 @@ js:
     {%- capture HOME -%}
         /{{ page.collection }}/archive
     {%- endcapture -%}
-    {% assign DATA = site[page.collection] | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path %}
-    {% assign prev = DATA[1] %}
-    {% assign next = DATA[2] %}
 
-    {% include widget/nextprev.liquid prev=prev next=next home=HOME %}
+    {% include widget/nextprev.liquid prev=page.previous next=page.next home=HOME %}
 </nav>
 
 <div id="art_container" class="split">
@@ -82,9 +79,8 @@ js:
         <div id="art_aside_content" class="split-aside-content">
             <section id="aside-content" data-nosnippet>
 
-                {% assign index = site[page.collection] | where_exp: "item", "item.date <= site.time" | getNxtPrv: page.path | first %}
                 <h2 class="h3">Related Artwork</h2>
-                <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ index }}">
+                <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ page.index }}">
                     
                 </div>
                 <h3>Tags</h3>

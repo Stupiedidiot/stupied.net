@@ -13,11 +13,8 @@ layout: blog
 
 <nav class="border-x border-accent">
   {% assign HOME = '/blog/archive' %}
-  {% assign DATA = site.posts | reverse | getNxtPrv: page.path %}
   
-  {% assign next = DATA[2] %}
-  {% assign prev = DATA[1] %}
-  {% include widget/nextprev.liquid next=next prev=prev home=HOME %}
+  {% include widget/nextprev.liquid next=page.next prev=page.previous home=HOME %}
 </nav>
 
 <div id="blog_comments" class="padded">
