@@ -9,25 +9,35 @@ title: Monthly Wrapped Archive
     {% endif %}    
 
     <div class="padded">
+      {% include widget/search.html cat="wrap" %}
       <h1>{{ page.title }}</h1>
     </div>
 
     {% for year in DATA %}
       <div class="padded border-dashed-top border-gray">
-        <h2 id="#{{ year.name }}">{{ year.name }}</h2>
-        <div class="newspaper hover-color">
-          {% for month in year.items %}
-            <a href="{{ month.url }}">
-              <div class="border border-gray">
-                <img src="{{ month.data.art[0].thumbnail }}" alt="{{ month.data.art[0].alt }}" loading="lazy" class="border-bottom border-gray">
-                <div class="padded">
-                  <h3>{{ month.date | date: "%B" }}</h3>
-                  {% include widget/wrap-summary.liquid item=month %}
+        <details
+          {%- if forloop.index == 1 -%}
+            {{ " open" }}
+          {%- endif -%}
+        >
+          <summary>
+            <span class="h2" id="#{{ year.name }}">{{ year.name }}</span>
+          </summary>
+
+          <div class="newspaper hover-color">
+            {% for month in year.items %}
+              <a href="{{ month.url }}">
+                <div class="border border-gray">
+                  <img src="{{ month.data.art[0].thumbnail }}" alt="{{ month.data.art[0].alt }}" loading="lazy" class="border-bottom border-gray">
+                  <div class="padded">
+                    <h3>{{ month.date | date: "%B" }}</h3>
+                    {% include widget/wrap-summary.liquid item=month %}
+                  </div>
                 </div>
-              </div>
-            </a>
-          {% endfor %}
-        </div>
+              </a>
+            {% endfor %}
+          </div>
+        </details>
       </div>
     {% endfor %}
 </div>
