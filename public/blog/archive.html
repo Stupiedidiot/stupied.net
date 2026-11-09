@@ -23,9 +23,13 @@ js:
         {% assign DATA = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
         
         {% for year in DATA %}
-            <div class="padded border-accent border-dashed-top">
-                <h2>{{ year.name }}</h2>
-                {% include widget/post-feed.liquid data=year.items %}
+            <div class="padded border-gray border-dashed-top">
+                <details open>
+                    <summary>
+                        <span class="h2">{{ year.name }}</span>
+                    </summary>
+                    {% include widget/post-feed.liquid data=year.items %}
+                </details>
             </div>
         {% endfor %}
         
