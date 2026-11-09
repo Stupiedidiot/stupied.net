@@ -22,15 +22,6 @@ if (document.querySelector("figure.highlight")){
   document.head.appendChild(script);
 }
 
-function randomPost(){
-    fetch("/blog/posts.json")
-        .then((response) => response.json())
-        .then((posts) => {
-            randomNum = Math.floor(Math.random() * posts.length);
-            window.location.href = posts[randomNum]
-    })
-}
-
 const PAGE = new URL(window.location.href);
 
 if (PAGE.searchParams.has('t'))
