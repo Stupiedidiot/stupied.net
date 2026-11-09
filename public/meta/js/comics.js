@@ -44,7 +44,7 @@ async function start(){
 
             link.prepend(date);
             item.append(link);  
-            ARCH_LIST.append(item);
+            ARCH_LIST.prepend(item);
 
             if(el.img == query){
                 document.getElementById("comic_title").textContent = el.title;

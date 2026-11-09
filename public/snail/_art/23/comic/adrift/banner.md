@@ -24,5 +24,4 @@ tags:
   - digital
 category: adrift
 ---
-
-It's clearance signing and Adrina has an essay to finish.
+Originally when writing this, I was struggling a lot with nihilism and the apathy that comes along with it. Nothing felt real and everything people say about me is an illusion. This comic was essentially me trying to convince myself that my existence *did* matter; That I wasn't just another droplet destined to lost in a stream. It did not work. Nearing the end of the comic my motivation plummeted and the last few pages were half assed. Thankfully, in a far better mindset than when I finished the comic. As cringe inducing the narration is, I appreciate how earnestly my attempt of understanding the world was.
