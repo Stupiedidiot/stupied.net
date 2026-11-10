@@ -14,11 +14,11 @@ lightbox.setAttribute('onclick', 'closeLightBox()');
 lightbox.id = 'lightbox';
 lightbox.innerHTML = `
   <div id="lightbox-content">
-      <button id="lightbox-prev"></button>
+      <button id="lightbox-prev" type="button"></button>
 
       <img src="#" alt="">
       
-      <button id="lightbox-next"></button>
+      <button id="lightbox-next" type="button"></button>
 
       <div id="lightbox-info">
           <a href="#">View Full »</a>
@@ -35,11 +35,13 @@ for (let i = 0; i < images.length; i++) {
   result.setAttribute("onclick", 'openImg(' + i + ')');
 
   result.classList.add("lb-item");
+  result.type = "button";
 
-  if (images[i].dataset.link)
+  if (images[i].dataset.link){
     result.dataset.link = images[i].dataset.link;
-  else
+  } else {
     result.dataset.link = images[i].src;
+  }
 
   wrap(images[i], result);
 }

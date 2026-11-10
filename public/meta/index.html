@@ -22,7 +22,7 @@ include_path: _/index.html
                     </div>
                 </div>
             </div>
-            <div id="timeline" class="db-list">
+            <div id="timeline" class="newspaper">
                 {%- for item in site.data.archived -%}
                     {%- assign date = item.url | split: 'neocities.org/' | last | split: '/' | first -%}
                     <a href="{{ item.url }}" class="timeline-item" target="_blank">

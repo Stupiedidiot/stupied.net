@@ -134,3 +134,65 @@
         }
     }
 }
+
+.stamp {
+    --fold: 2rem;
+    --border: 3px!important;
+    --bg: url(/meta/img/clouds.jpg);
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-body);
+    background-image: var(--bg);
+    background-size: cover;
+    aspect-ratio: 4/3;
+    border: var(--border) solid black;
+    box-sizing: border-box;
+    overflow: hidden;
+    clip-path: polygon(
+        calc(100% - var(--fold)) 0,
+        100% var(--fold),
+        100% 100%,
+        0 100%,
+        0 0
+    );
+    transition: 0.2s;
+
+    &:hover {
+        --folded: calc(var(--fold) + 20px);
+        clip-path: polygon(
+            calc(100% - var(--folded)) 0,
+            100% var(--folded),
+            100% 100%,
+            0 100%,
+            0 0
+        );
+        &::after { width: var(--folded); }
+        }
+
+    &::after{
+        transition: 0.2s;
+        content: "";
+        box-sizing: unset;
+        top: calc(0px - var(--border));
+        right: calc(0px - var(--border));
+        position: absolute;
+        width: var(--fold);
+        aspect-ratio: 1/1;
+        border: var(--border) solid;
+        background-color: white;
+        background: linear-gradient(45deg, white 50%, black 50%);
+    }
+
+    > span {
+        bottom: 0.2rem;
+        left: 0.2rem;
+        position: absolute;
+        font-family: var(--font-display);
+        color: white;
+        text-shadow: 0 0 5px white;
+    }
+
+    img {max-width: 100%;}
+}

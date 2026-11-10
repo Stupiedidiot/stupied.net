@@ -27,14 +27,15 @@ description: A page to share code I've made
         <h2>Templates</h2>
         <p>I'm incredibly impulsive and redesign everything!! It feels bad to discard all my code sooo feel free to
             steal them!</p>
-        <div class="db-list">
-            <!-- temporary, remember to change this!!! -->
+        <div class="newspaper">
             {%- for item in site.data.templates -%}
-            <a href="{{ item.url }}">
-                <img src="https://code.stupied.net/{{ item.dir }}thumbnail.jpg" alt="">
-                <div>
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
+            <a href="{{ item.url }}" title="View {{ item.title }}">
+                <div class="border">
+                    <img src="https://code.stupied.net/{{ item.dir }}thumbnail.jpg" alt="Thumbnail for {{ item.title }}" class="border-bottom">
+                    <div class="padded">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description }}</p>
+                    </div>
                 </div>
             </a>
             {%- endfor -%}
