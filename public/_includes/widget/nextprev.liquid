@@ -17,7 +17,7 @@
         </a>
     </li>
 
-    {% if next and page.next.date <= site.time %}
+    {% if next and next.date <= site.time %}
         <li>
             <a id="nextprev_next" href="{{ next.url }}" title="View Next Page">
                 <span>Next</span>

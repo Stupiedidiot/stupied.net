@@ -1,5 +1,6 @@
 module StupiedMedia
     require 'date'
+    require 'time'
 
     date_start = Date.parse("2024-01-01")
     date_end = Date.today >> -1
@@ -39,7 +40,7 @@ module StupiedMedia
                 url = "/#{ folder }/#{ filename }"
 
                 data = {
-                    "date" => curr,
+                    "date" => curr.to_time,
                     "title" => title,
                     "url" => url,
                     "data" => data,
