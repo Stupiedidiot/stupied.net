@@ -4,4 +4,4 @@ quote: Why is there still 60 more minutes?
 tags:
   - film
 ---
-The ending of the film is really no surprise. It was inevitable. Despite that, the film likes to dangle a glimmer of hope. A small spark of a childish dream for everything to work itself out.
+I enjoyed this film. Love how well choreographed the dancing is and the music is charming. The ending is really no surprise; It was inevitable. Despite that, the film likes to dangle a glimmer of hope. A small spark of a childish dream for everything to work itself out.

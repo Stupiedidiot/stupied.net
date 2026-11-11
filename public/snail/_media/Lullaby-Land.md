@@ -1,7 +1,7 @@
 ---
 link:
 release: 1933
-rank: S
+rank: A
 tags:
   - short
   - disney

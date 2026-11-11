@@ -2,7 +2,7 @@
 link:
 title: The China Shop
 release: 1934
-rank: A
+rank: B
 tags:
   - short
   - disney
