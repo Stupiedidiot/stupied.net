@@ -14,6 +14,8 @@ const ARCH = document.getElementById('nextprev_archive');
 const PAGE = new URL(window.location.href);
 var query;
 
+const MONTHS = ["January","February","March","April","May","June", "July","August","September","October","November","December"];
+
 // use hashes w/ next properties in da future
 // update the lightbox for the art also plssss
 async function start(){
@@ -56,6 +58,11 @@ async function start(){
                         target.append(createImg(ex));
                     });
                 }
+
+
+                let [year, month, day] = el.date.split(' ')[0].split('-');
+                let date = document.getElementById("comic_date");
+                date.textContent = MONTHS[month - 1] + " " + day + ", " + year;
 
                 if(el.desc){
                     let yep = document.getElementById("comic_notes");
