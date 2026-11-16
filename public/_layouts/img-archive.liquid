@@ -55,14 +55,14 @@ js:
                     <details class="border" open>
                         <summary><h3 class="h6">{{ e.title }}</h3></summary>
                         {% assign tag = e.tag | default: e.title |  downcase %}
-                        {%- include art/write-tags.html selected = tag -%}
+                        {%- include img/write-tags.liquid selected = tag -%}
                         
                         {% if e.extra %}
                             {% for j in e.extra %}
                             <details class="border">
                                 <summary><h4 class="h6">{{ j.title }}</h4></summary>
                                 {% assign tag = j.tag | default: j.title |  downcase %}
-                                {%- include art/write-tags.html selected = tag -%}
+                                {%- include img/write-tags.liquid selected = tag -%}
                             </details>
                             {% endfor %}
                         {% endif %}
@@ -79,7 +79,14 @@ js:
                 </select><br>
 
                 <hr>
-                {%- include art/filters.html -%}
+                
+
+                <h3>Get To It!</h3>
+                <div>
+                    <button onclick="getChecked()">Filter em!</button>
+                    <a href="?">Clear Filters</a>
+                </div>
+
             </div>
         </div>
     </aside>

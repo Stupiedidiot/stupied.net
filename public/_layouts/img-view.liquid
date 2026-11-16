@@ -15,12 +15,12 @@ js:
             </div>
         {% endif %}
         
-        {% include art/write-imgs.liquid data=page %}
+        {% include img/write-imgs.liquid data=page %}
     </div>
 </div>
 
 <nav id="art_nextprev" class="border-accent border-x">
-    {%- capture HOME -%}
+    {%- capture HOME -%}    
         /{{ page.collection }}/archive
     {%- endcapture -%}
 
@@ -28,23 +28,23 @@ js:
 </nav>
 
 <div id="art_container" class="split">
-  <div id="art_main">
-    <article id="art_details">
-            <div id="art_details_content">
-                <h1 id="art_title">
-                    <span>{{ page.title }}</span>    
-                </h1>
+    <div id="art_main">
+        <article id="art_details">
+                <div id="art_details_content">
+                    <h1 id="art_title">
+                        <span>{{ page.title }}</span>    
+                    </h1>
 
-                <div id="art_desc" class="padded">
-                    <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
-                        <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-                    </time>
+                    <div id="art_desc" class="padded">
+                        <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
+                            <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+                        </time>
 
-                    {% if page.w_comment %}
-                        {{ content }}
-                    {% endif %}
+                        {% if page.w_comment %}
+                            {{ content }}
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
         </article>
 
         {% if site.data.ocs and page.tags contains "ocs" %}
@@ -69,11 +69,17 @@ js:
         {% endif %}
 
         {% if page.collection == 'art' %}
-            <article id="art_comment" class="padded border-accent border-dashed-top" data-nosnippet>
+            <div id="art_comment" class="padded border-accent border-dashed-top" data-nosnippet>
                 {% include widget/giscus.html category="Art" %}
-            </article>
+            </div>
         {% endif %}
-  </div>
+
+        {% if page.category %}
+            <div class="padded border-accent border-dashed-top">
+                <h2>More </h2>
+            </div>
+        {% endif %}
+    </div>
 
     <aside id="art_aside" class="split-aside">
         <div id="art_aside_content" class="split-aside-content">

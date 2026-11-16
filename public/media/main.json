@@ -3,4 +3,4 @@ layout: none
 ---
 {% assign DATA = site.media | reverse %}
 
-{% include art/list.liquid data=DATA %}
+{% include img/list.liquid data=DATA %}
