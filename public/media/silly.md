@@ -6,3 +6,80 @@ selected: silly-symphonies
 ---
 
 The Silly Symphonies is a collection of animated shorts that was essentially the stepping stones for future feature length films (try to say that 10 times really fast). It's fun looking back at these shorts and seeing the innovation made for what otherwise just whimsical cartoon.
+
+## Watchlist
+- [X] The Skeleton Dance
+- [X] El Terrible Toreador
+- [X] Springtime
+- [X] Hell's Bells
+- [X] The Merry Dwarfs
+- [X] Summer
+- [X] Autumn
+- [ ] Cannibal Capers
+- [ ] Frolicking Fish
+- [ ] Arctic Antics
+- [ ] Midnight in a Toy Shop
+- [ ] Night
+- [ ] Monkey Melodies
+- [ ] Winter
+- [ ] Playful Pan
+- [ ] Birds of a Feather
+- [ ] Mother Goose Melodies
+- [ ] The China Plate
+- [ ] The Busy Beavers
+- [ ] The Cat's Out
+- [ ] Egyptian Melodies
+- [ ] The Clock Store
+- [ ] The Spider and the Fly
+- [ ] The Fox Hunt
+- [ ] The Ugly Duckling
+- [ ] The Bird Store
+- [ ] The Bears and Bees
+- [ ] Just Dogs
+- [X] Flowers and Trees
+- [X] King Neptune
+- [X] Bugs in Love
+- [X] Babes in the Woods
+- [X] Santa's Workshop
+- [X] Birds in the Spring
+- [X] Father Noah's Ark
+- [X] The Three Little Pigs
+- [X] Old King Cole
+- [X] Lullaby Land
+- [X] The Pied Piper
+- [X] The Night Before Christmas
+- [X] The China Shop
+- [ ] The Grasshopper and the Ants
+- [ ] Funny Little Bunnies
+- [X] The Big Bad Wolf
+- [X] The Wise Little Hen
+- [ ] The Flying Mouse
+- [X] Peculiar Penguins
+- [X] The Goddess of Spring
+- [X] The Tortoise and the Hare
+- [X] The Golden Touch
+- [X] The Robber Kitten
+- [X] Water Babies
+- [X] The Cookie Carnival
+- [X] Who Killed Cock Robin?
+- [X] Music Land
+- [X] Three Orphan Kittens
+- [X] Cock o' the Walk
+- [X] Broken Toys
+- [X] Elmer Elephant
+- [X] Three Little Wolves
+- [X] Toby Tortoise Returns
+- [X] Three Blind Mouseketeers
+- [X] The Country Cousin
+- [X] Mother Pluto
+- [X] More Kittens
+- [ ] Woodland Café
+- [ ] Little Hiawatha
+- [ ] The Old Mill
+- [ ] The Moth and the Flame
+- [ ] Wynken, Blynken and Nod
+- [ ] Farmyard Symphony
+- [ ] Merbabies
+- [ ] Mother Goose Goes Hollywood
+- [X] The Practical Pig
+- [ ] The Ugly Ducklinga

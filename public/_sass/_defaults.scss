@@ -73,6 +73,14 @@ ul li {
     }
 }
 
+ul.task-list {
+    padding-left: 1rem;
+
+    li.task-list-item {
+        list-style-type: none;
+    }
+}
+
 hr {
     color: inherit;
     border: unset;
