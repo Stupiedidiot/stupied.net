@@ -30,13 +30,13 @@ layout: none
     <item>
       <title>{{ item.title | escape }}</title>
       <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
-      <link>{{ item.url | prepend: site.url }}</link>
+      <link>{{ item.url | absolute_url }}</link>
       <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
       <description>
         {%- capture result -%}
             {% if item.thumbnail %}
-              <img src="{{ item.thumbnail | prepend: site.url }}" alt="{{ item.alt | escape }}"/>
+              <img src="{{ item.thumbnail | absolute_url }}" alt="{{ item.alt | escape }}"/>
             {% endif %}
 
             {% if item.collection == "art" %}
@@ -44,7 +44,7 @@ layout: none
                 {% for extra in item.extra %}
                   {% assign img = extra.img | default: extra %}
                   {% assign alt = extra.alt | default: extra %}
-                  <img src="{{ img | prepend: "/art/img/" | prepend: site.url }}" alt="{{ alt | escape }}"/>
+                  <img src="{{ img | prepend: "/art/img/" | absolute_url }}" alt="{{ alt | escape }}"/>
                 {% endfor %}
               {% endif %}
             {% endif %}

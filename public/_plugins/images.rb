@@ -84,8 +84,6 @@ module Jekyll
                     
                 end
             else
-                
-                
                 return [0,0]
             end
         end
@@ -113,31 +111,6 @@ module Jekyll
                 "<img #{before} src=\"#{source}\" style=\"--width: #{width}; --height: #{height}\" #{after} loading=\"lazy\">"
             end
             input
-        end
-
-        def getImgs(input)
-            site = @context.registers[:site]
-            source = site.source
-            url = site.config['url']
-            dir = (input['dir'] || '').sub(%r{^/$}, '')
-            content = input['content'] || input.to_s
-            result = []
-
-            content.scan(%r{<img[^>]*\s+src="([^"]+)"}i) do |match|
-            src = Regexp.last_match(1).to_s.strip
-            
-            if src.start_with?('/')
-                path = File.join(source, src)
-                else
-                path = File.expand_path(src, File.join(source, dir))
-                end
-
-                if (File.exist?(path))
-                path = path.sub(source, url)
-                result << path unless result.include?(path)
-                end
-            end
-            result
         end
     end
 end

@@ -1,4 +1,4 @@
 ---
 layout: sitemap
-data: pages
+data: "pages"
 ---

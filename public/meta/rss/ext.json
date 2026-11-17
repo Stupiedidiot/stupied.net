@@ -5,7 +5,7 @@ layout: none
 [
     {%- for item in FEED limit: 15 -%}
         {
-            "link": {{ item.url | prepend: site.url | jsonify }},
+            "link": {{ item.url | absolute_url | jsonify }},
             "title": {{ item.title | jsonify }},
             "date": {{ item.date | date: "%Y-%m-%dT%H-%M" | jsonify }}
         }

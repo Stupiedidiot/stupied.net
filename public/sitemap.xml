@@ -18,6 +18,6 @@ layout: none
     </sitemap>
     
     <sitemap>
-        <loc>{{ site.url }}/meta/sitemap/reviews.xml</loc>
+        <loc>{{ site.url }}/meta/sitemap/media.xml</loc>
     </sitemap>
 </sitemapindex>
