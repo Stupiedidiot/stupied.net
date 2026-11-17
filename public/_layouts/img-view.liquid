@@ -1,102 +1,76 @@
 ---
-layout: page
+layout: img-view-top
 js:
   - /meta/js/img-view.js
 ---
 
-{% assign data = site.data.nav[page.collection] %}
-{% include_cached layout/subnav.liquid data=data %}
+<article id="art_details">
+    <div id="art_details_content">
+        <h1 id="art_title">
+            <span>{{ page.title }}</span>    
+        </h1>
 
-<div id="art_viewer" style="--selected: url({{ page.thumbnail }})">
-    <div id="image">
-        {% if page.yt %}
-            <div class="yt-embed">
-                <iframe src="https://www.youtube.com/embed/{{ page.yt }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        {% endif %}
-        
-        {% include img/write-imgs.liquid data=page %}
-    </div>
-</div>
+        <div id="art_desc" class="padded">
+            <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
+                <span>{{ page.date | date: "%B %-d, %Y" }}</span>
+            </time>
 
-<nav id="art_nextprev" class="border-accent border-x">
-    {%- capture HOME -%}    
-        /{{ page.collection }}/archive
-    {%- endcapture -%}
-
-    {% include widget/nextprev.liquid prev=page.previous next=page.next home=HOME %}
-</nav>
-
-<div id="art_container" class="split">
-    <div id="art_main">
-        <article id="art_details">
-                <div id="art_details_content">
-                    <h1 id="art_title">
-                        <span>{{ page.title }}</span>    
-                    </h1>
-
-                    <div id="art_desc" class="padded">
-                        <time class="h4 clr-accent" datetime="{{ page.date | date_to_xmlschema }}">
-                            <span>{{ page.date | date: "%B %-d, %Y" }}</span>
-                        </time>
-
-                        {% if page.w_comment %}
-                            {{ content }}
-                        {% endif %}
-                    </div>
-                </div>
-        </article>
-
-        {% if site.data.ocs and page.tags contains "ocs" %}
-            {% assign OCS = page.tags | get_ocs %}
-            {% if OCS.size > 0 %}
-                <div class="padded border-accent border-dashed-top">
-                    <fieldset data-nosnippet data-pagefind-ignore>
-                        <legend>
-                            <h2>OCs Featured</h2>
-                        </legend>
-
-                        <div id="art_characters"
-                            {%- if OCS.size > 1 -%}
-                                {{  ' class="newspaper"' }}
-                            {%- endif -%}
-                        >
-                            {% include ocs.liquid data=OCS %}
-                        </div>
-                    </fieldset>
-                </div>
+            {% if page.w_comment %}
+                {{ content }}
             {% endif %}
-        {% endif %}
 
-        {% if page.collection == 'art' %}
-            <div id="art_comment" class="padded border-accent border-dashed-top" data-nosnippet>
-                {% include widget/giscus.html category="Art" %}
-            </div>
-        {% endif %}
+            {% if site.comics and page.category %}
+                {% assign comic = site.comics | where: "slug", page.category | first %}
+                {% if comic %}
+                    {%- capture thumbnail -%}
+                        <img src="{{ comic.thumbnail }}" alt="Thumbnail for {{ comic.title }}" class="border ratio-1-1">
+                    {%- endcapture -%}
 
-        {% if page.category %}
-            <div class="padded border-accent border-dashed-top">
-                <h2>More </h2>
-            </div>
-        {% endif %}
-    </div>
+                    {%- capture info -%}
+                            <span class="h2">
+                                {{ comic.title }}
+                            </span>
+                            {% if comic.description %}
+                                {{ comic.description | markdownify }}
+                            {% endif %}
+                            <a href="{{ comic.url }}?p={{ page.img }}" class="h5 clr-accent-lt">More Comics »</a>
+                    {%- endcapture -%}
 
-    <aside id="art_aside" class="split-aside">
-        <div id="art_aside_content" class="split-aside-content">
-            <section id="aside-content" data-nosnippet>
+                    {% include widget/box.liquid
+                        thumbnail = thumbnail
+                        info = info
+                        after = toc 
+                    %}
+                {% endif %}
+            {% endif %}
 
-                <h2 class="h3">Related Artwork</h2>
-                <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ page.index }}">
-                    
-                </div>
-                <h3>Tags</h3>
-                <ul id="art_tags">
-                    {% for tag in page.tags %}
-                        <li><a href="/{{ page.collection }}/archive?t={{ tag }}">{{ tag }}</a></li>
-                    {% endfor %}
-                </ul>
-
-            </section>
         </div>
-    </aside>
-</div>
+    </div>
+</article>
+
+{% if site.data.ocs and page.tags contains "ocs" %}
+    {% assign OCS = page.tags | get_ocs %}
+    {% if OCS.size > 0 %}
+        <div class="padded border-gray border-dashed-top">
+            <fieldset data-nosnippet data-pagefind-ignore>
+                <legend>
+                    <h2>OCs Featured</h2>
+                </legend>
+
+                <div id="art_characters"
+                    {%- if OCS.size > 1 -%}
+                        {{  ' class="newspaper"' }}
+                    {%- endif -%}
+                >
+                    {% include ocs.liquid data=OCS %}
+                </div>
+            </fieldset>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% if page.collection == 'art' %}
+    <div id="art_comment" class="padded border-gray border-dashed-top" data-nosnippet>
+        {% include widget/giscus.html category="Art" %}
+    </div>
+{% endif %}

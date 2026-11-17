@@ -687,6 +687,7 @@ html:not([data-stupied-theme="light"]) .color-shift .tooltip > span {
     &-dashed {
         @extend %border_dashed;
     }
+    border-radius: 3px;
 }
 
 %border_dashed {

@@ -45,22 +45,20 @@ nav:
 {%- endcapture -%}
 
 {%- capture info -%}
-    {% if page.description %}
-        <h1>
-            {{ page.title }}
-        </h1>
-        
-        <div class="blockquote">
-            {{ page.description | markdownify }}
-        </div>
+    <h1>
+        {{ page.title }}
+    </h1>
+    
+    <div class="blockquote">
+        {{ page.description | markdownify }}
+    </div>
 
-        {{ page.content | markdownify }}
+    {{ page.content | markdownify }}
 
-        {% if page.external %}
-            <p>
-                <a href="{{ page.external }}">External Website »</a>
-            </p>
-        {% endif %}
+    {% if page.external %}
+        <p>
+            <a href="{{ page.external }}">External Website »</a>
+        </p>
     {% endif %}
 {%- endcapture -%}
 

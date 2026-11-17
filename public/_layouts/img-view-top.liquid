@@ -1,0 +1,51 @@
+---
+layout: page
+---
+
+{% assign data = site.data.nav[page.collection] %}
+{% include_cached layout/subnav.liquid data=data %}
+
+<div id="art_viewer" style="--selected: url({{ page.thumbnail }})">
+    <div id="image">
+        {% if page.yt %}
+            <div class="yt-embed">
+                <iframe src="https://www.youtube.com/embed/{{ page.yt }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        {% endif %}
+        
+        {% include img/write-imgs.liquid data=page %}
+    </div>
+</div>
+
+<nav id="art_nextprev" class="border-accent border-x">
+    {%- capture HOME -%}    
+        /{{ page.collection }}/archive
+    {%- endcapture -%}
+
+    {% include widget/nextprev.liquid prev=page.previous next=page.next home=HOME %}
+</nav>
+
+<div id="art_container" class="split">
+    <div id="art_main">
+        {{ content }}
+    </div>
+
+    <aside id="art_aside" class="split-aside">
+        <div id="art_aside_content" class="split-aside-content">
+            <section id="aside-content" data-nosnippet>
+
+                <h2 class="h3">Related Artwork</h2>
+                <div id="art_related" data-col="{{ page.collection }}" data-idx="{{ page.index }}">
+                    
+                </div>
+                <h3>Tags</h3>
+                <ul id="art_tags">
+                    {% for tag in page.tags %}
+                        <li><a href="/{{ page.collection }}/archive?t={{ tag }}">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+
+            </section>
+        </div>
+    </aside>
+</div>
