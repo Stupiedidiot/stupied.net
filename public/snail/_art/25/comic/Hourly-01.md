@@ -30,6 +30,6 @@ extra:
 tags:
   - traditional
   - ink
-category: misc
+category: hourly
 ---
 
