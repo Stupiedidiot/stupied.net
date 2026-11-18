@@ -9,29 +9,20 @@ if (THEME) {
   themeToggle(THEME);
 }
 
+const USER_AGENT = navigator.userAgent.toLowerCase();
+const CRAWLERS = {
+  {%- for e in site.data.meta.crawlers -%}
+    {{ e | jsonify}}: true
+    {%- unless forloop.last -%},{%- endunless -%}
+  {%- endfor -%}
+}
+
 if (  
   WARNED != "true" &&
-  window.location.pathname != "/meta/warning"
-) {
-  let is_crawler = false;
-  var USER_AGENT = navigator.userAgent.toLowerCase();
-  const CRAWLERS = [
-    {%- for e in site.data.meta.crawlers -%}
-      {{ e | jsonify}}
-      {%- unless forloop.last -%},{%- endunless -%}
-    {%- endfor -%}
-  ];
-
-  for (let i = 0; i < CRAWLERS.length; i++) {
-    if (USER_AGENT.includes(CRAWLERS[i].toLowerCase())) {
-      is_crawler = true;
-      break;
-    }
-  }
-  
-  if (!is_crawler) { 
-    window.location.href = '/meta/warning?' + window.location.pathname + window.location.search;
-  }
+  window.location.pathname != "/meta/warning" &&
+  !CRAWLERS[USER_AGENT]
+) {  
+  window.location.href = '/meta/warning?' + window.location.pathname + window.location.search;
 }
 
 // light+light
