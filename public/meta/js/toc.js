@@ -31,7 +31,13 @@ function createTree(arr){
     let root = new node(1, "#", "#");
     let stack = [root];
     arr.forEach(el => {
-        let t = new node(parseInt(el.tagName.slice(1,2)), el.id, el.textContent);
+        let id = el.id;
+        if(id == ""){
+            id = el.textContent.toLowerCase().replaceAll(' ' , '-');
+            el.id = id;
+        }
+
+        let t = new node(parseInt(el.tagName.slice(1,2)), id, el.textContent);
 
         while (stack && stack[stack.length - 1].level >= t.level){
             stack.pop();
