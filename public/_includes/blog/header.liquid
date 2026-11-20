@@ -8,13 +8,21 @@
 {%- endcapture -%}
 
 {%- capture info -%}
-    <h1>{{ page.title }}</h1>
-    <time class="h4 clr-accent-dk" datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%B %-d, %Y" }}
-    </time>
-    {% if page.description %}
-        {{ page.description | markdownify }}
-    {% endif %}
+    <div class="tooltip">
+        <h1>{{ page.title }}</h1>
+        <time class="h4 clr-accent-dk" datetime="{{ page.date | date_to_xmlschema }}">
+            {{ page.date | date: "%B %-d, %Y" }}
+        </time>
+        {% if page.description %}
+            {{ page.description | markdownify }}
+        {% endif %}
+
+        {% assign count = page.content | number_of_words %}
+        {% assign min = count | divided_by: 200 %}
+        {% if min < 1 %}{% assign min = 1 %}{% endif %}
+        
+        <span>{{ count }} words (~{{ min }} min{% unless min == 1%}s{% endunless %})</span>
+    </div>
 {%- endcapture -%}
 
 {%- capture after -%}
