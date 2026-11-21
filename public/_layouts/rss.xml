@@ -51,12 +51,11 @@ layout: none
           {% endif %}
         {% endcapture %}
           
-        {{ result | strip_html | normalize_whitespace | xml_escape }}
+        {{- result | strip_html | normalize_whitespace | xml_escape }}
       </description>
 
-
       {% assign test = item.content | strip %}
-      {% if test != "" %}
+      {% if item.thumbnail or test != "" %}
         <content:encoded><![CDATA[
             {% if item.thumbnail %}
               <img src="{{ item.thumbnail | absolute_url }}" alt="{{ item.alt | default: "image" | escape }}"/>
