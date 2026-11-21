@@ -2,15 +2,24 @@
 layout: none
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+>
   <channel>
-    <atom:link href="{{ page.link | default: site.url }}{{ page.url | default: 'feed.xml' }}" rel="self" type="application/rss+xml"/>
+    <atom:link href="{{ page.url | absolute_url | default: 'feed.xml' }}" rel="self" type="application/rss+xml"/>
     <title>{{ page.title | default: "Stupied RSS Feed!!" }}</title>
     <link>{{ page.link | default: site.url }}</link>
     <description>{{ page.description | default: "Updates in Stupied's website" }}</description>
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <language>en-ph</language>
     <ttl>60</ttl>
 
-    {{ content }}
+    <image>
+      <url>{{ "favicon.ico" | absolute_url }}</url>
+      <title>{{ site.title }}</title>
+      <link>{{ site.url }}</link>
+    </image>
 
     {% unless FEED %}
       {% assign FEED = "" | split: "" %}
@@ -29,14 +38,28 @@ layout: none
     {%- for item in FEED limit:15 -%}
     <item>
       <title>{{ item.title | escape }}</title>
-      <pubDate>{{ item.date | date: "%a, %d %b %Y %T" | append: " PST"}}</pubDate>
+      <pubDate>{{ item.date | date_to_rfc822 }}</pubDate>
       <link>{{ item.url | absolute_url }}</link>
       <guid isPermaLink="false">{{ item.collection }}-{{ item.date | date: "%Y-%m-%dT%H-%M" }}</guid>
 
       <description>
-        {%- capture result -%}
+        {% capture result %}
+          {% if item.description %}
+            {{ item.description }}
+          {% else %}
+            Added {{ item.collection }}.
+          {% endif %}
+        {% endcapture %}
+          
+        {{ result | strip_html | normalize_whitespace | xml_escape }}
+      </description>
+
+
+      {% assign test = item.content | strip %}
+      {% if test != "" %}
+        <content:encoded><![CDATA[
             {% if item.thumbnail %}
-              <img src="{{ item.thumbnail | absolute_url }}" alt="{{ item.alt | escape }}"/>
+              <img src="{{ item.thumbnail | absolute_url }}" alt="{{ item.alt | default: "image" | escape }}"/>
             {% endif %}
 
             {% if item.collection == "art" %}
@@ -44,24 +67,14 @@ layout: none
                 {% for extra in item.extra %}
                   {% assign img = extra.img | default: extra %}
                   {% assign alt = extra.alt | default: extra %}
-                  <img src="{{ img | prepend: "/art/img/" | absolute_url }}" alt="{{ alt | escape }}"/>
+                  <img src="{{ img | prepend: "/art/img/" | absolute_url }}" alt="{{ alt | default: "image" | escape }}"/>
                 {% endfor %}
               {% endif %}
             {% endif %}
-
-            {% if item.description %}
-              <blockquote>{{ item.description }}</blockquote>
-            {% endif %}
-
-            {% assign test = item.content | strip %}
-            {% if test == "" %}
-              Added {{ item.collection }}.
-            {% else %}
-              {{ item.content | markdownify }}
-            {% endif %}
-        {%- endcapture -%}
-        {{ result | escape }}
-      </description>
+        
+          {{ item.content | markdownify }}
+        ]]></content:encoded>
+      {% endif %}
       
       {% if page.selected.size == 1 %}
         {% if item.tags %}
