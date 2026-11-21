@@ -578,6 +578,10 @@ hr.hide {
         width: 100%;
         border-radius:8px;
     }
+
+    li a {
+        @extend %ph_links;
+    }
 }
 
 .header-thumb img {

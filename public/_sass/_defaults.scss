@@ -59,10 +59,10 @@ ol > li::marker {
     color: var(--color-gray);
 }
 
+
+
 p > a {
-    color: var(--color-accent-dk);
-    text-decoration: underline;
-    font-weight: bold;
+    @extend %ph_links;
 }
 
 ul li {

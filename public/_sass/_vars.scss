@@ -165,3 +165,10 @@ $dropdown-bg: var(--color-first);
 $dropdown-border-color: #{$border_color};
 $dropdown-border-radius: #{$border_radius};
 $dropdown-border-width: #{$border_width};
+
+
+%ph_links {
+    color: var(--color-accent-dk);
+    text-decoration: underline;
+    font-weight: bold;
+}
